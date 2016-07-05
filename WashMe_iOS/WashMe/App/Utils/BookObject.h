@@ -1,0 +1,31 @@
+//
+//  BookObject.h
+//  WashMe
+//
+//  Created by Almas Adilbek on 11/11/14.
+//  Copyright (c) 2014 Almas Adilbek. All rights reserved.
+//
+
+
+
+#import "CarTypesTabbarView.h"
+
+@class CarwashComplex;
+
+@interface BookObject : NSObject
+
+@property(nonatomic, strong) NSArray *services;
+@property(nonatomic, strong) CarwashComplex *carwash;
+@property(nonatomic, copy) NSString *time;
+@property(nonatomic, copy) NSString *clientKey;
+@property(nonatomic, assign) CarType carType;
+@property(nonatomic, copy) NSNumber *price;
+@property(nonatomic, strong) NSDate *bookDate;
+@property(nonatomic, copy) NSString *bookTime;
+@property(nonatomic, copy) NSString *bookId;
+
+- (NSString *)localizedPrice;
+- (NSString *)servicesTitles;
+- (NSString *)prettyTime;
+
+@end

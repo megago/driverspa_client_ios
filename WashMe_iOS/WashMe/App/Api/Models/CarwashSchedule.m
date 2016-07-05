@@ -1,0 +1,68 @@
+#import "CarwashSchedule.h"
+
+#import "SchedulePeriod.h"
+#import "NSDate+Utilities.h"
+#import "NSDate+Ext.h"
+
+@implementation CarwashSchedule
+
+@synthesize comment, fri, mon, sat, sun, thu, tue, wed;
+
++ (CarwashSchedule *)instanceFromDictionary:(NSDictionary *)aDictionary {
+
+    CarwashSchedule *instance = [[CarwashSchedule alloc] init];
+    [instance setAttributesFromDictionary:aDictionary];
+    return instance;
+
+}
+
+- (void)setAttributesFromDictionary:(NSDictionary *)aDictionary {
+
+    if (![aDictionary isKindOfClass:[NSDictionary class]]) {
+        return;
+    }
+
+    objectData = aDictionary;
+
+    self.comment = [self stringValueForKey:@"comment"];
+
+    self.mon = [self weekDayScheduleToArray:[self arrayValueForKey:@"mon"]];
+    self.sat = [self weekDayScheduleToArray:[self arrayValueForKey:@"sat"]];
+    self.sun = [self weekDayScheduleToArray:[self arrayValueForKey:@"sun"]];
+    self.fri = [self weekDayScheduleToArray:[self arrayValueForKey:@"fri"]];
+    self.thu = [self weekDayScheduleToArray:[self arrayValueForKey:@"thu"]];
+    self.tue = [self weekDayScheduleToArray:[self arrayValueForKey:@"tue"]];
+    self.wed = [self weekDayScheduleToArray:[self arrayValueForKey:@"wed"]];
+
+    objectData = nil;
+
+}
+
+- (NSArray *)todaySchedules {
+    NSInteger weekDay = [[NSDate date] weekDayOrdinal];
+    switch (weekDay) {
+        case 1: return self.mon;
+        case 2: return self.tue;
+        case 3: return self.wed;
+        case 4: return self.thu;
+        case 5: return self.fri;
+        case 6: return self.sat;
+        case 7: return self.sun;
+        default:break;
+    }
+    return @[];
+}
+
+#pragma mark -
+#pragma mark Helper
+
+-(NSArray *)weekDayScheduleToArray:(NSArray *)received {
+    NSMutableArray *array = [NSMutableArray array];
+    for (NSDictionary *item in received) {
+        [array addObject:[SchedulePeriod instanceFromDictionary:item]];
+    }
+    return array;
+}
+
+
+@end

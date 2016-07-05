@@ -1,0 +1,28 @@
+//
+//  Prefix header
+//
+//  The contents of this file are implicitly included at the beginning of every source file.
+//
+
+#import <Availability.h>
+
+#ifndef __IPHONE_5_0
+#warning "This project uses features only available in iOS SDK 5.0 and later."
+#endif
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
+
+    #import "UIColor+Extensions.h"
+    #import "ASize.h"
+    #import "FrameAccessor.h"
+    #import "Constants.h"
+    #import "UIImage+Extensions.h"
+    #import "AppUtils.h"
+    #import "Toast.h"
+    #import "UIHelper.h"
+    #import "UIFont+Custom.h"
+    #import "Localization.h"
+
+#endif
