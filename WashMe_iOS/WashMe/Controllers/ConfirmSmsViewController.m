@@ -93,8 +93,12 @@
 
         // Goto carwashes list if user or admin main page
         if([UserSettings isAdmin]) {
-            AdminMainViewController *v = [[AdminMainViewController alloc] init];
-            [self.navigationController pushViewController:v animated:YES];
+            //AdminMainViewController *v = [[AdminMainViewController alloc] init];
+            //[self.navigationController pushViewController:v animated:YES];
+            
+            // Set that user entered profile in registration.
+            [User setRegistrationProfileEntered:[User currentUser].mobile];
+            [[UIHelper appDelegate] setAdminAuthorizedTabbarController];
         } else {
             RegisterProfileViewController *v = [[RegisterProfileViewController alloc] init];
             [self.navigationController pushViewController:v animated:YES];
@@ -117,6 +121,7 @@
 
     [self setBlueBackground];
     [self createWashMeWhiteLogo];
+    [self setBackButton];
     [sv addSubview:[self whiteLogo]];
 
     UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectZero];

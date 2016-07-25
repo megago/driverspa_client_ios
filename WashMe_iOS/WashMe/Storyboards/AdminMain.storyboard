@@ -1,7 +1,144 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
-    <scenes/>
+    <scenes>
+        <!--Admin Carwash Boxes Schedules View Controller-->
+        <scene sceneID="jCV-hL-Fwh">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Mw0-PF-uW8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="AdminCarwashBoxesSchedulesViewController" id="mCf-GR-9P3" customClass="AdminCarwashBoxesSchedulesViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="7FP-bP-Z9J"/>
+                        <viewControllerLayoutGuide type="bottom" id="WpT-wj-ja7"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bJy-1A-niq">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="YWp-zM-R6k"/>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="-1173" y="907"/>
+        </scene>
+        <!--Admin Orders View Controller-->
+        <scene sceneID="JH9-5S-A5F">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qLI-gV-2KM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="AdminOrdersViewController" id="cOA-YN-5tZ" customClass="AdminOrdersViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ih6-Aa-MsL"/>
+                        <viewControllerLayoutGuide type="bottom" id="3EE-H5-KiD"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="pvk-UY-Rlt">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="TpV-Kr-nfM"/>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="-1625" y="907"/>
+        </scene>
+        <!--Admin Tab Bar Controller-->
+        <scene sceneID="dZi-Sz-ovs">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qNB-D1-nfR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tabBarController storyboardIdentifier="tabBarcontroller" useStoryboardIdentifierAsRestorationIdentifier="YES" id="O0o-Gb-7eX" customClass="AdminTabBarController" sceneMemberID="viewController">
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="icc-KM-HsO">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="WoL-7A-hxH" kind="relationship" relationship="viewControllers" id="vbB-Rp-e2D"/>
+                        <segue destination="SW1-Ln-oRp" kind="relationship" relationship="viewControllers" id="fYd-I9-TXv"/>
+                        <segue destination="AEN-kq-63P" kind="relationship" relationship="viewControllers" id="wgN-SS-0TH"/>
+                    </connections>
+                </tabBarController>
+            </objects>
+            <point key="canvasLocation" x="-1257" y="-634"/>
+        </scene>
+        <!--Заказы-->
+        <scene sceneID="ETC-v4-dGj">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OWv-Xp-Bg8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="WoL-7A-hxH" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Заказы" id="brS-9d-Kmt"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Nw8-dB-VRJ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="cOA-YN-5tZ" kind="relationship" relationship="rootViewController" id="HEs-KU-bBl"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="-1631" y="155"/>
+        </scene>
+        <!--Брони-->
+        <scene sceneID="2Dp-Nn-i5n">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Oei-p6-qOc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="SW1-Ln-oRp" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Брони" id="xCp-YE-YVh"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="XJa-94-2sh">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="mCf-GR-9P3" kind="relationship" relationship="rootViewController" id="pVR-zZ-17t"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="-1181" y="155"/>
+        </scene>
+        <!--Admin Carwashes Feedbacks View Controller-->
+        <scene sceneID="0KO-9C-KJr">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hjA-Uv-YVu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="AdminCarwashesFeedbacksViewController" id="rsh-JV-iyw" customClass="AdminCarwashesFeedbacksViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="nBz-0W-YFT"/>
+                        <viewControllerLayoutGuide type="bottom" id="ChA-FX-PJh"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="QRq-nj-Jcg">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="vQR-bk-1xU"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="-695" y="927"/>
+        </scene>
+        <!--Отзывы-->
+        <scene sceneID="OZJ-am-mEe">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZJD-nc-TAz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="AEN-kq-63P" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Отзывы" id="iIA-A4-1LW"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="v1y-Pa-Eqs">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="rsh-JV-iyw" kind="relationship" relationship="rootViewController" id="M09-jN-YvX"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="-695" y="155"/>
+        </scene>
+    </scenes>
 </document>

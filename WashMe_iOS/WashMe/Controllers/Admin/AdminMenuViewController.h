@@ -6,8 +6,8 @@
 //  Copyright © 2016 Almas Adilbek. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+@interface AdminMenuViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
-@interface AdminMenuViewController : UIViewController
++ (CGFloat)menuWidth;
 
 @end

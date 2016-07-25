@@ -28,6 +28,7 @@
 #import "SVProgressHUD.h"
 #import "SearchFilterViewController.h"
 #import "MenuViewController.h"
+#import "AdminMenuViewController.h"
 #import "InputTextField.h"
 #import <Fabric/Fabric.h>
 #import <Crashlytics/Crashlytics.h>
@@ -52,7 +53,7 @@
 
     //Crashlytics
     [Fabric with:@[[Crashlytics class]]];
-
+    
     // Check user
     id v = nil;
     if([User isAuthorized])
@@ -63,7 +64,7 @@
             if([User isRegistrationProfileEntered:[User currentUser].mobile])
             {
                 if([UserSettings isAdmin]) {
-                    v = [AdminMainViewController new];
+                    [self setAdminAuthorizedTabbarController];
                 } else {
                     [self setUserAuthorizedTabbarController];
                 }
@@ -126,6 +127,25 @@
 
     [self.window makeKeyAndVisible];
 }
+
+- (void)setAdminAuthorizedTabbarController {
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"AdminMain" bundle:nil];
+    self.tabBarController = [storyboard instantiateViewControllerWithIdentifier:@"tabBarcontroller"];
+    
+    AdminMenuViewController *menuController = [[AdminMenuViewController alloc] init];
+    
+    self.frostedViewController = [[REFrostedViewController alloc] initWithContentViewController:self.tabBarController menuViewController:menuController];
+    _frostedViewController.liveBlur = YES;
+    _frostedViewController.liveBlurBackgroundStyle = REFrostedViewControllerLiveBackgroundStyleLight;
+    _frostedViewController.direction = REFrostedViewControllerDirectionLeft;
+    _frostedViewController.menuViewSize = CGSizeMake([AdminMenuViewController menuWidth], self.window.frame.size.height);
+    
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.rootViewController = _frostedViewController;
+    
+    [self.window makeKeyAndVisible];
+}
+
 
 #pragma mark -
 #pragma mark Push Notifications

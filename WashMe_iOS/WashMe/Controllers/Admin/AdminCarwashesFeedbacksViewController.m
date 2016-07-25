@@ -9,6 +9,7 @@
 #import "AdminCarwashesFeedbacksViewController.h"
 #import "UIViewController+Ext.h"
 #import "RowButtonDisclosureView.h"
+#import "UIViewController+NavigationBar.h"
 
 @interface AdminCarwashesFeedbacksViewController ()
 @end
@@ -53,9 +54,10 @@
 -(void)configUI
 {
     [super configUI];
-    [self setBackButton];
     [self setBlueBackground];
     [self setNavigationTitle:@"Отзывы"];
+    [self showMenuButton];
+    [self setNavigationBarTransparent];
 
     RowButtonDisclosureView *row1 = [[RowButtonDisclosureView alloc] initWithIcon:nil title:@"Новые отзывы (3)" target:self selector:@selector(newFeedbacksTapped)];
     row1.y = 30;

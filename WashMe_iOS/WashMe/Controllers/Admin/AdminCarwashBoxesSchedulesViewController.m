@@ -18,6 +18,7 @@
 #import "AdminCarwashBoxScheduleViewController.h"
 #import "BoxTimeTable.h"
 #import "UIViewController+NoContent.h"
+#import "UIViewController+NavigationBar.h"
 
 @interface AdminCarwashBoxesSchedulesViewController ()
 @end
@@ -84,10 +85,10 @@
 #pragma mark -
 #pragma mark UITableView
 
--(int)numberOfSectionsInTableView:(UITableView *)tableView {
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
--(int)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return boxSettings.count;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -97,7 +98,7 @@
         cell = [[SimpleDisclosureCell alloc] initWithReuseIdentifier:CellIdentifier];
     }
 
-    [cell setTitle:[NSString stringWithFormat:@"Бокс #%i", indexPath.row + 1]];
+    [cell setTitle:[NSString stringWithFormat:@"Бокс #%li", indexPath.row + 1]];
 
     return cell;
 }
@@ -120,7 +121,9 @@
 {
     [self setBlueBackground];
     [self setNavigationTitle:@"Таблица броней"];
-    [self setBackButton];
+    //[self setBackButton];
+    [self showMenuButton];
+    [self setNavigationBarTransparent];
 
     CGFloat listY = 64;
     list = [[UITableView alloc] initWithFrame:CGRectMake(0, listY, [ASize screenWidth], [ASize screenHeight] - listY - 44) style:UITableViewStylePlain];

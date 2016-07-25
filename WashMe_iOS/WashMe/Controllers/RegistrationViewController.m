@@ -22,6 +22,7 @@
 @implementation RegistrationViewController {
     InputTextField *telField;
     InputTextField *companyNameField;
+    InputTextField *cityField;
 }
 
 -(id)init {
@@ -54,10 +55,10 @@
     [self.view endEditing:YES];
 
     if(![telField validatePhoneNumber]) return;
-    if([UserSettings isAdmin] && ![companyNameField validate]) {
-        [UIHelper showAlertFillRequiredField];
-        return;
-    }
+//    if([UserSettings isAdmin] && ![companyNameField validate]) {
+//        [UIHelper showAlertFillRequiredField];
+//        return;
+//    }
 
     NSString *phoneNumber = [telField validPhoneNumber];
     NSString *companyName = [UserSettings isAdmin] ? [companyNameField value] : nil;
@@ -105,33 +106,42 @@
     titleLabel.y = 125;
     [sv addSubview:titleLabel];
 
-    if([UserSettings isAdmin]) {
-        companyNameField = [[InputTextField alloc] initWithWidth:kContentWidth height:45];
-        companyNameField.centerX = self.view.centerX;
-        companyNameField.y = titleLabel.bottom + 50;
-        [companyNameField setPlaceholder:@"Введите название компании"];
-        companyNameField.textField.autocapitalizationType = UITextAutocapitalizationTypeSentences;
-        if([AppUtils isAlmas]) [companyNameField setValue:@"AlmasWash"]; // TODO: for testing
-        [sv addSubview:companyNameField];
-
-        [editableFields addObject:companyNameField];
+//    if([UserSettings isAdmin]) {
+//        companyNameField = [[InputTextField alloc] initWithWidth:kContentWidth height:45];
+//        companyNameField.centerX = self.view.centerX;
+//        companyNameField.y = titleLabel.bottom + 50;
+//        [companyNameField setPlaceholder:@"Введите название компании"];
+//        companyNameField.textField.autocapitalizationType = UITextAutocapitalizationTypeSentences;
+//        if([AppUtils isAlmas]) [companyNameField setValue:@"AlmasWash"]; // TODO: for testing
+//        [sv addSubview:companyNameField];
+//
+//        [editableFields addObject:companyNameField];
+//    }
+    
+    if ([UserSettings isAdmin]){
+        cityField = [[InputTextField alloc] initWithWidth:kContentWidth height:45];
+        cityField.centerX = self.view.centerX;
+        cityField.y = titleLabel.bottom + 50;
+        [cityField setValue:@"Астана"];
+        [cityField enabled:NO];
+        [sv addSubview:cityField];
     }
+    
+    InputTextField *countryCodeField = [[InputTextField alloc] initWithWidth:kContentWidth height:45];
+    countryCodeField.centerX = self.view.centerX;
+    countryCodeField.y = ([UserSettings isAdmin]) ? cityField.bottom : titleLabel.bottom + 50;
+    [countryCodeField setValue:@"Казахстан (+7)"];
+    [countryCodeField enabled:NO];
+    [sv addSubview:countryCodeField];
 
-    telField = [[InputTextField alloc] initWithWidth:kContentWidth height:45];
+    telField = [[InputTextField alloc] initWithWidth:kContentWidth height:countryCodeField.height];
     telField.centerX = self.view.centerX;
-    telField.y = ([UserSettings isAdmin] ? companyNameField.bottom : titleLabel.bottom + 50);
+    telField.y = countryCodeField.bottom;
     telField.textField.keyboardType = UIKeyboardTypePhonePad;
     [telField setPlaceholder:@"Введите номер телефона"];
     if([AppUtils isAlmas]) [telField setValue:![UserSettings isAdmin]?@"+77072885500":@"+77019559717"]; // TODO: for testing
     [sv addSubview:telField];
     [editableFields addObject:telField];
-
-    InputTextField *countryCodeField = [[InputTextField alloc] initWithWidth:kContentWidth height:telField.height];
-    countryCodeField.centerX = self.view.centerX;
-    countryCodeField.y = telField.bottom;
-    [countryCodeField setValue:@"Казахстан (+7)"];
-    [countryCodeField enabled:NO];
-    [sv addSubview:countryCodeField];
 
     [self addKeyboardControlFields:editableFields];
     
@@ -145,7 +155,7 @@
     [okButton commonStyleButtonWithTitle:@"Далее"];
     [okButton setTitleFont:[UIFont robotoRegular:20]];
     okButton.centerX = self.view.centerX;
-    okButton.y = countryCodeField.bottom + 20;
+    okButton.y = telField.bottom + 20;
     [sv addSubview:okButton];
 }
 

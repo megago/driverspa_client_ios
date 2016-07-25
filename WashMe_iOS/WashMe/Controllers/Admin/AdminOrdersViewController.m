@@ -15,6 +15,7 @@
 #import "CarwashBook.h"
 #import "AdminBookViewController.h"
 #import "UIViewController+NoContent.h"
+#import "UIViewController+NavigationBar.h"
 
 
 @interface AdminOrdersViewController ()
@@ -160,8 +161,9 @@
 {
     self.view.backgroundColor = [UIColor whiteColor];
     [self setBlueBackground];
-    [self setBackButton];
     [self setNavigationTitle:@"Заказы"];
+    [self showMenuButton];
+    [self setNavigationBarTransparent];
 
     // Tabs
     CGFloat buttonWidth = (CGFloat) ([ASize screenWidth] * 0.5);

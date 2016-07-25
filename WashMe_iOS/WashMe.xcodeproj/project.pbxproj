@@ -15,14 +15,11 @@
 		5200B12815C45D91A7B3F8A3 /* BaseRefs.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200B02C1462719533861FD1 /* BaseRefs.m */; };
 		5200B12E7FAA8F0DE707EC17 /* Roboto-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5200BB80B7DF87EB64AC3A90 /* Roboto-ThinItalic.ttf */; };
 		5200B1305208989101A6563A /* BookObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200B6B43171811ED7EAFE11 /* BookObject.m */; };
-		5200B140F074293C5C9FA4D5 /* SetCarwashScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200B475E1E42AEEA9FD917C /* SetCarwashScheduleViewController.m */; };
 		5200B14D881C3BA4A34D75CB /* SVProgressHUD+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200B58FC2441D958B10C75C /* SVProgressHUD+Ext.m */; };
 		5200B186EA805FECC6328A0E /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200B9946CB7A90FF327550B /* User.m */; };
 		5200B1ACC4772DD783D307E0 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200B4AF227665D9D9107EFF /* MenuViewController.m */; };
-		5200B1E9007914C93B43A5CF /* AdminCarwashesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200B4BFBBA5C5E66535657B /* AdminCarwashesViewController.m */; };
 		5200B1F5BB36BDEB6D2DB5BE /* UserNotificationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200BE03D1FFBF61C13C8F4B /* UserNotificationsViewController.m */; };
 		5200B201C23C4DA0D99417AD /* UIViewController+NavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200B4DFC445A2EA2D82A9C6 /* UIViewController+NavigationBar.m */; };
-		5200B20985D5380B24A1206F /* CarwashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200B5198121F1177B7E3DD7 /* CarwashViewController.m */; };
 		5200B216F62ED3447277AE61 /* UIView+Gestures.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200B5D30699D96F74340974 /* UIView+Gestures.m */; };
 		5200B2279FAC7D132DA25ED9 /* UIImage+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200B53662FC6A1C0CFD8166 /* UIImage+Extensions.m */; };
 		5200B2357F9B2A39CC7773CF /* RowButtonCheckmarkView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200B21B2E955EBD35E411B3 /* RowButtonCheckmarkView.m */; };
@@ -32,9 +29,7 @@
 		5200B2573A32F6FE238D9C57 /* BoxSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200BF003181986D0A301E87 /* BoxSetting.m */; };
 		5200B25E8009943D10D063CC /* TitleInputFieldView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200B840365CA57218D1EFEB /* TitleInputFieldView.m */; };
 		5200B2679C87A034A2C0DCA6 /* TimeIntervalPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200B5EA618EE1A32715C7C5 /* TimeIntervalPickerView.m */; };
-		5200B28127B7CCE248D2C587 /* UserFavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200B0A22986613D127C0334 /* UserFavoritesViewController.m */; };
 		5200B289CF7E0D4F3141D4D5 /* CarwashContact.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200BA9CCC7A27A5B2DE9568 /* CarwashContact.m */; };
-		5200B295AEFC90AAD06A48A4 /* CarwashPricesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200B0E47F95A88ED26715BC /* CarwashPricesViewController.m */; };
 		5200B2964C32D35E43F8A007 /* FilterManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200BF34E67F3C61F10291F4 /* FilterManager.m */; };
 		5200B2968F3B6C662011C947 /* TextareaField.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200B41EF1266CB5D62D964F /* TextareaField.m */; };
 		5200B2A65A14FA6A6B212979 /* WelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200BCA22B268A9B229C5CD2 /* WelcomeViewController.m */; };
@@ -42,17 +37,10 @@
 		5200B2D76A3C3289C69B3550 /* SimpleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200B3FA03C94A6FE2ADB630 /* SimpleCell.m */; };
 		5200B38310F8EC55AED63164 /* CarsCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200B1018C127AB96DA5F311 /* CarsCollectionCell.m */; };
 		5200B3833DE8ABB54397CD74 /* UserBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200B08E4F77701AF9E96D0A /* UserBookViewController.m */; };
-		5200B3E142F6A1C835C1A264 /* AdminBoxViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200B03509AC1512FD2A35F3 /* AdminBoxViewController.m */; };
-		5200B3F575F5DD3C50F057DA /* SerCarwashCartypeServicePricesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200B32FD2BE67A3DF49B8D2 /* SerCarwashCartypeServicePricesViewController.m */; };
 		5200B4179ACA701EAE9A8E77 /* CarCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200BE282DBAFD684F018537 /* CarCollectionCell.m */; };
-		5200B42B6E900442967C17A5 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200BC8EBFF875124F705FB8 /* ProfileViewController.m */; };
 		5200B42F6AAFF61A7EB84D69 /* CarwashMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200B335C1F2B79B715F985E /* CarwashMenuItem.m */; };
-		5200B449AB40B19591046BDD /* AdminBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200BB79A71595F3342BB491 /* AdminBookViewController.m */; };
 		5200B471271CCDDF636B2BBB /* NSDate+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200BB1681F59E8740B89F8D /* NSDate+Utilities.m */; };
-		5200B47F8F5EFCC5264510D7 /* StatisticsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200B751D2129BAEAAC1D5B6 /* StatisticsViewController.m */; };
 		5200B490BC16DD3E331FBADA /* NSString+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200BE5EF2EE4467577ED82F /* NSString+Ext.m */; };
-		5200B4B1541D4674904D0661 /* BookingCarwashServicesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200B8A649278F3C0D61E5B2 /* BookingCarwashServicesViewController.m */; };
-		5200B4B7AED0ED680082B0E9 /* BookChooseBoxViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200B42179E0C6BFACE06EF4 /* BookChooseBoxViewController.m */; };
 		5200B4C04AB7677391555B5A /* BookmarksHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200B6964CE76A313EC61B25 /* BookmarksHelper.m */; };
 		5200B4CEB6377A619DAC8417 /* SchedulePeriod.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200B98BA940F5BF31781439 /* SchedulePeriod.m */; };
 		5200B4EE5838FF40185D11B0 /* ModelObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200B1AA6F2DE20DA5049BF0 /* ModelObject.m */; };
@@ -60,9 +48,7 @@
 		5200B4FF128E315908AB6526 /* APIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200BE5E05B3AFDFF6BEE8F1 /* APIClient.m */; };
 		5200B502BACD32E50C82E4AD /* AddCarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200BE23B67EFCE3E3FAA2D9 /* AddCarViewController.m */; };
 		5200B5169069A0B64F8F988E /* SimpleDisclosureCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200B2FEB625AC8C446671BA /* SimpleDisclosureCell.m */; };
-		5200B53100D1B100D068B2CE /* UserBookingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200B6C2AA8414734CABFDFD /* UserBookingsViewController.m */; };
 		5200B5364865B627FA180D33 /* Car.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200B18D710E59300F7B8C95 /* Car.m */; };
-		5200B53A006DAE5F1A630325 /* BookResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200BD607D7180569885F363 /* BookResultViewController.m */; };
 		5200B57E637F4BC11D538770 /* UIViewController+NoContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200B11C957E5C81D0977DD0 /* UIViewController+NoContent.m */; };
 		5200B5DE2B0010B77DC89824 /* CarwashesBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200BF0101A0FAF1EB304F0C /* CarwashesBaseViewController.m */; };
 		5200B60FACBBD265D622ABBA /* SimpleDetailsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200BC323F5B5E936F1D2AA5 /* SimpleDetailsCell.m */; };
@@ -71,38 +57,23 @@
 		5200B6506BF318C114EB9F28 /* AAButton+Styles.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200B958EDE37DB9D006B03D /* AAButton+Styles.m */; };
 		5200B650A487DDCD5B5E5458 /* CarwashPhotosViewerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200B40AB191A351D717F090 /* CarwashPhotosViewerView.m */; };
 		5200B685EACA6935E3AE1297 /* TitleValueView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200BB99C7202505CFA95E18 /* TitleValueView.m */; };
-		5200B69F91AD7F8402287998 /* ScrollViewControllerOld.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200B8C9DDE6E45683F0D686 /* ScrollViewControllerOld.m */; };
-		5200B6A69DD9A03D7FC347F0 /* SerCarwashCartypePricesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200BE21E474EF3AADCC6F62 /* SerCarwashCartypePricesViewController.m */; };
 		5200B6A9512A3EFD223B3CFB /* IconTitleHorizontalView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200BCE8B96D9A4753AA1F4A /* IconTitleHorizontalView.m */; };
 		5200B6BB414065747B638FE6 /* CarwashComplex.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200BF51CCDB86766C35D288 /* CarwashComplex.m */; };
-		5200B6D2DDD345AB5FAA052D /* AddFeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200B32972652B278F823661 /* AddFeedbackViewController.m */; };
 		5200B6FCB7CED5006A891D6F /* UIHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200B03EB667428633C59D59 /* UIHelper.m */; };
-		5200B706185A100889833492 /* SetCarwashServicesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200B14706902722D58B5E1B /* SetCarwashServicesViewController.m */; };
-		5200B729071F76CE570750B2 /* SetCarwashBoxesCountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200B2C812028452ADC082D2 /* SetCarwashBoxesCountViewController.m */; };
-		5200B752357EC54F52733D4D /* SetCarwashCarTypesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200B8D73978733F4C578F1D /* SetCarwashCarTypesViewController.m */; };
 		5200B7687DD633671EC17230 /* UserApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200B51F8A29EBE7FA84D76B /* UserApi.m */; };
 		5200B76BC8A77B5BEDE8D2A5 /* RowButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200BF12B8F9F22BB5376852 /* RowButtonView.m */; };
-		5200B788FB13E8B249C09E37 /* SetCarwashAddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200BA577FD7C1ED84B18FBA /* SetCarwashAddressViewController.m */; };
 		5200B78CF6E0B6A49F59F157 /* FeedbackCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200BE59B0D09E761734F08F /* FeedbackCell.m */; };
-		5200B7A86413E90D2752F443 /* FreeCarwashesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200B56CAD70ED436D3AB74F /* FreeCarwashesViewController.m */; };
 		5200B7B29E7DAE61EEAA4282 /* UIScrollView+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200BB362F6707C425DB157B /* UIScrollView+Ext.m */; };
-		5200B7B2F164B7CFB8D2AD39 /* SetCarwashCoordinateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200B2FA01524C7416330D9E /* SetCarwashCoordinateViewController.m */; };
 		5200B7B4D4C7E226792A599F /* CompanyCarwashRefs.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200B0B26FB692148DC13DA0 /* CompanyCarwashRefs.m */; };
 		5200B7BF730D44C558B89793 /* FavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200B13365D2DBCF4564073D /* FavoritesViewController.m */; };
 		5200B7D4968EC9D315D3BCC1 /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5200BD90476017207E6D6F53 /* Roboto-Thin.ttf */; };
 		5200B7DB1E1BEB17F85B22A0 /* NSObject+Json.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200B208CB1560F42767770C /* NSObject+Json.m */; };
-		5200B7E2A6D72AADBF9E24A0 /* UserSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200BA84DD9827078A5D7B5D /* UserSettingsViewController.m */; };
 		5200B7E9F44C13E842CE1869 /* UIFont+Custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200B7D34C0C5320A51BE1BD /* UIFont+Custom.m */; };
-		5200B7ED1EC4D34E3B6D0ED2 /* BookSetCarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200B6A26672426FB69BA4E8 /* BookSetCarViewController.m */; };
 		5200B7F67A6778C4AB76E712 /* Language.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200BF9F4F082B7A49E2D196 /* Language.m */; };
-		5200B81B7364C4B86DE92AD9 /* AdminCarwashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200B014F30C70056BC33FA8 /* AdminCarwashViewController.m */; };
-		5200B84289957B1260C27104 /* AdminSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200B75D24F41CE119EAF9E9 /* AdminSettingsViewController.m */; };
-		5200B85A33BD1CA23F171A69 /* NearbyCarwashesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200B76DDED0BE496BB16AF0 /* NearbyCarwashesViewController.m */; };
 		5200B861C48649CE15573FFD /* GridBoxView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200B4856B60B9FA160EADD4 /* GridBoxView.m */; };
 		5200B86B961F2D68609E6078 /* CarTypesTabbarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200BEE67CA03F44959970AA /* CarTypesTabbarView.m */; };
 		5200B879CF6FA654183B8378 /* Roboto-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5200B72FDB6D9CB07607E388 /* Roboto-Italic.ttf */; };
 		5200B8856863584C2F3A9476 /* Cache.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200BD4BF68419F69691597E /* Cache.m */; };
-		5200B8898436AA28BFA709D0 /* AkciiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200BBACBF6A058255DD564D /* AkciiViewController.m */; };
 		5200B891B56DA808D28CD281 /* NSObject+PWObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200BF3ABE74A695C79F3E13 /* NSObject+PWObject.m */; };
 		5200B8AE6A1F270EB4A2E6EA /* AccountApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200B510686D48022BAB15A2 /* AccountApi.m */; };
 		5200B8B8352333896C32925D /* CarwashRefs.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200BD343E76FA5A410FD691 /* CarwashRefs.m */; };
@@ -116,7 +87,6 @@
 		5200B9CFFB676D4F9422F857 /* RowButtonDisclosureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200B18BEC18A83F9BF178AB /* RowButtonDisclosureView.m */; };
 		5200BA0F0B2B8CD1A1E45DE3 /* IconTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200B5C4BAF18551ADA14270 /* IconTitleView.m */; };
 		5200BA431E1A9F4BC945B72F /* TabsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200B7B75D522DF4BFAF55B6 /* TabsView.m */; };
-		5200BA6198AC017A700C7EE2 /* SetCarwashOtherInfosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200B331BD4306F98C21331B /* SetCarwashOtherInfosViewController.m */; };
 		5200BA99B105E26C5D419BD6 /* RobotoCondensed-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5200BCDFFF71D5880DBC19C1 /* RobotoCondensed-Italic.ttf */; };
 		5200BADDE3B0CEE741B2ADB3 /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5200BE964AE7E21E3B0F18A9 /* Roboto-Light.ttf */; };
 		5200BAEC1A731D6BCB8B0F13 /* EventNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200BD85F3D5783DF092CC55 /* EventNotification.m */; };
@@ -124,7 +94,6 @@
 		5200BB1258B9292EC5CDD56E /* UserSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200BB3A4DBFFBC98325CE63 /* UserSettings.m */; };
 		5200BB28377CB82799FEDD6C /* UIView+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200B0E84E97805301891C7E /* UIView+Ext.m */; };
 		5200BB3A68DDAC2EB6DA172D /* CarwashSchedule.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200B49A03FACF479663B56F /* CarwashSchedule.m */; };
-		5200BB4AF7297E4812E262F9 /* AdminCarwashesFeedbacksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200BBCBAD125EC9E60D5C63 /* AdminCarwashesFeedbacksViewController.m */; };
 		5200BB4BADEF989ADC8AE911 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200B33C74D9F345050EBD1F /* NSData+Base64.m */; };
 		5200BB54048A609916FCC4FF /* RowButtonDropdownView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200B2E2656031B32ACCC6C7 /* RowButtonDropdownView.m */; };
 		5200BB60257648BB32032424 /* LPlaceholderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200BAFD38541BE4227EF004 /* LPlaceholderTextView.m */; };
@@ -132,11 +101,9 @@
 		5200BB65EE60D91B7AD52DEE /* LangsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200B8A1AB6E43F4BEDA7241 /* LangsViewController.m */; };
 		5200BB76F359FBFE4C94F701 /* CarwashStatusView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200B2BA683D1F34566C3072 /* CarwashStatusView.m */; };
 		5200BB7793B035CCE576B2AB /* CarwashReview.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200B5B3EEF5604DCE0E0B87 /* CarwashReview.m */; };
-		5200BB93A8D24269879C0D06 /* AdminCarwashBoxesSchedulesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200B3EDD206E34F2CA5C0DE /* AdminCarwashBoxesSchedulesViewController.m */; };
 		5200BBA0D765612A7D269F1B /* CompanyApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200B550A8FD25339B939F8A /* CompanyApi.m */; };
 		5200BBAE9A3B776B27264D7A /* ASize.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200BB509D3B3E8F8B96D30B /* ASize.m */; };
 		5200BBBE4CBCDF741644CBA8 /* CarwashCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200B81E535F4763E9AA5887 /* CarwashCell.m */; };
-		5200BBCC9B98875EA7A7B9A4 /* AdminOrdersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200BEDAE7FAB294571EA68B /* AdminOrdersViewController.m */; };
 		5200BBE317803FAC9E43B8E8 /* CreateCarwashDraft.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200B2FEE1577209390BD878 /* CreateCarwashDraft.m */; };
 		5200BBEEA6CD358B7C5D3145 /* RobotoCondensed-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5200B6AB5243EA2B83DEFC70 /* RobotoCondensed-BoldItalic.ttf */; };
 		5200BBEF8CF74B46883A8428 /* CarwashMarkerInfoWindowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200B58A5C86F9E75C35E638 /* CarwashMarkerInfoWindowView.m */; };
@@ -147,16 +114,12 @@
 		5200BC8A0A135D5B4595FBA1 /* UILabel+Components.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200BF5523D6AC241922C6E2 /* UILabel+Components.m */; };
 		5200BC8A115FC74C2CB1DDBA /* BoxTimeTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200BA4B6AF5B3A642B2DF01 /* BoxTimeTable.m */; };
 		5200BCABD87ED3D33890D1DA /* InputTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200B95B720B656E1A62C531 /* InputTextField.m */; };
-		5200BCAC2ED20FD8AEA8DFC0 /* FeedbacksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200B454318E1A03B1A7C8B9 /* FeedbacksViewController.m */; };
 		5200BCB55380A2B40456EDDF /* UserObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200B50E2FDC82FA209ABC56 /* UserObject.m */; };
 		5200BCBD2E3E4525C7C1D6AC /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5200BC2017E67F9821BABB80 /* Roboto-Bold.ttf */; };
 		5200BCCA785205BE09595DEF /* DoubleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200B05D2ABEB1A39FA92FAC /* DoubleCell.m */; };
-		5200BCCDA2C7DCA6D58B48E5 /* BooksHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200B2044873F73AFEF6C55B /* BooksHistoryViewController.m */; };
 		5200BCD27EFA0D7972656BCD /* ApiUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200BC50CA11CF0D3EBD962A /* ApiUtils.m */; };
 		5200BCDE2A960164B6384E22 /* CarwashMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200B461D7953B0A90878645 /* CarwashMapView.m */; };
-		5200BCFA6AE3B01BE875924A /* AdminMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200B9B9AA48D124E1F16866 /* AdminMainViewController.m */; };
 		5200BCFB77A07F756E6929B8 /* AddCarCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200B1A177E41983E2552ECC /* AddCarCollectionCell.m */; };
-		5200BD5FE42A45A02CB6E739 /* CarwashesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200BED7318B7C820CC0AB2C /* CarwashesViewController.m */; };
 		5200BD6F8256FE1E7E832778 /* RobotoCondensed-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5200BDFD0194E3DA0FA72945 /* RobotoCondensed-Regular.ttf */; };
 		5200BD825879F9BCF3EB82D9 /* Roboto-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5200BD1915D5D7C18B160BA2 /* Roboto-BoldItalic.ttf */; };
 		5200BD827608BB7FBADD9AA0 /* AAButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200B86218300CB630F5CB75 /* AAButton.m */; };
@@ -167,20 +130,60 @@
 		5200BDD58B7160B989921F79 /* AdminApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200B9C801B51D83E6575779 /* AdminApi.m */; };
 		5200BDF91A302A75020A38B9 /* LocationHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200B0AC129C0D3406204ED9 /* LocationHelper.m */; };
 		5200BE2117A6419F1741B547 /* Carwash.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200B53CF5390EA669CE74D2 /* Carwash.m */; };
-		5200BE90A0B96F178829A290 /* BoxSettingsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200B610E1238D7563F9659B /* BoxSettingsListViewController.m */; };
 		5200BE9E3E5379AA9D28A7C7 /* SimpleDetailsDisclosureCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200BD6750BB1A46EB0FD803 /* SimpleDetailsDisclosureCell.m */; };
 		5200BEA3F369C2104335B455 /* RegisterProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200B3DF69B4EE8CBC9CA057 /* RegisterProfileViewController.m */; };
 		5200BED4F7B7782884A6C13B /* BoxesGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200B330BAB699A4AC5BF422 /* BoxesGridView.m */; };
 		5200BEED878C3DF5552DD06D /* SimpleCheckboxCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200B670919F5980DBC7848E /* SimpleCheckboxCell.m */; };
-		5200BEF9BB3FA307B9380EB5 /* CarwashesMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200B3FE93D607BE7E3AC5F0 /* CarwashesMapViewController.m */; };
 		5200BF3A82C2E2E1090658B0 /* UIViewController+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200B649395C2127C27D7B5B /* UIViewController+Ext.m */; };
 		5200BF58EF1D26E5227BD4DE /* SearchFilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200B072DA66B2DEF10320EB /* SearchFilterViewController.m */; };
-		5200BF7A630FD348E31A1096 /* AdminCarwashBoxScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200B612835082FD3A9258A9 /* AdminCarwashBoxScheduleViewController.m */; };
 		5200BF8FEB2B99D2EED60931 /* AppUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200B616DCEFE0E4B68A60AD /* AppUtils.m */; };
 		5200BF9DE47A727B71ABFE9E /* TabView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200B9753081E48D8C8DD897 /* TabView.m */; };
 		5200BFDF40830DB87ECBA4A4 /* CustomTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200BC50BB4615CDFA938B87 /* CustomTabBarController.m */; };
 		5200BFED80E38BB6F0548E03 /* ButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200B6A6D631D3A7F3F44EA2 /* ButtonView.m */; };
 		5200BFFD23EEAC25F896C0C5 /* AddPhotoCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200BD1C9D8E1652E6151DA2 /* AddPhotoCircleView.m */; };
+		A341BB401D44A8B4005E27DD /* AdminMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A341BB3F1D44A8B4005E27DD /* AdminMain.storyboard */; };
+		A341BB431D44B6CE005E27DD /* AdminTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = A341BB421D44B6CE005E27DD /* AdminTabBarController.m */; };
+		A341BB491D44C8CC005E27DD /* AdminMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A341BB481D44C8CC005E27DD /* AdminMenuViewController.m */; };
+		A3BCA3A21D3D252D00FEE6B6 /* AdminBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BCA3521D3D252C00FEE6B6 /* AdminBookViewController.m */; };
+		A3BCA3A31D3D252D00FEE6B6 /* AdminBoxViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BCA3541D3D252C00FEE6B6 /* AdminBoxViewController.m */; };
+		A3BCA3A41D3D252D00FEE6B6 /* AdminCarwashBoxesSchedulesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BCA3561D3D252C00FEE6B6 /* AdminCarwashBoxesSchedulesViewController.m */; };
+		A3BCA3A51D3D252D00FEE6B6 /* AdminCarwashBoxScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BCA3581D3D252C00FEE6B6 /* AdminCarwashBoxScheduleViewController.m */; };
+		A3BCA3A61D3D252D00FEE6B6 /* AdminCarwashesFeedbacksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BCA35A1D3D252C00FEE6B6 /* AdminCarwashesFeedbacksViewController.m */; };
+		A3BCA3A71D3D252D00FEE6B6 /* AdminCarwashesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BCA35C1D3D252C00FEE6B6 /* AdminCarwashesViewController.m */; };
+		A3BCA3A81D3D252D00FEE6B6 /* AdminCarwashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BCA35E1D3D252C00FEE6B6 /* AdminCarwashViewController.m */; };
+		A3BCA3A91D3D252D00FEE6B6 /* AdminMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BCA3601D3D252C00FEE6B6 /* AdminMainViewController.m */; };
+		A3BCA3AA1D3D252D00FEE6B6 /* AdminOrdersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BCA3621D3D252C00FEE6B6 /* AdminOrdersViewController.m */; };
+		A3BCA3AB1D3D252D00FEE6B6 /* AdminSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BCA3641D3D252C00FEE6B6 /* AdminSettingsViewController.m */; };
+		A3BCA3AC1D3D252D00FEE6B6 /* BoxSettingsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BCA3661D3D252C00FEE6B6 /* BoxSettingsListViewController.m */; };
+		A3BCA3AD1D3D252D00FEE6B6 /* SerCarwashCartypePricesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BCA3681D3D252C00FEE6B6 /* SerCarwashCartypePricesViewController.m */; };
+		A3BCA3AE1D3D252D00FEE6B6 /* SerCarwashCartypeServicePricesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BCA36A1D3D252C00FEE6B6 /* SerCarwashCartypeServicePricesViewController.m */; };
+		A3BCA3AF1D3D252D00FEE6B6 /* SetCarwashAddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BCA36C1D3D252C00FEE6B6 /* SetCarwashAddressViewController.m */; };
+		A3BCA3B01D3D252D00FEE6B6 /* SetCarwashBoxesCountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BCA36E1D3D252C00FEE6B6 /* SetCarwashBoxesCountViewController.m */; };
+		A3BCA3B11D3D252D00FEE6B6 /* SetCarwashCarTypesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BCA3701D3D252C00FEE6B6 /* SetCarwashCarTypesViewController.m */; };
+		A3BCA3B21D3D252D00FEE6B6 /* SetCarwashCoordinateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BCA3721D3D252C00FEE6B6 /* SetCarwashCoordinateViewController.m */; };
+		A3BCA3B31D3D252D00FEE6B6 /* SetCarwashOtherInfosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BCA3741D3D252C00FEE6B6 /* SetCarwashOtherInfosViewController.m */; };
+		A3BCA3B41D3D252D00FEE6B6 /* SetCarwashScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BCA3761D3D252C00FEE6B6 /* SetCarwashScheduleViewController.m */; };
+		A3BCA3B51D3D252D00FEE6B6 /* SetCarwashServicesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BCA3781D3D252C00FEE6B6 /* SetCarwashServicesViewController.m */; };
+		A3BCA3B61D3D252D00FEE6B6 /* StatisticsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BCA37A1D3D252C00FEE6B6 /* StatisticsViewController.m */; };
+		A3BCA3B71D3D252D00FEE6B6 /* AddFeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BCA37D1D3D252C00FEE6B6 /* AddFeedbackViewController.m */; };
+		A3BCA3B81D3D252D00FEE6B6 /* AkciiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BCA37F1D3D252C00FEE6B6 /* AkciiViewController.m */; };
+		A3BCA3B91D3D252D00FEE6B6 /* BookChooseBoxViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BCA3811D3D252C00FEE6B6 /* BookChooseBoxViewController.m */; };
+		A3BCA3BA1D3D252D00FEE6B6 /* BookingCarwashServicesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BCA3831D3D252C00FEE6B6 /* BookingCarwashServicesViewController.m */; };
+		A3BCA3BB1D3D252D00FEE6B6 /* BookResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BCA3851D3D252C00FEE6B6 /* BookResultViewController.m */; };
+		A3BCA3BC1D3D252D00FEE6B6 /* BookSetCarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BCA3871D3D252C00FEE6B6 /* BookSetCarViewController.m */; };
+		A3BCA3BD1D3D252D00FEE6B6 /* BooksHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BCA3891D3D252C00FEE6B6 /* BooksHistoryViewController.m */; };
+		A3BCA3BE1D3D252D00FEE6B6 /* CarwashesMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BCA38B1D3D252C00FEE6B6 /* CarwashesMapViewController.m */; };
+		A3BCA3BF1D3D252D00FEE6B6 /* CarwashesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BCA38D1D3D252C00FEE6B6 /* CarwashesViewController.m */; };
+		A3BCA3C01D3D252D00FEE6B6 /* CarwashPricesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BCA38F1D3D252C00FEE6B6 /* CarwashPricesViewController.m */; };
+		A3BCA3C11D3D252D00FEE6B6 /* CarwashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BCA3911D3D252C00FEE6B6 /* CarwashViewController.m */; };
+		A3BCA3C21D3D252D00FEE6B6 /* FeedbacksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BCA3931D3D252C00FEE6B6 /* FeedbacksViewController.m */; };
+		A3BCA3C31D3D252D00FEE6B6 /* FreeCarwashesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BCA3951D3D252C00FEE6B6 /* FreeCarwashesViewController.m */; };
+		A3BCA3C41D3D252D00FEE6B6 /* NearbyCarwashesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BCA3971D3D252C00FEE6B6 /* NearbyCarwashesViewController.m */; };
+		A3BCA3C51D3D252D00FEE6B6 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BCA3991D3D252C00FEE6B6 /* ProfileViewController.m */; };
+		A3BCA3C61D3D252D00FEE6B6 /* ScrollViewControllerOld.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BCA39B1D3D252D00FEE6B6 /* ScrollViewControllerOld.m */; };
+		A3BCA3C71D3D252D00FEE6B6 /* UserBookingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BCA39D1D3D252D00FEE6B6 /* UserBookingsViewController.m */; };
+		A3BCA3C81D3D252D00FEE6B6 /* UserFavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BCA39F1D3D252D00FEE6B6 /* UserFavoritesViewController.m */; };
+		A3BCA3C91D3D252D00FEE6B6 /* UserSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BCA3A11D3D252D00FEE6B6 /* UserSettingsViewController.m */; };
 		CE2A33CC1CB00DFD005CC5B6 /* Menu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE2A33CB1CB00DFD005CC5B6 /* Menu.storyboard */; };
 		CE2A33CF1CB03011005CC5B6 /* UIViewController+FrostedMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2A33CE1CB03011005CC5B6 /* UIViewController+FrostedMenu.m */; };
 		CE2A33D11CB2BA58005CC5B6 /* CarwashMarkerInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE2A33D01CB2BA58005CC5B6 /* CarwashMarkerInfoView.xib */; };
@@ -358,33 +361,25 @@
 
 /* Begin PBXFileReference section */
 		5200B0070F34C116112420A7 /* UIViewController+NoContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+NoContent.h"; sourceTree = "<group>"; };
-		5200B014F30C70056BC33FA8 /* AdminCarwashViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdminCarwashViewController.m; sourceTree = "<group>"; };
 		5200B02C1462719533861FD1 /* BaseRefs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseRefs.m; sourceTree = "<group>"; };
 		5200B03331123098BD610A04 /* BoxTimeTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoxTimeTable.h; sourceTree = "<group>"; };
-		5200B03509AC1512FD2A35F3 /* AdminBoxViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdminBoxViewController.m; sourceTree = "<group>"; };
-		5200B036DA5F20552F19AE4B /* AddFeedbackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddFeedbackViewController.h; sourceTree = "<group>"; };
 		5200B03E741C671E9C37D8A8 /* TabView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabView.h; sourceTree = "<group>"; };
 		5200B03EB667428633C59D59 /* UIHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIHelper.m; sourceTree = "<group>"; };
-		5200B05201C12FEBC58630D4 /* SerCarwashCartypePricesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SerCarwashCartypePricesViewController.h; sourceTree = "<group>"; };
 		5200B05C1E019F3A9BBF2C2A /* IdTitleObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IdTitleObject.m; sourceTree = "<group>"; };
 		5200B05D2ABEB1A39FA92FAC /* DoubleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoubleCell.m; sourceTree = "<group>"; };
 		5200B06737045B68F2777998 /* CarwashCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarwashCell.h; sourceTree = "<group>"; };
-		5200B06C4559564345FDC304 /* SetCarwashScheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetCarwashScheduleViewController.h; sourceTree = "<group>"; };
 		5200B072DA66B2DEF10320EB /* SearchFilterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchFilterViewController.m; sourceTree = "<group>"; };
 		5200B0759BC89779F82F5279 /* CarwashReview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarwashReview.h; sourceTree = "<group>"; };
 		5200B07D91A5FA3D3B980F5C /* AdminApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdminApi.h; sourceTree = "<group>"; };
 		5200B0810437B3759D0BFCE9 /* RatingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RatingView.m; sourceTree = "<group>"; };
-		5200B08752B1BAAD95F18CCD /* SetCarwashOtherInfosViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetCarwashOtherInfosViewController.h; sourceTree = "<group>"; };
 		5200B08E4F77701AF9E96D0A /* UserBookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserBookViewController.m; sourceTree = "<group>"; };
 		5200B093669B0736BA078764 /* Roboto-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Roboto-LightItalic.ttf"; sourceTree = "<group>"; };
 		5200B09747E3C199E882682B /* CarwashesHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarwashesHelper.m; sourceTree = "<group>"; };
-		5200B0A22986613D127C0334 /* UserFavoritesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserFavoritesViewController.m; sourceTree = "<group>"; };
 		5200B0AB947CE4CA6D08E124 /* UIView+Animation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Animation.h"; sourceTree = "<group>"; };
 		5200B0AC129C0D3406204ED9 /* LocationHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationHelper.m; sourceTree = "<group>"; };
 		5200B0AF0393D9631F3A9A85 /* CarsCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarsCollectionCell.h; sourceTree = "<group>"; };
 		5200B0B26FB692148DC13DA0 /* CompanyCarwashRefs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompanyCarwashRefs.m; sourceTree = "<group>"; };
 		5200B0BE4DC73BC0A555C3E4 /* WelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelcomeViewController.h; sourceTree = "<group>"; };
-		5200B0E47F95A88ED26715BC /* CarwashPricesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarwashPricesViewController.m; sourceTree = "<group>"; };
 		5200B0E84E97805301891C7E /* UIView+Ext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Ext.m"; sourceTree = "<group>"; };
 		5200B0E95D68F5724EC098A1 /* RowButtonDisclosureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RowButtonDisclosureView.h; sourceTree = "<group>"; };
 		5200B0FA2A07CCA6426FCBDA /* City.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = City.h; sourceTree = "<group>"; };
@@ -393,16 +388,12 @@
 		5200B1202B15D15EB72D5114 /* CreateCarwashDraft.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateCarwashDraft.h; sourceTree = "<group>"; };
 		5200B126368BBB86E1BC2186 /* NavigationDropdownMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationDropdownMenuView.m; sourceTree = "<group>"; };
 		5200B13365D2DBCF4564073D /* FavoritesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoritesViewController.m; sourceTree = "<group>"; };
-		5200B14706902722D58B5E1B /* SetCarwashServicesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetCarwashServicesViewController.m; sourceTree = "<group>"; };
 		5200B18BEC18A83F9BF178AB /* RowButtonDisclosureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RowButtonDisclosureView.m; sourceTree = "<group>"; };
 		5200B18D710E59300F7B8C95 /* Car.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Car.m; sourceTree = "<group>"; };
 		5200B19A7E506101C2BBA20F /* CarwashContact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarwashContact.h; sourceTree = "<group>"; };
 		5200B1A177E41983E2552ECC /* AddCarCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddCarCollectionCell.m; sourceTree = "<group>"; };
 		5200B1AA6F2DE20DA5049BF0 /* ModelObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModelObject.m; sourceTree = "<group>"; };
-		5200B1B622DB9A99ACC7B523 /* AdminSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdminSettingsViewController.h; sourceTree = "<group>"; };
-		5200B1CD328520CF0E266DF0 /* SetCarwashBoxesCountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetCarwashBoxesCountViewController.h; sourceTree = "<group>"; };
 		5200B1D770334001C6992263 /* AccountApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountApi.h; sourceTree = "<group>"; };
-		5200B2044873F73AFEF6C55B /* BooksHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BooksHistoryViewController.m; sourceTree = "<group>"; };
 		5200B208CB1560F42767770C /* NSObject+Json.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Json.m"; sourceTree = "<group>"; };
 		5200B2112D03564D69216007 /* CarwashApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarwashApi.m; sourceTree = "<group>"; };
 		5200B21B2E955EBD35E411B3 /* RowButtonCheckmarkView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RowButtonCheckmarkView.m; sourceTree = "<group>"; };
@@ -413,63 +404,42 @@
 		5200B24375DDD18C4FFA1A63 /* RowButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RowButtonView.h; sourceTree = "<group>"; };
 		5200B2A678E69A514D7CAFC8 /* SimpleDetailsDisclosureCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleDetailsDisclosureCell.h; sourceTree = "<group>"; };
 		5200B2ABC838ED6F8128B6A9 /* SearchFilterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchFilterViewController.h; sourceTree = "<group>"; };
-		5200B2B00B14BC9E4440254D /* AkciiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AkciiViewController.h; sourceTree = "<group>"; };
 		5200B2B3D47DF30865969743 /* BookmarksHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookmarksHelper.h; sourceTree = "<group>"; };
 		5200B2BA683D1F34566C3072 /* CarwashStatusView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarwashStatusView.m; sourceTree = "<group>"; };
-		5200B2C48EA6B9F92A83584C /* AdminOrdersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdminOrdersViewController.h; sourceTree = "<group>"; };
-		5200B2C812028452ADC082D2 /* SetCarwashBoxesCountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetCarwashBoxesCountViewController.m; sourceTree = "<group>"; };
 		5200B2D38D4F2168D472E36A /* UIScrollView+Ext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+Ext.h"; sourceTree = "<group>"; };
 		5200B2D963FF6F57E33088BB /* SimpleBaseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleBaseCell.h; sourceTree = "<group>"; };
 		5200B2DA8B96F2F15D6B89B6 /* UIColor+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Extensions.m"; sourceTree = "<group>"; };
 		5200B2DABF76C2CA33F70433 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		5200B2E2656031B32ACCC6C7 /* RowButtonDropdownView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RowButtonDropdownView.m; sourceTree = "<group>"; };
-		5200B2FA01524C7416330D9E /* SetCarwashCoordinateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetCarwashCoordinateViewController.m; sourceTree = "<group>"; };
 		5200B2FD2C4BF0047AB5CDE2 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		5200B2FEB625AC8C446671BA /* SimpleDisclosureCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleDisclosureCell.m; sourceTree = "<group>"; };
 		5200B2FEE1577209390BD878 /* CreateCarwashDraft.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateCarwashDraft.m; sourceTree = "<group>"; };
 		5200B30F276DC8D295979EED /* UIViewController+NavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+NavigationBar.h"; sourceTree = "<group>"; };
-		5200B32972652B278F823661 /* AddFeedbackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddFeedbackViewController.m; sourceTree = "<group>"; };
-		5200B32FD2BE67A3DF49B8D2 /* SerCarwashCartypeServicePricesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SerCarwashCartypeServicePricesViewController.m; sourceTree = "<group>"; };
 		5200B330BAB699A4AC5BF422 /* BoxesGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoxesGridView.m; sourceTree = "<group>"; };
-		5200B331BD4306F98C21331B /* SetCarwashOtherInfosViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetCarwashOtherInfosViewController.m; sourceTree = "<group>"; };
 		5200B335C1F2B79B715F985E /* CarwashMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarwashMenuItem.m; sourceTree = "<group>"; };
 		5200B33C74D9F345050EBD1F /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = "<group>"; };
-		5200B34A727D5A8412F5D2CD /* AdminCarwashViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdminCarwashViewController.h; sourceTree = "<group>"; };
 		5200B38A7898CE4C2262392C /* CarwashesListTabsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarwashesListTabsView.m; sourceTree = "<group>"; };
 		5200B3B10260EDB7650E246C /* CarwashesHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarwashesHelper.h; sourceTree = "<group>"; };
 		5200B3C153C41AE7F6475258 /* IconTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IconTitleView.h; sourceTree = "<group>"; };
 		5200B3DD5A9AF30BC1D725DD /* UIView+Loader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Loader.h"; sourceTree = "<group>"; };
 		5200B3DF69B4EE8CBC9CA057 /* RegisterProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterProfileViewController.m; sourceTree = "<group>"; };
 		5200B3EC45DFFCCD61C95891 /* UserNotificationsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserNotificationsViewController.h; sourceTree = "<group>"; };
-		5200B3EDD206E34F2CA5C0DE /* AdminCarwashBoxesSchedulesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdminCarwashBoxesSchedulesViewController.m; sourceTree = "<group>"; };
 		5200B3FA03C94A6FE2ADB630 /* SimpleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleCell.m; sourceTree = "<group>"; };
-		5200B3FE93D607BE7E3AC5F0 /* CarwashesMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarwashesMapViewController.m; sourceTree = "<group>"; };
 		5200B40AB191A351D717F090 /* CarwashPhotosViewerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarwashPhotosViewerView.m; sourceTree = "<group>"; };
-		5200B41200C40DA20184394E /* BoxSettingsListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoxSettingsListViewController.h; sourceTree = "<group>"; };
-		5200B41B06C5C98D9A616A04 /* CarwashPricesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarwashPricesViewController.h; sourceTree = "<group>"; };
-		5200B41DE3F2C61FB28D4439 /* CarwashesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarwashesViewController.h; sourceTree = "<group>"; };
 		5200B41EF1266CB5D62D964F /* TextareaField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextareaField.m; sourceTree = "<group>"; };
-		5200B42179E0C6BFACE06EF4 /* BookChooseBoxViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookChooseBoxViewController.m; sourceTree = "<group>"; };
 		5200B4303CD3A2C097BD1FDF /* SimpleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleCell.h; sourceTree = "<group>"; };
 		5200B43497A50DE228AA954B /* CarwashMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarwashMenuItem.h; sourceTree = "<group>"; };
-		5200B438770E54AF975D95AF /* FeedbacksViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedbacksViewController.h; sourceTree = "<group>"; };
 		5200B438DB12C76C545CB9BB /* BookObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookObject.h; sourceTree = "<group>"; };
 		5200B4463FF690A9CFFBDABA /* CarsCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarsCollectionView.h; sourceTree = "<group>"; };
 		5200B4469569DC69B09D419D /* UserBookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserBookViewController.h; sourceTree = "<group>"; };
-		5200B454318E1A03B1A7C8B9 /* FeedbacksViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedbacksViewController.m; sourceTree = "<group>"; };
 		5200B45586459BC8905CD97E /* ASize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASize.h; sourceTree = "<group>"; };
 		5200B456AD6266E4353E5B88 /* CompanyApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompanyApi.h; sourceTree = "<group>"; };
 		5200B461D7953B0A90878645 /* CarwashMapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarwashMapView.m; sourceTree = "<group>"; };
-		5200B475E1E42AEEA9FD917C /* SetCarwashScheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetCarwashScheduleViewController.m; sourceTree = "<group>"; };
 		5200B4856B60B9FA160EADD4 /* GridBoxView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridBoxView.m; sourceTree = "<group>"; };
 		5200B48CDA9F0FD863A4A225 /* CarwashesListTabsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarwashesListTabsView.h; sourceTree = "<group>"; };
 		5200B49A03FACF479663B56F /* CarwashSchedule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarwashSchedule.m; sourceTree = "<group>"; };
 		5200B4AF227665D9D9107EFF /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
 		5200B4B2F84B7394115DCEF0 /* BoxesGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoxesGridView.h; sourceTree = "<group>"; };
-		5200B4BFBBA5C5E66535657B /* AdminCarwashesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdminCarwashesViewController.m; sourceTree = "<group>"; };
-		5200B4C069449D6BC759A1AB /* BookSetCarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookSetCarViewController.h; sourceTree = "<group>"; };
-		5200B4D3877AE59273A054F6 /* UserBookingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserBookingsViewController.h; sourceTree = "<group>"; };
-		5200B4D69F65D47DF292EFA5 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		5200B4DFC445A2EA2D82A9C6 /* UIViewController+NavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+NavigationBar.m"; sourceTree = "<group>"; };
 		5200B4E6340ACB53BAFA7A1A /* BaseRefs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseRefs.h; sourceTree = "<group>"; };
 		5200B4E9BBB836398E131607 /* RegistrationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistrationViewController.h; sourceTree = "<group>"; };
@@ -478,31 +448,24 @@
 		5200B50E2FDC82FA209ABC56 /* UserObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserObject.m; sourceTree = "<group>"; };
 		5200B510686D48022BAB15A2 /* AccountApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountApi.m; sourceTree = "<group>"; };
 		5200B511394D0E87C729DECA /* UserSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserSettings.h; sourceTree = "<group>"; };
-		5200B5198121F1177B7E3DD7 /* CarwashViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarwashViewController.m; sourceTree = "<group>"; };
 		5200B51A8C6F1BDD7C2AF387 /* CarwashesBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarwashesBaseViewController.h; sourceTree = "<group>"; };
 		5200B51F8A29EBE7FA84D76B /* UserApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserApi.m; sourceTree = "<group>"; };
 		5200B53662FC6A1C0CFD8166 /* UIImage+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Extensions.m"; sourceTree = "<group>"; };
 		5200B53CF5390EA669CE74D2 /* Carwash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Carwash.m; sourceTree = "<group>"; };
 		5200B550A8FD25339B939F8A /* CompanyApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompanyApi.m; sourceTree = "<group>"; };
 		5200B568C8E70AAB79AF8967 /* LangsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LangsViewController.h; sourceTree = "<group>"; };
-		5200B56CAD70ED436D3AB74F /* FreeCarwashesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FreeCarwashesViewController.m; sourceTree = "<group>"; };
-		5200B57186E2C3D659B601DB /* FreeCarwashesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FreeCarwashesViewController.h; sourceTree = "<group>"; };
 		5200B579113DA22BA0353F0A /* CarsCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarsCollectionView.m; sourceTree = "<group>"; };
 		5200B58A5C86F9E75C35E638 /* CarwashMarkerInfoWindowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarwashMarkerInfoWindowView.m; sourceTree = "<group>"; };
 		5200B58FC2441D958B10C75C /* SVProgressHUD+Ext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SVProgressHUD+Ext.m"; sourceTree = "<group>"; };
 		5200B5997EBDA76B4B59B6F6 /* TabsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabsView.h; sourceTree = "<group>"; };
 		5200B5ADB3F2EB2D0AFD32B6 /* Language.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Language.h; sourceTree = "<group>"; };
 		5200B5B3EEF5604DCE0E0B87 /* CarwashReview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarwashReview.m; sourceTree = "<group>"; };
-		5200B5B4221A1C3DF38960E8 /* AdminCarwashBoxScheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdminCarwashBoxScheduleViewController.h; sourceTree = "<group>"; };
 		5200B5C4BAF18551ADA14270 /* IconTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IconTitleView.m; sourceTree = "<group>"; };
-		5200B5C682F8CE450F391729 /* AdminCarwashesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdminCarwashesViewController.h; sourceTree = "<group>"; };
 		5200B5D30699D96F74340974 /* UIView+Gestures.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Gestures.m"; sourceTree = "<group>"; };
 		5200B5DFEF54A770D1865E3E /* CarwashStatusView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarwashStatusView.h; sourceTree = "<group>"; };
 		5200B5EA618EE1A32715C7C5 /* TimeIntervalPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeIntervalPickerView.m; sourceTree = "<group>"; };
 		5200B5F984EE9A996D8FFCD7 /* TextareaField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextareaField.h; sourceTree = "<group>"; };
 		5200B609E856CF4A50CE5444 /* CirclePictureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CirclePictureView.m; sourceTree = "<group>"; };
-		5200B610E1238D7563F9659B /* BoxSettingsListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoxSettingsListViewController.m; sourceTree = "<group>"; };
-		5200B612835082FD3A9258A9 /* AdminCarwashBoxScheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdminCarwashBoxScheduleViewController.m; sourceTree = "<group>"; };
 		5200B616DCEFE0E4B68A60AD /* AppUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppUtils.m; sourceTree = "<group>"; };
 		5200B619D9A20BA62905614B /* UIColor+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Extensions.h"; sourceTree = "<group>"; };
 		5200B63528048FED02A08015 /* AddCarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddCarViewController.h; sourceTree = "<group>"; };
@@ -510,43 +473,28 @@
 		5200B64396C59AB395013C0D /* CompanyCarwashRefs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompanyCarwashRefs.h; sourceTree = "<group>"; };
 		5200B649395C2127C27D7B5B /* UIViewController+Ext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Ext.m"; sourceTree = "<group>"; };
 		5200B670919F5980DBC7848E /* SimpleCheckboxCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleCheckboxCell.m; sourceTree = "<group>"; };
-		5200B6741D50B8227467499D /* SetCarwashCoordinateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetCarwashCoordinateViewController.h; sourceTree = "<group>"; };
 		5200B6964CE76A313EC61B25 /* BookmarksHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookmarksHelper.m; sourceTree = "<group>"; };
-		5200B6A26672426FB69BA4E8 /* BookSetCarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookSetCarViewController.m; sourceTree = "<group>"; };
 		5200B6A6D507E228991B2576 /* UIImage+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Extensions.h"; sourceTree = "<group>"; };
 		5200B6A6D631D3A7F3F44EA2 /* ButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonView.m; sourceTree = "<group>"; };
 		5200B6AB5243EA2B83DEFC70 /* RobotoCondensed-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "RobotoCondensed-BoldItalic.ttf"; sourceTree = "<group>"; };
-		5200B6ABF5C43C74F516EA6C /* SetCarwashCarTypesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetCarwashCarTypesViewController.h; sourceTree = "<group>"; };
 		5200B6B43171811ED7EAFE11 /* BookObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookObject.m; sourceTree = "<group>"; };
-		5200B6C2AA8414734CABFDFD /* UserBookingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserBookingsViewController.m; sourceTree = "<group>"; };
-		5200B6CD7E3ECFD85B9B7C91 /* SetCarwashServicesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetCarwashServicesViewController.h; sourceTree = "<group>"; };
 		5200B6E736A3E01FF0EA2E95 /* RatingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RatingView.h; sourceTree = "<group>"; };
-		5200B6EBB846AA9D06633A15 /* AdminBoxViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdminBoxViewController.h; sourceTree = "<group>"; };
 		5200B6F63EB987C1AD84B1D3 /* APIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIClient.h; sourceTree = "<group>"; };
 		5200B72FDB6D9CB07607E388 /* Roboto-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Roboto-Italic.ttf"; sourceTree = "<group>"; };
 		5200B74C5A3D5C0E84B59272 /* TitleInputFieldView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleInputFieldView.h; sourceTree = "<group>"; };
-		5200B751D2129BAEAAC1D5B6 /* StatisticsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatisticsViewController.m; sourceTree = "<group>"; };
-		5200B7590BB08203D53E024B /* BookChooseBoxViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookChooseBoxViewController.h; sourceTree = "<group>"; };
 		5200B75C89B22F4B683EC04D /* SimpleDetailsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleDetailsCell.h; sourceTree = "<group>"; };
-		5200B75D24F41CE119EAF9E9 /* AdminSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdminSettingsViewController.m; sourceTree = "<group>"; };
-		5200B76DDED0BE496BB16AF0 /* NearbyCarwashesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearbyCarwashesViewController.m; sourceTree = "<group>"; };
 		5200B784BDAE4E3BF9A2A6A8 /* UserApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserApi.h; sourceTree = "<group>"; };
 		5200B7AEC56E5EDFB51AAB7E /* TitleValueView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleValueView.h; sourceTree = "<group>"; };
 		5200B7B75D522DF4BFAF55B6 /* TabsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabsView.m; sourceTree = "<group>"; };
 		5200B7D34C0C5320A51BE1BD /* UIFont+Custom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+Custom.m"; sourceTree = "<group>"; };
 		5200B81E535F4763E9AA5887 /* CarwashCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarwashCell.m; sourceTree = "<group>"; };
-		5200B8401668AA823D8FC5E9 /* UserSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserSettingsViewController.h; sourceTree = "<group>"; };
 		5200B840365CA57218D1EFEB /* TitleInputFieldView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitleInputFieldView.m; sourceTree = "<group>"; };
 		5200B84D5BA88B5B452F674E /* CarwashBook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarwashBook.m; sourceTree = "<group>"; };
 		5200B86218300CB630F5CB75 /* AAButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAButton.m; sourceTree = "<group>"; };
 		5200B8A1AB6E43F4BEDA7241 /* LangsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LangsViewController.m; sourceTree = "<group>"; };
-		5200B8A649278F3C0D61E5B2 /* BookingCarwashServicesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookingCarwashServicesViewController.m; sourceTree = "<group>"; };
 		5200B8C65944FD9272357448 /* ScrollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScrollViewController.m; sourceTree = "<group>"; };
 		5200B8C97A688507ED9B60CD /* DoubleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoubleCell.h; sourceTree = "<group>"; };
-		5200B8C9DDE6E45683F0D686 /* ScrollViewControllerOld.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScrollViewControllerOld.m; sourceTree = "<group>"; };
-		5200B8D73978733F4C578F1D /* SetCarwashCarTypesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetCarwashCarTypesViewController.m; sourceTree = "<group>"; };
 		5200B8F28344CC01C1AE3E5E /* NSDate+Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Utilities.h"; sourceTree = "<group>"; };
-		5200B917C4224A5D298080A5 /* AdminCarwashesFeedbacksViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdminCarwashesFeedbacksViewController.h; sourceTree = "<group>"; };
 		5200B930CCCEB26ADDE0482D /* SchedulePeriod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SchedulePeriod.h; sourceTree = "<group>"; };
 		5200B939AE44A8E671AD3570 /* NSString+Ext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Ext.h"; sourceTree = "<group>"; };
 		5200B93A39AE3B4A1D348BF6 /* RowButtonCheckmarkView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RowButtonCheckmarkView.h; sourceTree = "<group>"; };
@@ -560,7 +508,6 @@
 		5200B99CEF7410B15078AC16 /* UtilsApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UtilsApi.h; sourceTree = "<group>"; };
 		5200B9A29C73F82E039CAFF3 /* NSObject+PWObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+PWObject.h"; sourceTree = "<group>"; };
 		5200B9B466CBF73FAF0F08FB /* CarwashBook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarwashBook.h; sourceTree = "<group>"; };
-		5200B9B9AA48D124E1F16866 /* AdminMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdminMainViewController.m; sourceTree = "<group>"; };
 		5200B9BB5629B90BAF3B4FBD /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
 		5200B9C801B51D83E6575779 /* AdminApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdminApi.m; sourceTree = "<group>"; };
 		5200B9E51F403F0714ED751B /* Car.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Car.h; sourceTree = "<group>"; };
@@ -569,11 +516,9 @@
 		5200BA279885E2CC51080D80 /* CarwashApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarwashApi.h; sourceTree = "<group>"; };
 		5200BA4B6AF5B3A642B2DF01 /* BoxTimeTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoxTimeTable.m; sourceTree = "<group>"; };
 		5200BA52194182CCCE7BBC9A /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
-		5200BA577FD7C1ED84B18FBA /* SetCarwashAddressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetCarwashAddressViewController.m; sourceTree = "<group>"; };
 		5200BA63A149AFB18A94141E /* InputTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputTextField.h; sourceTree = "<group>"; };
 		5200BA71F6976AE337F63710 /* NavigationDropdownMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationDropdownMenuView.h; sourceTree = "<group>"; };
 		5200BA74168B386621DE4318 /* AddCarCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddCarCollectionCell.h; sourceTree = "<group>"; };
-		5200BA84DD9827078A5D7B5D /* UserSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserSettingsViewController.m; sourceTree = "<group>"; };
 		5200BA9CCC7A27A5B2DE9568 /* CarwashContact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarwashContact.m; sourceTree = "<group>"; };
 		5200BAACB003BDC52E5BB1F5 /* ConfirmSmsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfirmSmsViewController.m; sourceTree = "<group>"; };
 		5200BAD20AAC59BBF72FB871 /* IdTitleObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IdTitleObject.h; sourceTree = "<group>"; };
@@ -590,54 +535,40 @@
 		5200BB663D7FDF60D425E3A0 /* UIHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIHelper.h; sourceTree = "<group>"; };
 		5200BB6E3DDC8AC4BF1A9C51 /* ScrollViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScrollViewController.h; sourceTree = "<group>"; };
 		5200BB71273FC73F057A40E3 /* GridBoxView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridBoxView.h; sourceTree = "<group>"; };
-		5200BB79A71595F3342BB491 /* AdminBookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdminBookViewController.m; sourceTree = "<group>"; };
 		5200BB80B7DF87EB64AC3A90 /* Roboto-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Roboto-ThinItalic.ttf"; sourceTree = "<group>"; };
 		5200BB82AB77BDFB19965B95 /* Version.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Version.h; sourceTree = "<group>"; };
 		5200BB82CB636514E10EBD22 /* ModelObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelObject.h; sourceTree = "<group>"; };
-		5200BB8ECF8911E5E879FE9B /* AdminCarwashBoxesSchedulesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdminCarwashBoxesSchedulesViewController.h; sourceTree = "<group>"; };
 		5200BB99C7202505CFA95E18 /* TitleValueView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitleValueView.m; sourceTree = "<group>"; };
-		5200BBACBF6A058255DD564D /* AkciiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AkciiViewController.m; sourceTree = "<group>"; };
 		5200BBAFCFFBC0BF2A85EB60 /* NSDate+Ext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Ext.h"; sourceTree = "<group>"; };
 		5200BBB9B0B95C9803F271D9 /* CarwashRefs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarwashRefs.h; sourceTree = "<group>"; };
 		5200BBC791F4BB82666BC1DC /* SimpleDisclosureCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleDisclosureCell.h; sourceTree = "<group>"; };
-		5200BBCBAD125EC9E60D5C63 /* AdminCarwashesFeedbacksViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdminCarwashesFeedbacksViewController.m; sourceTree = "<group>"; };
 		5200BBCDD5525391BBDAB9F4 /* UserObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserObject.h; sourceTree = "<group>"; };
 		5200BBDE4EC06509370FCB6C /* Version.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Version.m; sourceTree = "<group>"; };
-		5200BBEEA2BDE74358465DC1 /* CarwashesMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarwashesMapViewController.h; sourceTree = "<group>"; };
 		5200BBFCB9946DFBC9D2D27E /* TimeIntervalPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeIntervalPickerView.h; sourceTree = "<group>"; };
 		5200BC15A0D69DECF3F82FB0 /* RegistrationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistrationViewController.m; sourceTree = "<group>"; };
 		5200BC1AE876C3A5E00BBAD8 /* InputTextField+Validation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "InputTextField+Validation.h"; sourceTree = "<group>"; };
-		5200BC1C38DDC638720C4CAF /* BookResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookResultViewController.h; sourceTree = "<group>"; };
 		5200BC1F0DEEE53E3D7ED68B /* UIView+Animation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Animation.m"; sourceTree = "<group>"; };
 		5200BC2017E67F9821BABB80 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
 		5200BC323F5B5E936F1D2AA5 /* SimpleDetailsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleDetailsCell.m; sourceTree = "<group>"; };
 		5200BC328C5E178F14F93CA0 /* City.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = City.m; sourceTree = "<group>"; };
-		5200BC48540B42A71D560D95 /* ScrollViewControllerOld.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScrollViewControllerOld.h; sourceTree = "<group>"; };
 		5200BC50BB4615CDFA938B87 /* CustomTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTabBarController.m; sourceTree = "<group>"; };
 		5200BC50CA11CF0D3EBD962A /* ApiUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApiUtils.m; sourceTree = "<group>"; };
 		5200BC534B98EAF72C68AC66 /* CarwashMapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarwashMapView.h; sourceTree = "<group>"; };
 		5200BC5469F3A125E171FCD5 /* CarCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarCollectionCell.h; sourceTree = "<group>"; };
 		5200BC7111EA561F5FFFBA2C /* AppUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppUtils.h; sourceTree = "<group>"; };
-		5200BC78938B8FFAC02EC6FD /* AdminMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdminMainViewController.h; sourceTree = "<group>"; };
 		5200BC81DB761E900EC17D58 /* EventNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventNotification.h; sourceTree = "<group>"; };
-		5200BC861383001EE5744853 /* NearbyCarwashesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NearbyCarwashesViewController.h; sourceTree = "<group>"; };
-		5200BC8EBFF875124F705FB8 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		5200BCA22B268A9B229C5CD2 /* WelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomeViewController.m; sourceTree = "<group>"; };
 		5200BCC50B33B8CDF56DB970 /* CarwashPhotosViewerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarwashPhotosViewerView.h; sourceTree = "<group>"; };
 		5200BCDFFF71D5880DBC19C1 /* RobotoCondensed-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "RobotoCondensed-Italic.ttf"; sourceTree = "<group>"; };
 		5200BCE8B96D9A4753AA1F4A /* IconTitleHorizontalView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IconTitleHorizontalView.m; sourceTree = "<group>"; };
-		5200BD146547074C9BCB6337 /* BookingCarwashServicesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookingCarwashServicesViewController.h; sourceTree = "<group>"; };
 		5200BD1915D5D7C18B160BA2 /* Roboto-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Roboto-BoldItalic.ttf"; sourceTree = "<group>"; };
 		5200BD1C9D8E1652E6151DA2 /* AddPhotoCircleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddPhotoCircleView.m; sourceTree = "<group>"; };
 		5200BD343E76FA5A410FD691 /* CarwashRefs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarwashRefs.m; sourceTree = "<group>"; };
 		5200BD35E40453680C2F0A7A /* UIView+Ext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Ext.h"; sourceTree = "<group>"; };
 		5200BD4BF68419F69691597E /* Cache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cache.m; sourceTree = "<group>"; };
 		5200BD5DBA692D6DBE0A6A51 /* UIView+Loader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Loader.m"; sourceTree = "<group>"; };
-		5200BD607D7180569885F363 /* BookResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookResultViewController.m; sourceTree = "<group>"; };
-		5200BD62F18A4E52E6702CB5 /* SetCarwashAddressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetCarwashAddressViewController.h; sourceTree = "<group>"; };
 		5200BD6750BB1A46EB0FD803 /* SimpleDetailsDisclosureCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleDetailsDisclosureCell.m; sourceTree = "<group>"; };
 		5200BD6890B2908018D858E8 /* CarTypesTabbarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarTypesTabbarView.h; sourceTree = "<group>"; };
-		5200BD7C3935EB4817DE9512 /* AdminBookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdminBookViewController.h; sourceTree = "<group>"; };
 		5200BD8344F1D73B58316F7B /* RowButtonDropdownView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RowButtonDropdownView.h; sourceTree = "<group>"; };
 		5200BD85F3D5783DF092CC55 /* EventNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventNotification.m; sourceTree = "<group>"; };
 		5200BD90476017207E6D6F53 /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Roboto-Thin.ttf"; sourceTree = "<group>"; };
@@ -647,28 +578,22 @@
 		5200BDCB3335CE54153826FF /* CarwashSchedule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarwashSchedule.h; sourceTree = "<group>"; };
 		5200BDFD0194E3DA0FA72945 /* RobotoCondensed-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "RobotoCondensed-Regular.ttf"; sourceTree = "<group>"; };
 		5200BE03D1FFBF61C13C8F4B /* UserNotificationsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserNotificationsViewController.m; sourceTree = "<group>"; };
-		5200BE21E474EF3AADCC6F62 /* SerCarwashCartypePricesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SerCarwashCartypePricesViewController.m; sourceTree = "<group>"; };
 		5200BE23B67EFCE3E3FAA2D9 /* AddCarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddCarViewController.m; sourceTree = "<group>"; };
 		5200BE282DBAFD684F018537 /* CarCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarCollectionCell.m; sourceTree = "<group>"; };
 		5200BE2A1368D836FEEB9EDC /* ConfirmSmsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfirmSmsViewController.h; sourceTree = "<group>"; };
 		5200BE2FC8228F9BD0DBC4AB /* AddPhotoCircleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddPhotoCircleView.h; sourceTree = "<group>"; };
-		5200BE3CD1ADB8D6AC4B89DB /* SerCarwashCartypeServicePricesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SerCarwashCartypeServicePricesViewController.h; sourceTree = "<group>"; };
 		5200BE59B0D09E761734F08F /* FeedbackCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedbackCell.m; sourceTree = "<group>"; };
 		5200BE5ACA363AB041A6B91B /* FeedbackCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedbackCell.h; sourceTree = "<group>"; };
 		5200BE5E05B3AFDFF6BEE8F1 /* APIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIClient.m; sourceTree = "<group>"; };
 		5200BE5EF2EE4467577ED82F /* NSString+Ext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Ext.m"; sourceTree = "<group>"; };
 		5200BE6EF663EEF0CDF56C7F /* CarwashComplex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarwashComplex.h; sourceTree = "<group>"; };
 		5200BE79CA5D4029C118EF50 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
-		5200BE7BAF89C2A91757426C /* BooksHistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BooksHistoryViewController.h; sourceTree = "<group>"; };
-		5200BE7E1B5BD84169E1A722 /* UserFavoritesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserFavoritesViewController.h; sourceTree = "<group>"; };
 		5200BE8F7E54B6F39E1D97FD /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
 		5200BE964AE7E21E3B0F18A9 /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
 		5200BEAB5F618F5045643CBD /* CirclePictureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CirclePictureView.h; sourceTree = "<group>"; };
 		5200BEBA18840429F59D2608 /* InputTextField+Validation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "InputTextField+Validation.m"; sourceTree = "<group>"; };
 		5200BECF7DB2BCC8A93FB0FB /* SimpleBaseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleBaseCell.m; sourceTree = "<group>"; };
 		5200BED5759FC1EBD124500E /* NotificationsHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationsHelper.h; sourceTree = "<group>"; };
-		5200BED7318B7C820CC0AB2C /* CarwashesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarwashesViewController.m; sourceTree = "<group>"; };
-		5200BEDAE7FAB294571EA68B /* AdminOrdersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdminOrdersViewController.m; sourceTree = "<group>"; };
 		5200BEDF97F78910D16766DA /* AAButton+Styles.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AAButton+Styles.h"; sourceTree = "<group>"; };
 		5200BEE31D270063B9E3D056 /* BoxSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoxSetting.h; sourceTree = "<group>"; };
 		5200BEE67CA03F44959970AA /* CarTypesTabbarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarTypesTabbarView.m; sourceTree = "<group>"; };
@@ -685,11 +610,9 @@
 		5200BF51CCDB86766C35D288 /* CarwashComplex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarwashComplex.m; sourceTree = "<group>"; };
 		5200BF5523D6AC241922C6E2 /* UILabel+Components.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Components.m"; sourceTree = "<group>"; };
 		5200BF58FD754C732C0CAA6B /* FavoritesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoritesViewController.h; sourceTree = "<group>"; };
-		5200BF64B9096AB917209CFB /* StatisticsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatisticsViewController.h; sourceTree = "<group>"; };
 		5200BF6E8845609A0BF9F246 /* Toast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Toast.h; sourceTree = "<group>"; };
 		5200BF9EF026956A52943256 /* UILabel+Components.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+Components.h"; sourceTree = "<group>"; };
 		5200BF9F4F082B7A49E2D196 /* Language.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Language.m; sourceTree = "<group>"; };
-		5200BFAFF362E6F62DE1DB10 /* CarwashViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarwashViewController.h; sourceTree = "<group>"; };
 		5200BFBEE0F8671D73B4298F /* SimpleCheckboxCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleCheckboxCell.h; sourceTree = "<group>"; };
 		5200BFDA20591CF30A23293B /* Carwash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Carwash.h; sourceTree = "<group>"; };
 		66E52641262FD96FF05E609C /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -697,6 +620,91 @@
 		7E76B64380276926994A15C0 /* Pods-WashMe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WashMe.release.xcconfig"; path = "Pods/Target Support Files/Pods-WashMe/Pods-WashMe.release.xcconfig"; sourceTree = "<group>"; };
 		966FDCF9B51A58F24459B45A /* libPods-WashMe.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WashMe.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A137D133A3245F49615DD123 /* Pods-WashMe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WashMe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WashMe/Pods-WashMe.debug.xcconfig"; sourceTree = "<group>"; };
+		A341BB3F1D44A8B4005E27DD /* AdminMain.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AdminMain.storyboard; sourceTree = "<group>"; };
+		A341BB411D44B6CE005E27DD /* AdminTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdminTabBarController.h; sourceTree = "<group>"; };
+		A341BB421D44B6CE005E27DD /* AdminTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdminTabBarController.m; sourceTree = "<group>"; };
+		A341BB471D44C8CC005E27DD /* AdminMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdminMenuViewController.h; sourceTree = "<group>"; };
+		A341BB481D44C8CC005E27DD /* AdminMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdminMenuViewController.m; sourceTree = "<group>"; };
+		A3BCA3511D3D252C00FEE6B6 /* AdminBookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdminBookViewController.h; sourceTree = "<group>"; };
+		A3BCA3521D3D252C00FEE6B6 /* AdminBookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdminBookViewController.m; sourceTree = "<group>"; };
+		A3BCA3531D3D252C00FEE6B6 /* AdminBoxViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdminBoxViewController.h; sourceTree = "<group>"; };
+		A3BCA3541D3D252C00FEE6B6 /* AdminBoxViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdminBoxViewController.m; sourceTree = "<group>"; };
+		A3BCA3551D3D252C00FEE6B6 /* AdminCarwashBoxesSchedulesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdminCarwashBoxesSchedulesViewController.h; sourceTree = "<group>"; };
+		A3BCA3561D3D252C00FEE6B6 /* AdminCarwashBoxesSchedulesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdminCarwashBoxesSchedulesViewController.m; sourceTree = "<group>"; };
+		A3BCA3571D3D252C00FEE6B6 /* AdminCarwashBoxScheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdminCarwashBoxScheduleViewController.h; sourceTree = "<group>"; };
+		A3BCA3581D3D252C00FEE6B6 /* AdminCarwashBoxScheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdminCarwashBoxScheduleViewController.m; sourceTree = "<group>"; };
+		A3BCA3591D3D252C00FEE6B6 /* AdminCarwashesFeedbacksViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdminCarwashesFeedbacksViewController.h; sourceTree = "<group>"; };
+		A3BCA35A1D3D252C00FEE6B6 /* AdminCarwashesFeedbacksViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdminCarwashesFeedbacksViewController.m; sourceTree = "<group>"; };
+		A3BCA35B1D3D252C00FEE6B6 /* AdminCarwashesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdminCarwashesViewController.h; sourceTree = "<group>"; };
+		A3BCA35C1D3D252C00FEE6B6 /* AdminCarwashesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdminCarwashesViewController.m; sourceTree = "<group>"; };
+		A3BCA35D1D3D252C00FEE6B6 /* AdminCarwashViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdminCarwashViewController.h; sourceTree = "<group>"; };
+		A3BCA35E1D3D252C00FEE6B6 /* AdminCarwashViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdminCarwashViewController.m; sourceTree = "<group>"; };
+		A3BCA35F1D3D252C00FEE6B6 /* AdminMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdminMainViewController.h; sourceTree = "<group>"; };
+		A3BCA3601D3D252C00FEE6B6 /* AdminMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdminMainViewController.m; sourceTree = "<group>"; };
+		A3BCA3611D3D252C00FEE6B6 /* AdminOrdersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdminOrdersViewController.h; sourceTree = "<group>"; };
+		A3BCA3621D3D252C00FEE6B6 /* AdminOrdersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdminOrdersViewController.m; sourceTree = "<group>"; };
+		A3BCA3631D3D252C00FEE6B6 /* AdminSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdminSettingsViewController.h; sourceTree = "<group>"; };
+		A3BCA3641D3D252C00FEE6B6 /* AdminSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdminSettingsViewController.m; sourceTree = "<group>"; };
+		A3BCA3651D3D252C00FEE6B6 /* BoxSettingsListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoxSettingsListViewController.h; sourceTree = "<group>"; };
+		A3BCA3661D3D252C00FEE6B6 /* BoxSettingsListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoxSettingsListViewController.m; sourceTree = "<group>"; };
+		A3BCA3671D3D252C00FEE6B6 /* SerCarwashCartypePricesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SerCarwashCartypePricesViewController.h; sourceTree = "<group>"; };
+		A3BCA3681D3D252C00FEE6B6 /* SerCarwashCartypePricesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SerCarwashCartypePricesViewController.m; sourceTree = "<group>"; };
+		A3BCA3691D3D252C00FEE6B6 /* SerCarwashCartypeServicePricesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SerCarwashCartypeServicePricesViewController.h; sourceTree = "<group>"; };
+		A3BCA36A1D3D252C00FEE6B6 /* SerCarwashCartypeServicePricesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SerCarwashCartypeServicePricesViewController.m; sourceTree = "<group>"; };
+		A3BCA36B1D3D252C00FEE6B6 /* SetCarwashAddressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetCarwashAddressViewController.h; sourceTree = "<group>"; };
+		A3BCA36C1D3D252C00FEE6B6 /* SetCarwashAddressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetCarwashAddressViewController.m; sourceTree = "<group>"; };
+		A3BCA36D1D3D252C00FEE6B6 /* SetCarwashBoxesCountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetCarwashBoxesCountViewController.h; sourceTree = "<group>"; };
+		A3BCA36E1D3D252C00FEE6B6 /* SetCarwashBoxesCountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetCarwashBoxesCountViewController.m; sourceTree = "<group>"; };
+		A3BCA36F1D3D252C00FEE6B6 /* SetCarwashCarTypesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetCarwashCarTypesViewController.h; sourceTree = "<group>"; };
+		A3BCA3701D3D252C00FEE6B6 /* SetCarwashCarTypesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetCarwashCarTypesViewController.m; sourceTree = "<group>"; };
+		A3BCA3711D3D252C00FEE6B6 /* SetCarwashCoordinateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetCarwashCoordinateViewController.h; sourceTree = "<group>"; };
+		A3BCA3721D3D252C00FEE6B6 /* SetCarwashCoordinateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetCarwashCoordinateViewController.m; sourceTree = "<group>"; };
+		A3BCA3731D3D252C00FEE6B6 /* SetCarwashOtherInfosViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetCarwashOtherInfosViewController.h; sourceTree = "<group>"; };
+		A3BCA3741D3D252C00FEE6B6 /* SetCarwashOtherInfosViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetCarwashOtherInfosViewController.m; sourceTree = "<group>"; };
+		A3BCA3751D3D252C00FEE6B6 /* SetCarwashScheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetCarwashScheduleViewController.h; sourceTree = "<group>"; };
+		A3BCA3761D3D252C00FEE6B6 /* SetCarwashScheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetCarwashScheduleViewController.m; sourceTree = "<group>"; };
+		A3BCA3771D3D252C00FEE6B6 /* SetCarwashServicesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetCarwashServicesViewController.h; sourceTree = "<group>"; };
+		A3BCA3781D3D252C00FEE6B6 /* SetCarwashServicesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetCarwashServicesViewController.m; sourceTree = "<group>"; };
+		A3BCA3791D3D252C00FEE6B6 /* StatisticsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatisticsViewController.h; sourceTree = "<group>"; };
+		A3BCA37A1D3D252C00FEE6B6 /* StatisticsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatisticsViewController.m; sourceTree = "<group>"; };
+		A3BCA37C1D3D252C00FEE6B6 /* AddFeedbackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddFeedbackViewController.h; sourceTree = "<group>"; };
+		A3BCA37D1D3D252C00FEE6B6 /* AddFeedbackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddFeedbackViewController.m; sourceTree = "<group>"; };
+		A3BCA37E1D3D252C00FEE6B6 /* AkciiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AkciiViewController.h; sourceTree = "<group>"; };
+		A3BCA37F1D3D252C00FEE6B6 /* AkciiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AkciiViewController.m; sourceTree = "<group>"; };
+		A3BCA3801D3D252C00FEE6B6 /* BookChooseBoxViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookChooseBoxViewController.h; sourceTree = "<group>"; };
+		A3BCA3811D3D252C00FEE6B6 /* BookChooseBoxViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookChooseBoxViewController.m; sourceTree = "<group>"; };
+		A3BCA3821D3D252C00FEE6B6 /* BookingCarwashServicesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookingCarwashServicesViewController.h; sourceTree = "<group>"; };
+		A3BCA3831D3D252C00FEE6B6 /* BookingCarwashServicesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookingCarwashServicesViewController.m; sourceTree = "<group>"; };
+		A3BCA3841D3D252C00FEE6B6 /* BookResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookResultViewController.h; sourceTree = "<group>"; };
+		A3BCA3851D3D252C00FEE6B6 /* BookResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookResultViewController.m; sourceTree = "<group>"; };
+		A3BCA3861D3D252C00FEE6B6 /* BookSetCarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookSetCarViewController.h; sourceTree = "<group>"; };
+		A3BCA3871D3D252C00FEE6B6 /* BookSetCarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookSetCarViewController.m; sourceTree = "<group>"; };
+		A3BCA3881D3D252C00FEE6B6 /* BooksHistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BooksHistoryViewController.h; sourceTree = "<group>"; };
+		A3BCA3891D3D252C00FEE6B6 /* BooksHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BooksHistoryViewController.m; sourceTree = "<group>"; };
+		A3BCA38A1D3D252C00FEE6B6 /* CarwashesMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarwashesMapViewController.h; sourceTree = "<group>"; };
+		A3BCA38B1D3D252C00FEE6B6 /* CarwashesMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarwashesMapViewController.m; sourceTree = "<group>"; };
+		A3BCA38C1D3D252C00FEE6B6 /* CarwashesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarwashesViewController.h; sourceTree = "<group>"; };
+		A3BCA38D1D3D252C00FEE6B6 /* CarwashesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarwashesViewController.m; sourceTree = "<group>"; };
+		A3BCA38E1D3D252C00FEE6B6 /* CarwashPricesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarwashPricesViewController.h; sourceTree = "<group>"; };
+		A3BCA38F1D3D252C00FEE6B6 /* CarwashPricesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarwashPricesViewController.m; sourceTree = "<group>"; };
+		A3BCA3901D3D252C00FEE6B6 /* CarwashViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarwashViewController.h; sourceTree = "<group>"; };
+		A3BCA3911D3D252C00FEE6B6 /* CarwashViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarwashViewController.m; sourceTree = "<group>"; };
+		A3BCA3921D3D252C00FEE6B6 /* FeedbacksViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedbacksViewController.h; sourceTree = "<group>"; };
+		A3BCA3931D3D252C00FEE6B6 /* FeedbacksViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedbacksViewController.m; sourceTree = "<group>"; };
+		A3BCA3941D3D252C00FEE6B6 /* FreeCarwashesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FreeCarwashesViewController.h; sourceTree = "<group>"; };
+		A3BCA3951D3D252C00FEE6B6 /* FreeCarwashesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FreeCarwashesViewController.m; sourceTree = "<group>"; };
+		A3BCA3961D3D252C00FEE6B6 /* NearbyCarwashesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NearbyCarwashesViewController.h; sourceTree = "<group>"; };
+		A3BCA3971D3D252C00FEE6B6 /* NearbyCarwashesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearbyCarwashesViewController.m; sourceTree = "<group>"; };
+		A3BCA3981D3D252C00FEE6B6 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		A3BCA3991D3D252C00FEE6B6 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		A3BCA39A1D3D252D00FEE6B6 /* ScrollViewControllerOld.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScrollViewControllerOld.h; sourceTree = "<group>"; };
+		A3BCA39B1D3D252D00FEE6B6 /* ScrollViewControllerOld.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScrollViewControllerOld.m; sourceTree = "<group>"; };
+		A3BCA39C1D3D252D00FEE6B6 /* UserBookingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserBookingsViewController.h; sourceTree = "<group>"; };
+		A3BCA39D1D3D252D00FEE6B6 /* UserBookingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserBookingsViewController.m; sourceTree = "<group>"; };
+		A3BCA39E1D3D252D00FEE6B6 /* UserFavoritesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserFavoritesViewController.h; sourceTree = "<group>"; };
+		A3BCA39F1D3D252D00FEE6B6 /* UserFavoritesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserFavoritesViewController.m; sourceTree = "<group>"; };
+		A3BCA3A01D3D252D00FEE6B6 /* UserSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserSettingsViewController.h; sourceTree = "<group>"; };
+		A3BCA3A11D3D252D00FEE6B6 /* UserSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserSettingsViewController.m; sourceTree = "<group>"; };
 		CE2A33CB1CB00DFD005CC5B6 /* Menu.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Menu.storyboard; sourceTree = "<group>"; };
 		CE2A33CD1CB03011005CC5B6 /* UIViewController+FrostedMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+FrostedMenu.h"; sourceTree = "<group>"; };
 		CE2A33CE1CB03011005CC5B6 /* UIViewController+FrostedMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+FrostedMenu.m"; sourceTree = "<group>"; };
@@ -992,6 +1000,7 @@
 				CE551AD61BCAB2850056AD5C /* UserMain.storyboard */,
 				CE2A33CB1CB00DFD005CC5B6 /* Menu.storyboard */,
 				CE2A33D01CB2BA58005CC5B6 /* CarwashMarkerInfoView.xib */,
+				A341BB3F1D44A8B4005E27DD /* AdminMain.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -1021,51 +1030,6 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
-		5200B7F52A809A099171DF48 /* Client */ = {
-			isa = PBXGroup;
-			children = (
-				5200BD146547074C9BCB6337 /* BookingCarwashServicesViewController.h */,
-				5200B4D69F65D47DF292EFA5 /* ProfileViewController.h */,
-				5200BC1C38DDC638720C4CAF /* BookResultViewController.h */,
-				5200B42179E0C6BFACE06EF4 /* BookChooseBoxViewController.m */,
-				5200B2044873F73AFEF6C55B /* BooksHistoryViewController.m */,
-				5200BFAFF362E6F62DE1DB10 /* CarwashViewController.h */,
-				5200B8401668AA823D8FC5E9 /* UserSettingsViewController.h */,
-				5200BED7318B7C820CC0AB2C /* CarwashesViewController.m */,
-				5200BC8EBFF875124F705FB8 /* ProfileViewController.m */,
-				5200B438770E54AF975D95AF /* FeedbacksViewController.h */,
-				5200B6A26672426FB69BA4E8 /* BookSetCarViewController.m */,
-				5200B8A649278F3C0D61E5B2 /* BookingCarwashServicesViewController.m */,
-				5200B8C9DDE6E45683F0D686 /* ScrollViewControllerOld.m */,
-				5200B32972652B278F823661 /* AddFeedbackViewController.m */,
-				5200B4D3877AE59273A054F6 /* UserBookingsViewController.h */,
-				5200B4C069449D6BC759A1AB /* BookSetCarViewController.h */,
-				5200B454318E1A03B1A7C8B9 /* FeedbacksViewController.m */,
-				5200BD607D7180569885F363 /* BookResultViewController.m */,
-				5200B6C2AA8414734CABFDFD /* UserBookingsViewController.m */,
-				5200B41DE3F2C61FB28D4439 /* CarwashesViewController.h */,
-				5200BC48540B42A71D560D95 /* ScrollViewControllerOld.h */,
-				5200B5198121F1177B7E3DD7 /* CarwashViewController.m */,
-				5200BE7BAF89C2A91757426C /* BooksHistoryViewController.h */,
-				5200B7590BB08203D53E024B /* BookChooseBoxViewController.h */,
-				5200BBEEA2BDE74358465DC1 /* CarwashesMapViewController.h */,
-				5200B036DA5F20552F19AE4B /* AddFeedbackViewController.h */,
-				5200B3FE93D607BE7E3AC5F0 /* CarwashesMapViewController.m */,
-				5200BA84DD9827078A5D7B5D /* UserSettingsViewController.m */,
-				5200B41B06C5C98D9A616A04 /* CarwashPricesViewController.h */,
-				5200B0E47F95A88ED26715BC /* CarwashPricesViewController.m */,
-				5200B76DDED0BE496BB16AF0 /* NearbyCarwashesViewController.m */,
-				5200BC861383001EE5744853 /* NearbyCarwashesViewController.h */,
-				5200B57186E2C3D659B601DB /* FreeCarwashesViewController.h */,
-				5200B56CAD70ED436D3AB74F /* FreeCarwashesViewController.m */,
-				5200B2B00B14BC9E4440254D /* AkciiViewController.h */,
-				5200BBACBF6A058255DD564D /* AkciiViewController.m */,
-				5200BE7E1B5BD84169E1A722 /* UserFavoritesViewController.h */,
-				5200B0A22986613D127C0334 /* UserFavoritesViewController.m */,
-			);
-			path = Client;
-			sourceTree = "<group>";
-		};
 		5200BB7878CDEB2531793766 /* Api */ = {
 			isa = PBXGroup;
 			children = (
@@ -1090,55 +1054,6 @@
 			path = Api;
 			sourceTree = "<group>";
 		};
-		5200BD15F42A16880F79EAAD /* Admin */ = {
-			isa = PBXGroup;
-			children = (
-				5200B5C682F8CE450F391729 /* AdminCarwashesViewController.h */,
-				5200B4BFBBA5C5E66535657B /* AdminCarwashesViewController.m */,
-				5200B34A727D5A8412F5D2CD /* AdminCarwashViewController.h */,
-				5200B014F30C70056BC33FA8 /* AdminCarwashViewController.m */,
-				5200BC78938B8FFAC02EC6FD /* AdminMainViewController.h */,
-				5200B9B9AA48D124E1F16866 /* AdminMainViewController.m */,
-				5200BF64B9096AB917209CFB /* StatisticsViewController.h */,
-				5200B751D2129BAEAAC1D5B6 /* StatisticsViewController.m */,
-				5200B917C4224A5D298080A5 /* AdminCarwashesFeedbacksViewController.h */,
-				5200BBCBAD125EC9E60D5C63 /* AdminCarwashesFeedbacksViewController.m */,
-				5200BD62F18A4E52E6702CB5 /* SetCarwashAddressViewController.h */,
-				5200BA577FD7C1ED84B18FBA /* SetCarwashAddressViewController.m */,
-				5200B6741D50B8227467499D /* SetCarwashCoordinateViewController.h */,
-				5200B2FA01524C7416330D9E /* SetCarwashCoordinateViewController.m */,
-				5200B6ABF5C43C74F516EA6C /* SetCarwashCarTypesViewController.h */,
-				5200B8D73978733F4C578F1D /* SetCarwashCarTypesViewController.m */,
-				5200B6CD7E3ECFD85B9B7C91 /* SetCarwashServicesViewController.h */,
-				5200B14706902722D58B5E1B /* SetCarwashServicesViewController.m */,
-				5200B05201C12FEBC58630D4 /* SerCarwashCartypePricesViewController.h */,
-				5200BE21E474EF3AADCC6F62 /* SerCarwashCartypePricesViewController.m */,
-				5200BE3CD1ADB8D6AC4B89DB /* SerCarwashCartypeServicePricesViewController.h */,
-				5200B32FD2BE67A3DF49B8D2 /* SerCarwashCartypeServicePricesViewController.m */,
-				5200B1CD328520CF0E266DF0 /* SetCarwashBoxesCountViewController.h */,
-				5200B2C812028452ADC082D2 /* SetCarwashBoxesCountViewController.m */,
-				5200B08752B1BAAD95F18CCD /* SetCarwashOtherInfosViewController.h */,
-				5200B331BD4306F98C21331B /* SetCarwashOtherInfosViewController.m */,
-				5200B06C4559564345FDC304 /* SetCarwashScheduleViewController.h */,
-				5200B475E1E42AEEA9FD917C /* SetCarwashScheduleViewController.m */,
-				5200B2C48EA6B9F92A83584C /* AdminOrdersViewController.h */,
-				5200BEDAE7FAB294571EA68B /* AdminOrdersViewController.m */,
-				5200B41200C40DA20184394E /* BoxSettingsListViewController.h */,
-				5200B610E1238D7563F9659B /* BoxSettingsListViewController.m */,
-				5200B6EBB846AA9D06633A15 /* AdminBoxViewController.h */,
-				5200B03509AC1512FD2A35F3 /* AdminBoxViewController.m */,
-				5200B1B622DB9A99ACC7B523 /* AdminSettingsViewController.h */,
-				5200B75D24F41CE119EAF9E9 /* AdminSettingsViewController.m */,
-				5200BB8ECF8911E5E879FE9B /* AdminCarwashBoxesSchedulesViewController.h */,
-				5200B3EDD206E34F2CA5C0DE /* AdminCarwashBoxesSchedulesViewController.m */,
-				5200BB79A71595F3342BB491 /* AdminBookViewController.m */,
-				5200BD7C3935EB4817DE9512 /* AdminBookViewController.h */,
-				5200B5B4221A1C3DF38960E8 /* AdminCarwashBoxScheduleViewController.h */,
-				5200B612835082FD3A9258A9 /* AdminCarwashBoxScheduleViewController.m */,
-			);
-			path = Admin;
-			sourceTree = "<group>";
-		};
 		5200BDE7B3AAACA53C6ED4DA /* AAButton */ = {
 			isa = PBXGroup;
 			children = (
@@ -1148,6 +1063,104 @@
 				5200B958EDE37DB9D006B03D /* AAButton+Styles.m */,
 			);
 			path = AAButton;
+			sourceTree = "<group>";
+		};
+		A3BCA3501D3D252C00FEE6B6 /* Admin */ = {
+			isa = PBXGroup;
+			children = (
+				A3BCA35F1D3D252C00FEE6B6 /* AdminMainViewController.h */,
+				A3BCA3601D3D252C00FEE6B6 /* AdminMainViewController.m */,
+				A3BCA3511D3D252C00FEE6B6 /* AdminBookViewController.h */,
+				A3BCA3521D3D252C00FEE6B6 /* AdminBookViewController.m */,
+				A3BCA3531D3D252C00FEE6B6 /* AdminBoxViewController.h */,
+				A3BCA3541D3D252C00FEE6B6 /* AdminBoxViewController.m */,
+				A3BCA3551D3D252C00FEE6B6 /* AdminCarwashBoxesSchedulesViewController.h */,
+				A3BCA3561D3D252C00FEE6B6 /* AdminCarwashBoxesSchedulesViewController.m */,
+				A3BCA3571D3D252C00FEE6B6 /* AdminCarwashBoxScheduleViewController.h */,
+				A3BCA3581D3D252C00FEE6B6 /* AdminCarwashBoxScheduleViewController.m */,
+				A3BCA3591D3D252C00FEE6B6 /* AdminCarwashesFeedbacksViewController.h */,
+				A3BCA35A1D3D252C00FEE6B6 /* AdminCarwashesFeedbacksViewController.m */,
+				A3BCA35B1D3D252C00FEE6B6 /* AdminCarwashesViewController.h */,
+				A3BCA35C1D3D252C00FEE6B6 /* AdminCarwashesViewController.m */,
+				A3BCA35D1D3D252C00FEE6B6 /* AdminCarwashViewController.h */,
+				A3BCA35E1D3D252C00FEE6B6 /* AdminCarwashViewController.m */,
+				A3BCA3611D3D252C00FEE6B6 /* AdminOrdersViewController.h */,
+				A3BCA3621D3D252C00FEE6B6 /* AdminOrdersViewController.m */,
+				A3BCA3631D3D252C00FEE6B6 /* AdminSettingsViewController.h */,
+				A3BCA3641D3D252C00FEE6B6 /* AdminSettingsViewController.m */,
+				A3BCA3651D3D252C00FEE6B6 /* BoxSettingsListViewController.h */,
+				A3BCA3661D3D252C00FEE6B6 /* BoxSettingsListViewController.m */,
+				A3BCA3671D3D252C00FEE6B6 /* SerCarwashCartypePricesViewController.h */,
+				A3BCA3681D3D252C00FEE6B6 /* SerCarwashCartypePricesViewController.m */,
+				A3BCA3691D3D252C00FEE6B6 /* SerCarwashCartypeServicePricesViewController.h */,
+				A3BCA36A1D3D252C00FEE6B6 /* SerCarwashCartypeServicePricesViewController.m */,
+				A3BCA36B1D3D252C00FEE6B6 /* SetCarwashAddressViewController.h */,
+				A3BCA36C1D3D252C00FEE6B6 /* SetCarwashAddressViewController.m */,
+				A3BCA36D1D3D252C00FEE6B6 /* SetCarwashBoxesCountViewController.h */,
+				A3BCA36E1D3D252C00FEE6B6 /* SetCarwashBoxesCountViewController.m */,
+				A3BCA36F1D3D252C00FEE6B6 /* SetCarwashCarTypesViewController.h */,
+				A3BCA3701D3D252C00FEE6B6 /* SetCarwashCarTypesViewController.m */,
+				A3BCA3711D3D252C00FEE6B6 /* SetCarwashCoordinateViewController.h */,
+				A3BCA3721D3D252C00FEE6B6 /* SetCarwashCoordinateViewController.m */,
+				A3BCA3731D3D252C00FEE6B6 /* SetCarwashOtherInfosViewController.h */,
+				A3BCA3741D3D252C00FEE6B6 /* SetCarwashOtherInfosViewController.m */,
+				A3BCA3751D3D252C00FEE6B6 /* SetCarwashScheduleViewController.h */,
+				A3BCA3761D3D252C00FEE6B6 /* SetCarwashScheduleViewController.m */,
+				A3BCA3771D3D252C00FEE6B6 /* SetCarwashServicesViewController.h */,
+				A3BCA3781D3D252C00FEE6B6 /* SetCarwashServicesViewController.m */,
+				A3BCA3791D3D252C00FEE6B6 /* StatisticsViewController.h */,
+				A3BCA37A1D3D252C00FEE6B6 /* StatisticsViewController.m */,
+				A341BB411D44B6CE005E27DD /* AdminTabBarController.h */,
+				A341BB421D44B6CE005E27DD /* AdminTabBarController.m */,
+				A341BB471D44C8CC005E27DD /* AdminMenuViewController.h */,
+				A341BB481D44C8CC005E27DD /* AdminMenuViewController.m */,
+			);
+			path = Admin;
+			sourceTree = "<group>";
+		};
+		A3BCA37B1D3D252C00FEE6B6 /* Client */ = {
+			isa = PBXGroup;
+			children = (
+				A3BCA37C1D3D252C00FEE6B6 /* AddFeedbackViewController.h */,
+				A3BCA37D1D3D252C00FEE6B6 /* AddFeedbackViewController.m */,
+				A3BCA37E1D3D252C00FEE6B6 /* AkciiViewController.h */,
+				A3BCA37F1D3D252C00FEE6B6 /* AkciiViewController.m */,
+				A3BCA3801D3D252C00FEE6B6 /* BookChooseBoxViewController.h */,
+				A3BCA3811D3D252C00FEE6B6 /* BookChooseBoxViewController.m */,
+				A3BCA3821D3D252C00FEE6B6 /* BookingCarwashServicesViewController.h */,
+				A3BCA3831D3D252C00FEE6B6 /* BookingCarwashServicesViewController.m */,
+				A3BCA3841D3D252C00FEE6B6 /* BookResultViewController.h */,
+				A3BCA3851D3D252C00FEE6B6 /* BookResultViewController.m */,
+				A3BCA3861D3D252C00FEE6B6 /* BookSetCarViewController.h */,
+				A3BCA3871D3D252C00FEE6B6 /* BookSetCarViewController.m */,
+				A3BCA3881D3D252C00FEE6B6 /* BooksHistoryViewController.h */,
+				A3BCA3891D3D252C00FEE6B6 /* BooksHistoryViewController.m */,
+				A3BCA38A1D3D252C00FEE6B6 /* CarwashesMapViewController.h */,
+				A3BCA38B1D3D252C00FEE6B6 /* CarwashesMapViewController.m */,
+				A3BCA38C1D3D252C00FEE6B6 /* CarwashesViewController.h */,
+				A3BCA38D1D3D252C00FEE6B6 /* CarwashesViewController.m */,
+				A3BCA38E1D3D252C00FEE6B6 /* CarwashPricesViewController.h */,
+				A3BCA38F1D3D252C00FEE6B6 /* CarwashPricesViewController.m */,
+				A3BCA3901D3D252C00FEE6B6 /* CarwashViewController.h */,
+				A3BCA3911D3D252C00FEE6B6 /* CarwashViewController.m */,
+				A3BCA3921D3D252C00FEE6B6 /* FeedbacksViewController.h */,
+				A3BCA3931D3D252C00FEE6B6 /* FeedbacksViewController.m */,
+				A3BCA3941D3D252C00FEE6B6 /* FreeCarwashesViewController.h */,
+				A3BCA3951D3D252C00FEE6B6 /* FreeCarwashesViewController.m */,
+				A3BCA3961D3D252C00FEE6B6 /* NearbyCarwashesViewController.h */,
+				A3BCA3971D3D252C00FEE6B6 /* NearbyCarwashesViewController.m */,
+				A3BCA3981D3D252C00FEE6B6 /* ProfileViewController.h */,
+				A3BCA3991D3D252C00FEE6B6 /* ProfileViewController.m */,
+				A3BCA39A1D3D252D00FEE6B6 /* ScrollViewControllerOld.h */,
+				A3BCA39B1D3D252D00FEE6B6 /* ScrollViewControllerOld.m */,
+				A3BCA39C1D3D252D00FEE6B6 /* UserBookingsViewController.h */,
+				A3BCA39D1D3D252D00FEE6B6 /* UserBookingsViewController.m */,
+				A3BCA39E1D3D252D00FEE6B6 /* UserFavoritesViewController.h */,
+				A3BCA39F1D3D252D00FEE6B6 /* UserFavoritesViewController.m */,
+				A3BCA3A01D3D252D00FEE6B6 /* UserSettingsViewController.h */,
+				A3BCA3A11D3D252D00FEE6B6 /* UserSettingsViewController.m */,
+			);
+			path = Client;
 			sourceTree = "<group>";
 		};
 		C5ADC72598A71F08CA7AE468 /* Pods */ = {
@@ -1278,8 +1291,8 @@
 				5200B4E9BBB836398E131607 /* RegistrationViewController.h */,
 				5200BAACB003BDC52E5BB1F5 /* ConfirmSmsViewController.m */,
 				5200BE2A1368D836FEEB9EDC /* ConfirmSmsViewController.h */,
-				5200BD15F42A16880F79EAAD /* Admin */,
-				5200B7F52A809A099171DF48 /* Client */,
+				A3BCA3501D3D252C00FEE6B6 /* Admin */,
+				A3BCA37B1D3D252C00FEE6B6 /* Client */,
 				5200B568C8E70AAB79AF8967 /* LangsViewController.h */,
 				5200B8A1AB6E43F4BEDA7241 /* LangsViewController.m */,
 				5200B4469569DC69B09D419D /* UserBookViewController.h */,
@@ -1631,13 +1644,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CEABA64719BB1FDF00CBAEBF /* Build configuration list for PBXNativeTarget "WashMe" */;
 			buildPhases = (
-				AFE6B828B9724A0DAD44EC76 /* Check Pods Manifest.lock */,
+				AFE6B828B9724A0DAD44EC76 /* [CP] Check Pods Manifest.lock */,
 				CEABA61119BB1FDF00CBAEBF /* Sources */,
 				CEABA61219BB1FDF00CBAEBF /* Frameworks */,
 				CEABA61319BB1FDF00CBAEBF /* Resources */,
-				ACF6B971815F4513AB17CC85 /* Copy Pods Resources */,
+				ACF6B971815F4513AB17CC85 /* [CP] Copy Pods Resources */,
 				CECC478D1B2C057700B10BC6 /* ShellScript */,
-				A600847EB5244B6F9BB4FCAE /* Embed Pods Frameworks */,
+				A600847EB5244B6F9BB4FCAE /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1798,6 +1811,7 @@
 				CE755C461A192F5E00A036DC /* icon-settings-thin@2x.png in Resources */,
 				5200B63BF690BCE201647BF8 /* Roboto-Regular.ttf in Resources */,
 				CE755C011A192F5E00A036DC /* btn_tab-profile_normal.png in Resources */,
+				A341BB401D44A8B4005E27DD /* AdminMain.storyboard in Resources */,
 				CE755C0F1A192F5E00A036DC /* carwash-no-image.png in Resources */,
 				CE755C0A1A192F5E00A036DC /* carwash-annotation-arrow@2x.png in Resources */,
 				CE755C091A192F5E00A036DC /* carwash-annotation-arrow.png in Resources */,
@@ -1854,14 +1868,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		A600847EB5244B6F9BB4FCAE /* Embed Pods Frameworks */ = {
+		A600847EB5244B6F9BB4FCAE /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1869,14 +1883,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WashMe/Pods-WashMe-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		ACF6B971815F4513AB17CC85 /* Copy Pods Resources */ = {
+		ACF6B971815F4513AB17CC85 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1884,14 +1898,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WashMe/Pods-WashMe-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		AFE6B828B9724A0DAD44EC76 /* Check Pods Manifest.lock */ = {
+		AFE6B828B9724A0DAD44EC76 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1925,20 +1939,26 @@
 				5200BBF7D54B9A6E944949BD /* Version.m in Sources */,
 				5200BBAE9A3B776B27264D7A /* ASize.m in Sources */,
 				5200B91539AE027610C071B2 /* UIColor+Extensions.m in Sources */,
+				A3BCA3C51D3D252D00FEE6B6 /* ProfileViewController.m in Sources */,
+				A3BCA3A71D3D252D00FEE6B6 /* AdminCarwashesViewController.m in Sources */,
 				5200B891B56DA808D28CD281 /* NSObject+PWObject.m in Sources */,
 				5200B7DB1E1BEB17F85B22A0 /* NSObject+Json.m in Sources */,
 				5200B4FF128E315908AB6526 /* APIClient.m in Sources */,
 				5200B6FCB7CED5006A891D6F /* UIHelper.m in Sources */,
+				A3BCA3AC1D3D252D00FEE6B6 /* BoxSettingsListViewController.m in Sources */,
 				5200B2279FAC7D132DA25ED9 /* UIImage+Extensions.m in Sources */,
 				5200B2A65A14FA6A6B212979 /* WelcomeViewController.m in Sources */,
 				5200B246AF351542482ADC55 /* UIView+Animation.m in Sources */,
+				A3BCA3B41D3D252D00FEE6B6 /* SetCarwashScheduleViewController.m in Sources */,
 				CE2E6E9E1A14E08E009653C4 /* ImageBundle.m in Sources */,
 				5200B7E9F44C13E842CE1869 /* UIFont+Custom.m in Sources */,
 				5200BD827608BB7FBADD9AA0 /* AAButton.m in Sources */,
 				5200B6506BF318C114EB9F28 /* AAButton+Styles.m in Sources */,
 				5200BA431E1A9F4BC945B72F /* TabsView.m in Sources */,
+				A3BCA3B61D3D252D00FEE6B6 /* StatisticsViewController.m in Sources */,
 				CEF383C01A4576DB00E3B007 /* Localization.m in Sources */,
 				5200B9ACF7A316B0AFC19EBD /* RegistrationViewController.m in Sources */,
+				A3BCA3A31D3D252D00FEE6B6 /* AdminBoxViewController.m in Sources */,
 				5200BF3A82C2E2E1090658B0 /* UIViewController+Ext.m in Sources */,
 				5200BCABD87ED3D33890D1DA /* InputTextField.m in Sources */,
 				5200BDBF5FFF9185AC05B412 /* ConfirmSmsViewController.m in Sources */,
@@ -1951,12 +1971,14 @@
 				5200BB76F359FBFE4C94F701 /* CarwashStatusView.m in Sources */,
 				5200BC306BB55B0121FB4F10 /* RatingView.m in Sources */,
 				5200B649B48437657D36C186 /* CarwashApi.m in Sources */,
+				A3BCA3C91D3D252D00FEE6B6 /* UserSettingsViewController.m in Sources */,
 				5200BE2117A6419F1741B547 /* Carwash.m in Sources */,
 				5200B4EE5838FF40185D11B0 /* ModelObject.m in Sources */,
 				5200BDF91A302A75020A38B9 /* LocationHelper.m in Sources */,
 				5200B911283458926DDD7C69 /* CarwashesHelper.m in Sources */,
 				5200BCDE2A960164B6384E22 /* CarwashMapView.m in Sources */,
 				5200B289CF7E0D4F3141D4D5 /* CarwashContact.m in Sources */,
+				A3BCA3AE1D3D252D00FEE6B6 /* SerCarwashCartypeServicePricesViewController.m in Sources */,
 				5200B6BB414065747B638FE6 /* CarwashComplex.m in Sources */,
 				5200BB3A68DDAC2EB6DA172D /* CarwashSchedule.m in Sources */,
 				5200B2573A32F6FE238D9C57 /* BoxSetting.m in Sources */,
@@ -1965,12 +1987,14 @@
 				5200B76BC8A77B5BEDE8D2A5 /* RowButtonView.m in Sources */,
 				5200B9CFFB676D4F9422F857 /* RowButtonDisclosureView.m in Sources */,
 				5200BFED80E38BB6F0548E03 /* ButtonView.m in Sources */,
+				A3BCA3C31D3D252D00FEE6B6 /* FreeCarwashesViewController.m in Sources */,
 				5200B78CF6E0B6A49F59F157 /* FeedbackCell.m in Sources */,
 				5200B2968F3B6C662011C947 /* TextareaField.m in Sources */,
 				5200BB60257648BB32032424 /* LPlaceholderTextView.m in Sources */,
 				5200BB7793B035CCE576B2AB /* CarwashReview.m in Sources */,
 				5200B7B29E7DAE61EEAA4282 /* UIScrollView+Ext.m in Sources */,
 				5200B86B961F2D68609E6078 /* CarTypesTabbarView.m in Sources */,
+				A3BCA3C11D3D252D00FEE6B6 /* CarwashViewController.m in Sources */,
 				5200B2357F9B2A39CC7773CF /* RowButtonCheckmarkView.m in Sources */,
 				5200BEED878C3DF5552DD06D /* SimpleCheckboxCell.m in Sources */,
 				5200BB28377CB82799FEDD6C /* UIView+Ext.m in Sources */,
@@ -1984,88 +2008,69 @@
 				5200BB4BADEF989ADC8AE911 /* NSData+Base64.m in Sources */,
 				CE2E6E9D1A14E08E009653C4 /* ObjectImage.m in Sources */,
 				5200B186EA805FECC6328A0E /* User.m in Sources */,
+				A3BCA3A61D3D252D00FEE6B6 /* AdminCarwashesFeedbacksViewController.m in Sources */,
 				5200B7687DD633671EC17230 /* UserApi.m in Sources */,
 				5200B4C04AB7677391555B5A /* BookmarksHelper.m in Sources */,
-				5200B4B7AED0ED680082B0E9 /* BookChooseBoxViewController.m in Sources */,
-				5200BCCDA2C7DCA6D58B48E5 /* BooksHistoryViewController.m in Sources */,
-				5200BD5FE42A45A02CB6E739 /* CarwashesViewController.m in Sources */,
-				5200B42B6E900442967C17A5 /* ProfileViewController.m in Sources */,
-				5200B7ED1EC4D34E3B6D0ED2 /* BookSetCarViewController.m in Sources */,
-				5200B4B1541D4674904D0661 /* BookingCarwashServicesViewController.m in Sources */,
-				5200B69F91AD7F8402287998 /* ScrollViewControllerOld.m in Sources */,
-				5200B6D2DDD345AB5FAA052D /* AddFeedbackViewController.m in Sources */,
-				5200BCAC2ED20FD8AEA8DFC0 /* FeedbacksViewController.m in Sources */,
-				5200B53A006DAE5F1A630325 /* BookResultViewController.m in Sources */,
-				5200B53100D1B100D068B2CE /* UserBookingsViewController.m in Sources */,
-				5200B20985D5380B24A1206F /* CarwashViewController.m in Sources */,
-				5200BEF9BB3FA307B9380EB5 /* CarwashesMapViewController.m in Sources */,
-				5200B7E2A6D72AADBF9E24A0 /* UserSettingsViewController.m in Sources */,
-				5200B1E9007914C93B43A5CF /* AdminCarwashesViewController.m in Sources */,
+				A3BCA3A41D3D252D00FEE6B6 /* AdminCarwashBoxesSchedulesViewController.m in Sources */,
 				5200B2D76A3C3289C69B3550 /* SimpleCell.m in Sources */,
-				5200B81B7364C4B86DE92AD9 /* AdminCarwashViewController.m in Sources */,
-				5200BCFA6AE3B01BE875924A /* AdminMainViewController.m in Sources */,
-				5200B47F8F5EFCC5264510D7 /* StatisticsViewController.m in Sources */,
-				5200BB4AF7297E4812E262F9 /* AdminCarwashesFeedbacksViewController.m in Sources */,
 				5200BFFD23EEAC25F896C0C5 /* AddPhotoCircleView.m in Sources */,
-				5200B788FB13E8B249C09E37 /* SetCarwashAddressViewController.m in Sources */,
-				5200B7B2F164B7CFB8D2AD39 /* SetCarwashCoordinateViewController.m in Sources */,
+				A3BCA3A91D3D252D00FEE6B6 /* AdminMainViewController.m in Sources */,
+				A3BCA3B11D3D252D00FEE6B6 /* SetCarwashCarTypesViewController.m in Sources */,
 				5200BBE317803FAC9E43B8E8 /* CreateCarwashDraft.m in Sources */,
 				5200BBA0D765612A7D269F1B /* CompanyApi.m in Sources */,
 				5200B7B4D4C7E226792A599F /* CompanyCarwashRefs.m in Sources */,
 				5200BC27C764DF2427ADA3F0 /* IdTitleObject.m in Sources */,
-				5200B752357EC54F52733D4D /* SetCarwashCarTypesViewController.m in Sources */,
-				5200B706185A100889833492 /* SetCarwashServicesViewController.m in Sources */,
-				5200B6A69DD9A03D7FC347F0 /* SerCarwashCartypePricesViewController.m in Sources */,
 				5200B5169069A0B64F8F988E /* SimpleDisclosureCell.m in Sources */,
-				5200B3F575F5DD3C50F057DA /* SerCarwashCartypeServicePricesViewController.m in Sources */,
 				5200B25E8009943D10D063CC /* TitleInputFieldView.m in Sources */,
+				A3BCA3BE1D3D252D00FEE6B6 /* CarwashesMapViewController.m in Sources */,
+				A3BCA3AA1D3D252D00FEE6B6 /* AdminOrdersViewController.m in Sources */,
 				5200B42F6AAFF61A7EB84D69 /* CarwashMenuItem.m in Sources */,
-				5200B729071F76CE570750B2 /* SetCarwashBoxesCountViewController.m in Sources */,
-				5200BA6198AC017A700C7EE2 /* SetCarwashOtherInfosViewController.m in Sources */,
 				5200BC8A0A135D5B4595FBA1 /* UILabel+Components.m in Sources */,
-				5200B140F074293C5C9FA4D5 /* SetCarwashScheduleViewController.m in Sources */,
 				5200B2679C87A034A2C0DCA6 /* TimeIntervalPickerView.m in Sources */,
 				5200BDD58B7160B989921F79 /* AdminApi.m in Sources */,
 				5200BB65EE60D91B7AD52DEE /* LangsViewController.m in Sources */,
 				5200B00E0A0F3A094E01EF36 /* CarwashBook.m in Sources */,
 				5200BCD27EFA0D7972656BCD /* ApiUtils.m in Sources */,
+				A3BCA3BC1D3D252D00FEE6B6 /* BookSetCarViewController.m in Sources */,
+				A3BCA3C81D3D252D00FEE6B6 /* UserFavoritesViewController.m in Sources */,
+				A3BCA3B81D3D252D00FEE6B6 /* AkciiViewController.m in Sources */,
+				A3BCA3B71D3D252D00FEE6B6 /* AddFeedbackViewController.m in Sources */,
 				5200B3833DE8ABB54397CD74 /* UserBookViewController.m in Sources */,
+				A3BCA3B51D3D252D00FEE6B6 /* SetCarwashServicesViewController.m in Sources */,
 				5200B9C3FB4CBD74824C84E4 /* NSDate+Ext.m in Sources */,
 				5200B12815C45D91A7B3F8A3 /* BaseRefs.m in Sources */,
 				5200B471271CCDDF636B2BBB /* NSDate+Utilities.m in Sources */,
 				5200B1305208989101A6563A /* BookObject.m in Sources */,
+				A3BCA3B31D3D252D00FEE6B6 /* SetCarwashOtherInfosViewController.m in Sources */,
+				A3BCA3A51D3D252D00FEE6B6 /* AdminCarwashBoxScheduleViewController.m in Sources */,
 				5200B99C7011C44ABA0DC724 /* CirclePictureView.m in Sources */,
+				A3BCA3C21D3D252D00FEE6B6 /* FeedbacksViewController.m in Sources */,
+				A3BCA3A81D3D252D00FEE6B6 /* AdminCarwashViewController.m in Sources */,
 				5200BAFF8EDB482124C8AF1D /* UtilsApi.m in Sources */,
-				5200BBCC9B98875EA7A7B9A4 /* AdminOrdersViewController.m in Sources */,
-				5200B295AEFC90AAD06A48A4 /* CarwashPricesViewController.m in Sources */,
 				5200B60FACBBD265D622ABBA /* SimpleDetailsCell.m in Sources */,
 				5200BC747BA7F8E404FEB956 /* SimpleBaseCell.m in Sources */,
 				5200BE9E3E5379AA9D28A7C7 /* SimpleDetailsDisclosureCell.m in Sources */,
 				CE59724B1AA2F6B2007D2A4E /* NSObject+PropertyUtils.m in Sources */,
 				5200BB1258B9292EC5CDD56E /* UserSettings.m in Sources */,
+				A3BCA3C41D3D252D00FEE6B6 /* NearbyCarwashesViewController.m in Sources */,
+				A3BCA3B01D3D252D00FEE6B6 /* SetCarwashBoxesCountViewController.m in Sources */,
+				A3BCA3C61D3D252D00FEE6B6 /* ScrollViewControllerOld.m in Sources */,
 				5200B7F67A6778C4AB76E712 /* Language.m in Sources */,
 				5200B4FAE2F079CBC2C37425 /* SearchViewController.m in Sources */,
 				5200B650A487DDCD5B5E5458 /* CarwashPhotosViewerView.m in Sources */,
 				5200BB54048A609916FCC4FF /* RowButtonDropdownView.m in Sources */,
+				A3BCA3B91D3D252D00FEE6B6 /* BookChooseBoxViewController.m in Sources */,
 				5200B7BF730D44C558B89793 /* FavoritesViewController.m in Sources */,
 				5200B1F5BB36BDEB6D2DB5BE /* UserNotificationsViewController.m in Sources */,
 				5200BAEC1A731D6BCB8B0F13 /* EventNotification.m in Sources */,
 				5200BD8E3ACAC0A930F18641 /* NavigationDropdownMenuView.m in Sources */,
 				5200BB6473295514DD050CB9 /* City.m in Sources */,
 				5200BCB55380A2B40456EDDF /* UserObject.m in Sources */,
-				5200BE90A0B96F178829A290 /* BoxSettingsListViewController.m in Sources */,
-				5200B3E142F6A1C835C1A264 /* AdminBoxViewController.m in Sources */,
-				5200B84289957B1260C27104 /* AdminSettingsViewController.m in Sources */,
-				5200BB93A8D24269879C0D06 /* AdminCarwashBoxesSchedulesViewController.m in Sources */,
-				5200B449AB40B19591046BDD /* AdminBookViewController.m in Sources */,
-				5200BF7A630FD348E31A1096 /* AdminCarwashBoxScheduleViewController.m in Sources */,
 				CE2A33CF1CB03011005CC5B6 /* UIViewController+FrostedMenu.m in Sources */,
-				5200B85A33BD1CA23F171A69 /* NearbyCarwashesViewController.m in Sources */,
-				5200B7A86413E90D2752F443 /* FreeCarwashesViewController.m in Sources */,
-				5200B8898436AA28BFA709D0 /* AkciiViewController.m in Sources */,
-				5200B28127B7CCE248D2C587 /* UserFavoritesViewController.m in Sources */,
 				5200BFDF40830DB87ECBA4A4 /* CustomTabBarController.m in Sources */,
+				A341BB491D44C8CC005E27DD /* AdminMenuViewController.m in Sources */,
 				5200B201C23C4DA0D99417AD /* UIViewController+NavigationBar.m in Sources */,
+				A3BCA3A21D3D252D00FEE6B6 /* AdminBookViewController.m in Sources */,
 				5200B57E637F4BC11D538770 /* UIViewController+NoContent.m in Sources */,
 				5200BEA3F369C2104335B455 /* RegisterProfileViewController.m in Sources */,
 				5200B2485B010EC6692DC888 /* ScrollViewController.m in Sources */,
@@ -2076,17 +2081,28 @@
 				5200B502BACD32E50C82E4AD /* AddCarViewController.m in Sources */,
 				5200B5364865B627FA180D33 /* Car.m in Sources */,
 				5200BF58EF1D26E5227BD4DE /* SearchFilterViewController.m in Sources */,
+				A3BCA3C71D3D252D00FEE6B6 /* UserBookingsViewController.m in Sources */,
+				A3BCA3C01D3D252D00FEE6B6 /* CarwashPricesViewController.m in Sources */,
+				A3BCA3BD1D3D252D00FEE6B6 /* BooksHistoryViewController.m in Sources */,
+				A341BB431D44B6CE005E27DD /* AdminTabBarController.m in Sources */,
 				5200B1ACC4772DD783D307E0 /* MenuViewController.m in Sources */,
+				A3BCA3BA1D3D252D00FEE6B6 /* BookingCarwashServicesViewController.m in Sources */,
 				5200B216F62ED3447277AE61 /* UIView+Gestures.m in Sources */,
 				5200BDA32BBEC871DE56133C /* ScrollViewContentView.m in Sources */,
 				5200B24FACA1FCCC7D03BD10 /* NotificationsHelper.m in Sources */,
 				5200BBEF8CF74B46883A8428 /* CarwashMarkerInfoWindowView.m in Sources */,
+				A3BCA3AB1D3D252D00FEE6B6 /* AdminSettingsViewController.m in Sources */,
+				A3BCA3AF1D3D252D00FEE6B6 /* SetCarwashAddressViewController.m in Sources */,
 				5200BCCA785205BE09595DEF /* DoubleCell.m in Sources */,
 				5200B6A9512A3EFD223B3CFB /* IconTitleHorizontalView.m in Sources */,
 				5200BDCBE7B02E3402D75E69 /* UIView+Loader.m in Sources */,
+				A3BCA3BB1D3D252D00FEE6B6 /* BookResultViewController.m in Sources */,
+				A3BCA3BF1D3D252D00FEE6B6 /* CarwashesViewController.m in Sources */,
 				5200B5DE2B0010B77DC89824 /* CarwashesBaseViewController.m in Sources */,
 				5200B14D881C3BA4A34D75CB /* SVProgressHUD+Ext.m in Sources */,
+				A3BCA3AD1D3D252D00FEE6B6 /* SerCarwashCartypePricesViewController.m in Sources */,
 				5200B2964C32D35E43F8A007 /* FilterManager.m in Sources */,
+				A3BCA3B21D3D252D00FEE6B6 /* SetCarwashCoordinateViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2194,7 +2210,10 @@
 				GCC_PREFIX_HEADER = "WashMe/WashMe-Prefix.pch";
 				INFOPLIST_FILE = "WashMe/WashMe-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LIBRARY_SEARCH_PATHS = Pods;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					Pods,
+				);
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = kz.mixdesign.washme;
@@ -2224,7 +2243,10 @@
 				GCC_PREFIX_HEADER = "WashMe/WashMe-Prefix.pch";
 				INFOPLIST_FILE = "WashMe/WashMe-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LIBRARY_SEARCH_PATHS = Pods;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					Pods,
+				);
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = kz.mixdesign.washme;

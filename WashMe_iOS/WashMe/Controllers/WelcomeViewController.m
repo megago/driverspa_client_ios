@@ -116,8 +116,8 @@
         [wSelf userButtonTapped];
     }];
     userButton.alpha = 0;
-    [userButton commonStyleButtonWithTitle:@"НАЧАТЬ\nЭКОНОМИТЬ ВРЕМЯ"];
-    [userButton setTitleFont:[UIFont robotoRegular:22]];
+    [userButton commonStyleButtonWithTitle:@"Я АВТОМОБИЛИСТ, ХОЧУ\nПОМЫТЬ МАШИНУ"];
+    [userButton setTitleFont:[UIFont robotoRegular:18]];
     userButton.centerX = self.view.centerX;
     userButton.y = welcomeLabel.bottom + 40;
     userButton.height = 74;
@@ -127,7 +127,7 @@
         [wSelf carwashButtonTapped];
     }];
     clientButton.alpha = 0;
-    [clientButton noBorderStyleButtonWithTitle:@"Стать партнером"];
+    [clientButton commonStyleButtonWithTitle:@"Я АДМИНИСТРАТОР\nАВТОМОЙКИ"];
     [clientButton setTitleFont:[UIFont robotoRegular:18]];
     clientButton.centerX = self.view.centerX;
     clientButton.y = userButton.bottom + 10;

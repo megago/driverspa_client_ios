@@ -18,6 +18,7 @@
 
 - (void)gotoWelcomeViewController;
 - (void)setUserAuthorizedTabbarController;
+- (void)setAdminAuthorizedTabbarController;
 
 // Push notification
 - (void)requestPushAndLocalNotificationPermissions;

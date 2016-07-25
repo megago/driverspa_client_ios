@@ -10,4 +10,6 @@
 
 @interface AdminTabBarController : UITabBarController
 
++ (CGFloat)tabbarHeight;
+
 @end
