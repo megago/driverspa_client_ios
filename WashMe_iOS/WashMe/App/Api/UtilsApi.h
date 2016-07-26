@@ -12,6 +12,7 @@
 
 + (void)uploadImage:(UIImage *)image success:(success)success failure:(failure)failure;
 + (void)deleteImage:(NSString *)imageId success:(success)success failure:(failure)failure;
++ (void)aboutUs:(success)success failure:(failure)failure;
 
 + (NSArray *)responseToImageBundles:(id)response;
 

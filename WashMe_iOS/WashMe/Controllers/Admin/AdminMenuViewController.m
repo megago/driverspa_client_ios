@@ -17,6 +17,7 @@
 #import "User.h"
 #import "UserApi.h"
 #import "NotificationsHelper.h"
+#import "AboutUsViewController.h"
 
 @interface AdminMenuViewController ()
 @property(nonatomic, strong) UITableView *list;
@@ -36,7 +37,7 @@
     if(self) {
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Menu" bundle:nil];
         self = [storyboard instantiateViewControllerWithIdentifier:NSStringFromClass([AdminMenuViewController class])];
-        
+
         [self initVars];
     }
     return self;
@@ -44,13 +45,8 @@
 
 -(void)initVars {
     self.items = @[
-                   //[IdTitleObject instanceWithId:@"city" title:@"Алматы" value:@"iconPin2"],
-                   //[IdTitleObject instanceWithId:@"mybook" title:@"Моя бронь" value:@"iconTimetable"],
-                   //[IdTitleObject instanceWithId:@"history" title:@"История посещений" value:@"iconHistory"],
-                   //[IdTitleObject instanceWithId:@"bonuses" title:@"Бонусы" value:@"iconPresent"],
-                   //[IdTitleObject instanceWithId:@"settings" title:@"Настройки" value:@"iconSettings"],
-                   [IdTitleObject instanceWithId:@"orders" title:@"Заказы" value:@"iconTimetable"],
-                   [IdTitleObject instanceWithId:@"share" title:@"О нас" value:@"iconShare"]
+                   [IdTitleObject instanceWithId:@"orders" title:[NSString stringWithFormat:@"Заказы(%@)",[User currentUser].cityCode] value:@"ic_business_white"],
+                   [IdTitleObject instanceWithId:@"aboutus" title:@"О нас" value:@"ic_share_white"]
                    ];
 }
 
@@ -70,7 +66,8 @@
 #pragma mark Actions
 
 - (void)openProfile {
-    [self pushViewControllerInCurrentContentController:[ProfileViewController new]];
+    //[self pushViewControllerInCurrentContentController:[ProfileViewController new]];
+    [self showControllerInStoryboard:@"AdminMain" tabBar:@"box_settings"];
 }
 
 - (void)userProfileUpdated {
@@ -78,7 +75,8 @@
 }
 
 - (void)setUserInfo {
-    _nameLabel.text = [User currentUser].firstName;
+    //_nameLabel.text = [User currentUser].firstName;
+    _nameLabel.text = @"Настройки";
     _telLabel.text = [User currentUser].mobile;
 }
 
@@ -110,14 +108,14 @@
         [_avatarView aa_superviewTop:0];
         [_avatarView aa_centerHorizontal];
         
-//        _nameLabel = [UILabel newAutoLayoutView];
-//        _nameLabel.backgroundColor = [UIColor clearColor];
-//        _nameLabel.font = [UIFont robotoBold:15];
-//        _nameLabel.textColor = [UIColor whiteColor];
-//        _nameLabel.textAlignment = NSTextAlignmentCenter;
-//        [containerView addSubview:_nameLabel];
-//        [_nameLabel aa_pinUnderView:_avatarView offset:7];
-//        [_nameLabel aa_superviewFitWidthWithInset:20];
+        _nameLabel = [UILabel newAutoLayoutView];
+        _nameLabel.backgroundColor = [UIColor clearColor];
+        _nameLabel.font = [UIFont robotoBold:15];
+        _nameLabel.textColor = [UIColor whiteColor];
+        _nameLabel.textAlignment = NSTextAlignmentCenter;
+        [containerView addSubview:_nameLabel];
+        [_nameLabel aa_pinUnderView:_avatarView offset:7];
+        [_nameLabel aa_superviewFitWidthWithInset:20];
         
         _telLabel = [UILabel newAutoLayoutView];
         _telLabel.backgroundColor = [UIColor clearColor];
@@ -125,9 +123,9 @@
         _telLabel.textColor = [UIColor whiteColor];
         _telLabel.textAlignment = NSTextAlignmentCenter;
         [containerView addSubview:_telLabel];
-        [_telLabel aa_pinUnderView:_avatarView offset:7];
+        [_telLabel aa_pinUnderView:_nameLabel offset:3];
         [_telLabel aa_superviewFitWidthWithInset:20];
-        //[_telLabel aa_leadingAndTrailing:_avatarView];
+        [_telLabel aa_leadingAndTrailing:_nameLabel];
         [_telLabel aa_superviewBottom:0];
         
         UIView *line = [UIView newAutoLayoutView];
@@ -173,29 +171,13 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     IdTitleObject *object = self.items[indexPath.row];
     
-    if([object.objectId isEqual:@"city"])
+    if([object.objectId isEqual:@"orders"])
     {
-        
+        [self showControllerInStoryboard:@"AdminMain" tabBar:@"tabBarcontroller"];
     }
-    else if([object.objectId isEqual:@"mybook"])
+    else if([object.objectId isEqual:@"aboutus"])
     {
-        
-    }
-    else if([object.objectId isEqual:@"history"])
-    {
-        
-    }
-    else if([object.objectId isEqual:@"bonuses"])
-    {
-        
-    }
-    else if([object.objectId isEqual:@"settings"])
-    {
-        
-    }
-    else if([object.objectId isEqual:@"share"])
-    {
-        
+        [self showControllerInStoryboard:@"AdminMain" navigation:@"about_us" andTitle:nil];
     }
 }
 

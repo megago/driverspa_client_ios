@@ -141,6 +141,7 @@
 		5200BFDF40830DB87ECBA4A4 /* CustomTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200BC50BB4615CDFA938B87 /* CustomTabBarController.m */; };
 		5200BFED80E38BB6F0548E03 /* ButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200B6A6D631D3A7F3F44EA2 /* ButtonView.m */; };
 		5200BFFD23EEAC25F896C0C5 /* AddPhotoCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200BD1C9D8E1652E6151DA2 /* AddPhotoCircleView.m */; };
+		A32D1A1E1D46764800A577F9 /* AboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A32D1A1D1D46764800A577F9 /* AboutUsViewController.m */; };
 		A341BB401D44A8B4005E27DD /* AdminMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A341BB3F1D44A8B4005E27DD /* AdminMain.storyboard */; };
 		A341BB431D44B6CE005E27DD /* AdminTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = A341BB421D44B6CE005E27DD /* AdminTabBarController.m */; };
 		A341BB491D44C8CC005E27DD /* AdminMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A341BB481D44C8CC005E27DD /* AdminMenuViewController.m */; };
@@ -184,6 +185,7 @@
 		A3BCA3C71D3D252D00FEE6B6 /* UserBookingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BCA39D1D3D252D00FEE6B6 /* UserBookingsViewController.m */; };
 		A3BCA3C81D3D252D00FEE6B6 /* UserFavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BCA39F1D3D252D00FEE6B6 /* UserFavoritesViewController.m */; };
 		A3BCA3C91D3D252D00FEE6B6 /* UserSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BCA3A11D3D252D00FEE6B6 /* UserSettingsViewController.m */; };
+		A3DD9EB71D47C96700C4DC87 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3DD9EB61D47C96700C4DC87 /* Images.xcassets */; };
 		CE2A33CC1CB00DFD005CC5B6 /* Menu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE2A33CB1CB00DFD005CC5B6 /* Menu.storyboard */; };
 		CE2A33CF1CB03011005CC5B6 /* UIViewController+FrostedMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2A33CE1CB03011005CC5B6 /* UIViewController+FrostedMenu.m */; };
 		CE2A33D11CB2BA58005CC5B6 /* CarwashMarkerInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE2A33D01CB2BA58005CC5B6 /* CarwashMarkerInfoView.xib */; };
@@ -349,7 +351,6 @@
 		CEABA62319BB1FDF00CBAEBF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CEABA62119BB1FDF00CBAEBF /* InfoPlist.strings */; };
 		CEABA62519BB1FDF00CBAEBF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CEABA62419BB1FDF00CBAEBF /* main.m */; };
 		CEABA62919BB1FDF00CBAEBF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CEABA62819BB1FDF00CBAEBF /* AppDelegate.m */; };
-		CEABA63119BB1FDF00CBAEBF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEABA63019BB1FDF00CBAEBF /* Images.xcassets */; };
 		CEB52E921A2054A7005A2DC1 /* icon-close-light.png in Resources */ = {isa = PBXBuildFile; fileRef = CEB52E901A2054A7005A2DC1 /* icon-close-light.png */; };
 		CEB52E931A2054A7005A2DC1 /* icon-close-light@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CEB52E911A2054A7005A2DC1 /* icon-close-light@2x.png */; };
 		CEDCFE0B19C74B6C00720AB5 /* RobotoCondensed-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CEDCFE0A19C74B6C00720AB5 /* RobotoCondensed-Light.ttf */; };
@@ -620,6 +621,8 @@
 		7E76B64380276926994A15C0 /* Pods-WashMe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WashMe.release.xcconfig"; path = "Pods/Target Support Files/Pods-WashMe/Pods-WashMe.release.xcconfig"; sourceTree = "<group>"; };
 		966FDCF9B51A58F24459B45A /* libPods-WashMe.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WashMe.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A137D133A3245F49615DD123 /* Pods-WashMe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WashMe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WashMe/Pods-WashMe.debug.xcconfig"; sourceTree = "<group>"; };
+		A32D1A1C1D46764800A577F9 /* AboutUsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutUsViewController.h; sourceTree = "<group>"; };
+		A32D1A1D1D46764800A577F9 /* AboutUsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutUsViewController.m; sourceTree = "<group>"; };
 		A341BB3F1D44A8B4005E27DD /* AdminMain.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AdminMain.storyboard; sourceTree = "<group>"; };
 		A341BB411D44B6CE005E27DD /* AdminTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdminTabBarController.h; sourceTree = "<group>"; };
 		A341BB421D44B6CE005E27DD /* AdminTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdminTabBarController.m; sourceTree = "<group>"; };
@@ -705,6 +708,7 @@
 		A3BCA39F1D3D252D00FEE6B6 /* UserFavoritesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserFavoritesViewController.m; sourceTree = "<group>"; };
 		A3BCA3A01D3D252D00FEE6B6 /* UserSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserSettingsViewController.h; sourceTree = "<group>"; };
 		A3BCA3A11D3D252D00FEE6B6 /* UserSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserSettingsViewController.m; sourceTree = "<group>"; };
+		A3DD9EB61D47C96700C4DC87 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		CE2A33CB1CB00DFD005CC5B6 /* Menu.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Menu.storyboard; sourceTree = "<group>"; };
 		CE2A33CD1CB03011005CC5B6 /* UIViewController+FrostedMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+FrostedMenu.h"; sourceTree = "<group>"; };
 		CE2A33CE1CB03011005CC5B6 /* UIViewController+FrostedMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+FrostedMenu.m"; sourceTree = "<group>"; };
@@ -878,7 +882,6 @@
 		CEABA62619BB1FDF00CBAEBF /* WashMe-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WashMe-Prefix.pch"; sourceTree = "<group>"; };
 		CEABA62719BB1FDF00CBAEBF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		CEABA62819BB1FDF00CBAEBF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		CEABA63019BB1FDF00CBAEBF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		CEB52E901A2054A7005A2DC1 /* icon-close-light.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-close-light.png"; sourceTree = "<group>"; };
 		CEB52E911A2054A7005A2DC1 /* icon-close-light@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-close-light@2x.png"; sourceTree = "<group>"; };
 		CEDCFE0A19C74B6C00720AB5 /* RobotoCondensed-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoCondensed-Light.ttf"; sourceTree = "<group>"; };
@@ -1317,6 +1320,8 @@
 				5200B4AF227665D9D9107EFF /* MenuViewController.m */,
 				5200B51A8C6F1BDD7C2AF387 /* CarwashesBaseViewController.h */,
 				5200BF0101A0FAF1EB304F0C /* CarwashesBaseViewController.m */,
+				A32D1A1C1D46764800A577F9 /* AboutUsViewController.h */,
+				A32D1A1D1D46764800A577F9 /* AboutUsViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -1601,7 +1606,7 @@
 				CE68D67619BB802700FCFF5B /* Views */,
 				CEABA62719BB1FDF00CBAEBF /* AppDelegate.h */,
 				CEABA62819BB1FDF00CBAEBF /* AppDelegate.m */,
-				CEABA63019BB1FDF00CBAEBF /* Images.xcassets */,
+				A3DD9EB61D47C96700C4DC87 /* Images.xcassets */,
 				CEABA61F19BB1FDF00CBAEBF /* Supporting Files */,
 				5200B393E617F098E7DF3693 /* Storyboards */,
 			);
@@ -1701,7 +1706,6 @@
 				CE755BE61A192F5E00A036DC /* border-button-pattern-highlighed@2x.png in Resources */,
 				CE755C0B1A192F5E00A036DC /* carwash-annotation.png in Resources */,
 				CE755C261A192F5E00A036DC /* icon-close-filled@2x.png in Resources */,
-				CEABA63119BB1FDF00CBAEBF /* Images.xcassets in Resources */,
 				CE755BF91A192F5E00A036DC /* btn_tab-carwash_normal.png in Resources */,
 				CE755BF61A192F5E00A036DC /* btn_cartype4_normal@2x.png in Resources */,
 				CE755C351A192F5E00A036DC /* icon-map-close.png in Resources */,
@@ -1732,6 +1736,7 @@
 				CE755C271A192F5E00A036DC /* icon-disclosure-indicator-white.png in Resources */,
 				CE755C651A192F5E00A036DC /* star-small-empty@2x.png in Resources */,
 				CE6C4A4B19DC4DA60014229D /* kz_almaty.gpx in Resources */,
+				A3DD9EB71D47C96700C4DC87 /* Images.xcassets in Resources */,
 				CE755C081A192F5E00A036DC /* btn_tab-settings_selected@2x.png in Resources */,
 				CE551AD71BCAB2850056AD5C /* UserMain.storyboard in Resources */,
 				5200BCBD2E3E4525C7C1D6AC /* Roboto-Bold.ttf in Resources */,
@@ -1959,6 +1964,7 @@
 				CEF383C01A4576DB00E3B007 /* Localization.m in Sources */,
 				5200B9ACF7A316B0AFC19EBD /* RegistrationViewController.m in Sources */,
 				A3BCA3A31D3D252D00FEE6B6 /* AdminBoxViewController.m in Sources */,
+				A32D1A1E1D46764800A577F9 /* AboutUsViewController.m in Sources */,
 				5200BF3A82C2E2E1090658B0 /* UIViewController+Ext.m in Sources */,
 				5200BCABD87ED3D33890D1DA /* InputTextField.m in Sources */,
 				5200BDBF5FFF9185AC05B412 /* ConfirmSmsViewController.m in Sources */,

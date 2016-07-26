@@ -41,8 +41,8 @@
     [[UITabBarItem appearance] setTitleTextAttributes:@{ NSForegroundColorAttributeName : [UIColor fromRGB:0x03a9f4] }
                                              forState:UIControlStateSelected];
     
-    NSArray *images = @[@"tab-nearby", @"iconTimetable", @"tab-nearby", ];
-    NSArray *imagesSelected = @[@"tab-nearby-active", @"iconTimetableBlue", @"tab-nearby-active", ];
+    NSArray *images = @[@"ic_timer_white", @"ic_calendar_white", @"ic_comment_white", ];
+    NSArray *imagesSelected = @[@"ic_timer_blue", @"ic_calendar_blue", @"ic_comment_blue", ];
     
     NSUInteger index = 0;
     for(UITabBarItem *item in self.tabBar.items) {

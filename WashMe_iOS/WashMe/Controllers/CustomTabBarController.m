@@ -37,8 +37,8 @@
     [[UITabBarItem appearance] setTitleTextAttributes:@{ NSForegroundColorAttributeName : [UIColor fromRGB:0x03a9f4] }
                                              forState:UIControlStateSelected];
 
-    NSArray *images = @[@"tab-nearby", @"tab-free", @"tab-akcii", @"tab-favorites"];
-    NSArray *imagesSelected = @[@"tab-nearby-active", @"tab-free-active", @"tab-akcii-active", @"tab-favorites-active"];
+    NSArray *images = @[@"tab-favorites", @"tab-free", @"tab-nearby",];
+    NSArray *imagesSelected = @[@"tab-favorites-active", @"tab-free-active", @"tab-nearby-active"];
 
     NSUInteger index = 0;
     for(UITabBarItem *item in self.tabBar.items) {

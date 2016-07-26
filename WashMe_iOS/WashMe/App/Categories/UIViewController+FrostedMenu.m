@@ -28,4 +28,22 @@
     [self hideMenu];
 }
 
+- (void)showControllerInStoryboard: (NSString *)storyboard navigation:(NSString *)navigation andTitle:(NSString*)title
+{
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:storyboard bundle:nil];
+    UINavigationController *nc = [sb instantiateViewControllerWithIdentifier:navigation];
+    nc.topViewController.title = title;
+    self.frostedViewController.contentViewController = nc;
+    [self.frostedViewController hideMenuViewController];
+}
+
+- (void)showControllerInStoryboard: (NSString *)storyboard tabBar:(NSString *)tabBar
+{
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:storyboard bundle:nil];
+    UITabBarController *tc = [sb instantiateViewControllerWithIdentifier:tabBar];
+    self.frostedViewController.contentViewController = tc;
+    [self.frostedViewController hideMenuViewController];
+}
+
+
 @end

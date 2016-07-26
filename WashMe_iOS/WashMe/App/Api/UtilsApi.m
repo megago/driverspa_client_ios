@@ -27,6 +27,13 @@
     } failure:failure];
 }
 
++ (void)aboutUs:(success)success failure:(failure)failure {
+    [self GET:@"about_us/html" success:^(id response) {
+        NSString *object = [response objectForKey:@"about_us"];
+        success(object);
+    } failure:failure];
+}
+
 #pragma mark -
 #pragma mark Helper
 

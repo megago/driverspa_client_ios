@@ -17,6 +17,7 @@
 #import "Carwash.h"
 #import "CarwashComplex.h"
 #import "UIViewController+NoContent.h"
+#import "UIViewController+NavigationBar.h"
 
 @interface AdminCarwashesViewController ()
 @end
@@ -173,6 +174,8 @@
     self.view.backgroundColor = [UIColor whiteColor];
     [self setBlueBackground];
     [self setNavigationTitle:@"Мои мойки"];
+    [self showMenuButton];
+    [self setNavigationBarTransparent];
 
     CGFloat listY = 64;
     list = [[UITableView alloc] initWithFrame:CGRectMake(0, listY, [ASize screenWidth], [ASize screenHeight] - listY - 44) style:UITableViewStylePlain];

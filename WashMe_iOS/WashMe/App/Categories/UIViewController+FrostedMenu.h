@@ -14,5 +14,7 @@
 - (void)hideMenu;
 
 - (void)pushViewControllerInCurrentContentController:(UIViewController *)viewController;
+- (void)showControllerInStoryboard: (NSString *)storyboard navigation:(NSString *)navigation andTitle:(NSString*)title;
+- (void)showControllerInStoryboard: (NSString *)storyboard tabBar:(NSString *)tabBar;
 
 @end
