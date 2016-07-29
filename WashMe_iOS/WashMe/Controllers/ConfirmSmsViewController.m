@@ -121,7 +121,7 @@
 
     [self setBlueBackground];
     [self createWashMeWhiteLogo];
-    [self setBackButton];
+    [self setBackButtonInNavigation];
     [sv addSubview:[self whiteLogo]];
 
     UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectZero];

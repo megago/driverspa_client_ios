@@ -26,6 +26,7 @@ typedef NS_ENUM(NSUInteger, CarwashBoxesTimeDay) {
 
 + (void)getCarwashes:(NSInteger)page filterManager:(FilterManager *)manager success:(success)success1 failure:(failure)failure1;
 + (void)getCarwashes:(NSInteger)page free:(NSString *)free working:(NSString *)working maxPrice:(NSNumber *)maxPrice comforts:(NSString *)comforts payments:(NSString *)payments rating:(NSNumber *)rating maxDistance:(NSNumber *)maxDistance success:(success)success1 failure:(failure)failure1;
++ (void)getPublicCarwashes:(NSDictionary *)params success:(success)success failure:(failure)failure ;
 
 + (void)getCarwashDetails:(NSString *)carwashID success:(success)success failure:(failure)failure;
 + (void)getCarwashWithResource:(NSString *)resourceUri success:(success)success failure:(failure)failure;

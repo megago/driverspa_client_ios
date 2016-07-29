@@ -78,7 +78,7 @@
     [super configUI];
 
     [self setBlueBackground];
-    [self setBackButton];
+    [self setBackButtonInNavigation];
     [self setNavigationTitle:@"Добавить отзыв"];
 
     sv.y = 64;

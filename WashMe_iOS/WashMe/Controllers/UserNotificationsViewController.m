@@ -80,7 +80,7 @@
     [super configUI];
     [self setBlueBackground];
     [self setNavigationTitle:@"Уведомления"];
-    [self setBackButton];
+    [self setBackButtonInNavigation];
     
     list = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, [ASize screenWidth], [ASize screenHeightWithoutStatusBarAndNavigationBarAndTabBar]) style:UITableViewStylePlain];
     list.delegate = self;

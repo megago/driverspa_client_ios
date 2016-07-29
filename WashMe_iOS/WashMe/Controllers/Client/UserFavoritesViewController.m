@@ -153,9 +153,10 @@
 
 -(void)configUI
 {
+    [self setNavigationTitle:@"Избранное"];
     [self setBlueBackground];
-    self.title = @"Избранные";
     [self setNavigationBarTransparent];
+    [self showMenuButton];
 
     // List
     self.list = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];

@@ -61,7 +61,7 @@
 -(void)configUI
 {
     [super configUI];
-    [self setBackButton];
+    [self setBackButtonInNavigation];
     [self setBlueBackground];
     [self setNavigationTitle:@"Статистика"];
 

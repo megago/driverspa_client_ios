@@ -101,7 +101,7 @@
 {
     [super configUI];
     [self setBlueBackground];
-    [self setBackButton];
+    [self setBackButtonInNavigation];
     [self setNavigationTitle:@"Адрес"];
 
     CreateCarwashDraft *draft = [CreateCarwashDraft sharedInstance];

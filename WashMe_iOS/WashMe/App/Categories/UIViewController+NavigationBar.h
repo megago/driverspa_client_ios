@@ -33,5 +33,6 @@
 - (void)setNavigationButtonWithIcon:(NSString *)iconName atLeft:(BOOL)atLeft selector:(SEL)_selector;
 
 - (void)setNavigationBarTransparent;
+- (void)setNavigationBarBlue;
 
 @end

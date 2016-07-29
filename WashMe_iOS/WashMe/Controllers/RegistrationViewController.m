@@ -84,7 +84,7 @@
 
     [self setBlueBackground];
     [self createWashMeWhiteLogo];
-    [self setBackButton];
+    [self setBackButtonInNavigation];
     [sv addSubview:[self whiteLogo]];
 
     sv.y = 0;
@@ -139,7 +139,7 @@
     telField.y = countryCodeField.bottom;
     telField.textField.keyboardType = UIKeyboardTypePhonePad;
     [telField setPlaceholder:@"Введите номер телефона"];
-    if([AppUtils isAlmas]) [telField setValue:![UserSettings isAdmin]?@"+77072885500":@"+77019559717"]; // TODO: for testing
+    if([AppUtils isAlmas]) [telField setValue:![UserSettings isAdmin]?@"+77019852754":@"+70000000000"]; // TODO: for testing
     [sv addSubview:telField];
     [editableFields addObject:telField];
 

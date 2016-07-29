@@ -172,6 +172,12 @@
     self.navigationController.navigationBar.translucent = YES;
 }
 
+- (void)setNavigationBarBlue {
+    [self.navigationController.navigationBar setBackgroundColor:[UIColor colorWithRed:65.f/255.f green:120.f/255.f blue:185.f/255.f alpha:1.f]];
+    self.navigationController.navigationBar.shadowImage = [UIImage new];
+    self.navigationController.navigationBar.translucent = YES;
+}
+
 
 - (void)hideBackButton {
     if(self.navigationItem) self.navigationItem.hidesBackButton = YES;

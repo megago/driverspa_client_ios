@@ -294,7 +294,7 @@
 {
     [super configUI];
     [self setBlueBackground];
-    [self setBackButton];
+    [self setBackButtonInNavigation];
 
     UILabel *subtitle = [sv setNavigationSubtitle:_bookObject.carwash.name];
     subtitle.y = 10;

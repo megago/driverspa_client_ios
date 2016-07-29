@@ -325,8 +325,9 @@
 {
     [super configUI];
     [self setBlueBackground];
-    self.title = @"Профиль";
-    [self setNavigationBackButton];
+    [self setNavigationTitle:@"Профиль"];
+    [self showMenuButton];
+    [self setNavigationBarTransparent];
     [self setNavigationButtonWithIcon:@"iconLogout" atLeft:NO selector:@selector(tapLogout)];
 
     // Picture

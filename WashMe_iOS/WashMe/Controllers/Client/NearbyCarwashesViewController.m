@@ -58,7 +58,9 @@
     [self removeNoContentMessageIfExists];
 
     if(!loadingMore) [SVProgressHUD showLoading];
-    [CarwashApi getCarwashes:self.page filterManager:self.filterManager success:^(NSArray *response) {
+    
+    [CarwashApi getPublicCarwashes:nil success:^(NSArray *response) {
+    //[CarwashApi getCarwashes:self.page filterManager:self.filterManager success:^(NSArray *response) {
 
         [SVProgressHUD dismiss];
         [self.list finishInfiniteScroll];
@@ -112,8 +114,6 @@
 -(void)configUI
 {
     [super configUI];
-
-
 }
 
 - (void)didReceiveMemoryWarning {

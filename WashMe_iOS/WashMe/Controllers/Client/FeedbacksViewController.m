@@ -127,7 +127,7 @@
 {
     self.view.backgroundColor = [UIColor whiteColor];
     [self setBlueBackground];
-    [self setBackButton];
+    [self setBackButtonInNavigation];
     [self setNavigationTitle:@"Отзывы"];
 
     [self createBarButtonAtLeft:NO buttonImage:@"icon-add-outline" target:self selector:@selector(addTapped)];

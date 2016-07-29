@@ -14,6 +14,7 @@
 -(UIImageView *)whiteLogo;
 - (void)setNavigationTitle:(NSString *)title;
 - (void)setBackButton;
+- (void)setBackButtonInNavigation;
 
 -(UIButton *)createBarButtonAtLeft:(BOOL)atLeft buttonImage:(NSString *)imageName target:(id)target selector:(SEL)_selector;
 

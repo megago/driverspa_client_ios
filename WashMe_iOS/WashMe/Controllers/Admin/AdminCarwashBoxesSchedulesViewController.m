@@ -121,7 +121,6 @@
 {
     [self setBlueBackground];
     [self setNavigationTitle:@"Таблица броней"];
-    //[self setBackButton];
     [self showMenuButton];
     [self setNavigationBarTransparent];
 

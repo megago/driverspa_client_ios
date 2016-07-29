@@ -37,7 +37,7 @@
 {
     [self setBlueBackground];
     [self setNavigationTitle:[NSString stringWithFormat:@"Бокс #%i", self.boxIndex + 1]];
-    [self setBackButton];
+    [self setBackButtonInNavigation];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -196,7 +196,7 @@
     [super configUI];
 
     [self setBlueBackground];
-    [self setBackButton];
+    [self setBackButtonInNavigation];
     [self setNavigationTitle:@"Информация об авто"];
 
     sv.y = 64;

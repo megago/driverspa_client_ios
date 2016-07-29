@@ -202,7 +202,7 @@
 -(void)configUI
 {
     [self setBlueBackground];
-    [self setBackButton];
+    [self setBackButtonInNavigation];
     [self setNavigationTitle:@"Настройка боксов"];
 
     [self createBarButtonAtLeft:NO buttonImage:@"icon-add-outline" target:self selector:@selector(addTapped)];

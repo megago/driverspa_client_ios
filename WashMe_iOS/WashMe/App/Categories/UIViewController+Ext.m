@@ -56,6 +56,12 @@
     [self.view addSubview:titleLabel];
 }
 
+- (void)setBackButtonInNavigation
+{
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"iconNavigationBack"] style:UIBarButtonItemStylePlain target:self action:@selector(goBackTapped)];
+    self.navigationItem.leftBarButtonItem = backButton;
+}
+
 - (void)setBackButton {
     [self createBarButtonAtLeft:YES buttonImage:@"iconNavigationBack" target:self selector:@selector(goBackTapped)];
 }

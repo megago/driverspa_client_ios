@@ -44,12 +44,14 @@
 
 -(void)initVars {
     self.items = @[
-            [IdTitleObject instanceWithId:@"city" title:@"Алматы" value:@"iconPin2"],
-            [IdTitleObject instanceWithId:@"mybook" title:@"Моя бронь" value:@"iconTimetable"],
-            [IdTitleObject instanceWithId:@"history" title:@"История посещений" value:@"iconHistory"],
-            [IdTitleObject instanceWithId:@"bonuses" title:@"Бонусы" value:@"iconPresent"],
-            [IdTitleObject instanceWithId:@"settings" title:@"Настройки" value:@"iconSettings"],
-            [IdTitleObject instanceWithId:@"share" title:@"Поделиться" value:@"iconShare"]
+            //[IdTitleObject instanceWithId:@"city" title:@"Алматы" value:@"iconPin2"],
+            //[IdTitleObject instanceWithId:@"mybook" title:@"Моя бронь" value:@"iconTimetable"],
+            //[IdTitleObject instanceWithId:@"history" title:@"История посещений" value:@"iconHistory"],
+            //[IdTitleObject instanceWithId:@"bonuses" title:@"Бонусы" value:@"iconPresent"],
+            //[IdTitleObject instanceWithId:@"settings" title:@"Настройки" value:@"iconSettings"],
+            //[IdTitleObject instanceWithId:@"share" title:@"Поделиться" value:@"iconShare"]
+           [IdTitleObject instanceWithId:@"carwashes" title:@"Мойки (Астана)" value:@"ic_share_white"],
+           [IdTitleObject instanceWithId:@"aboutus" title:@"О нас" value:@"ic_share_white"]
     ];
 }
 
@@ -69,7 +71,8 @@
 #pragma mark Actions
 
 - (void)openProfile {
-    [self pushViewControllerInCurrentContentController:[ProfileViewController new]];
+    //[self pushViewControllerInCurrentContentController:[ProfileViewController new]];
+    [self showControllerInStoryboard:@"UserMain" tabBar:@"profile"];
 }
 
 - (void)userProfileUpdated {
@@ -171,29 +174,13 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     IdTitleObject *object = self.items[indexPath.row];
 
-    if([object.objectId isEqual:@"city"])
+    if([object.objectId isEqual:@"carwashes"])
     {
-
+        [self showControllerInStoryboard:@"UserMain" tabBar:@"tabBarcontroller"];
     }
-    else if([object.objectId isEqual:@"mybook"])
+    else if([object.objectId isEqual:@"aboutus"])
     {
-
-    }
-    else if([object.objectId isEqual:@"history"])
-    {
-
-    }
-    else if([object.objectId isEqual:@"bonuses"])
-    {
-
-    }
-    else if([object.objectId isEqual:@"settings"])
-    {
-
-    }
-    else if([object.objectId isEqual:@"share"])
-    {
-
+        [self showControllerInStoryboard:@"UserMain" navigation:@"about_us" andTitle:nil];
     }
 }
 

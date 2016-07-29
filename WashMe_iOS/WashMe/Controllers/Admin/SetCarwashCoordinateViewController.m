@@ -83,7 +83,7 @@
 -(void)configUI
 {
     [self setBlueBackground];
-    [self setBackButton];
+    [self setBackButtonInNavigation];
     [self setNavigationTitle:@"Укажите на карте"];
 }
 

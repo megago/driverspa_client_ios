@@ -323,7 +323,7 @@
 -(void)configUI
 {
     [super configUI];
-    [self setBackButton];
+    [self setBackButtonInNavigation];
     [self setBlueBackground];
 
     CGFloat nexty = 0;

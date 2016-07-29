@@ -137,8 +137,8 @@
 {
     [super configUI];
     [self setBlueBackground];
-    [self setNavigationTitle:[NSString stringWithFormat:@"Бокс #%i", self.boxIndex]];
-    [self setBackButton];
+    [self setNavigationTitle:[NSString stringWithFormat:@"Бокс #%li", (long)self.boxIndex]];
+    [self setBackButtonInNavigation];
 
     CGFloat buttonWidth = (CGFloat) ([ASize screenWidth] * 0.5);
     __weak AdminCarwashBoxScheduleViewController * weakSelf = self;

@@ -105,7 +105,7 @@
 {
     [super configUI];
     [self setBlueBackground];
-    [self setBackButton];
+    [self setBackButtonInNavigation];
     [self setNavigationTitle:@"Часы работы"];
 
     // Times picker

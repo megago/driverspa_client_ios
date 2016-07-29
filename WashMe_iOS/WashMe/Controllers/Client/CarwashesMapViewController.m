@@ -16,7 +16,7 @@
 #import "CarwashApi.h"
 #import "UIViewController+NoContent.h"
 #import "CarwashComplex.h"
-
+#import "UIViewController+NavigationBar.h"
 
 @interface CarwashesMapViewController ()
 @end
@@ -41,20 +41,15 @@
 {
     [super viewDidLoad];
     [self configUI];
-
-    [[LocationHelper sharedInstance] requestLocation:^(CLLocation *currentLocation) {
-        [self createAnnotations];
-    } failed:^(INTULocationStatus status) {
-        [self createAnnotations];
-    }];
+    [self loadCarwaches];
 }
 
 -(void)viewWillAppear:(BOOL)animated {
-    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
+    //[[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
 }
 
 -(void)viewWillDisappear:(BOOL)animated {
-    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
+    //[[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
 }
 
 -(void)viewDidDisappear:(BOOL)animated {
@@ -69,6 +64,28 @@
 
 #pragma mark -
 #pragma mark ACtions
+
+- (void)loadCarwaches {
+    [SVProgressHUD showWithStatus:@"Загрузка"];
+    [CarwashApi getComplexCarwashes:^(NSArray *response) {
+        
+        [SVProgressHUD dismiss];
+        self.carwashes = response;
+        
+        
+    } failure:^(NSInteger code, NSString *message) {
+        [SVProgressHUD dismiss];
+    }];
+}
+
+- (void)requestLocation
+{
+    [[LocationHelper sharedInstance] requestLocation:^(CLLocation *currentLocation) {
+        [self createAnnotations];
+    } failed:^(INTULocationStatus status) {
+        [self createAnnotations];
+    }];
+}
 
 - (void)closeMap {
     [self dismissViewControllerAnimated:YES completion:nil];
@@ -124,7 +141,12 @@
 
 -(void)configUI
 {
-    self.view.backgroundColor = [UIColor whiteColor];
+    [self setNavigationTitle:@"На карте"];
+    [self setBlueBackground];
+    [self setNavigationBarBlue];
+    [self showMenuButton];
+    
+    //self.view.backgroundColor = [UIColor whiteColor];
 
     GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:[[LocationHelper sharedInstance] latitude]
                                                             longitude:[[LocationHelper sharedInstance] longitude]
@@ -132,7 +154,7 @@
     mapView_ = [GMSMapView mapWithFrame:CGRectZero camera:camera];
     mapView_.delegate = self;
     mapView_.myLocationEnabled = NO;
-    mapView_.settings.myLocationButton = YES;
+    mapView_.settings.myLocationButton = NO;
     self.view = mapView_;
 
     // My location icon
@@ -147,7 +169,7 @@
     UIImage *iconImage = [UIImage imageNamed:@"icon-map-close.png"];
     [closeButton setBackgroundImage:iconImage forState:UIControlStateNormal];
     closeButton.frame = CGRectMake([ASize screenWidth] - iconImage.size.width - 10, 10, iconImage.size.width, iconImage.size.height);
-    [self.view addSubview:closeButton];
+    //[self.view addSubview:closeButton];
 }
 
 - (void)didReceiveMemoryWarning {

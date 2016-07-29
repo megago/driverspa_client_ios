@@ -14,6 +14,7 @@
 #import "SimpleDetailsCell.h"
 #import "SimpleDetailsDisclosureCell.h"
 #import "UIViewController+NoContent.h"
+#import "UIViewController+NavigationBar.h"
 
 @interface UserBookingsViewController ()
 @end
@@ -46,7 +47,7 @@
 - (void)loadBookings
 {
     [Toast showHudLoading];
-    [UserApi bookingsWithStatus:kBookStatusPending success:^(id response) {
+    [UserApi bookingsWithStatus:nil success:^(id response) {
         bookings = [NSMutableArray arrayWithArray:response];
         [self reloadList];
     } failure:^(NSInteger code, NSString *message) {
@@ -125,8 +126,9 @@
 -(void)configUI
 {
     [super configUI];
-    [self setBackButton];
+    [self showMenuButton];
     [self setBlueBackground];
+    [self setNavigationBarTransparent];
     [self setNavigationTitle:@"Мои брони"];
 
     list = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, [ASize screenWidth], [ASize screenHeightWithoutStatusBarAndNavigationBar] - 44) style:UITableViewStylePlain];
