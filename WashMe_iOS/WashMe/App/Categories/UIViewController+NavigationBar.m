@@ -115,7 +115,7 @@
 #pragma mark Filter
 
 - (void)showNavigationMenuButton:(NSString *)title {
-    UIView *titleView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 250, 44)];
+    UIView *titleView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 200, 44)];
 
     UIView *container = [UIView newAutoLayoutView];
     [titleView addSubview:container];

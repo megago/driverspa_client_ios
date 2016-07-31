@@ -84,7 +84,7 @@
 
     [self setBlueBackground];
     [self createWashMeWhiteLogo];
-    [self setBackButtonInNavigation];
+    [self setBackButton];
     [sv addSubview:[self whiteLogo]];
 
     sv.y = 0;

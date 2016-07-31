@@ -51,7 +51,8 @@
         self.book = response;
 
         [Toast showHudWithTitle:@"Загрузка пользователя"];
-        [UserApi userWithResourceUri:self.book.client success:^(id response)
+        NSString *path = [self.book.client stringByReplacingOccurrencesOfString:@"/api/v1/" withString:@""];
+        [UserApi userWithResourceUri:path success:^(id response)
         {
             userObject = response;
             [self buildUI];

@@ -46,7 +46,7 @@
     [self configSVProgressHUD];
 
     // Google maps
-    [GMSServices provideAPIKey:@"AIzaSyD9KOGWAAAtoJUHzqtfzPXvt-I5TBwcatM"];
+    [GMSServices provideAPIKey:@"AIzaSyDPc1K20zfP_d6Ji3FYbVivKKkLjNr4JuY"];//@"AIzaSyD9KOGWAAAtoJUHzqtfzPXvt-I5TBwcatM"];
 
     // Request push notification permissions
     [self requestPushAndLocalNotificationPermissions];

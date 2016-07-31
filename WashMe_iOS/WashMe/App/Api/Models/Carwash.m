@@ -37,6 +37,7 @@
     self.rating = [self numberValueForKey:@"rating"];
     self.resourceUri = [self stringValueForKey:@"resource_uri"];
     self.price = [self numberValueForKey:@"price"];
+    self.status = [self stringValueForKey:@"status"];
 
     NSArray *lonlat = [self arrayValueForKey:@"lonlat"];
     self.lon = [lonlat[0] floatValue];

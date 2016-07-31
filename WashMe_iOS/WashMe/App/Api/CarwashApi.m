@@ -73,7 +73,7 @@
              success:(success)success failure:(failure)failure {
 
 
-    NSInteger itemsInPage = 50;
+    NSInteger itemsInPage = 20;
     if(page < 1) {
         page = 1;
     }
@@ -82,21 +82,21 @@
     CLLocationDegrees lat = [[LocationHelper sharedInstance] latitude];
 
     if(lon == 0 || lat == 0) {
-        lat = 43.237316;
-        lon = 76.915044;
+        lat = 51.128422;
+        lon = 71.430564;
     }
 
     // public_carwash?lonlat__near=76.882914%2C43.195137&lonlat__max_distance=10000&rating__lte=1000&max_price=1000&comforts=cafe,wifi&payments=cash&free=true&limit=2
 
     NSMutableDictionary * params = [NSMutableDictionary dictionary];
-    params[@"lonlat__near"] = [NSString stringWithFormat:@"%f,%f", lon, lat];
-    if(free)        params[@"free"] = @([free boolValue]);
-    if(working)     params[@"working"] = @([working boolValue]);
-    if(maxDistance) params[@"lonlat__max_distance"] = maxDistance;
-    if(rating)      params[@"rating__lte"] = rating;
-    if(maxPrice)    params[@"max_price"] = maxPrice;
-    if(comforts)    params[@"comforts"] = comforts;
-    if(payments)    params[@"payments"] = payments;
+    //params[@"lonlat__near"] = [NSString stringWithFormat:@"%f,%f", lon, lat];
+    //if(free)        params[@"free"] = @([free boolValue]);
+    //if(working)     params[@"working"] = @([working boolValue]);
+    ///if(maxDistance) params[@"lonlat__max_distance"] = maxDistance;
+    //if(rating)      params[@"rating__lte"] = rating;
+    //if(maxPrice)    params[@"max_price"] = maxPrice;
+    //if(comforts)    params[@"comforts"] = comforts;
+    //if(payments)    params[@"payments"] = payments;
     params[@"limit"] = @(itemsInPage);
     params[@"offset"] = @(itemsInPage * (page - 1));
 

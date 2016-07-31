@@ -15,7 +15,7 @@
 #import "NSString+Ext.h"
 #import "RowButtonView.h"
 #import "RowButtonDisclosureView.h"
-#import "CarwashesMapViewController.h"
+#import "CarwashMapViewController.h"
 #import "BookSetCarViewController.h"
 #import "UserApi.h"
 #import "BookmarksHelper.h"
@@ -98,7 +98,7 @@
 #pragma mark Actions
 
 - (void)mapTapped {
-    CarwashesMapViewController *v = [[CarwashesMapViewController alloc] init];
+    CarwashMapViewController *v = [[CarwashMapViewController alloc] init];
     v.carwashes = @[_carwashComplex];
     v.annotationsEnabled = NO;
     v.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
@@ -428,10 +428,10 @@
     [sv addSubview:feedbacksButton];
     [self updateFeedbacksRowTitle];
 
-    reservationTableButton = [[RowButtonDisclosureView alloc] initWithIcon:@"icon-grid" title:@"Расписание" target:self selector:@selector(reservationTableButtonTapped)];
-    reservationTableButton.y = feedbacksButton.bottom;
-    [reservationTableButton removeTopLine];
-    [sv addSubview:reservationTableButton];
+    //reservationTableButton = [[RowButtonDisclosureView alloc] initWithIcon:@"icon-grid" title:@"Расписание" target:self selector:@selector(reservationTableButtonTapped)];
+    //reservationTableButton.y = feedbacksButton.bottom;
+    //[reservationTableButton removeTopLine];
+    //[sv addSubview:reservationTableButton];
 
     // Bron
     __weak CarwashViewController *wSelf = self;
@@ -446,7 +446,7 @@
 
     [bookButton setTitleFont:[UIFont robotoRegular:18]];
     bookButton.centerX = self.view.centerX;
-    bookButton.y = reservationTableButton.bottom + 30;
+    bookButton.y = feedbacksButton.bottom + 30;
     bookButton.height = 40;
     [sv addSubview:bookButton];
 

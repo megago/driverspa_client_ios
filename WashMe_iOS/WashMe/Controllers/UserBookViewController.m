@@ -20,7 +20,7 @@
 #import "Cache.h"
 #import "AAButton+Styles.h"
 #import "UIAlertView+Blocks.h"
-#import "CarwashesMapViewController.h"
+#import "CarwashMapViewController.h"
 #import "Toast.h"
 #import "BookSetCarViewController.h"
 #import "NSString+Ext.h"
@@ -53,7 +53,8 @@
     [Cache carwashRefs:^(id obj) {
         _carwashRefs = obj;
         [Toast showHudLoading];
-        [CarwashApi getCarwashWithResource:self.book.carwash success:^(id response) {
+        NSString *url = [self.book.carwash stringByReplacingOccurrencesOfString:@"/api/v1/" withString:@""];
+        [CarwashApi getCarwashWithResource:url success:^(id response) {
             carwash = response;
             [self buildUI];
             [self configAction];
@@ -74,7 +75,7 @@
 #pragma mark Actions
 
 - (void)mapTapped {
-    CarwashesMapViewController *v = [[CarwashesMapViewController alloc] init];
+    CarwashMapViewController *v = [[CarwashMapViewController alloc] init];
     v.carwashes = @[carwash];
     v.annotationsEnabled = NO;
     v.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;

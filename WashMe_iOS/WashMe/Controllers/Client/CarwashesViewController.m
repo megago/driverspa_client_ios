@@ -139,7 +139,7 @@
 - (void)navigationDropdownMenuViewCityTapped:(City *)city
 {
     // Set new selected city
-    [UserSettings setCurrentCity:city];
+    
 
     // Reload carwashes with new city
     [self loadCarwashes];

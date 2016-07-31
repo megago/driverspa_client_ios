@@ -135,7 +135,7 @@
 {
     [self setBlueBackground];
     [self setNavigationBarTransparent];
-    [self setNavigationButtonWithIcon:@"icon-map" atLeft:NO selector:@selector(tapMap)];
+    //[self setNavigationButtonWithIcon:@"icon-map" atLeft:NO selector:@selector(tapMap)];
     [self showMenuButton];
 
     [self showNavigationMenuButton:@"Фильтр"];

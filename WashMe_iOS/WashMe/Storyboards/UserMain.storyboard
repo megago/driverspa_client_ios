@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--User Favorites View Controller-->
@@ -55,9 +56,24 @@
                     <view key="view" contentMode="scaleToFill" id="74Y-zv-TXE">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PxI-Uw-N4Z" customClass="GMSMapView">
+                                <rect key="frame" x="-4" y="64" width="328" height="455"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="PxI-Uw-N4Z" secondAttribute="trailing" constant="-20" id="6e9-d8-VeX"/>
+                            <constraint firstItem="pzX-Qr-lAP" firstAttribute="top" secondItem="PxI-Uw-N4Z" secondAttribute="bottom" id="I10-2m-g9Z"/>
+                            <constraint firstItem="PxI-Uw-N4Z" firstAttribute="leading" secondItem="74Y-zv-TXE" secondAttribute="leadingMargin" constant="-20" id="VhL-mg-jlD"/>
+                            <constraint firstItem="PxI-Uw-N4Z" firstAttribute="top" secondItem="pFl-ym-hrc" secondAttribute="bottom" id="WNp-xv-XGz"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="lgm-ia-LRu"/>
+                    <connections>
+                        <outlet property="mapView" destination="PxI-Uw-N4Z" id="dFJ-H4-yRU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q4B-kj-7Ge" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

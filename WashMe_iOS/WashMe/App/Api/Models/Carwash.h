@@ -22,6 +22,7 @@
 @property (nonatomic, assign) CGFloat lon;
 @property (nonatomic, strong) NSArray *carwashImages;
 @property (nonatomic, strong) NSNumber *price;
+@property (nonatomic, copy) NSString *status;
 
 + (Carwash *)instanceFromDictionary:(NSDictionary *)aDictionary;
 - (void)setAttributesFromDictionary:(NSDictionary *)aDictionary;

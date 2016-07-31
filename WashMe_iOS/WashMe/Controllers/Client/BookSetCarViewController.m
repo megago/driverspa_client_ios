@@ -268,7 +268,7 @@
     AAButton *continueButton = [[AAButton alloc] initWithWidth:kButtonWidth onTap:^(UIView *_self) {
         [wSelf continueTapped];
     }];
-    [continueButton commonStyleButtonWithTitle:@"Продолжить"];
+    [continueButton commonStyleButtonWithTitle:@"Выбрать время"];
     [continueButton setTitleFont:[UIFont robotoRegular:18]];
     continueButton.centerX = self.view.centerX;
     continueButton.y = priceView.bottom + 30;

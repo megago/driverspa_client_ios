@@ -25,6 +25,7 @@
 #import "City.h"
 #import "AppDelegate.h"
 #import "User.h"
+#import "UserSettings.h"
 
 @interface RegisterProfileViewController ()
 @property(nonatomic, strong) NSMutableArray *cars;
@@ -64,10 +65,13 @@
     [_carsCollectionView addCars:_cars];
 
     self.selectedCity = user.city;
-    if (_selectedCity) [_cityRowButton setTitle:_selectedCity.title];
+    if (_selectedCity) {
+        [_cityRowButton setTitle:_selectedCity.title];
+        [UserSettings setCurrentCity:_selectedCity];
+    }
 
     if(kDEBUGMODE) {
-        [_nameField setValue:@"Almaas"];
+        [_nameField setValue:@"Roman"];
     }
 }
 
@@ -108,7 +112,7 @@
 
 - (void)tapCity
 {
-    NSArray *cities = [Cache carwashRefs].cities;
+    NSArray *cities = @[[Cache carwashRefs].cities.lastObject];
     NSArray *cityNames = [cities map:^id(City *object) {
         return object.title;
     }];

@@ -37,7 +37,7 @@
     [super viewDidLoad];
 
     [[LocationHelper sharedInstance] requestLocation:^(CLLocation *currentLocation) {
-        [self loadCarwashes:NO];
+        [self loadCarwashes:YES];
 
         // Define or check the nearest city
         [UserSettings defineCurrentCity];
@@ -59,8 +59,8 @@
 
     if(!loadingMore) [SVProgressHUD showLoading];
     
-    [CarwashApi getPublicCarwashes:nil success:^(NSArray *response) {
-    //[CarwashApi getCarwashes:self.page filterManager:self.filterManager success:^(NSArray *response) {
+    //[CarwashApi getPublicCarwashes:nil success:^(NSArray *response) {
+    [CarwashApi getCarwashes:self.page filterManager:self.filterManager success:^(NSArray *response) {
 
         [SVProgressHUD dismiss];
         [self.list finishInfiniteScroll];

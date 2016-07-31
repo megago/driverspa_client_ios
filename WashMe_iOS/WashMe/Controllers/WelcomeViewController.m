@@ -13,9 +13,9 @@
 #import "RegistrationViewController.h"
 #import "UIViewController+Ext.h"
 #import "UserSettings.h"
+#import <EAIntroView/EAIntroView.h>
 
-
-@interface WelcomeViewController ()
+@interface WelcomeViewController () <EAIntroDelegate>
 @end
 
 @implementation WelcomeViewController {
@@ -52,6 +52,8 @@
             }];
         }];
     }];
+    
+    [self showIntro];
 }
 
 - (void)configAction
@@ -141,6 +143,91 @@
 
 -(void)dealloc {
 
+}
+
+#pragma mark - EAIntro
+
+- (void) showIntro
+{
+    UIFont *descFont = [UIFont fontWithName:@"Helvetica Neue" size:18];
+    //CGFloat descPositionY = 250;
+    
+    EAIntroPage *page1 = [EAIntroPage page];
+    page1.titleIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"intro_1"]];
+    
+    page1.desc = @"Привлекайте дополнительных клиентов, сообщайте об акциях и новостях!";
+    page1.descFont = descFont;
+    page1.descColor = [UIColor whiteColor];
+    //page1.descPositionY = descPositionY;
+    
+    EAIntroPage *page2 = [EAIntroPage page];
+    page2.titleIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"intro_2"]];
+    page2.desc = @"Сравнивайте цены и качество обслуживания в автомойках вашего города";
+    page2.descFont = descFont;
+    page2.descColor = [UIColor whiteColor];
+    //page2.descPositionY = descPositionY;
+    
+    EAIntroPage *page3 = [EAIntroPage page];
+    page3.titleIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"intro_3"]];
+    page3.desc = @"Находите ближайщие автомойки и бронируйте удобное для вас время заранее!";
+    page3.descFont = descFont;
+    page3.descColor = [UIColor whiteColor];
+    //page3.descPositionY = descPositionY;
+    
+    
+    
+    EAIntroView *intro = [[EAIntroView alloc] initWithFrame:self.view.bounds
+                                                   andPages:
+                          @[
+                            page1,
+                            page2,
+                            page3,
+                            
+                            ]];
+    intro.backgroundColor = [UIColor blackColor];
+    UIImageView *backgroundView = [[UIImageView alloc] initWithFrame:self.view.bounds];
+    backgroundView.image = [UIImage imageNamed:@"blue-bg"];
+    backgroundView.contentMode = UIViewContentModeScaleAspectFill;
+    [intro addSubview:backgroundView];
+    [intro sendSubviewToBack:backgroundView];
+    
+    
+    //intro.pageControlY = 80.0f;
+    //intro.skipButtonY = 40;
+    //intro.skipButtonAlignment = EAViewAlignmentCenter;
+    intro.skipButton = nil;
+    
+    [intro setDelegate:self];
+    [intro showInView:self.view];
+}
+
+- (void)intro:(EAIntroView *)introView pageAppeared:(EAIntroPage *)page withIndex:(NSUInteger)pageIndex
+{
+    UIView *header = [introView viewWithTag:101];
+    if (header){
+        [UIView animateWithDuration:0.3 animations:^{
+            header.alpha = 1.f;
+        }];
+        [header removeFromSuperview];
+    }
+    
+    UILabel *lblHeader = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, [ASize screenWidth], 80)];
+    lblHeader.textAlignment = NSTextAlignmentCenter;
+    lblHeader.font = [UIFont fontWithName:@"Helvetica Neue" size:24.f];
+    lblHeader.textColor = [UIColor whiteColor];
+    lblHeader.text = pageIndex == 0 ? @"Владельцам автомоек" : @"Автомобилистам";
+    lblHeader.tag = 101;
+    lblHeader.alpha = 1.f;
+    [introView addSubview:lblHeader];
+    
+    [UIView animateWithDuration:0.3 animations:^{
+        header.alpha = 0.f;
+    }];
+}
+
+- (void)introDidFinish:(EAIntroView *)introView
+{
+    [introView removeFromSuperview];
 }
 
 @end

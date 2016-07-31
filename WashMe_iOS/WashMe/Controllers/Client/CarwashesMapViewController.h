@@ -10,5 +10,6 @@
 
 @property(nonatomic, strong) NSArray *carwashes;
 @property(nonatomic, assign) BOOL annotationsEnabled;
+@property(nonatomic, strong) IBOutlet GMSMapView *mapView;
 
 @end

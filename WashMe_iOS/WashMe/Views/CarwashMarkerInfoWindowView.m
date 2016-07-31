@@ -205,7 +205,7 @@
                 view2.tag = 11;
                 view2.titleLabel.textColor = [UIColor flatBlackColor];
                 [cell.rightView addSubview:view2];
-                [view2 aa_superviewLeft:0];
+                [view2 aa_superviewLeft:kPadding];
                 [view2 aa_centerVertical];
 
                 [self insertButtomLineInCell:cell];
