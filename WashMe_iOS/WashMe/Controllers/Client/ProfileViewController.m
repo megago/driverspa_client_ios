@@ -328,7 +328,7 @@
     [self setNavigationTitle:@"Профиль"];
     [self showMenuButton];
     [self setNavigationBarTransparent];
-    [self setNavigationButtonWithIcon:@"iconLogout" atLeft:NO selector:@selector(tapLogout)];
+    //[self setNavigationButtonWithIcon:@"iconLogout" atLeft:NO selector:@selector(tapLogout)];
 
     // Picture
     avatarView = [[CirclePictureView alloc] initWithDimension:80];

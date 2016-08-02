@@ -114,6 +114,7 @@
 -(void)configUI
 {
     [super configUI];
+    [self setNavigationTitle:@"Астана"];
 }
 
 - (void)didReceiveMemoryWarning {

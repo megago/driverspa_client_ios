@@ -17,6 +17,8 @@
 #import "User.h"
 #import "UserApi.h"
 #import "NotificationsHelper.h"
+#import "UIHelper.h"
+#import "AppDelegate.h"
 
 @interface MenuViewController ()
 @property(nonatomic, strong) UITableView *list;
@@ -25,6 +27,7 @@
 
 @implementation MenuViewController {
     UIView *headerView;
+    UIView *footerView;
     UIImageView *_avatarView;
     UILabel *_nameLabel;
     UILabel *_telLabel;
@@ -82,6 +85,15 @@
 - (void)setUserInfo {
     _nameLabel.text = [User currentUser].firstName;
     _telLabel.text = [User currentUser].mobile;
+}
+
+- (void)tapLogout {
+    [[User currentUser] logoutQuestion:^(UIActionSheet *actionSheet, NSInteger buttonIndex) {
+        if(actionSheet.cancelButtonIndex != buttonIndex) {
+            [[User currentUser] logout];
+            [[UIHelper appDelegate] gotoWelcomeViewController];
+        }
+    }];
 }
 
 #pragma mark -
@@ -143,6 +155,29 @@
 
     return headerView;
 }
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return 250;
+}
+
+- (nullable UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
+{
+    if(!footerView) {
+        footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [[self class] menuWidth], [self tableView:tableView heightForFooterInSection:section])];
+        
+        UIButton *logout = [UIButton newAutoLayoutView];
+        [logout setBackgroundColor:[UIColor clearColor]];
+        [logout setTitle:@"Выход" forState:UIControlStateNormal];
+        [logout setImage:[UIImage imageNamed:@"iconLogout"] forState:UIControlStateNormal];
+        [logout addTarget:self action:@selector(tapLogout) forControlEvents:UIControlEventTouchUpInside];
+        [footerView addSubview:logout];
+        [logout aa_sameWidthWith:footerView];
+        [logout aa_setHeight:40.f];
+        [logout aa_superviewBottom:0.f];
+    }
+    return footerView;
+}
+
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.items.count;
 }

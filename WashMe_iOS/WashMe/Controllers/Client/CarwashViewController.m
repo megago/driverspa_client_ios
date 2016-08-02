@@ -8,6 +8,8 @@
 #import "Carwash.h"
 #import "CarwashMapView.h"
 #import "CarwashComplex.h"
+#import "CarwashSchedule.h"
+#import "SchedulePeriod.h"
 #import "CarwashApi.h"
 #import "IconTitleView.h"
 #import "AAButton+Styles.h"
@@ -324,10 +326,26 @@
 -(void)buildUI
 {
     sv.height = [ASize screenHeightWithoutStatusBarAndNavigationBarAndTabBar] - 3;
+    
+    __weak CarwashViewController *wSelf = self;
+    AAButton *bookButton1 = [[AAButton alloc] initWithWidth:200 onTap:^(UIView *_self) {
+        [wSelf bookButtonTapped];
+    }];
+    if(_carwashComplex.isBookable) {
+        [bookButton1 commonStyleButtonWithTitle:@"Бронировать"];
+    } else {
+        bookButton1.hidden = YES;
+    }
+    
+    [bookButton1 setTitleFont:[UIFont robotoRegular:18]];
+    bookButton1.centerX = self.view.centerX;
+    bookButton1.y = 5;
+    bookButton1.height = 40;
+    [sv addSubview:bookButton1];
 
     carwashMapView = [[CarwashMapView alloc] initWithCoordinate:_carwashComplex.coordinate];
     carwashMapView.x = (CGFloat) ((self.view.width - carwashMapView.width) * 0.5);
-    carwashMapView.y = 5;
+    carwashMapView.y = bookButton1.bottom + 30.f;
     [sv addSubview:carwashMapView];
 
     CirclePictureView *carwashPictureView = [[CirclePictureView alloc] initWithDimension:80];
@@ -376,7 +394,41 @@
 
         nextY = infosLabel.bottom + rowsSpacing;
     }
+    
+    //Shedule
+    NSArray *periods = [_carwashComplex.schedule todaySchedules];
+    NSString *workingTime = @"";
+    if (periods.count > 0){
+        SchedulePeriod *period = periods.firstObject;
+        workingTime = [period workingTime];
+    }
+    if (workingTime.length > 0)
+    {
+        IconTitleView *workingTitleView = [[IconTitleView alloc] initWithIcon:@"icon-24hours" title:workingTime];
+        workingTitleView.x = addressLabel.x;
+        workingTitleView.y = nextY + 5;
+        [sv addSubview:workingTitleView];
+        
+        nextY = workingTitleView.bottom;
+    }
+    
+    NSString *workingComment = _carwashComplex.schedule.comment;
+    if (workingComment.length > 0)
+    {
+        UILabel *commentLabel = [[UILabel alloc] initWithFrame:CGRectMake(addressLabel.x, nextY, colWidth , 1)];
+        commentLabel.backgroundColor = [UIColor clearColor];
+        commentLabel.font = [UIFont systemFontOfSize:13];
+        commentLabel.textColor = [UIColor whiteColor];
+        commentLabel.lineBreakMode = NSLineBreakByWordWrapping;
+        commentLabel.numberOfLines = 0;
+        commentLabel.text = workingComment;
+        [commentLabel sizeToFit];
+        [sv addSubview:commentLabel];
+        
+        nextY = commentLabel.bottom + rowsSpacing;
+    }
 
+    //Contacts
     NSString *contactMobilePhone = [_carwashComplex contactsMobilePhone];
     if(contactMobilePhone.length > 0)
     {
@@ -434,7 +486,7 @@
     //[sv addSubview:reservationTableButton];
 
     // Bron
-    __weak CarwashViewController *wSelf = self;
+    //__weak CarwashViewController *wSelf = self;
     AAButton *bookButton = [[AAButton alloc] initWithWidth:200 onTap:^(UIView *_self) {
         [wSelf bookButtonTapped];
     }];

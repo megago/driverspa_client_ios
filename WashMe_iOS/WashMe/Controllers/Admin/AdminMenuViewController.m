@@ -174,7 +174,6 @@
     }
     
     return footerView;
-
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

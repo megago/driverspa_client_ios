@@ -162,8 +162,8 @@
     
     _mapView.camera = camera;
     _mapView.delegate = self;
-    _mapView.myLocationEnabled = NO;
-    _mapView.settings.myLocationButton = NO;
+    _mapView.myLocationEnabled = YES;
+    _mapView.settings.myLocationButton = YES;
 
     // My location icon
     GMSMarker *myMarker = [GMSMarker markerWithPosition:CLLocationCoordinate2DMake([[LocationHelper sharedInstance] latitude], [[LocationHelper sharedInstance] longitude])];

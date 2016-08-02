@@ -138,7 +138,7 @@
     //[self setNavigationButtonWithIcon:@"icon-map" atLeft:NO selector:@selector(tapMap)];
     [self showMenuButton];
 
-    [self showNavigationMenuButton:@"Фильтр"];
+    //[self showNavigationMenuButton:@"Фильтр"];
 
     // List
     self.list = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
