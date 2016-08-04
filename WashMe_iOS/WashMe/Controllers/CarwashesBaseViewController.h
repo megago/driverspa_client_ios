@@ -25,7 +25,7 @@
 - (void)configUI;
 - (void)loadCarwashes:(BOOL)loadMore;
 - (void)tapNavigationMenuButton;
-
+- (void)setTabBarVisible:(BOOL)visible animated:(BOOL)animated completion:(void (^)(BOOL))completion;
 - (void)dealloc;
 
 @end

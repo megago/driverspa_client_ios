@@ -200,7 +200,7 @@
     [self setNavigationTitle:@"Информация об авто"];
 
     sv.y = 64;
-    sv.height = [ASize screenHeightWithoutStatusBarAndNavigationBar] - 44;
+    sv.height = [ASize screenHeightWithoutStatusBarAndNavigationBar];
 
     UILabel *subtitle = [sv setNavigationSubtitle:self.carwash.name];
     subtitle.y = 10;

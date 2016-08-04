@@ -46,6 +46,7 @@
         item.selectedImage = [[UIImage imageNamed:imagesSelected[index]] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
         ++index;
     }
+    [self setSelectedIndex:1];
 }
 
 @end

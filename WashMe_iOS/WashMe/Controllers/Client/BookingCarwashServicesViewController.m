@@ -170,7 +170,7 @@
     [self setBackButtonInNavigation];
     [self setNavigationTitle:@"Выберите услуги"];
     
-    list = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, [ASize screenWidth], [ASize screenHeightWithoutStatusBarAndNavigationBar]-44) style:UITableViewStylePlain];
+    list = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, [ASize screenWidth], [ASize screenHeightWithoutStatusBarAndNavigationBar]) style:UITableViewStylePlain];
     list.delegate = self;
     list.dataSource = self;
     list.backgroundColor = [UIColor clearColor];

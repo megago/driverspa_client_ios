@@ -41,6 +41,11 @@
     [self addObservers];
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [self setTabBarVisible:YES animated:YES completion:nil];
+}
+
 - (void)loadCarwashes:(BOOL)loadMore {
 
 }
@@ -70,6 +75,25 @@
     }];
 }
 
+- (void)setTabBarVisible:(BOOL)visible animated:(BOOL)animated completion:(void (^)(BOOL))completion {
+    
+    if ([self tabBarIsVisible] == visible) return (completion)? completion(YES) : nil;
+    
+    CGRect frame = self.tabBarController.tabBar.frame;
+    CGFloat height = frame.size.height;
+    CGFloat offsetY = (visible)? -height : height;
+    
+    CGFloat duration = (animated)? 0.3 : 0.0;
+    
+    [UIView animateWithDuration:duration animations:^{
+        self.tabBarController.tabBar.frame = CGRectOffset(frame, 0, offsetY);
+    } completion:completion];
+}
+
+- (BOOL)tabBarIsVisible {
+    return self.tabBarController.tabBar.frame.origin.y < CGRectGetMaxY(self.view.frame);
+}
+
 #pragma mark -
 #pragma mark UITableView
 
@@ -81,7 +105,7 @@
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     Carwash *carwash = _carwashes[(NSUInteger) indexPath.row];
-    return [CarwashCell cellHeight:carwash.name];
+    return [CarwashCell cellHeightWithCarwashName:carwash.name andAddress:carwash.address];
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"cell";
@@ -95,10 +119,14 @@
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-
-    CarwashViewController *v = [[CarwashViewController alloc] init];
-    v.carwash = _carwashes[(NSUInteger) indexPath.row];
-    [self.navigationController pushViewController:v animated:YES];
+    __weak NSMutableArray *weakCarwashes = _carwashes;
+    __weak CarwashesBaseViewController *weakSelf = self;
+    
+    [self setTabBarVisible:NO animated:YES completion:^(BOOL finished) {
+        CarwashViewController *v = [[CarwashViewController alloc] init];
+        v.carwash = weakCarwashes[(NSUInteger) indexPath.row];
+        [weakSelf.navigationController pushViewController:v animated:YES];
+    }];
 }
 
 #pragma mark -

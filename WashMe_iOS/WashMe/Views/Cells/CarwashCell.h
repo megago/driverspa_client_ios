@@ -15,6 +15,6 @@
 - (id)initWithReuseIdentifier:(NSString *)reuseIdentifier;
 - (void)setCarwash:(Carwash *)carwash;
 
-+ (CGFloat)cellHeight:(NSString *)model;
++ (CGFloat)cellHeightWithCarwashName:(NSString *)name andAddress:(NSString *)address;
 
 @end

@@ -325,7 +325,7 @@
 
 -(void)buildUI
 {
-    sv.height = [ASize screenHeightWithoutStatusBarAndNavigationBarAndTabBar] - 3;
+    sv.height = [ASize screenHeightWithoutStatusBarAndNavigationBar] - 3;
     
     __weak CarwashViewController *wSelf = self;
     AAButton *bookButton1 = [[AAButton alloc] initWithWidth:200 onTap:^(UIView *_self) {

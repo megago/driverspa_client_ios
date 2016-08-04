@@ -18,6 +18,7 @@
 #import "BoxTimeTable.h"
 #import "NSDate+Utilities.h"
 #import "UserApi.h"
+#import "IconTitleView.h"
 
 @interface BookChooseBoxViewController ()
 @end
@@ -298,6 +299,11 @@
 
     UILabel *subtitle = [sv setNavigationSubtitle:_bookObject.carwash.name];
     subtitle.y = 10;
+    
+    IconTitleView *washDelay = [[IconTitleView alloc] initWithIcon:@"icon-orders" title:[NSString stringWithFormat:@" Время мойки %i минут", _bookObject.bookTime]];
+    washDelay.x = [ASize screenWidth]/2 - washDelay.frame.size.width/2;
+    washDelay.y = subtitle.bottom + 5;
+    [sv addSubview:washDelay];
 
     CGFloat buttonWidth = (CGFloat) ([ASize screenWidth] * 0.5);
     __weak BookChooseBoxViewController *wSelf = self;
@@ -310,7 +316,7 @@
     [todayButton noBorderStyleButtonWithTitle:@"Сегодня"];
     [todayButton setTitleFont:font];
     [todayButton.button setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
-    todayButton.y = subtitle.bottom + 7;
+    todayButton.y = washDelay.bottom + 7;
     [sv addSubview:todayButton];
 
     tomorrowButton = [[AAButton alloc] initWithWidth:buttonWidth onTap:^(UIView *_self) {

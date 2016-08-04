@@ -11,17 +11,27 @@
 }
 
 -(id)init {
-    self = [super initWithFrame:CGRectMake(0, 0, 11, 11)];
+    self = [super initWithFrame:CGRectMake(0, 0, 80, 15)];
     if(self) {
-        statusImageView = [[UIImageView alloc] initWithFrame:self.bounds];
-        [self addSubview:statusImageView];
+        self.textAlignment = NSTextAlignmentCenter;
+        self.font = [UIFont robotoRegular:11.f];
+        self.text = @"online запись";
+        self.textColor = [UIColor whiteColor];
+        self.backgroundColor = [UIColor greenColor];
+        
+        self.layer.masksToBounds = YES;
+        self.layer.cornerRadius = self.frame.size.height / 2;
     }
     return self;
 }
 
 -(void)setIsAvailable:(BOOL)isAvailable {
     _isAvailable = isAvailable;
-    statusImageView.image = [UIImage imageNamed:isAvailable?@"icon-status-green":@"icon-status-red"];
+    if (isAvailable){
+        self.hidden = NO;
+    } else {
+        self.hidden = YES;
+    }
 }
 
 @end

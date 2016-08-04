@@ -6,7 +6,7 @@
 #import <Foundation/Foundation.h>
 
 
-@interface CarwashStatusView : UIView
+@interface CarwashStatusView : UILabel
 
 @property(nonatomic, assign) BOOL isAvailable;
 

@@ -156,7 +156,7 @@
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     Carwash *carwash = carwashes[(NSUInteger) indexPath.row];
-    return [CarwashCell cellHeight:carwash.name];
+    return [CarwashCell cellHeightWithCarwashName:carwash.name andAddress:carwash.address];
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"cell";
