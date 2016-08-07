@@ -11,10 +11,12 @@
 #import "SearchFilterViewController.h"
 
 @class FilterManager;
+@class LGRefreshView;
 
 @interface CarwashesBaseViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
 @property(nonatomic, strong) UITableView *list;
+@property(nonatomic, strong) LGRefreshView *refreshView;
 
 @property(nonatomic, strong) NSMutableArray *carwashes;
 @property(nonatomic, assign) NSInteger page;

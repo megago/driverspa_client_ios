@@ -44,6 +44,7 @@
 - (NSDate *)localBookDate;
 - (NSString *)bookTime;
 - (NSString *)localBookTime;
+- (NSString *)localizedDaysAgo;
 
 - (NSString *)localizedPrice;
 

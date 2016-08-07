@@ -18,9 +18,11 @@
 #import "UserApi.h"
 #import "UIViewController+NavigationBar.h"
 #import "UIViewController+NoContent.h"
+#import "LGRefreshView.h"
 
 @interface UserFavoritesViewController ()
 @property(nonatomic, strong) NSArray *carwashes;
+@property(nonatomic, strong) LGRefreshView *refreshView;
 @end
 
 @implementation UserFavoritesViewController
@@ -34,10 +36,15 @@
     [self addObservers];
 
     [Toast showHudLoading];
+    [self refreshCarwashes];
+}
+
+-(void)refreshCarwashes {
     [UserApi bookmarks:^(id response) {
         [self onCarwashesResponse:response];
+        [self.refreshView endRefreshing];
     } failure:^(NSInteger code, NSString *message) {
-
+        
     }];
 }
 
@@ -169,6 +176,15 @@
     [_list autoPinToTopLayoutGuideOfViewController:self withInset:0];
     [_list aa_superviewFitWidth];
     [_list autoPinToBottomLayoutGuideOfViewController:self withInset:0];
+    
+    __weak typeof(self) wself = self;
+    _refreshView = [LGRefreshView refreshViewWithScrollView:_list
+                                             refreshHandler:^(LGRefreshView *refreshView)
+                    {
+                        [wself refreshCarwashes];
+                    }];
+    _refreshView.tintColor = [UIColor whiteColor];
+    _refreshView.backgroundColor = [UIColor clearColor];
 }
 
 - (void)didReceiveMemoryWarning {

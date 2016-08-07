@@ -15,8 +15,11 @@
 #import "SimpleDetailsDisclosureCell.h"
 #import "UIViewController+NoContent.h"
 #import "UIViewController+NavigationBar.h"
+#import "LGRefreshView.h"
+#import "BookCell.h"
 
 @interface UserBookingsViewController ()
+@property(nonatomic, strong) LGRefreshView *refreshView;
 @end
 
 @implementation UserBookingsViewController {
@@ -50,6 +53,7 @@
     [UserApi bookingsWithStatus:nil success:^(id response) {
         bookings = [NSMutableArray arrayWithArray:response];
         [self reloadList];
+        [self.refreshView endRefreshing];
     } failure:^(NSInteger code, NSString *message) {
 
     }];
@@ -61,7 +65,7 @@
         [list reloadData];
         [self removeNoContentMessageIfExists];
     } else {
-        __weak UserBookingsViewController *wSelf = self;
+        //__weak UserBookingsViewController *wSelf = self;
         [self showNoContentMessage:@"У Вас нет автивных броней" withButton:@"Обновить" selector:@selector(loadBookings)];
         list.hidden = YES;
     }
@@ -98,17 +102,19 @@
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     CarwashBook *book = bookings[(NSUInteger) indexPath.row];
-    return [SimpleDetailsDisclosureCell cellHeight:book.carwashName details:[book localizedPrettyDate]];
+    return [BookCell cellHeight:book];
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"cell";
-    SimpleDetailsDisclosureCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    //SimpleDetailsDisclosureCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    BookCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[SimpleDetailsDisclosureCell alloc] initWithReuseIdentifier:CellIdentifier];
+        cell = [[BookCell alloc] initWithReuseIdentifier:CellIdentifier];
     }
 
     CarwashBook *book = bookings[(NSUInteger) indexPath.row];
-    [cell setTitle:book.carwashName details:[book localizedPrettyDate]];
+    //[cell setTitle:book.carwashName details:[book localizedPrettyDate]];
+    [cell setCarwashBook:book];
 
     return cell;
 }
@@ -137,6 +143,15 @@
     list.backgroundColor = [UIColor clearColor];
     list.separatorColor = [UIColor clearColor];
     [self.view addSubview:list];
+    
+    __weak typeof(self) wself = self;
+    _refreshView = [LGRefreshView refreshViewWithScrollView:list
+                                             refreshHandler:^(LGRefreshView *refreshView)
+                    {
+                        [wself loadBookings];
+                    }];
+    _refreshView.tintColor = [UIColor whiteColor];
+    _refreshView.backgroundColor = [UIColor clearColor];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -33,4 +33,5 @@ target "WashMe" do
   pod 'DZNEmptyDataSet', '1.7.3'
   pod 'UIScrollView-InfiniteScroll'
   pod 'EAIntroView', '~> 2.9.0'
+  pod 'LGRefreshView', '~> 1.0.0'
 end

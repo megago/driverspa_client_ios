@@ -14,6 +14,7 @@
 #import "UIViewController+Ext.h"
 #import "UserSettings.h"
 #import <EAIntroView/EAIntroView.h>
+#import "AdminDummyViewControlller.h"
 
 @interface WelcomeViewController () <EAIntroDelegate>
 @end
@@ -73,11 +74,17 @@
 - (void)carwashButtonTapped
 {
     [UserSettings setIsAdmin:YES];
-    [self gotoRegistration];
+    //[self gotoRegistration];
+    [self gotoDummy];
 }
 
 - (void)gotoRegistration {
     RegistrationViewController *v = [[RegistrationViewController alloc] init];
+    [self.navigationController pushViewController:v animated:YES];
+}
+
+- (void)gotoDummy {
+    AdminDummyViewControlller *v = [[AdminDummyViewControlller alloc] init];
     [self.navigationController pushViewController:v animated:YES];
 }
 

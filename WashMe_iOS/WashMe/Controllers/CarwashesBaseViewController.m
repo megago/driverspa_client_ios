@@ -20,9 +20,9 @@
 #import "CarwashCell.h"
 #import "Carwash.h"
 #import "UIScrollView+InfiniteScroll.h"
+#import "LGRefreshView.h"
 
 @interface CarwashesBaseViewController ()
-
 @end
 
 @implementation CarwashesBaseViewController {
@@ -48,6 +48,10 @@
 
 - (void)loadCarwashes:(BOOL)loadMore {
 
+}
+
+- (void)refreshCarwashes {
+    
 }
 
 #pragma mark -
@@ -179,6 +183,15 @@
     [_list autoPinToTopLayoutGuideOfViewController:self withInset:0];
     [_list aa_superviewFitWidth];
     [_list autoPinToBottomLayoutGuideOfViewController:self withInset:0];
+    
+    __weak typeof(self) wself = self;
+    _refreshView = [LGRefreshView refreshViewWithScrollView:_list
+                                             refreshHandler:^(LGRefreshView *refreshView)
+                    {
+                        [wself refreshCarwashes];
+                    }];
+    _refreshView.tintColor = [UIColor whiteColor];
+    _refreshView.backgroundColor = [UIColor clearColor];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -22,11 +22,15 @@
 #import "InputTextField+Validation.h"
 #import "UserApi.h"
 #import "BookObject.h"
+#import "CarsCollectionView.h"
 
 @interface BookSetCarViewController ()
+@property (nonatomic, strong) NSMutableArray *cars;
 @end
 
 @implementation BookSetCarViewController {
+    
+    CarsCollectionView *_carsCollectionView;
     CarTypesTabbarView *carTypesTabbarView;
     InputTextField *fioField;
     InputTextField *telField;
@@ -63,6 +67,9 @@
     [telField setValue:user.mobile];
 //    [carBrandField setValue:user.carModel];
 //    [carNumberField setValue:user.carNumber];
+    
+    self.cars = [user.cars mutableCopy];
+    [_carsCollectionView addCars:_cars];
 
     if(self.editMode)
     {
@@ -204,10 +211,17 @@
 
     UILabel *subtitle = [sv setNavigationSubtitle:self.carwash.name];
     subtitle.y = 10;
+    
+    _carsCollectionView = [[CarsCollectionView alloc]  initWithFrame:CGRectMake(0, subtitle.bottom, [ASize screenWidth], 70)];
+    _carsCollectionView.y = subtitle.bottom;
+    _carsCollectionView.width = 320.f;
+    _carsCollectionView.height = 70.f;
+    [_carsCollectionView addAddButton];
+    [sv addSubview:_carsCollectionView];
 
     carTypesTabbarView = [[CarTypesTabbarView alloc] initWithCarTypeIds:self.carwash.cartypes];
     carTypesTabbarView.delegate = self;
-    carTypesTabbarView.y = subtitle.bottom + 15;
+    carTypesTabbarView.y = _carsCollectionView.bottom + 15;
     [sv addSubview:carTypesTabbarView];
 
     // Fields

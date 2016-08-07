@@ -25,6 +25,9 @@
 #import "UIViewController+NoContent.h"
 #import "SVProgressHUD+Ext.h"
 #import "UIScrollView+InfiniteScroll.h"
+#import "FilterManager.h"
+#import "User.h"
+#import "LGRefreshView.h"
 
 @interface NearbyCarwashesViewController ()
 @end
@@ -82,7 +85,39 @@
             [self showNoContentMessage:@"Ничего не найдено"];
         }
         [self.list reloadData];
+    } failure:^(NSInteger code, NSString *message) {
+        [SVProgressHUD dismiss];
+    }];
+}
 
+-(void)refreshCarwashes {
+    // Remove no content message if any
+    [self removeNoContentMessageIfExists];
+    
+    self.page = 0;
+    self.filterManager = 0;
+    
+    [SVProgressHUD showLoading];
+    [CarwashApi getCarwashes:self.page filterManager:self.filterManager success:^(NSArray *response) {
+        
+        [SVProgressHUD dismiss];
+        [self.list finishInfiniteScroll];
+        
+        if(response && response.count == 0) {
+            self.allowInfiniteLoading = NO;
+        }
+        
+        if(!self.carwashes) {
+            self.carwashes = [[NSMutableArray alloc] init];
+        }
+        self.carwashes = [response mutableCopy];
+        
+        if(self.carwashes.count == 0) {
+            [self showNoContentMessage:@"Ничего не найдено"];
+        }
+        [self.list reloadData];
+        [self.refreshView endRefreshing];
+        
     } failure:^(NSInteger code, NSString *message) {
         [SVProgressHUD dismiss];
     }];

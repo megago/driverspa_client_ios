@@ -17,6 +17,8 @@
 @property(nonatomic, copy) NSString *payments;
 @property(nonatomic, copy) NSNumber *rating;
 @property(nonatomic, copy) NSNumber *maxDistance;
+@property(nonatomic, copy) NSString *city;
+@property(nonatomic, copy) NSString *mobile;
 
 - (NSString *)comfortsString;
 - (void)reset;

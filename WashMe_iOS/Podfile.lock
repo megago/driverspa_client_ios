@@ -41,6 +41,8 @@ PODS:
   - GoogleMaps (1.13.0)
   - INTULocationManager (4.2.0)
   - IQKeyboardManager (4.0.1)
+  - LGRefreshView (1.0.5):
+    - DACircularProgress (~> 2.3.0)
   - M13BadgeView (1.0.4)
   - MBProgressHUD (0.9.2)
   - MWPhotoBrowser (1.4.1):
@@ -83,6 +85,7 @@ DEPENDENCIES:
   - GoogleMaps (= 1.13.0)
   - INTULocationManager (= 4.2.0)
   - IQKeyboardManager (= 4.0.1)
+  - LGRefreshView (~> 1.0.0)
   - M13BadgeView (= 1.0.4)
   - MBProgressHUD (~> 0.9.2)
   - MWPhotoBrowser (= 1.4.1)
@@ -119,6 +122,7 @@ SPEC CHECKSUMS:
   GoogleMaps: 7a6caeb8336d7cb42982e969fc9b1b20a889fe79
   INTULocationManager: 73f8254b3d05c897c56bb13c190e5b7c648c0998
   IQKeyboardManager: 0c11a0cb402a621f7aa1aff506f60ab6d2388969
+  LGRefreshView: 34746afadbd23de8d1449cab15f3d89269645d43
   M13BadgeView: 700dd0714fdc837c0cf1c8c004454963ec22441f
   MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
   MWPhotoBrowser: 2531e682860d62b8a7ba8659de02eb9040e431e5
@@ -139,6 +143,6 @@ SPEC CHECKSUMS:
   UIAlertView+Blocks: a46c99c5144f6c5dbc7d62fd2a0678daceec89a3
   UIScrollView-InfiniteScroll: 14e204c50ca4040467e1cbfa141dad7a18919b56
 
-PODFILE CHECKSUM: f1b200344b544c5853ae3f3fec8f9e5104cd9cc6
+PODFILE CHECKSUM: e6e5021162f7302370ae49cfa74281369ea092fd
 
 COCOAPODS: 1.0.1

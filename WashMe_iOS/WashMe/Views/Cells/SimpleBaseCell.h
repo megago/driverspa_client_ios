@@ -8,7 +8,7 @@
 
 #define kPaddingTitleLeft 15
 #define kPaddingTitleRight 45
-#define kTitleFont [UIFont robotoRegular:16]
+#define kTitleFont [UIFont robotoRegular:14]
 #define kTitlePaddingTop 12
 
 @interface SimpleBaseCell : UITableViewCell {

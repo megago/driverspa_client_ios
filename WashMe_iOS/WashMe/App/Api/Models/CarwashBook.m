@@ -105,6 +105,24 @@
     return [df stringFromDate:[self localBookDate]];
 }
 
+- (NSString *)localizedDaysAgo
+{
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDateComponents *components = [calendar components:NSCalendarUnitDay
+                                               fromDate:[self localBookDate]
+                                                 toDate:[NSDate date]
+                                                options:0];
+    NSString *str = [NSString stringWithFormat:@"%ld", components.day];
+    NSString *lastChar = [str substringFromIndex:[str length] - 1];
+    
+    if ([lastChar isEqualToString:@"1"]) {
+        return [NSString stringWithFormat:@"%ld день назад", components.day];
+    } else if ([lastChar isEqualToString:@"2"] || [lastChar isEqualToString:@"3"] || [lastChar isEqualToString:@"4"]){
+        return [NSString stringWithFormat:@"%ld дня назад", components.day];
+    }
+    return [NSString stringWithFormat:@"%ld дней назад", components.day];
+}
+
 - (NSString *)localizedPrice {
     return [NSString stringWithFormat:@"%@ тг.", [NSString numberFormattedNumberText:self.price]];
 }
@@ -157,6 +175,5 @@
     }
     return @"";
 }
-
 
 @end

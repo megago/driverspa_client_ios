@@ -33,6 +33,8 @@
 #import "IdTitleObject.h"
 #import "UIViewController+NavigationBar.h"
 
+#import "BookSetCarViewController3.h"
+
 @interface CarwashViewController ()
 @property(nonatomic, strong) CarwashComplex *carwashComplex;
 @end
@@ -109,7 +111,7 @@
 
 - (void)bookButtonTapped
 {
-    BookSetCarViewController *v = [[BookSetCarViewController alloc] init];
+    BookSetCarViewController3 *v = [[BookSetCarViewController3 alloc] init];
     v.carwash = _carwashComplex;
     [self.navigationController pushViewController:v animated:YES];
 }

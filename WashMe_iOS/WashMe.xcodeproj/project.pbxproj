@@ -184,7 +184,6 @@
 		A3BCA3B91D3D252D00FEE6B6 /* BookChooseBoxViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BCA3811D3D252C00FEE6B6 /* BookChooseBoxViewController.m */; };
 		A3BCA3BA1D3D252D00FEE6B6 /* BookingCarwashServicesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BCA3831D3D252C00FEE6B6 /* BookingCarwashServicesViewController.m */; };
 		A3BCA3BB1D3D252D00FEE6B6 /* BookResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BCA3851D3D252C00FEE6B6 /* BookResultViewController.m */; };
-		A3BCA3BC1D3D252D00FEE6B6 /* BookSetCarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BCA3871D3D252C00FEE6B6 /* BookSetCarViewController.m */; };
 		A3BCA3BD1D3D252D00FEE6B6 /* BooksHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BCA3891D3D252C00FEE6B6 /* BooksHistoryViewController.m */; };
 		A3BCA3BE1D3D252D00FEE6B6 /* CarwashesMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BCA38B1D3D252C00FEE6B6 /* CarwashesMapViewController.m */; };
 		A3BCA3BF1D3D252D00FEE6B6 /* CarwashesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BCA38D1D3D252C00FEE6B6 /* CarwashesViewController.m */; };
@@ -199,6 +198,13 @@
 		A3BCA3C81D3D252D00FEE6B6 /* UserFavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BCA39F1D3D252D00FEE6B6 /* UserFavoritesViewController.m */; };
 		A3BCA3C91D3D252D00FEE6B6 /* UserSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BCA3A11D3D252D00FEE6B6 /* UserSettingsViewController.m */; };
 		A3DD9EB71D47C96700C4DC87 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3DD9EB61D47C96700C4DC87 /* Images.xcassets */; };
+		A3EB6D581D5609C0004E8CB5 /* ios_admin_dummy.html in Resources */ = {isa = PBXBuildFile; fileRef = A3EB6D571D5609C0004E8CB5 /* ios_admin_dummy.html */; };
+		A3EB6D5B1D561011004E8CB5 /* AdminDummyViewControlller.m in Sources */ = {isa = PBXBuildFile; fileRef = A3EB6D5A1D561011004E8CB5 /* AdminDummyViewControlller.m */; };
+		A3EB6D5F1D565497004E8CB5 /* BookCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A3EB6D5E1D565497004E8CB5 /* BookCell.m */; };
+		A3EB6D641D57383F004E8CB5 /* BookSetCarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3EB6D631D57383F004E8CB5 /* BookSetCarViewController.m */; };
+		A3EB6D6A1D5753A0004E8CB5 /* CarwashServiceCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = A3EB6D691D5753A0004E8CB5 /* CarwashServiceCollectionView.m */; };
+		A3EB6D701D575C1F004E8CB5 /* ServiceCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A3EB6D6F1D575C1F004E8CB5 /* ServiceCollectionCell.m */; };
+		A3EB6D731D57706A004E8CB5 /* BookSetCarViewController3.m in Sources */ = {isa = PBXBuildFile; fileRef = A3EB6D721D57706A004E8CB5 /* BookSetCarViewController3.m */; };
 		CE2A33CC1CB00DFD005CC5B6 /* Menu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE2A33CB1CB00DFD005CC5B6 /* Menu.storyboard */; };
 		CE2A33CF1CB03011005CC5B6 /* UIViewController+FrostedMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2A33CE1CB03011005CC5B6 /* UIViewController+FrostedMenu.m */; };
 		CE2A33D11CB2BA58005CC5B6 /* CarwashMarkerInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE2A33D01CB2BA58005CC5B6 /* CarwashMarkerInfoView.xib */; };
@@ -708,7 +714,6 @@
 		A3BCA3841D3D252C00FEE6B6 /* BookResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookResultViewController.h; sourceTree = "<group>"; };
 		A3BCA3851D3D252C00FEE6B6 /* BookResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookResultViewController.m; sourceTree = "<group>"; };
 		A3BCA3861D3D252C00FEE6B6 /* BookSetCarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookSetCarViewController.h; sourceTree = "<group>"; };
-		A3BCA3871D3D252C00FEE6B6 /* BookSetCarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookSetCarViewController.m; sourceTree = "<group>"; };
 		A3BCA3881D3D252C00FEE6B6 /* BooksHistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BooksHistoryViewController.h; sourceTree = "<group>"; };
 		A3BCA3891D3D252C00FEE6B6 /* BooksHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BooksHistoryViewController.m; sourceTree = "<group>"; };
 		A3BCA38A1D3D252C00FEE6B6 /* CarwashesMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarwashesMapViewController.h; sourceTree = "<group>"; };
@@ -736,6 +741,18 @@
 		A3BCA3A01D3D252D00FEE6B6 /* UserSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserSettingsViewController.h; sourceTree = "<group>"; };
 		A3BCA3A11D3D252D00FEE6B6 /* UserSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserSettingsViewController.m; sourceTree = "<group>"; };
 		A3DD9EB61D47C96700C4DC87 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		A3EB6D571D5609C0004E8CB5 /* ios_admin_dummy.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = ios_admin_dummy.html; sourceTree = "<group>"; };
+		A3EB6D591D561011004E8CB5 /* AdminDummyViewControlller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdminDummyViewControlller.h; sourceTree = "<group>"; };
+		A3EB6D5A1D561011004E8CB5 /* AdminDummyViewControlller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdminDummyViewControlller.m; sourceTree = "<group>"; };
+		A3EB6D5D1D565497004E8CB5 /* BookCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookCell.h; sourceTree = "<group>"; };
+		A3EB6D5E1D565497004E8CB5 /* BookCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookCell.m; sourceTree = "<group>"; };
+		A3EB6D631D57383F004E8CB5 /* BookSetCarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookSetCarViewController.m; sourceTree = "<group>"; };
+		A3EB6D681D5753A0004E8CB5 /* CarwashServiceCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarwashServiceCollectionView.h; sourceTree = "<group>"; };
+		A3EB6D691D5753A0004E8CB5 /* CarwashServiceCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarwashServiceCollectionView.m; sourceTree = "<group>"; };
+		A3EB6D6E1D575C1F004E8CB5 /* ServiceCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServiceCollectionCell.h; sourceTree = "<group>"; };
+		A3EB6D6F1D575C1F004E8CB5 /* ServiceCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServiceCollectionCell.m; sourceTree = "<group>"; };
+		A3EB6D711D57706A004E8CB5 /* BookSetCarViewController3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookSetCarViewController3.h; sourceTree = "<group>"; };
+		A3EB6D721D57706A004E8CB5 /* BookSetCarViewController3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookSetCarViewController3.m; sourceTree = "<group>"; };
 		CE2A33CB1CB00DFD005CC5B6 /* Menu.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Menu.storyboard; sourceTree = "<group>"; };
 		CE2A33CD1CB03011005CC5B6 /* UIViewController+FrostedMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+FrostedMenu.h"; sourceTree = "<group>"; };
 		CE2A33CE1CB03011005CC5B6 /* UIViewController+FrostedMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+FrostedMenu.m"; sourceTree = "<group>"; };
@@ -1005,6 +1022,8 @@
 				5200BD6750BB1A46EB0FD803 /* SimpleDetailsDisclosureCell.m */,
 				5200B8C97A688507ED9B60CD /* DoubleCell.h */,
 				5200B05D2ABEB1A39FA92FAC /* DoubleCell.m */,
+				A3EB6D5D1D565497004E8CB5 /* BookCell.h */,
+				A3EB6D5E1D565497004E8CB5 /* BookCell.m */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -1158,7 +1177,7 @@
 				A3BCA3841D3D252C00FEE6B6 /* BookResultViewController.h */,
 				A3BCA3851D3D252C00FEE6B6 /* BookResultViewController.m */,
 				A3BCA3861D3D252C00FEE6B6 /* BookSetCarViewController.h */,
-				A3BCA3871D3D252C00FEE6B6 /* BookSetCarViewController.m */,
+				A3EB6D631D57383F004E8CB5 /* BookSetCarViewController.m */,
 				A3BCA3881D3D252C00FEE6B6 /* BooksHistoryViewController.h */,
 				A3BCA3891D3D252C00FEE6B6 /* BooksHistoryViewController.m */,
 				A3BCA38A1D3D252C00FEE6B6 /* CarwashesMapViewController.h */,
@@ -1187,6 +1206,8 @@
 				A3BCA39F1D3D252D00FEE6B6 /* UserFavoritesViewController.m */,
 				A3BCA3A01D3D252D00FEE6B6 /* UserSettingsViewController.h */,
 				A3BCA3A11D3D252D00FEE6B6 /* UserSettingsViewController.m */,
+				A3EB6D711D57706A004E8CB5 /* BookSetCarViewController3.h */,
+				A3EB6D721D57706A004E8CB5 /* BookSetCarViewController3.m */,
 			);
 			path = Client;
 			sourceTree = "<group>";
@@ -1347,6 +1368,8 @@
 				5200BF0101A0FAF1EB304F0C /* CarwashesBaseViewController.m */,
 				A32D1A1C1D46764800A577F9 /* AboutUsViewController.h */,
 				A32D1A1D1D46764800A577F9 /* AboutUsViewController.m */,
+				A3EB6D591D561011004E8CB5 /* AdminDummyViewControlller.h */,
+				A3EB6D5A1D561011004E8CB5 /* AdminDummyViewControlller.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -1428,6 +1451,10 @@
 				5200B58A5C86F9E75C35E638 /* CarwashMarkerInfoWindowView.m */,
 				5200BCE8B96D9A4753AA1F4A /* IconTitleHorizontalView.m */,
 				5200BB431A4C1CEC847F6ED5 /* IconTitleHorizontalView.h */,
+				A3EB6D681D5753A0004E8CB5 /* CarwashServiceCollectionView.h */,
+				A3EB6D691D5753A0004E8CB5 /* CarwashServiceCollectionView.m */,
+				A3EB6D6E1D575C1F004E8CB5 /* ServiceCollectionCell.h */,
+				A3EB6D6F1D575C1F004E8CB5 /* ServiceCollectionCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1653,6 +1680,7 @@
 			children = (
 				CE755B511A192F5E00A036DC /* Images */,
 				CE6C4A4A19DC4DA60014229D /* kz_almaty.gpx */,
+				A3EB6D571D5609C0004E8CB5 /* ios_admin_dummy.html */,
 				CEABA62019BB1FDF00CBAEBF /* WashMe-Info.plist */,
 				CEABA62119BB1FDF00CBAEBF /* InfoPlist.strings */,
 				CEABA62419BB1FDF00CBAEBF /* main.m */,
@@ -1893,6 +1921,7 @@
 				CE755C3B1A192F5E00A036DC /* icon-pin.png in Resources */,
 				CE755BF71A192F5E00A036DC /* btn_cartype4_selected.png in Resources */,
 				5200BBEEA6CD358B7C5D3145 /* RobotoCondensed-BoldItalic.ttf in Resources */,
+				A3EB6D581D5609C0004E8CB5 /* ios_admin_dummy.html in Resources */,
 				CE755C691A192F5E00A036DC /* washme-logo@2x.png in Resources */,
 				CE755C471A192F5E00A036DC /* Icon-Small-1.png in Resources */,
 				CE755BF51A192F5E00A036DC /* btn_cartype4_normal.png in Resources */,
@@ -2044,6 +2073,7 @@
 				5200B2968F3B6C662011C947 /* TextareaField.m in Sources */,
 				5200BB60257648BB32032424 /* LPlaceholderTextView.m in Sources */,
 				A3981CC51D4CE90600E0689B /* CarwashMapViewController.m in Sources */,
+				A3EB6D641D57383F004E8CB5 /* BookSetCarViewController.m in Sources */,
 				5200B7B29E7DAE61EEAA4282 /* UIScrollView+Ext.m in Sources */,
 				5200B86B961F2D68609E6078 /* CarTypesTabbarView.m in Sources */,
 				A3BCA3C11D3D252D00FEE6B6 /* CarwashViewController.m in Sources */,
@@ -2070,15 +2100,17 @@
 				5200B25E8009943D10D063CC /* TitleInputFieldView.m in Sources */,
 				A3BCA3BE1D3D252D00FEE6B6 /* CarwashesMapViewController.m in Sources */,
 				A3BCA3AA1D3D252D00FEE6B6 /* AdminOrdersViewController.m in Sources */,
+				A3EB6D701D575C1F004E8CB5 /* ServiceCollectionCell.m in Sources */,
 				5200BC8A0A135D5B4595FBA1 /* UILabel+Components.m in Sources */,
+				A3EB6D6A1D5753A0004E8CB5 /* CarwashServiceCollectionView.m in Sources */,
 				5200B2679C87A034A2C0DCA6 /* TimeIntervalPickerView.m in Sources */,
 				A3981D121D4D2DB100E0689B /* UserObject.m in Sources */,
 				5200BDD58B7160B989921F79 /* AdminApi.m in Sources */,
 				5200BB65EE60D91B7AD52DEE /* LangsViewController.m in Sources */,
 				5200BCD27EFA0D7972656BCD /* ApiUtils.m in Sources */,
-				A3BCA3BC1D3D252D00FEE6B6 /* BookSetCarViewController.m in Sources */,
 				A3BCA3C81D3D252D00FEE6B6 /* UserFavoritesViewController.m in Sources */,
 				A3981D061D4D2DB100E0689B /* CarwashMenuItem.m in Sources */,
+				A3EB6D731D57706A004E8CB5 /* BookSetCarViewController3.m in Sources */,
 				A3BCA3B81D3D252D00FEE6B6 /* AkciiViewController.m in Sources */,
 				A3BCA3B71D3D252D00FEE6B6 /* AddFeedbackViewController.m in Sources */,
 				A3981D021D4D2DB100E0689B /* Carwash.m in Sources */,
@@ -2099,6 +2131,7 @@
 				5200B60FACBBD265D622ABBA /* SimpleDetailsCell.m in Sources */,
 				A3981D091D4D2DB100E0689B /* CarwashSchedule.m in Sources */,
 				5200BC747BA7F8E404FEB956 /* SimpleBaseCell.m in Sources */,
+				A3EB6D5B1D561011004E8CB5 /* AdminDummyViewControlller.m in Sources */,
 				5200BE9E3E5379AA9D28A7C7 /* SimpleDetailsDisclosureCell.m in Sources */,
 				A3981D001D4D2DB100E0689B /* BoxSetting.m in Sources */,
 				CE59724B1AA2F6B2007D2A4E /* NSObject+PropertyUtils.m in Sources */,
@@ -2148,6 +2181,7 @@
 				5200BCCA785205BE09595DEF /* DoubleCell.m in Sources */,
 				5200B6A9512A3EFD223B3CFB /* IconTitleHorizontalView.m in Sources */,
 				5200BDCBE7B02E3402D75E69 /* UIView+Loader.m in Sources */,
+				A3EB6D5F1D565497004E8CB5 /* BookCell.m in Sources */,
 				A3BCA3BB1D3D252D00FEE6B6 /* BookResultViewController.m in Sources */,
 				A3BCA3BF1D3D252D00FEE6B6 /* CarwashesViewController.m in Sources */,
 				5200B5DE2B0010B77DC89824 /* CarwashesBaseViewController.m in Sources */,

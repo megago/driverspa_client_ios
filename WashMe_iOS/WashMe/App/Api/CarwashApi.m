@@ -21,6 +21,7 @@
 #import "BoxSetting.h"
 #import "UserSettings.h"
 #import "FilterManager.h"
+#import "User.h"
 
 @implementation CarwashApi
 
@@ -40,8 +41,10 @@
     City *city = [UserSettings currentCity];
     CLLocationDegrees lon = city.longitude;
     CLLocationDegrees lat = city.latitude;
+    
+    //map_carwash?lonlat__near=%f,%f&lonlat__max_distance=%@&working=true&limit=10000
 
-    [self GET:[NSString stringWithFormat:@"map_carwash?lonlat__near=%f,%f&lonlat__max_distance=%@&working=true&limit=10000", lon, lat, @(50000)] success:^(id response) {
+    [self GET:[NSString stringWithFormat:@"public_carwash?lonlat__near=%f,%f&lonlat__max_distance=%@&limit=10000&city=%@&mobile=%@", lon, lat, @(50000), city.code, [User currentUser].mobile] success:^(id response) {
         NSArray *objects = [response objectForKey:@"objects"];
         NSArray *carwashes = [objects map:^id(id object) {
             return [CarwashComplex instanceFromDictionary:object];
@@ -59,6 +62,8 @@
               payments: manager ? manager.payments : nil
                 rating: manager ? manager.rating : nil
            maxDistance: manager ? manager.maxDistance : nil
+                  city: manager ? manager.city : nil
+                mobile: manager ? manager.mobile : nil
                success:success failure:failure];
 }
 
@@ -70,6 +75,8 @@
             payments:(NSString *)payments
               rating:(NSNumber *)rating
          maxDistance:(NSNumber *)maxDistance
+                city:(NSString *)city
+              mobile:(NSString *)mobile
              success:(success)success failure:(failure)failure {
 
 
@@ -82,21 +89,31 @@
     CLLocationDegrees lat = [[LocationHelper sharedInstance] latitude];
 
     if(lon == 0 || lat == 0) {
-        lat = 51.128422;
-        lon = 71.430564;
+        lat = 51.155372;
+        lon = 71.432625;
+    }
+    
+    if (city == nil){
+        city = [User currentUser].cityCode;
+    }
+    
+    if (mobile == nil){
+        mobile = [User currentUser].mobile;
     }
 
-    // public_carwash?lonlat__near=76.882914%2C43.195137&lonlat__max_distance=10000&rating__lte=1000&max_price=1000&comforts=cafe,wifi&payments=cash&free=true&limit=2
+    //public_carwash?lonlat__near=71.432625%2C51.155372&limit=100000&lonlat__max_distance=50000&rating__gte=0&max_price=3500&offset=0&mobile=%2B77076744674&city=astana
 
     NSMutableDictionary * params = [NSMutableDictionary dictionary];
-    //params[@"lonlat__near"] = [NSString stringWithFormat:@"%f,%f", lon, lat];
+    params[@"lonlat__near"] = [NSString stringWithFormat:@"%f,%f", lon, lat];
     //if(free)        params[@"free"] = @([free boolValue]);
     //if(working)     params[@"working"] = @([working boolValue]);
-    ///if(maxDistance) params[@"lonlat__max_distance"] = maxDistance;
-    //if(rating)      params[@"rating__lte"] = rating;
-    //if(maxPrice)    params[@"max_price"] = maxPrice;
     //if(comforts)    params[@"comforts"] = comforts;
     //if(payments)    params[@"payments"] = payments;
+    if(maxDistance) params[@"lonlat__max_distance"] = maxDistance;
+    if(rating)      params[@"rating__gte"] = rating;
+    if(maxPrice)    params[@"max_price"] = maxPrice;
+    if(city)        params[@"city"] = city;
+    if(mobile)      params[@"mobile"] = mobile;
     params[@"limit"] = @(itemsInPage);
     params[@"offset"] = @(itemsInPage * (page - 1));
 
