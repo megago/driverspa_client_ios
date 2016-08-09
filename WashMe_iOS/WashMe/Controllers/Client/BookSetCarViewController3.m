@@ -47,6 +47,11 @@
     UIView *line3;
     UILabel *timeLabel;
     UILabel *priceLabel;
+    
+    NSArray *carTypeServices;
+    NSArray *checkedServices;
+    
+    NSArray *services;
 }
 
 -(id)init {
@@ -58,7 +63,9 @@
 }
 
 -(void)initVars {
+    checkedServices = [[NSArray alloc] init];
     self.cars = [[NSMutableArray alloc] init];
+    self.bookObject = [[BookObject alloc] init];
 }
 
 - (void)viewDidLoad
@@ -71,9 +78,14 @@
     [carsCollectionView addCars:_cars];
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    if (self.cars.count > 0){
+        [carsCollectionView selectItemAtIndex:1];
+    }
+}
+
 #pragma mark -
 #pragma mark Actions
-
 
 
 #pragma mark -
@@ -87,8 +99,44 @@
 }
 
 - (void)CarsCollectionViewCarTapped:(Car *)car {
-    
+    [self carTypesTabbarViewDidChangeTabWithType:car.carType];
 }
+
+#pragma mark -
+#pragma mark CarTypesTabbarView
+
+- (void)carTypesTabbarViewDidChangeTabWithType:(CarType)carType
+{
+    NSDictionary *menu = self.carwash.menu;
+    NSDictionary *prices = menu[[NSString stringWithFormat:@"%d", carType]];
+    
+    NSMutableArray *serviceIds = [NSMutableArray array];
+    for(id key in prices) [serviceIds addObject:key];
+    carTypeServices = serviceIds;
+    
+    checkedServices = @[];
+    
+    [Cache carwashRefs:^(id obj) {
+        NSMutableArray *array = [NSMutableArray array];
+        NSDictionary *servicesDictionary = [(CarwashRefs *)obj servicesDictionary];
+        
+        for(id serviceId in carTypeServices) {
+            if(servicesDictionary[serviceId] != nil) {
+                [array addObject:servicesDictionary[serviceId]];
+            }
+        }
+        
+        services = array;
+        
+        if(services.count > 0) {
+            [carwashServiceCollectionView reloadData];
+        } else {
+            NSLog(@"services not found");
+        }
+    }];
+
+}
+
 
 #pragma mark -
 #pragma mark AddCarViewController

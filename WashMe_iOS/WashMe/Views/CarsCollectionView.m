@@ -108,4 +108,21 @@
     [self.collectionView reloadData];
 }
 
+- (void)selectItemAtIndex : (NSInteger)index {
+    NSIndexPath *selection = [NSIndexPath indexPathForItem:index inSection:0];
+    [self.collectionView selectItemAtIndexPath:selection
+                                 animated:YES
+                           scrollPosition:UICollectionViewScrollPositionCenteredHorizontally];
+    
+    id item = self.items[index];
+    if([self.delegate respondsToSelector:@selector(CarsCollectionViewCarTapped:)]) {
+        [self.delegate CarsCollectionViewCarTapped:item];
+    }
+
+}
+
+- (void)reloadData {
+    [self.collectionView reloadData];
+}
+
 @end

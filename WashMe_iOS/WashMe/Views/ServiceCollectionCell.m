@@ -8,31 +8,44 @@
 
 #import "ServiceCollectionCell.h"
 #import "UIFont+Custom.h"
-
-@interface ServiceCollectionCell () {
-    UILabel *titleLabel;
-}
-@end
+#import "ALView+PureLayout.h"
+#import "UIView+ConcisePureLayout.h"
 
 @implementation ServiceCollectionCell
 
-- (void)setTitleService : (NSString *)nameService {
-    
-    self.backgroundColor = [UIColor clearColor];
-    
-    titleLabel = [[UILabel alloc] initWithFrame:self.bounds];
-    titleLabel.backgroundColor = [UIColor colorWithWhite:0.f alpha:0.2f];
-    titleLabel.font = [UIFont robotoRegular:11];
-    titleLabel.textColor = [UIColor whiteColor];
-    titleLabel.textAlignment = NSTextAlignmentCenter;
-    titleLabel.numberOfLines = 0;
-    titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
-    
-    titleLabel.layer.masksToBounds = YES;
-    titleLabel.layer.cornerRadius = 10.f;
-    [self addSubview:titleLabel];
-    
-    titleLabel.text = nameService;
+- (id)initWithFrame:(CGRect)frame {
+    self = [super initWithFrame:frame];
+    if(self) {
+        
+        self.contentView.alpha = 0.25;
+        
+        UIView *container = [UIView newAutoLayoutView];
+        [self addSubview:container];
+        [container aa_superviewFitWidthWithInset:10];
+        [container aa_centerVertical];
+        
+        self.titleLabel = [UILabel newAutoLayoutView];
+        _titleLabel.backgroundColor = [UIColor clearColor];
+        _titleLabel.font = [UIFont robotoRegular:10];
+        _titleLabel.textColor = [UIColor whiteColor];
+        _titleLabel.textAlignment = NSTextAlignmentCenter;
+        _titleLabel.numberOfLines = 0;
+        _titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
+        [container addSubview:_titleLabel];
+        [_titleLabel aa_superviewFitWidth];
+        [_titleLabel aa_superviewFitHeight];
+    }
+    return self;
+}
+
+- (void)setSelected:(BOOL)selected {
+    if (selected) {
+        self.contentView.layer.borderWidth = 1.f;
+        self.contentView.layer.borderColor = [UIColor whiteColor].CGColor;
+    } else {
+        self.contentView.layer.borderWidth = 0.f;
+        self.contentView.layer.borderColor = [UIColor clearColor].CGColor;
+    }
 }
 
 @end

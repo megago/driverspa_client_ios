@@ -21,5 +21,7 @@
 - (void)addAddButton;
 - (void)addCar:(Car *)car;
 - (void)addCars:(NSArray *)cars;
+- (void)selectItemAtIndex : (NSInteger)index;
+- (void)reloadData;
 
 @end

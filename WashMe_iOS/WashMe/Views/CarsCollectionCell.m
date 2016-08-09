@@ -17,6 +17,7 @@
         self.contentView.layer.cornerRadius = 10;
         self.contentView.clipsToBounds = YES;
         self.contentView.backgroundColor = [UIColor fromRGB:0x184977];
+        
     }
 
     return self;

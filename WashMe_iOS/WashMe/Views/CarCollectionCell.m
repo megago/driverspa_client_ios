@@ -40,9 +40,18 @@
         [_titleLabel aa_pinUnderView:_iconImageView offset:3];
         [_titleLabel aa_superviewFitWidth];
         [_titleLabel aa_superviewBottom:0];
-
     }
     return self;
+}
+
+- (void)setSelected:(BOOL)selected {
+    if (selected) {
+        self.contentView.layer.borderWidth = 1.f;
+        self.contentView.layer.borderColor = [UIColor whiteColor].CGColor;
+    } else {
+        self.contentView.layer.borderWidth = 0.f;
+        self.contentView.layer.borderColor = [UIColor clearColor].CGColor;
+    }
 }
 
 @end

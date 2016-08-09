@@ -11,6 +11,7 @@
 #import "UIView+ConcisePureLayout.h"
 #import "ServiceCollectionCell.h"
 
+
 #define kHeight 60
 
 @interface CarwashServiceCollectionView () <UICollectionViewDelegate, UICollectionViewDataSource>
@@ -63,11 +64,25 @@
 {
     //id item = self.items[indexPath.item];
     ServiceCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ServiceCollectionCell" forIndexPath:indexPath];
-    [cell setTitleService:@"Кузов + салон"];
+    cell.titleLabel.text = @"Кузов + салон";
     return cell;
 }
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     //id item = self.items[indexPath.item];
+}
+
+- (void)addCar:(Car *)car {
+    [self.items addObject:car];
+    [self.collectionView reloadData];
+}
+
+- (void)addCars:(NSArray *)cars {
+    [self.items addObjectsFromArray:cars];
+    [self.collectionView reloadData];
+}
+
+- (void)reloadData {
+    [self.collectionView reloadData];
 }
 
 @end

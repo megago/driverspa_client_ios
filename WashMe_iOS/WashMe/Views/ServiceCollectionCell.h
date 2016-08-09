@@ -6,10 +6,10 @@
 //  Copyright © 2016 Almas Adilbek. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "CarsCollectionCell.h"
 
-@interface ServiceCollectionCell : UICollectionViewCell
+@interface ServiceCollectionCell : CarsCollectionCell
 
-- (void)setTitleService : (NSString *)nameService;
+@property (nonatomic, strong) UILabel *titleLabel;
 
 @end

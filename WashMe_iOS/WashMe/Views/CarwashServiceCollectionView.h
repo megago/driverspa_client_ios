@@ -10,4 +10,7 @@
 
 @interface CarwashServiceCollectionView : UIView
 
+
+- (void)reloadData;
+
 @end
