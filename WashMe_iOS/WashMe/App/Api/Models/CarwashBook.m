@@ -115,7 +115,9 @@
     NSString *str = [NSString stringWithFormat:@"%ld", components.day];
     NSString *lastChar = [str substringFromIndex:[str length] - 1];
     
-    if ([lastChar isEqualToString:@"1"]) {
+    if ([lastChar isEqualToString:@"0"]) {
+        return @"Сегодня";
+    } else if ([lastChar isEqualToString:@"1"]) {
         return [NSString stringWithFormat:@"%ld день назад", components.day];
     } else if ([lastChar isEqualToString:@"2"] || [lastChar isEqualToString:@"3"] || [lastChar isEqualToString:@"4"]){
         return [NSString stringWithFormat:@"%ld дня назад", components.day];

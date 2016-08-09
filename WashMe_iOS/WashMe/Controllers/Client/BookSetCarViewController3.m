@@ -29,11 +29,19 @@
 
 #import "CarwashComplex.h"
 #import "BookObject.h"
+#import "CarsCollectionView.h"
+#import "AddCarViewController.h"
 #import "CarwashServiceCollectionView.h"
+#import "IdTitleObject.h"
+#import "CarwashMenuItem.h"
+#import "BookChooseBoxViewController.h"
 
-@interface BookSetCarViewController3 ()
+@interface BookSetCarViewController3 () <UINavigationControllerDelegate, CarsCollectionViewDelegate, AddCarViewControllerDelegate, CarwashServiceCollectionDelegate>
 @property(nonatomic, strong) NSMutableArray *cars;
 @property(nonatomic, strong) City *city;
+
+@property (nonatomic, strong) NSMutableArray *checkedServices;
+@property (nonatomic, strong) Car *selectedCar;
 @end
 
 @implementation BookSetCarViewController3 {
@@ -49,8 +57,6 @@
     UILabel *priceLabel;
     
     NSArray *carTypeServices;
-    NSArray *checkedServices;
-    
     NSArray *services;
 }
 
@@ -63,7 +69,7 @@
 }
 
 -(void)initVars {
-    checkedServices = [[NSArray alloc] init];
+    self.checkedServices = [[NSMutableArray alloc] init];
     self.cars = [[NSMutableArray alloc] init];
     self.bookObject = [[BookObject alloc] init];
 }
@@ -76,6 +82,11 @@
     
     self.cars = [user.cars mutableCopy];
     [carsCollectionView addCars:_cars];
+    
+    if (self.cars.count){
+        self.selectedCar = self.cars.firstObject;
+        [self carTypesTabbarViewDidChangeTabWithType:self.selectedCar.carType];
+    }
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -87,6 +98,59 @@
 #pragma mark -
 #pragma mark Actions
 
+-(void)updatePrice {
+    NSDictionary *menu = self.carwash.menu;
+    NSDictionary *prices = menu[[NSString stringWithFormat:@"%ld", (long)self.selectedCar.carType]];
+    CGFloat totalPrice = 0;
+    CGFloat totalTime = 0;
+    
+    for(IdTitleObject *obj in self.checkedServices) {
+        CarwashMenuItem *menuItem = prices[obj.objectId];
+        if(menuItem) {
+            totalPrice += [menuItem.price floatValue];
+            totalTime += [menuItem.time floatValue];
+        }
+    }
+    
+    _bookObject.price = @(totalPrice);
+    _bookObject.time = [NSString stringWithFormat:@"%d", (int)totalTime];
+    priceLabel.text = [NSString stringWithFormat:@"Цена: %@", [_bookObject localizedPrice]];
+    timeLabel.text = [NSString stringWithFormat:@"Время мойки: %d мин.", (int)totalTime];
+}
+
+- (void)resetPrice {
+    priceLabel.text = @"Цена: 0 тг.";
+}
+
+- (void)continueTapped
+{
+    if(self.checkedServices.count == 0) {
+        [UIHelper showAlertWithMessage:@"Выберите услуги"];
+        return;
+    }
+    
+    [Toast showHudWithTitle:@"Ждите"];
+    [UserApi updateProfileWithName:nil lastname:nil cars:nil success:^(id response) {
+        // Update user datas
+        [User instanceFromDictionary:response];
+        
+        // Set book objects
+        _bookObject.carwash = self.carwash;
+        _bookObject.services = self.checkedServices;
+        _bookObject.carType = self.selectedCar.carType;
+        //        _bookObject.clientKey = [User currentUser].carNumber;
+        _bookObject.bookDate = nil;
+        _bookObject.bookTime = nil;
+        
+        BookChooseBoxViewController *v = [[BookChooseBoxViewController alloc] init];
+        v.bookObject = _bookObject;
+        v.editMode = self.editMode;
+        [self.navigationController pushViewController:v animated:YES];
+        
+    } failure:^(NSInteger code, NSString *message) {
+        
+    }];
+}
 
 #pragma mark -
 #pragma mark CarsCollectionView
@@ -99,7 +163,16 @@
 }
 
 - (void)CarsCollectionViewCarTapped:(Car *)car {
+    self.selectedCar = car;
     [self carTypesTabbarViewDidChangeTabWithType:car.carType];
+}
+
+#pragma mark -
+#pragma mark AddCarViewController
+
+- (void)AddCarViewControllerCarAdded:(Car *)car {
+    [carsCollectionView addCar:car];
+    [self.cars addObject:car];
 }
 
 #pragma mark -
@@ -108,13 +181,14 @@
 - (void)carTypesTabbarViewDidChangeTabWithType:(CarType)carType
 {
     NSDictionary *menu = self.carwash.menu;
-    NSDictionary *prices = menu[[NSString stringWithFormat:@"%d", carType]];
+    NSDictionary *prices = menu[[NSString stringWithFormat:@"%ld", (long)carType]];
     
     NSMutableArray *serviceIds = [NSMutableArray array];
     for(id key in prices) [serviceIds addObject:key];
     carTypeServices = serviceIds;
     
-    checkedServices = @[];
+    [self.checkedServices removeAllObjects];
+    [self resetPrice];
     
     [Cache carwashRefs:^(id obj) {
         NSMutableArray *array = [NSMutableArray array];
@@ -129,21 +203,20 @@
         services = array;
         
         if(services.count > 0) {
-            [carwashServiceCollectionView reloadData];
+            [carwashServiceCollectionView refreshServices:services];
+            //[carwashServiceCollectionView selectItemAtIndex:0];
         } else {
             NSLog(@"services not found");
         }
     }];
-
 }
 
+#pragma mark - 
+#pragma mark CarwashServiceCollection Delegate
 
-#pragma mark -
-#pragma mark AddCarViewController
-
-- (void)AddCarViewControllerCarAdded:(Car *)car {
-    [carsCollectionView addCar:car];
-    [self.cars addObject:car];
+- (void)carwashServiceCollectionViewSelectedServices:(NSArray *)selectedServices {
+    self.checkedServices = [NSMutableArray arrayWithArray:selectedServices];
+    [self updatePrice];
 }
 
 #pragma mark -
@@ -156,6 +229,9 @@
     [self setNavigationTitle:@"Бронировать"];
     [self setNavigationBarTransparent];
     
+    NSString *str = [NSString stringWithFormat:@"Автомойка %@", _carwash.name];
+    str = [str stringByReplacingOccurrencesOfString:@"Автомойка Автомойка" withString:@"Автомойка"];
+    
     subtitleLabel = [[UILabel alloc] initWithFrame:CGRectZero];
     subtitleLabel.backgroundColor = [UIColor clearColor];
     subtitleLabel.font = [UIFont robotoRegular:14];
@@ -163,7 +239,7 @@
     subtitleLabel.textAlignment = NSTextAlignmentCenter;
     subtitleLabel.numberOfLines = 0;
     subtitleLabel.lineBreakMode = NSLineBreakByWordWrapping;
-    subtitleLabel.text = _carwash.name;
+    subtitleLabel.text = str;
     [subtitleLabel sizeToFit];
     [self.contentView addSubview:subtitleLabel];
     [subtitleLabel aa_setDimensions];
@@ -228,6 +304,7 @@
     [selectServiceLabel aa_pinUnderView:line2 offset:10];
     
     carwashServiceCollectionView = [CarwashServiceCollectionView newAutoLayoutView];
+    carwashServiceCollectionView.delegate = self;
     [self.contentView addSubview:carwashServiceCollectionView];
     [carwashServiceCollectionView aa_pinUnderView:selectServiceLabel offset:10];
     [carwashServiceCollectionView aa_superviewFitWidth];
@@ -274,7 +351,7 @@
     
     __weak BookSetCarViewController3 * weakSelf = self;
     AAButton *addButton = [[AAButton alloc] initWithWidth:170 onTap:^(UIView *_self) {
-        
+        [weakSelf continueTapped];
     }];
     [addButton commonStyleButtonWithTitle:@"Выбрать время"];
     [addButton setTitleFont:[UIFont robotoRegular:18]];

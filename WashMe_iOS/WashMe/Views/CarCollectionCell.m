@@ -16,9 +16,7 @@
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if(self) {
-
-        self.contentView.alpha = 0.25;
-
+        
         UIView *container = [UIView newAutoLayoutView];
         [self addSubview:container];
         [container aa_superviewFitWidthWithInset:10];
@@ -48,9 +46,11 @@
     if (selected) {
         self.contentView.layer.borderWidth = 1.f;
         self.contentView.layer.borderColor = [UIColor whiteColor].CGColor;
+        self.contentView.backgroundColor = [[UIColor fromRGB:0x184977] colorWithAlphaComponent:1.f];
     } else {
         self.contentView.layer.borderWidth = 0.f;
         self.contentView.layer.borderColor = [UIColor clearColor].CGColor;
+        self.contentView.backgroundColor = [[UIColor fromRGB:0x184977] colorWithAlphaComponent:0.25f];
     }
 }
 

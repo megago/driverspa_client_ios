@@ -8,8 +8,8 @@
 
 #import "CarsCollectionCell.h"
 
-@interface ServiceCollectionCell : CarsCollectionCell
+@interface ServiceCollectionCell : UICollectionViewCell
 
-@property (nonatomic, strong) UILabel *titleLabel;
+@property (nonatomic, strong) UILabel *serviceLabel;
 
 @end

@@ -6,15 +6,13 @@
 //  Copyright © 2016 Almas Adilbek. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import "CarsCollectionView.h"
-#import "AddCarViewController.h"
 #import "ScrollViewController.h"
 
 @class CarwashComplex;
 @class BookObject;
 
-@interface BookSetCarViewController3 : ScrollViewController<UINavigationControllerDelegate, CarsCollectionViewDelegate, AddCarViewControllerDelegate>
+@interface BookSetCarViewController3 : ScrollViewController
 @property(nonatomic, strong) CarwashComplex *carwash;
 @property(nonatomic, strong) BookObject *bookObject;
+@property(nonatomic, assign, getter=isEditMode) BOOL editMode;
 @end

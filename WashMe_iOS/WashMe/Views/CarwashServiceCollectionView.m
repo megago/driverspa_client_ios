@@ -10,9 +10,9 @@
 #import "ALView+PureLayout.h"
 #import "UIView+ConcisePureLayout.h"
 #import "ServiceCollectionCell.h"
+#import "IdTitleObject.h"
 
-
-#define kHeight 60
+#define kHeight 50
 
 @interface CarwashServiceCollectionView () <UICollectionViewDelegate, UICollectionViewDataSource>
 @property (nonatomic, strong) UICollectionView *collectionView;
@@ -39,7 +39,7 @@
         _collectionView.dataSource = self;
         _collectionView.backgroundColor = [UIColor clearColor];
         _collectionView.alwaysBounceHorizontal = YES;
-        _collectionView.pagingEnabled = YES;
+        _collectionView.pagingEnabled = NO;
         _collectionView.showsHorizontalScrollIndicator = NO;
         [_collectionView registerClass:[ServiceCollectionCell class] forCellWithReuseIdentifier:@"ServiceCollectionCell"];
         [self addSubview:_collectionView];
@@ -52,33 +52,52 @@
 #pragma mark UICollectionView
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 5;//self.items.count;
+    return self.items.count;
 }
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return CGSizeMake(kHeight, kHeight);
+    return CGSizeMake(2*kHeight, kHeight);
 }
 - (UIEdgeInsets)collectionView:(UICollectionView*)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
     return UIEdgeInsetsMake(0, kViewControllerPadding, 0, 0);
 }
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    //id item = self.items[indexPath.item];
     ServiceCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ServiceCollectionCell" forIndexPath:indexPath];
-    cell.titleLabel.text = @"Кузов + салон";
+    
+    IdTitleObject *service = self.items[(NSUInteger) indexPath.row];
+    cell.serviceLabel.text = service.title;
     return cell;
 }
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    //id item = self.items[indexPath.item];
+    NSArray<NSIndexPath*>* selectedIndexes = collectionView.indexPathsForSelectedItems;
+    NSMutableArray *services = [[NSMutableArray alloc] init];
+    for (int i = 0; i < selectedIndexes.count; i++) {
+        IdTitleObject *item = self.items[indexPath.item];
+        [services addObject:item];
+        [self.delegate carwashServiceCollectionViewSelectedServices:services];
+    }
 }
-
-- (void)addCar:(Car *)car {
-    [self.items addObject:car];
+- (void)addService:(IdTitleObject *)service {
+    [self.items addObject:service];
     [self.collectionView reloadData];
 }
 
-- (void)addCars:(NSArray *)cars {
-    [self.items addObjectsFromArray:cars];
+- (void)addServices:(NSArray *)services {
+    [self.items addObjectsFromArray:services];
     [self.collectionView reloadData];
+}
+
+- (void)refreshServices:(NSArray *)services {
+    [self.items removeAllObjects];
+    [self.items addObjectsFromArray:services];
+    [self.collectionView reloadData];
+}
+
+- (void)selectItemAtIndex : (NSInteger)index {
+    NSIndexPath *selection = [NSIndexPath indexPathForItem:index inSection:0];
+    [self.collectionView selectItemAtIndexPath:selection
+                                      animated:YES
+                                scrollPosition:UICollectionViewScrollPositionCenteredHorizontally];
 }
 
 - (void)reloadData {

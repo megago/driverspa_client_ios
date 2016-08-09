@@ -118,7 +118,6 @@
     if([self.delegate respondsToSelector:@selector(CarsCollectionViewCarTapped:)]) {
         [self.delegate CarsCollectionViewCarTapped:item];
     }
-
 }
 
 - (void)reloadData {

@@ -6,11 +6,20 @@
 //  Copyright © 2016 Almas Adilbek. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+@class IdTitleObject;
+
+@protocol CarwashServiceCollectionDelegate<NSObject>
+@optional
+- (void)carwashServiceCollectionViewServiceSelected: (IdTitleObject *)service;
+- (void)carwashServiceCollectionViewServiceDeselected: (IdTitleObject *)service;
+- (void)carwashServiceCollectionViewSelectedServices:(NSArray *) selectedServices;
+@end
 
 @interface CarwashServiceCollectionView : UIView
-
-
+@property (nonatomic, strong) id <CarwashServiceCollectionDelegate> delegate;
+- (void)addService:(IdTitleObject *)service;
+- (void)addServices:(NSArray *)services;
+- (void)refreshServices:(NSArray *)services;
+- (void)selectItemAtIndex : (NSInteger)index;
 - (void)reloadData;
-
 @end
