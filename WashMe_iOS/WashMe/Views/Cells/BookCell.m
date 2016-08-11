@@ -10,7 +10,7 @@
 #import "CarwashBook.h"
 #import "UIView+Ext.h"
 
-#define  kBookTimeWidth 50
+#define  kBookTimeWidth 60
 
 @interface BookCell () {
     UILabel *clientLabel;
@@ -107,7 +107,7 @@
     daysAgoLabel.y = timeLabel.bottom;
     daysAgoLabel.height = clientLabel.height + statusLabel.height;
     
-    if (book.isApproved) {
+    if (book.isApproved || book.isPending) {
         self.backgroundColor = [UIColor colorWithWhite:0.f alpha:0.5f];
     } else {
         self.backgroundColor = [UIColor clearColor];

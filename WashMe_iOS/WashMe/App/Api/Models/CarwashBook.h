@@ -42,6 +42,7 @@
 
 - (NSDate *)bookDate;
 - (NSDate *)localBookDate;
+- (NSString *)localizedBookDate;
 - (NSString *)bookTime;
 - (NSString *)localBookTime;
 - (NSString *)localizedDaysAgo;

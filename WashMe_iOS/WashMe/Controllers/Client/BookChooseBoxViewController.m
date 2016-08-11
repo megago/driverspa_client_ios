@@ -302,7 +302,7 @@
     UILabel *subtitle = [sv setNavigationSubtitle:str];
     subtitle.y = 10;
     
-    IconTitleView *washDelay = [[IconTitleView alloc] initWithIcon:@"icon-orders" title:[NSString stringWithFormat:@" Время мойки %@ минут", _bookObject.time]];
+    IconTitleView *washDelay = [[IconTitleView alloc] initWithIcon:@"icon-orders" title:[NSString stringWithFormat:@" Время мойки %@ минут", _bookObject.bookTime]];
     washDelay.x = [ASize screenWidth]/2 - washDelay.frame.size.width/2;
     washDelay.y = subtitle.bottom + 5;
     [sv addSubview:washDelay];

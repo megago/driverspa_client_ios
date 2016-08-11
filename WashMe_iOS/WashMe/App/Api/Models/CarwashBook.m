@@ -89,6 +89,13 @@
     return  [date dateByAddingTimeInterval:timeZoneSeconds];
 }
 
+- (NSString *)localizedBookDate
+{
+    NSDate *date = [self bookDate];
+    NSDateFormatter *df = [[NSDateFormatter alloc] init];
+    [df setDateFormat:@"dd.MM.yyyy"];
+    return [df stringFromDate:date];
+}
 
 - (NSString *)bookTime
 {

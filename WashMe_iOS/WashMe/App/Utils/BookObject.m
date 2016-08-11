@@ -31,5 +31,4 @@
     return [NSString stringWithFormat:@"%@ в %@", [df stringFromDate:self.bookDate], self.bookTime];
 }
 
-
 @end

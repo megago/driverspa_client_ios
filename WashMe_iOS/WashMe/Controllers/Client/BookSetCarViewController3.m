@@ -113,13 +113,17 @@
     }
     
     _bookObject.price = @(totalPrice);
-    _bookObject.time = [NSString stringWithFormat:@"%d", (int)totalTime];
+    _bookObject.bookTime = [NSString stringWithFormat:@"%d", (int)totalTime];
     priceLabel.text = [NSString stringWithFormat:@"Цена: %@", [_bookObject localizedPrice]];
     timeLabel.text = [NSString stringWithFormat:@"Время мойки: %d мин.", (int)totalTime];
 }
 
 - (void)resetPrice {
     priceLabel.text = @"Цена: 0 тг.";
+}
+
+- (void)resetTime {
+    timeLabel.text = @"Время мойки: 0 мин.";
 }
 
 - (void)continueTapped
@@ -130,26 +134,26 @@
     }
     
     [Toast showHudWithTitle:@"Ждите"];
-    [UserApi updateProfileWithName:nil lastname:nil cars:nil success:^(id response) {
+    //[UserApi updateProfileWithName:[[User currentUser] fio] lastname:nil cars:nil success:^(id response) {
         // Update user datas
-        [User instanceFromDictionary:response];
+   //     [User instanceFromDictionary:response];
         
         // Set book objects
         _bookObject.carwash = self.carwash;
         _bookObject.services = self.checkedServices;
         _bookObject.carType = self.selectedCar.carType;
-        //        _bookObject.clientKey = [User currentUser].carNumber;
-        _bookObject.bookDate = nil;
-        _bookObject.bookTime = nil;
+        _bookObject.clientKey = [NSString stringWithFormat:@"%@ (%@)", self.selectedCar.carNumber, [[User currentUser] fio]];
+        //_bookObject.bookDate = nil;
+        //_bookObject.bookTime = nil;
         
         BookChooseBoxViewController *v = [[BookChooseBoxViewController alloc] init];
         v.bookObject = _bookObject;
         v.editMode = self.editMode;
         [self.navigationController pushViewController:v animated:YES];
         
-    } failure:^(NSInteger code, NSString *message) {
-        
-    }];
+//    } failure:^(NSInteger code, NSString *message) {
+//        
+//    }];
 }
 
 #pragma mark -
@@ -189,6 +193,7 @@
     
     [self.checkedServices removeAllObjects];
     [self resetPrice];
+    [self resetTime];
     
     [Cache carwashRefs:^(id obj) {
         NSMutableArray *array = [NSMutableArray array];
