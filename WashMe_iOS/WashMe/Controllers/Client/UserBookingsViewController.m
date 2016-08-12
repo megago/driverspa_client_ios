@@ -42,9 +42,13 @@
 {
     [super viewDidLoad];
     [self configUI];
-    [self loadBookings];
+    //[self loadBookings];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userBookUpdated) name:kUserBookEditedNotification object:nil];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [self loadBookings];
 }
 
 - (void)loadBookings
