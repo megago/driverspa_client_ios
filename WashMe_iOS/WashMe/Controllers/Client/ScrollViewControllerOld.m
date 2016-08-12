@@ -111,7 +111,11 @@
 {
     self.view.backgroundColor = [UIColor whiteColor];
 
-    sv = [[TPKeyboardAvoidingScrollView alloc] initWithFrame:CGRectMake(0, 64, [ASize screenWidth], [ASize screenHeightWithoutStatusBarAndNavigationBar])];
+    if (self.tabBarController.tabBar.hidden){
+        sv = [[TPKeyboardAvoidingScrollView alloc] initWithFrame:CGRectMake(0, 64, [ASize screenWidth], [ASize screenHeightWithoutStatusBarAndNavigationBar])];
+    } else {
+        sv = [[TPKeyboardAvoidingScrollView alloc] initWithFrame:CGRectMake(0, 64, [ASize screenWidth], [ASize screenHeightWithoutStatusBarAndNavigationBarAndTabBar])];
+    }
     sv.alwaysBounceVertical = YES;
     sv.showsHorizontalScrollIndicator = NO;
     [self.view addSubview:sv];

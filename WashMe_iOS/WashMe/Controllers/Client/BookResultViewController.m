@@ -22,6 +22,8 @@
 
 #import "UIView+ConcisePureLayout.h"
 #import "CarwashBook.h"
+#import "CenterTitle.h"
+#import "NSString+Ext.h"
 
 @interface BookResultViewController ()
 @end
@@ -41,7 +43,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    //[self configUI];
+    [self configUI];
     [self configAction];
 }
 
@@ -54,19 +56,32 @@
 #pragma mark Actions
 
 - (void)okTapped {
-    NSArray *viewControllers = self.navigationController.viewControllers;
-    for(id vc in viewControllers)
-    {
-        BOOL isUserBookingsVC = [vc isKindOfClass:[UserBookingsViewController class]];
-        if([vc isKindOfClass:[CarwashesViewController class]] || [vc isKindOfClass:[FavoritesViewController class]] || isUserBookingsVC)
-        {
-            if(isUserBookingsVC) {
-                // Send notification to userBookingsVC to refresh the list
-                [[NSNotificationCenter defaultCenter] postNotificationName:kUserBookEditedNotification object:nil];
+//    NSArray *viewControllers = self.navigationController.viewControllers;
+//    for(id vc in viewControllers)
+//    {
+//        BOOL isUserBookingsVC = [vc isKindOfClass:[UserBookingsViewController class]];
+//        if([vc isKindOfClass:[CarwashesViewController class]] || [vc isKindOfClass:[FavoritesViewController class]] || isUserBookingsVC)
+//        {
+//            if(isUserBookingsVC) {
+//                // Send notification to userBookingsVC to refresh the list
+//                [[NSNotificationCenter defaultCenter] postNotificationName:kUserBookEditedNotification object:nil];
+//            }
+//            [self.navigationController popToViewController:vc animated:YES];
+//            break;
+//        }
+//    }
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
+
+- (void)telTapped
+{
+    NSString *tel = [_bookObject.carwash contactsMobilePhone];
+    if(tel) {
+        [UIActionSheet showInView:self.view withTitle:@"Позвонить?" cancelButtonTitle:@"Отмена" destructiveButtonTitle:nil otherButtonTitles:@[tel] tapBlock:^(UIActionSheet *actionSheet, NSInteger buttonIndex) {
+            if(buttonIndex != actionSheet.cancelButtonIndex) {
+                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel:%@", [tel phoneNumberValidForCall]]]];
             }
-            [self.navigationController popToViewController:vc animated:YES];
-            break;
-        }
+        }];
     }
 }
 
@@ -80,185 +95,100 @@
     [self setNavigationTitle:@"Бронь отправлена"];
     
     User *user = [User currentUser];
-    CarwashRefs *carwashRefs = [Cache carwashRefs];
+    //CarwashRefs *carwashRefs = [Cache carwashRefs];
     
-    UILabel *subtitleLabel = [[UILabel alloc] initWithFrame:CGRectZero];
-    subtitleLabel.backgroundColor = [UIColor clearColor];
-    subtitleLabel.font = [UIFont robotoRegular:14];
-    subtitleLabel.textColor = [UIColor whiteColor];
-    subtitleLabel.textAlignment = NSTextAlignmentCenter;
-    subtitleLabel.numberOfLines = 0;
-    subtitleLabel.lineBreakMode = NSLineBreakByWordWrapping;
-    subtitleLabel.text = @"Администратор автомойки в течении 15 минут обработает вашу бронь, а вам прийдет push-уведомление";
-    [subtitleLabel sizeToFit];
-    [self.contentView addSubview:subtitleLabel];
-    [subtitleLabel aa_setDimensions];
-    [subtitleLabel aa_superviewTop:10];
-    [subtitleLabel aa_leading:self.contentView offset:10.f];
-    [subtitleLabel aa_trailing:self.contentView offset:10.f];
+    // Infos
+    CGFloat rowWidth = [ASize screenWidth] - 50;
+    CGFloat rowsSpacing = 10;
     
-    UIView *line1 = [[UIView alloc] initWithFrame:CGRectZero];
+    CenterTitle *subtitleLabel = [[CenterTitle alloc] initWithTitle:@"Администратор автомойки в течении 15 минут обработает вашу бронь, а вам прийдет push-уведомление" width:rowWidth];
+    subtitleLabel.centerX = sv.centerX;
+    subtitleLabel.y = rowsSpacing;
+    [sv addSubview:subtitleLabel];
+
+    UIView *line1 = [[UIView alloc] initWithFrame:CGRectMake(0, subtitleLabel.bottom + rowsSpacing, rowWidth, 0.5)];
     [line1 setBackgroundColor:[UIColor whiteColor]];
     line1.alpha = 0.2;
-    line1.height = 0.5;
-    [self.contentView addSubview:line1];
-    [line1 aa_setDimensions];
-    [line1 aa_leading:self.contentView offset:10.f];
-    [line1 aa_trailing:self.contentView offset:10.f];
-    [line1 aa_pinUnderView:subtitleLabel offset:10];
+    line1.centerX = sv.centerX;
+    [sv addSubview:line1];
     
-    UILabel *secondBlockTitle = [[UILabel alloc] initWithFrame:CGRectZero];
-    secondBlockTitle.backgroundColor = [UIColor clearColor];
-    secondBlockTitle.font = [UIFont robotoRegular:16];
-    secondBlockTitle.textColor = [UIColor whiteColor];
-    secondBlockTitle.textAlignment = NSTextAlignmentCenter;
-    secondBlockTitle.numberOfLines = 0;
-    secondBlockTitle.lineBreakMode = NSLineBreakByWordWrapping;
-    secondBlockTitle.text = @"Бронь на имя";
-    [secondBlockTitle sizeToFit];
-    [self.contentView addSubview:secondBlockTitle];
-    [secondBlockTitle aa_setDimensions];
-    [secondBlockTitle aa_pinUnderView:line1 offset:20];
-    [secondBlockTitle aa_leading:self.contentView offset:10.f];
-    [secondBlockTitle aa_trailing:self.contentView offset:10.f];
     
-    UILabel *nameLabel = [[UILabel alloc] initWithFrame:CGRectZero];
-    nameLabel.backgroundColor = [UIColor clearColor];
-    nameLabel.font = [UIFont robotoRegular:14];
-    nameLabel.textColor = [UIColor whiteColor];
-    nameLabel.textAlignment = NSTextAlignmentCenter;
-    nameLabel.numberOfLines = 0;
-    nameLabel.lineBreakMode = NSLineBreakByWordWrapping;
-    nameLabel.text = [NSString stringWithFormat:@"%@ %@", [user fio], user.mobile];
-    [nameLabel sizeToFit];
-    [self.contentView addSubview:nameLabel];
-    [nameLabel aa_setDimensions];
-    [nameLabel aa_pinUnderView:secondBlockTitle offset:10];
-    [nameLabel aa_leading:self.contentView offset:10.f];
-    [nameLabel aa_trailing:self.contentView offset:10.f];
+    
+    
+    CenterTitle *secondBlockTitle = [[CenterTitle alloc] initWithTitle:@"Бронь на имя" width:rowWidth];
+    secondBlockTitle.centerX = sv.centerX;
+    secondBlockTitle.y = line1.bottom + rowsSpacing;
+    [sv addSubview:secondBlockTitle];
+    
+    CenterTitle *nameLabel = [[CenterTitle alloc] initWithTitle:[NSString stringWithFormat:@"%@ %@", [user fio], user.mobile] width:rowWidth];
+    nameLabel.centerX = sv.centerX;
+    nameLabel.y = secondBlockTitle.bottom + rowsSpacing;
+    [sv addSubview:nameLabel];
 
-    UILabel *carLabel = [[UILabel alloc] initWithFrame:CGRectZero];
-    carLabel.backgroundColor = [UIColor clearColor];
-    carLabel.font = [UIFont robotoRegular:14];
-    carLabel.textColor = [UIColor whiteColor];
-    carLabel.textAlignment = NSTextAlignmentCenter;
-    carLabel.numberOfLines = 0;
-    carLabel.lineBreakMode = NSLineBreakByWordWrapping;
-    carLabel.text = [NSString stringWithFormat:@"%@ %@", [_carwashBook carTypeTitle], _bookObject.clientKey];
-    [carLabel sizeToFit];
-    [self.contentView addSubview:carLabel];
-    [carLabel aa_setDimensions];
-    [carLabel aa_pinUnderView:nameLabel offset:10];
-    [carLabel aa_leading:self.contentView offset:10.f];
-    [carLabel aa_trailing:self.contentView offset:10.f];
+    CenterTitle *carLabel = [[CenterTitle alloc] initWithTitle:[NSString stringWithFormat:@"%@ %@", [_carwashBook carTypeTitle], _bookObject.clientKey] width:rowWidth];
+    carLabel.centerX = sv.centerX;
+    carLabel.y = nameLabel.bottom + rowsSpacing;
+    [sv addSubview:carLabel];
     
-    UILabel *serviceLabel = [[UILabel alloc] initWithFrame:CGRectZero];
-    serviceLabel.backgroundColor = [UIColor clearColor];
-    serviceLabel.font = [UIFont robotoRegular:14];
-    serviceLabel.textColor = [UIColor whiteColor];
-    serviceLabel.textAlignment = NSTextAlignmentCenter;
-    serviceLabel.numberOfLines = 0;
-    serviceLabel.lineBreakMode = NSLineBreakByWordWrapping;
-    serviceLabel.text = [NSString stringWithFormat:@"%@ за %@", [_bookObject servicesTitles], [_bookObject localizedPrice]];
-    [serviceLabel sizeToFit];
-    [self.contentView addSubview:serviceLabel];
-    [serviceLabel aa_setDimensions];
-    [serviceLabel aa_pinUnderView:carLabel offset:10];
-    [serviceLabel aa_leading:self.contentView offset:10.f];
-    [serviceLabel aa_trailing:self.contentView offset:10.f];
     
-    UILabel *dateLabel = [[UILabel alloc] initWithFrame:CGRectZero];
-    dateLabel.backgroundColor = [UIColor clearColor];
-    dateLabel.font = [UIFont robotoRegular:14];
-    dateLabel.textColor = [UIColor whiteColor];
-    dateLabel.textAlignment = NSTextAlignmentCenter;
-    dateLabel.numberOfLines = 0;
-    dateLabel.lineBreakMode = NSLineBreakByWordWrapping;
-    dateLabel.text = [NSString stringWithFormat:@"%@ (%@) в %@", [_carwashBook localizedDaysAgo], [_carwashBook localizedBookDate], [_carwashBook bookTime]];
-    [dateLabel sizeToFit];
-    [self.contentView addSubview:dateLabel];
-    [dateLabel aa_setDimensions];
-    [dateLabel aa_pinUnderView:serviceLabel offset:20];
-    [dateLabel aa_leading:self.contentView offset:10.f];
-    [dateLabel aa_trailing:self.contentView offset:10.f];
+    CenterTitle *serviceLabel = [[CenterTitle alloc] initWithTitle:[NSString stringWithFormat:@"%@ за %@", [_bookObject servicesTitles], [_bookObject localizedPrice]] width:rowWidth];
+    serviceLabel.centerX = sv.centerX;
+    serviceLabel.y = carLabel.bottom + rowsSpacing;
+    [sv addSubview:serviceLabel];
     
-    UIView *line2 = [[UIView alloc] initWithFrame:CGRectZero];
+    CenterTitle *dateLabel = [[CenterTitle alloc] initWithTitle:[NSString stringWithFormat:@"%@ (%@) в %@", [_carwashBook localizedDaysAgo], [_carwashBook localizedBookDate], [_carwashBook bookTime]] width:rowWidth];
+    dateLabel.centerX = sv.centerX;
+    dateLabel.y = serviceLabel.bottom + rowsSpacing;
+    [sv addSubview:dateLabel];
+    
+    UIView *line2 = [[UIView alloc] initWithFrame:CGRectMake(0, dateLabel.bottom + rowsSpacing, rowWidth, 0.5)];
     [line2 setBackgroundColor:[UIColor whiteColor]];
     line2.alpha = 0.2;
-    line2.height = 0.5;
-    [self.contentView addSubview:line2];
-    [line2 aa_setDimensions];
-    [line2 aa_leading:self.contentView offset:10.f];
-    [line2 aa_trailing:self.contentView offset:10.f];
-    [line2 aa_pinUnderView:dateLabel offset:20];
+    line2.centerX = sv.centerX;
+    [sv addSubview:line2];
     
-    UILabel *carwashLabel = [[UILabel alloc] initWithFrame:CGRectZero];
-    carwashLabel.backgroundColor = [UIColor clearColor];
-    carwashLabel.font = [UIFont robotoRegular:14];
-    carwashLabel.textColor = [UIColor whiteColor];
-    carwashLabel.textAlignment = NSTextAlignmentCenter;
-    carwashLabel.numberOfLines = 0;
-    carwashLabel.lineBreakMode = NSLineBreakByWordWrapping;
-    carwashLabel.text = [NSString stringWithFormat:@"Автомойка %@", _carwashBook.carwashName];
-    [carwashLabel sizeToFit];
-    [self.contentView addSubview:carwashLabel];
-    [carwashLabel aa_setDimensions];
-    [carwashLabel aa_pinUnderView:line2 offset:20];
-    [carwashLabel aa_leading:self.contentView offset:10.f];
-    [carwashLabel aa_trailing:self.contentView offset:10.f];
     
-    UILabel *addressLabel = [[UILabel alloc] initWithFrame:CGRectZero];
-    addressLabel.backgroundColor = [UIColor clearColor];
-    addressLabel.font = [UIFont robotoRegular:14];
-    addressLabel.textColor = [UIColor whiteColor];
-    addressLabel.textAlignment = NSTextAlignmentCenter;
-    addressLabel.numberOfLines = 0;
-    addressLabel.lineBreakMode = NSLineBreakByWordWrapping;
-    addressLabel.text = _bookObject.carwash.address;
-    [addressLabel sizeToFit];
-    [self.contentView addSubview:addressLabel];
-    [addressLabel aa_setDimensions];
-    [addressLabel aa_pinUnderView:carwashLabel offset:10];
-    [addressLabel aa_leading:self.contentView offset:10.f];
-    [addressLabel aa_trailing:self.contentView offset:10.f];
     
-    UILabel *phoneLabel = [[UILabel alloc] initWithFrame:CGRectZero];
-    phoneLabel.backgroundColor = [UIColor clearColor];
-    phoneLabel.font = [UIFont robotoRegular:14];
-    phoneLabel.textColor = [UIColor whiteColor];
-    phoneLabel.textAlignment = NSTextAlignmentCenter;
-    phoneLabel.numberOfLines = 0;
-    phoneLabel.lineBreakMode = NSLineBreakByWordWrapping;
-    phoneLabel.text = [_bookObject.carwash  contactsMobilePhone];
-    [phoneLabel sizeToFit];
-    [self.contentView addSubview:phoneLabel];
-    [phoneLabel aa_setDimensions];
-    [phoneLabel aa_pinUnderView:addressLabel offset:0];
-    [phoneLabel aa_leading:self.contentView offset:10.f];
-    [phoneLabel aa_trailing:self.contentView offset:10.f];
     
-    UIView *line3 = [[UIView alloc] initWithFrame:CGRectZero];
+    CenterTitle *carwashLabel = [[CenterTitle alloc] initWithTitle:[NSString stringWithFormat:@"Автомойка %@", _carwashBook.carwashName] width:rowWidth];
+    carwashLabel.centerX = sv.centerX;
+    carwashLabel.y = line2.bottom + rowsSpacing;
+    [sv addSubview:carwashLabel];
+    
+    CenterTitle *addressLabel = [[CenterTitle alloc] initWithTitle:_bookObject.carwash.address width:rowWidth];
+    addressLabel.centerX = sv.centerX;
+    addressLabel.y = carwashLabel.bottom + rowsSpacing;
+    [sv addSubview:addressLabel];
+    
+    __weak BookResultViewController *wSelf = self;
+    AAButton *phoneButton = [[AAButton alloc] initWithWidth:250 onTap:^(UIView *_self) {
+        [wSelf telTapped];
+    }];
+    [phoneButton noBorderStyleButtonWithTitle:[_bookObject.carwash  contactsMobilePhone]];
+    [phoneButton setTitleFont:[UIFont robotoRegular:14]];
+    [phoneButton setTitleColor:[UIColor greenColor] forState:UIControlStateNormal];
+    phoneButton.centerX = self.view.centerX;
+    phoneButton.y = addressLabel.bottom + 30;
+    phoneButton.height = 40;
+    [sv addSubview:phoneButton];
+    
+    UIView *line3 = [[UIView alloc] initWithFrame:CGRectMake(0, phoneButton.bottom + rowsSpacing, rowWidth, 0.5)];
     [line3 setBackgroundColor:[UIColor whiteColor]];
     line3.alpha = 0.2;
-    line3.height = 0.5;
-    [self.contentView addSubview:line3];
-    [line3 aa_setDimensions];
-    [line3 aa_leading:self.contentView offset:10.f];
-    [line3 aa_trailing:self.contentView offset:10.f];
-    [line3 aa_pinUnderView:phoneLabel offset:10];
+    line3.centerX = sv.centerX;
+    [sv addSubview:line3];
 
-    __weak BookResultViewController * weakSelf = self;
-    AAButton *okButton = [[AAButton alloc] initWithWidth:170 onTap:^(UIView *_self) {
-        [weakSelf okTapped];
+    AAButton *okButton = [[AAButton alloc] initWithWidth:250 onTap:^(UIView *_self) {
+        [wSelf okTapped];
     }];
     [okButton commonStyleButtonWithTitle:@"ВЕРНУТЬСЯ В МЕНЮ"];
     [okButton setTitleFont:[UIFont robotoRegular:18]];
+    okButton.centerX = self.view.centerX;
+    okButton.y = line3.bottom + 30;
     okButton.height = 40;
-    [self.contentView addSubview:okButton];
-    [okButton aa_setDimensions];
-    [okButton aa_pinUnderView:line3 offset:20];
-    [okButton aa_centerHorizontal];
-    [okButton aa_superviewBottom:15];
+    [sv addSubview:okButton];
+
+    [sv setContentSizeHeight:okButton.bottom + 20];
 
 //    UILabel *subtitle = [sv setNavigationSubtitle:_bookObject.carwash.name];
 //    subtitle.y = 10;

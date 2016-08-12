@@ -31,6 +31,7 @@
 @property (nonatomic, copy) NSString *status;
 @property (nonatomic, copy) NSString *time;
 @property (nonatomic, copy) NSString *carwashName;
+@property (nonatomic, copy) NSString *ts;
 
 + (CarwashBook *)instanceFromDictionary:(NSDictionary *)aDictionary;
 - (void)setAttributesFromDictionary:(NSDictionary *)aDictionary;
@@ -40,6 +41,7 @@
 
 - (NSString *)carTypeTitle;
 
+- (NSDate *)tsDate;
 - (NSDate *)bookDate;
 - (NSDate *)localBookDate;
 - (NSString *)localizedBookDate;

@@ -148,5 +148,22 @@
     return sizeName.height + sizeName.height + 2 * kPadding + 43;
 }
 
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
+    UIColor *color = carwashStatusView.backgroundColor;
+    [super setSelected:selected animated:animated];
+    
+    if (selected){
+        carwashStatusView.backgroundColor = color;
+    }
+}
+
+-(void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated{
+    UIColor *color = carwashStatusView.backgroundColor;
+    [super setHighlighted:highlighted animated:animated];
+    
+    if (highlighted){
+        carwashStatusView.backgroundColor = color;
+    }
+}
 
 @end

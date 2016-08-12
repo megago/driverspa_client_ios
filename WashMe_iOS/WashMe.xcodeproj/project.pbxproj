@@ -197,6 +197,7 @@
 		A3BCA3C71D3D252D00FEE6B6 /* UserBookingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BCA39D1D3D252D00FEE6B6 /* UserBookingsViewController.m */; };
 		A3BCA3C81D3D252D00FEE6B6 /* UserFavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BCA39F1D3D252D00FEE6B6 /* UserFavoritesViewController.m */; };
 		A3BCA3C91D3D252D00FEE6B6 /* UserSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BCA3A11D3D252D00FEE6B6 /* UserSettingsViewController.m */; };
+		A3C9B0E71D5C4B7C00979950 /* CenterTitle.m in Sources */ = {isa = PBXBuildFile; fileRef = A3C9B0E61D5C4B7C00979950 /* CenterTitle.m */; };
 		A3DD9EB71D47C96700C4DC87 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3DD9EB61D47C96700C4DC87 /* Images.xcassets */; };
 		A3EB6D581D5609C0004E8CB5 /* ios_admin_dummy.html in Resources */ = {isa = PBXBuildFile; fileRef = A3EB6D571D5609C0004E8CB5 /* ios_admin_dummy.html */; };
 		A3EB6D5B1D561011004E8CB5 /* AdminDummyViewControlller.m in Sources */ = {isa = PBXBuildFile; fileRef = A3EB6D5A1D561011004E8CB5 /* AdminDummyViewControlller.m */; };
@@ -740,6 +741,8 @@
 		A3BCA39F1D3D252D00FEE6B6 /* UserFavoritesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserFavoritesViewController.m; sourceTree = "<group>"; };
 		A3BCA3A01D3D252D00FEE6B6 /* UserSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserSettingsViewController.h; sourceTree = "<group>"; };
 		A3BCA3A11D3D252D00FEE6B6 /* UserSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserSettingsViewController.m; sourceTree = "<group>"; };
+		A3C9B0E51D5C4B7C00979950 /* CenterTitle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CenterTitle.h; sourceTree = "<group>"; };
+		A3C9B0E61D5C4B7C00979950 /* CenterTitle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CenterTitle.m; sourceTree = "<group>"; };
 		A3DD9EB61D47C96700C4DC87 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		A3EB6D571D5609C0004E8CB5 /* ios_admin_dummy.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = ios_admin_dummy.html; sourceTree = "<group>"; };
 		A3EB6D591D561011004E8CB5 /* AdminDummyViewControlller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdminDummyViewControlller.h; sourceTree = "<group>"; };
@@ -1455,6 +1458,8 @@
 				A3EB6D691D5753A0004E8CB5 /* CarwashServiceCollectionView.m */,
 				A3EB6D6E1D575C1F004E8CB5 /* ServiceCollectionCell.h */,
 				A3EB6D6F1D575C1F004E8CB5 /* ServiceCollectionCell.m */,
+				A3C9B0E51D5C4B7C00979950 /* CenterTitle.h */,
+				A3C9B0E61D5C4B7C00979950 /* CenterTitle.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -2065,6 +2070,7 @@
 				A3BCA3AE1D3D252D00FEE6B6 /* SerCarwashCartypeServicePricesViewController.m in Sources */,
 				5200BA0F0B2B8CD1A1E45DE3 /* IconTitleView.m in Sources */,
 				5200B76BC8A77B5BEDE8D2A5 /* RowButtonView.m in Sources */,
+				A3C9B0E71D5C4B7C00979950 /* CenterTitle.m in Sources */,
 				5200B9CFFB676D4F9422F857 /* RowButtonDisclosureView.m in Sources */,
 				5200BFED80E38BB6F0548E03 /* ButtonView.m in Sources */,
 				A3BCA3C31D3D252D00FEE6B6 /* FreeCarwashesViewController.m in Sources */,

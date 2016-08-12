@@ -44,15 +44,9 @@
     for(UITabBarItem *item in self.tabBar.items) {
         item.image = [[UIImage imageNamed:images[index]] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
         item.selectedImage = [[UIImage imageNamed:imagesSelected[index]] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-        
-        if (index == 3){
-            item.badgeValue = @"1";
-        }
         ++index;
     }
     [self setSelectedIndex:1];
-    
-    
 }
 
 @end

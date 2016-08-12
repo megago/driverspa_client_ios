@@ -44,6 +44,9 @@
     self.time = [self.time stringByReplacingOccurrencesOfString:@"+00:00" withString:@""];
     self.services = [self arrayValueForKey:@"services"];
     self.carwashName = [self stringValueForKey:@"carwash_name"];
+    
+    self.ts = [self stringValueForKey:@"ts"];
+    self.ts = [self.ts stringByReplacingOccurrencesOfString:@"+00:00" withString:@""];
 
     objectData = nil;
 
@@ -74,6 +77,13 @@
     IdTitleObject *obj = serviceDictionary[self.cartype];
     return obj.title;
 }
+
+- (NSDate *)tsDate {
+    NSDateFormatter *df = [[NSDateFormatter alloc] init];
+    [df setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss"];
+    return [df dateFromString:self.ts];
+}
+
 
 - (NSDate *)bookDate {
     NSDateFormatter *df = [[NSDateFormatter alloc] init];

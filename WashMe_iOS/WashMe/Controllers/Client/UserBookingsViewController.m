@@ -25,6 +25,7 @@
 @implementation UserBookingsViewController {
     NSMutableArray  *bookings;
     UITableView *list;
+    int badgeCount;
 }
 
 -(id)init {
@@ -41,9 +42,8 @@
 {
     [super viewDidLoad];
     [self configUI];
-
     [self loadBookings];
-
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userBookUpdated) name:kUserBookEditedNotification object:nil];
 }
 
@@ -53,6 +53,7 @@
     [UserApi bookingsWithStatus:nil success:^(id response) {
         bookings = [NSMutableArray arrayWithArray:response];
         [self reloadList];
+        [self updateBadge];
         [self.refreshView endRefreshing];
     } failure:^(NSInteger code, NSString *message) {
 
@@ -68,6 +69,22 @@
         //__weak UserBookingsViewController *wSelf = self;
         [self showNoContentMessage:@"У Вас нет автивных броней" withButton:@"Обновить" selector:@selector(loadBookings)];
         list.hidden = YES;
+    }
+}
+
+- (void)updateBadge {
+    badgeCount = 0;
+    for (CarwashBook *book in bookings) {
+        if (book.isPending || book.isApproved) {
+            badgeCount++;
+        }
+    }
+    if (badgeCount > 0) {
+        [[[[[self tabBarController] tabBar] items]
+          objectAtIndex:3] setBadgeValue:[NSString stringWithFormat:@"%i", badgeCount]];
+    } else {
+        [[[[[self tabBarController] tabBar] items]
+          objectAtIndex:3] setBadgeValue:nil];
     }
 }
 

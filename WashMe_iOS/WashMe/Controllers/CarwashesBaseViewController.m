@@ -129,6 +129,7 @@
     [self setTabBarVisible:NO animated:YES completion:^(BOOL finished) {
         CarwashViewController *v = [[CarwashViewController alloc] init];
         v.carwash = weakCarwashes[(NSUInteger) indexPath.row];
+        v.hidesBottomBarWhenPushed = YES;
         [weakSelf.navigationController pushViewController:v animated:YES];
     }];
 }

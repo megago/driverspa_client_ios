@@ -26,6 +26,9 @@
 #import "NSString+Ext.h"
 #import "BookObject.h"
 
+#import "User.h"
+#import "CenterTitle.h"
+
 @interface UserBookViewController ()
 @end
 
@@ -33,6 +36,23 @@
     CarwashComplex *carwash;
     CarwashMapView *carwashMapView;
     CarwashRefs *_carwashRefs;
+    
+    NSTimer *timer;
+    NSDate *waitingDate;
+    CenterTitle *timerLabel;
+    
+    CenterTitle *secondBlockTitle;
+    CenterTitle *nameLabel;
+    CenterTitle *carLabel;
+    CenterTitle *serviceLabel;
+    CenterTitle *dateLabel;
+    UIView *line2;
+    CenterTitle *carwashLabel;
+    CenterTitle *addressLabel;
+    AAButton *phoneButton;
+    UIView *line3;
+    
+    CGFloat yPosition;
 }
 
 -(id)init {
@@ -118,76 +138,245 @@
     [self.navigationController pushViewController:v animated:YES];
 }
 
+- (void)telTapped
+{
+    NSString *tel = [carwash contactsMobilePhone];
+    if(tel) {
+        [UIActionSheet showInView:self.view withTitle:@"Позвонить?" cancelButtonTitle:@"Отмена" destructiveButtonTitle:nil otherButtonTitles:@[tel] tapBlock:^(UIActionSheet *actionSheet, NSInteger buttonIndex) {
+            if(buttonIndex != actionSheet.cancelButtonIndex) {
+                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel:%@", [tel phoneNumberValidForCall]]]];
+            }
+        }];
+    }
+}
+
+
 #pragma mark -
+
+- (NSString *)stringFromTimeInterval:(NSTimeInterval)interval {
+    NSInteger ti = (NSInteger)interval - 6*60*60;
+    if (ti < 0){
+        NSInteger seconds = abs(ti)  % 60;
+        NSInteger minutes = (abs(ti) / 60) % 60;
+        return [NSString stringWithFormat:@"%02ld:%02ld",(long)minutes, (long)seconds];
+    }
+    [self endTimer];
+    return @"00:00";
+}
+
+- (void)updateValueTimerLabel {
+    NSTimeInterval diff = [[NSDate date] timeIntervalSinceDate:waitingDate];
+    timerLabel.text = [self stringFromTimeInterval:diff];
+}
+
+- (void)startTimer {
+    timer = [NSTimer scheduledTimerWithTimeInterval:1.0
+                                     target:self
+                                   selector:@selector(updateValueTimerLabel)
+                                   userInfo:nil
+                                    repeats:YES];
+}
+
+- (void)endTimer {
+    [timer invalidate];
+    timer = nil;
+}
 
 - (void)buildUI
 {
-    UILabel *nameLabel = [sv setNavigationSubtitle:carwash.name];
-
-    carwashMapView = [[CarwashMapView alloc] initWithCoordinate:carwash.coordinate];
-    carwashMapView.centerX = sv.centerX;
-    carwashMapView.y = nameLabel.bottom + 15;
-    [sv addSubview:carwashMapView];
-
+    if([_book isPending]) {
+        [self setNavigationTitle:@"Бронь отправлена"]; //@"Ожидает";
+    } else if([_book isRejected]) {
+        [self setNavigationTitle:@"Бронь отменена"]; //@"Отклонен";
+    } else if([_book isFinished]) {
+        [self setNavigationTitle:@"Бронь завершена"]; //@"Завершен";
+    } else if([_book isApproved]) {
+        [self setNavigationTitle:@"Бронь подтверждена"]; //@"Услуга принята";
+    } else if([_book isStarted]) {
+        [self setNavigationTitle:@"Бронь подтверждена"]; //@"В процессе";
+    } else if([_book isNoCome]) {
+        [self setNavigationTitle:@"Бронь подтверждена"]; //@"Клиент не явился";
+    } else if([_book isCancelled]) {
+        [self setNavigationTitle:@"Бронь отменена"]; //@"Отменен";
+    }
+    
     // Infos
-    CGFloat rowWidth = [ASize screenWidth] - 50;
     CGFloat rowsSpacing = 10;
+    CGFloat rowWidth = [ASize screenWidth] - 2*rowsSpacing;
+    yPosition = rowsSpacing;
+    
+    if ([_book isPending]){
+        CenterTitle *subtitleLabel = [[CenterTitle alloc] initWithTitle:@"Администратор автомойки в течении 15 минут обработает вашу бронь, а вам прийдет push-уведомление" width:rowWidth];
+        [subtitleLabel sizeToFit];
+        subtitleLabel.centerX = sv.centerX;
+        subtitleLabel.y = yPosition;
+        [sv addSubview:subtitleLabel];
+        yPosition = subtitleLabel.bottom;
+        
+        waitingDate = [[_book tsDate] dateByAddingTimeInterval:15*60];
+        NSTimeInterval diff = [[NSDate date] timeIntervalSinceDate:waitingDate];
+        timerLabel = [[CenterTitle alloc] initWithTitle:[self stringFromTimeInterval:diff] width:rowWidth];
+        timerLabel.font = [UIFont robotoRegular:18];
+        [timerLabel sizeToFit];
+        timerLabel.centerX = sv.centerX;
+        timerLabel.y = yPosition + rowsSpacing;
+        [sv addSubview:timerLabel];
+        yPosition = timerLabel.bottom;
+        
+        UIView *line1 = [[UIView alloc] initWithFrame:CGRectMake(0, yPosition + rowsSpacing, rowWidth, 0.5)];
+        [line1 setBackgroundColor:[UIColor whiteColor]];
+        line1.alpha = 0.2;
+        line1.centerX = sv.centerX;
+        [sv addSubview:line1];
+        
+        yPosition = line1.bottom;
+    }
+    
+    
+    [self buildInfoBlockAfter:yPosition + rowsSpacing rowWidth:rowWidth rowsSpacing:rowsSpacing];
+    
+    
+    if ([_book isApproved]){
+        CenterTitle *statusLabel = [[CenterTitle alloc] initWithTitle:@"БРОНЬ ПОДТВЕРЖДЕНА" width:rowWidth];
+        statusLabel.font = [UIFont robotoRegular:14];
+        statusLabel.textColor = [UIColor greenColor];
+        [statusLabel sizeToFit];
+        statusLabel.centerX = sv.centerX;
+        statusLabel.y = yPosition + rowsSpacing;
+        [sv addSubview:statusLabel];
+        
+        yPosition = statusLabel.bottom;
+    }
 
-    TitleValueView *row1 = [[TitleValueView alloc] initWithTitle:@"Адрес:" value:carwash.address width:rowWidth];
-    row1.centerX = sv.centerX;
-    row1.y = carwashMapView.bottom + 25;
-    [sv addSubview:row1];
-
-    TitleValueView *row2 = [[TitleValueView alloc] initWithTitle:@"Телефон:" value:carwash.contactsMobilePhone width:rowWidth];
-    row2.centerX = sv.centerX;
-    row2.y = row1.bottom + rowsSpacing;
-    [sv addSubview:row2];
-
-    TitleValueView *row3 = [[TitleValueView alloc] initWithTitle:@"Дата и время:" value:[self.book localizedPrettyDate] width:rowWidth];
-    row3.centerX = sv.centerX;
-    row3.y = row2.bottom + rowsSpacing;
-    [sv addSubview:row3];
-
-    TitleValueView *row4 = [[TitleValueView alloc] initWithTitle:@"Стоимость:" value:[NSString stringWithFormat:@"%@ тг.", [NSString numberFormattedNumberText:self.book.price]] width:rowWidth];
-    row4.centerX = sv.centerX;
-    row4.y = row3.bottom + rowsSpacing;
-    [sv addSubview:row4];
-
-    TitleValueView *row5 = [[TitleValueView alloc] initWithTitle:@"Услуги:" value:[self.book servicesTitles] width:rowWidth];
-    row5.centerX = sv.centerX;
-    row5.y = row4.bottom + rowsSpacing;
-    [sv addSubview:row5];
-
-    if([_book.status isEqual:kBookStatusPending]) {
-        // Edit button
+    
+    if ([_book isCancelled]){
+        CenterTitle *statusLabel = [[CenterTitle alloc] initWithTitle:@"БРОНЬ ОТМЕНЕНА" width:rowWidth];
+        statusLabel.font = [UIFont robotoRegular:14];
+        statusLabel.textColor = [UIColor redColor];
+        [statusLabel sizeToFit];
+        statusLabel.centerX = sv.centerX;
+        statusLabel.y = yPosition + rowsSpacing;
+        [sv addSubview:statusLabel];
+        
+        yPosition = statusLabel.bottom;
+    }
+    
+    if ([_book isRejected]){
+        CenterTitle *statusLabel = [[CenterTitle alloc] initWithTitle:@"БРОНЬ ОТМЕНЕНА" width:rowWidth];
+        statusLabel.font = [UIFont robotoRegular:14];
+        statusLabel.textColor = [UIColor redColor];
+        [statusLabel sizeToFit];
+        statusLabel.centerX = sv.centerX;
+        statusLabel.y = yPosition + rowsSpacing;
+        [sv addSubview:statusLabel];
+        yPosition = statusLabel.bottom;
+        
+        CenterTitle *subtitleLabel = [[CenterTitle alloc] initWithTitle:@"Извините, бронь не была подтверждена администратором в течении 15 минут и была автоматически отменена." width:rowWidth];
+        [subtitleLabel sizeToFit];
+        subtitleLabel.centerX = sv.centerX;
+        subtitleLabel.y = yPosition + rowsSpacing;
+        [sv addSubview:subtitleLabel];
+        
+        yPosition = subtitleLabel.bottom;
+    }
+    
+    
+    if ([_book isPending]){
         __weak UserBookViewController *wSelf = self;
-        AAButton *editButton = [[AAButton alloc] initWithWidth:kButtonWidth onTap:^(UIView *_self) {
-            [wSelf editTapped];
-        }];
-        [editButton commonStyleButtonWithTitle:@"Изменить бронь"];
-        [editButton setTitleFont:[UIFont robotoRegular:18]];
-        editButton.centerX = sv.centerX;
-        editButton.y = row5.bottom + 25;
-        editButton.height = 40;
-        [sv addSubview:editButton];
-
-        // Cancel button
-        AAButton *cancelButton = [[AAButton alloc] initWithWidth:kButtonWidth onTap:^(UIView *_self) {
+        AAButton *cancelButton = [[AAButton alloc] initWithWidth:250 onTap:^(UIView *_self) {
             [wSelf cancelTapped];
         }];
-        [cancelButton commonStyleButtonWithTitle:@"Отменить бронь"];
+        [cancelButton commonStyleButtonWithTitle:@"ОТМЕНИТЬ БРОНЬ"];
         [cancelButton setTitleFont:[UIFont robotoRegular:18]];
-        cancelButton.centerX = sv.centerX;
-        cancelButton.y = editButton.bottom + 10;
+        [cancelButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+        cancelButton.centerX = self.view.centerX;
+        cancelButton.y = yPosition + 30;
         cancelButton.height = 40;
         [sv addSubview:cancelButton];
+        
+        yPosition = cancelButton.bottom;
+    }
+    [sv setContentSizeHeight:yPosition + 20];
+    
+    if ([_book isPending]){
+        [self startTimer];
+    }
+}
 
-        [sv setContentSizeHeight:cancelButton.bottom + 20];
-    }
-    else
-    {
-        [sv setContentSizeHeight:row5.bottom + 20];
-    }
+- (void)buildInfoBlockAfter : (CGFloat)after rowWidth:(CGFloat)rowWidth rowsSpacing:(CGFloat)rowsSpacing {
+    secondBlockTitle = [[CenterTitle alloc] initWithTitle:@"Бронь на имя" width:rowWidth];
+    secondBlockTitle.font = [UIFont robotoRegular:18.f];
+    [secondBlockTitle sizeToFit];
+    secondBlockTitle.centerX = sv.centerX;
+    secondBlockTitle.y = after + rowsSpacing;
+    [sv addSubview:secondBlockTitle];
+    
+    nameLabel = [[CenterTitle alloc] initWithTitle:[NSString stringWithFormat:@"%@ %@", [[User currentUser] fio], [User currentUser].mobile] width:rowWidth];
+    [nameLabel sizeToFit];
+    nameLabel.centerX = sv.centerX;
+    nameLabel.y = secondBlockTitle.bottom + 2*rowsSpacing;
+    [sv addSubview:nameLabel];
+    
+    carLabel = [[CenterTitle alloc] initWithTitle:[NSString stringWithFormat:@"%@ %@", [_book carTypeTitle], _book.clientKey] width:rowWidth];
+    [carLabel sizeToFit];
+    carLabel.centerX = sv.centerX;
+    carLabel.y = nameLabel.bottom;
+    [sv addSubview:carLabel];
+    
+    
+    serviceLabel = [[CenterTitle alloc] initWithTitle:[NSString stringWithFormat:@"%@ за %@", [_book servicesTitles], [_book localizedPrice]] width:rowWidth];
+    [serviceLabel sizeToFit];
+    serviceLabel.centerX = sv.centerX;
+    serviceLabel.y = carLabel.bottom;
+    [sv addSubview:serviceLabel];
+    
+    dateLabel = [[CenterTitle alloc] initWithTitle:[NSString stringWithFormat:@"%@ (%@) в %@", [_book localizedDaysAgo], [_book localizedBookDate], [_book bookTime]] width:rowWidth];
+    [dateLabel sizeToFit];
+    dateLabel.centerX = sv.centerX;
+    dateLabel.y = serviceLabel.bottom + 2*rowsSpacing;
+    [sv addSubview:dateLabel];
+    
+    line2 = [[UIView alloc] initWithFrame:CGRectMake(0, dateLabel.bottom + rowsSpacing, rowWidth, 0.5)];
+    [line2 setBackgroundColor:[UIColor whiteColor]];
+    line2.alpha = 0.2;
+    line2.centerX = sv.centerX;
+    [sv addSubview:line2];
+    
+    
+    
+    
+    carwashLabel = [[CenterTitle alloc] initWithTitle:[NSString stringWithFormat:@"Автомойка %@", _book.carwashName] width:rowWidth];
+    carwashLabel.font = [UIFont robotoRegular:18.f];
+    [carwashLabel sizeToFit];
+    carwashLabel.centerX = sv.centerX;
+    carwashLabel.y = line2.bottom + rowsSpacing;
+    [sv addSubview:carwashLabel];
+    
+    addressLabel = [[CenterTitle alloc] initWithTitle:carwash.address width:rowWidth];
+    [addressLabel sizeToFit];
+    addressLabel.centerX = sv.centerX;
+    addressLabel.y = carwashLabel.bottom + 2*rowsSpacing;
+    [sv addSubview:addressLabel];
+    
+    __weak UserBookViewController *wSelf = self;
+    phoneButton = [[AAButton alloc] initWithWidth:250 onTap:^(UIView *_self) {
+        [wSelf telTapped];
+    }];
+    [phoneButton noBorderStyleButtonWithTitle:[carwash contactsMobilePhone]];
+    [phoneButton setTitleFont:[UIFont robotoRegular:14]];
+    [phoneButton setTitleColor:[UIColor greenColor] forState:UIControlStateNormal];
+    phoneButton.centerX = self.view.centerX;
+    phoneButton.y = addressLabel.bottom;
+    phoneButton.height = 40;
+    [sv addSubview:phoneButton];
+    
+    line3 = [[UIView alloc] initWithFrame:CGRectMake(0, phoneButton.bottom + rowsSpacing, rowWidth, 0.5)];
+    [line3 setBackgroundColor:[UIColor whiteColor]];
+    line3.alpha = 0.2;
+    line3.centerX = sv.centerX;
+    [sv addSubview:line3];
+    
+    yPosition = line3.bottom;
 }
 
 -(void)configUI
@@ -195,9 +384,6 @@
     [super configUI];
     [self setBackButtonInNavigation];
     [self setBlueBackground];
-    [self setNavigationTitle:@"Моя бронь"];
-
-
 }
 
 - (void)didReceiveMemoryWarning {
@@ -205,7 +391,7 @@
 }
 
 -(void)dealloc {
-
+    [self endTimer];
 }
 
 @end

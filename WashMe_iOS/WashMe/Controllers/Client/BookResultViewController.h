@@ -8,13 +8,13 @@
 
 
 
-#import "ScrollViewController.h"
+#import "ScrollViewControllerOld.h"
 
 @class CarwashBook;
 @class CarwashComplex;
 @class BookObject;
 
-@interface BookResultViewController : ScrollViewController
+@interface BookResultViewController : ScrollViewControllerOld
 
 @property(nonatomic, strong) CarwashBook *carwashBook;
 @property(nonatomic, strong) BookObject *bookObject;

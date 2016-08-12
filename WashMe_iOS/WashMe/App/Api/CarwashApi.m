@@ -100,6 +100,18 @@
     if (mobile == nil){
         mobile = [User currentUser].mobile;
     }
+    
+    if (maxDistance == nil){
+        maxDistance = [NSNumber numberWithInt:50000];
+    }
+    
+    if (rating == nil){
+        rating = [NSNumber numberWithInt:0];
+    }
+    
+    if (maxPrice == nil){
+        maxPrice = [NSNumber numberWithInt:5000];
+    }
 
     //public_carwash?lonlat__near=71.432625%2C51.155372&limit=100000&lonlat__max_distance=50000&rating__gte=0&max_price=3500&offset=0&mobile=%2B77076744674&city=astana
 
