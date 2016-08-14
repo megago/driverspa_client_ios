@@ -39,6 +39,11 @@
     [self refreshCarwashes];
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [self setTabBarVisible:YES animated:YES completion:nil];
+}
+
 -(void)refreshCarwashes {
     [UserApi bookmarks:^(id response) {
         [self onCarwashesResponse:response];
@@ -60,6 +65,26 @@
         [self showNoContentMessage];
     }
 }
+
+- (void)setTabBarVisible:(BOOL)visible animated:(BOOL)animated completion:(void (^)(BOOL))completion {
+    
+    if ([self tabBarIsVisible] == visible) return (completion)? completion(YES) : nil;
+    
+    CGRect frame = self.tabBarController.tabBar.frame;
+    CGFloat height = frame.size.height;
+    CGFloat offsetY = (visible)? -height : height;
+    
+    CGFloat duration = (animated)? 0.3 : 0.0;
+    
+    [UIView animateWithDuration:duration animations:^{
+        self.tabBarController.tabBar.frame = CGRectOffset(frame, 0, offsetY);
+    } completion:completion];
+}
+
+- (BOOL)tabBarIsVisible {
+    return self.tabBarController.tabBar.frame.origin.y < CGRectGetMaxY(self.view.frame);
+}
+
 
 #pragma mark -
 #pragma mark CarwashViewController
@@ -127,9 +152,14 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 
-    CarwashViewController *v = [[CarwashViewController alloc] init];
-    v.carwash = _carwashes[(NSUInteger) indexPath.row];
-    [self.navigationController pushViewController:v animated:YES];
+    __weak UserFavoritesViewController * weakSelf = self;
+    __weak NSArray *weakCarwashes = _carwashes;
+    [self setTabBarVisible:NO animated:YES completion:^(BOOL finished) {
+        CarwashViewController *v = [[CarwashViewController alloc] init];
+        v.carwash = weakCarwashes[(NSUInteger) indexPath.row];
+        v.hidesBottomBarWhenPushed = YES;
+        [weakSelf.navigationController pushViewController:v animated:YES];
+    }];
 }
 
 #pragma mark -

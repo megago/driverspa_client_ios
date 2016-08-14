@@ -90,6 +90,17 @@
     return button;
 }
 
+- (void)createBarButtonAtLeftInNavigarion:(BOOL)atLeft buttonImage:(NSString *)imageName target:(id)target selector:(SEL)_selector
+{
+    UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:imageName] style:UIBarButtonItemStylePlain target:target action:_selector];
+    if (atLeft) {
+        self.navigationItem.leftBarButtonItem = button;
+    } else {
+        self.navigationItem.rightBarButtonItem = button;
+    }
+}
+
+
 #pragma mark -
 #pragma mark Actions
 

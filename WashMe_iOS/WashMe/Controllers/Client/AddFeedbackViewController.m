@@ -114,7 +114,7 @@
     AAButton *addButton = [[AAButton alloc] initWithWidth:200 onTap:^(UIView *_self) {
         [wSelf addTapped];
     }];
-    [addButton commonStyleButtonWithTitle:@"Добавить отзыв"];
+    [addButton commonStyleButtonWithTitle:@"ДОБАВИТЬ ОТЗЫВ"];
     [addButton setTitleFont:[UIFont robotoRegular:18]];
     addButton.centerX = sv.centerX;
     addButton.y = field.bottom + 15;

@@ -92,6 +92,13 @@
         }
     }
 }
+- (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    id item = self.items[indexPath.item];
+    if([item isEqual:@"add"]) {
+        return YES;
+    }
+    return self.isSelectedMode;
+}
 
 - (void)addAddButton {
     [self.items insertObject:@"add" atIndex:0];

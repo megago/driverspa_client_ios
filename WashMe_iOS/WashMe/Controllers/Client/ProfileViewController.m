@@ -359,13 +359,15 @@
     [_telField aa_centerHorizontal];
 
     _carsCollectionView = [CarsCollectionView newAutoLayoutView];
+    _carsCollectionView.selectedMode = NO;
     _carsCollectionView.delegate = self;
     [_carsCollectionView addAddButton];
     [self.contentView addSubview:_carsCollectionView];
     [_carsCollectionView aa_pinUnderView:_telField offset:15];
     [_carsCollectionView aa_superviewFitWidth];
 
-    _cityRowButton = [[RowButtonDropdownView alloc] initWithWidth:kContentWidth icon:nil title:@"Город" target:self selector:@selector(tapCity)];
+    //_cityRowButton = [[RowButtonDropdownView alloc] initWithWidth:kContentWidth icon:nil title:@"Город" target:self selector:@selector(tapCity)];
+    _cityRowButton = [[RowButtonDropdownView alloc] initWithWidth:kContentWidth icon:nil title:@"Город" target:nil selector:nil];
     [_cityRowButton aa_setDimensions];
     [self.contentView addSubview:_cityRowButton];
     [_cityRowButton aa_pinUnderView:_carsCollectionView offset:15];
@@ -375,7 +377,7 @@
     AAButton *addButton = [[AAButton alloc] initWithWidth:170 onTap:^(UIView *_self) {
         [weakSelf tapSave];
     }];
-    [addButton commonStyleButtonWithTitle:@"Сохранить"];
+    [addButton commonStyleButtonWithTitle:@"СОХРАНИТЬ"];
     [addButton setTitleFont:[UIFont robotoRegular:18]];
     addButton.height = 40;
     [self.contentView addSubview:addButton];

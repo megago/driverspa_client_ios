@@ -15,5 +15,5 @@
 
 #define kTabbarTag 101
 
-#define kDEBUGMODE YES
-//#define kDEBUGMODE NO
+//#define kDEBUGMODE YES
+#define kDEBUGMODE NO

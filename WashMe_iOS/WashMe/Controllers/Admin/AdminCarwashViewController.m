@@ -406,7 +406,7 @@
         [wSelf submitTapped];
     }];
     if(_carwash) {
-        [addButton commonStyleButtonWithTitle:@"Сохранить"];
+        [addButton commonStyleButtonWithTitle:@"СОХРАНИТЬ"];
     } else {
         [addButton commonStyleButtonWithTitle:@"Создать мойку"];
     }

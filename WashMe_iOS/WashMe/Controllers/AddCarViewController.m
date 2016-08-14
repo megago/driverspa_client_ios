@@ -110,7 +110,7 @@
     AAButton *addButton = [[AAButton alloc] initWithWidth:150 onTap:^(UIView *_self) {
         [weakSelf add];
     }];
-    [addButton commonStyleButtonWithTitle:@"Добавить"];
+    [addButton commonStyleButtonWithTitle:@"ДОБАВИТЬ"];
     [addButton setTitleFont:[UIFont robotoRegular:18]];
     addButton.height = 40;
     [self.contentView addSubview:addButton];

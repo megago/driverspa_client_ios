@@ -334,7 +334,7 @@
         [wSelf bookButtonTapped];
     }];
     if(_carwashComplex.isBookable) {
-        [bookButton1 commonStyleButtonWithTitle:@"Бронировать"];
+        [bookButton1 commonStyleButtonWithTitle:@"ЗАБРОНИРОВАТЬ"];
     } else {
         bookButton1.hidden = YES;
     }
@@ -493,7 +493,7 @@
         [wSelf bookButtonTapped];
     }];
     if(_carwashComplex.isBookable) {
-        [bookButton commonStyleButtonWithTitle:@"Бронировать"];
+        [bookButton commonStyleButtonWithTitle:@"ЗАБРОНИРОВАТЬ"];
     } else {
         bookButton.hidden = YES;
     }

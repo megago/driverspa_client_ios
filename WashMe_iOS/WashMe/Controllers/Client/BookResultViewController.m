@@ -117,6 +117,7 @@
     
     
     CenterTitle *secondBlockTitle = [[CenterTitle alloc] initWithTitle:@"Бронь на имя" width:rowWidth];
+    [secondBlockTitle setFont:[UIFont robotoRegular:16.f]];
     [secondBlockTitle sizeToFit];
     secondBlockTitle.centerX = sv.centerX;
     secondBlockTitle.y = line1.bottom + rowsSpacing;
@@ -131,20 +132,20 @@
     CenterTitle *carLabel = [[CenterTitle alloc] initWithTitle:[NSString stringWithFormat:@"%@ %@", [_carwashBook carTypeTitle], _bookObject.clientKey] width:rowWidth];
     [carLabel sizeToFit];
     carLabel.centerX = sv.centerX;
-    carLabel.y = nameLabel.bottom + rowsSpacing;
+    carLabel.y = nameLabel.bottom;
     [sv addSubview:carLabel];
     
     
     CenterTitle *serviceLabel = [[CenterTitle alloc] initWithTitle:[NSString stringWithFormat:@"%@ за %@", [_bookObject servicesTitles], [_bookObject localizedPrice]] width:rowWidth];
     [serviceLabel sizeToFit];
     serviceLabel.centerX = sv.centerX;
-    serviceLabel.y = carLabel.bottom + rowsSpacing;
+    serviceLabel.y = carLabel.bottom;
     [sv addSubview:serviceLabel];
     
     CenterTitle *dateLabel = [[CenterTitle alloc] initWithTitle:[NSString stringWithFormat:@"%@ (%@) в %@", [_carwashBook localizedDaysAgo], [_carwashBook localizedBookDate], [_carwashBook bookTime]] width:rowWidth];
     [dateLabel sizeToFit];
     dateLabel.centerX = sv.centerX;
-    dateLabel.y = serviceLabel.bottom + rowsSpacing;
+    dateLabel.y = serviceLabel.bottom;
     [sv addSubview:dateLabel];
     
     UIView *line2 = [[UIView alloc] initWithFrame:CGRectMake(0, dateLabel.bottom + rowsSpacing, rowWidth, 0.5)];
@@ -157,6 +158,7 @@
     
     
     CenterTitle *carwashLabel = [[CenterTitle alloc] initWithTitle:[NSString stringWithFormat:@"Автомойка %@", _carwashBook.carwashName] width:rowWidth];
+    [carwashLabel setFont:[UIFont robotoRegular:16.f]];
     [carwashLabel sizeToFit];
     carwashLabel.centerX = sv.centerX;
     carwashLabel.y = line2.bottom + rowsSpacing;
@@ -176,7 +178,7 @@
     [phoneButton setTitleFont:[UIFont robotoRegular:14]];
     [phoneButton setTitleColor:[UIColor greenColor] forState:UIControlStateNormal];
     phoneButton.centerX = self.view.centerX;
-    phoneButton.y = addressLabel.bottom + 30;
+    phoneButton.y = addressLabel.bottom;
     phoneButton.height = 40;
     [sv addSubview:phoneButton];
     
@@ -192,7 +194,7 @@
     [okButton commonStyleButtonWithTitle:@"ВЕРНУТЬСЯ В МЕНЮ"];
     [okButton setTitleFont:[UIFont robotoRegular:18]];
     okButton.centerX = self.view.centerX;
-    okButton.y = line3.bottom + 30;
+    okButton.y = line3.bottom + rowsSpacing;
     okButton.height = 40;
     [sv addSubview:okButton];
 

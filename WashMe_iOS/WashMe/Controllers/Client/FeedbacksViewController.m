@@ -80,10 +80,10 @@
 #pragma mark -
 #pragma mark UITableView
 
--(int)numberOfSectionsInTableView:(UITableView *)tableView {
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
--(int)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return _carwash.reviews.count;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -130,7 +130,8 @@
     [self setBackButtonInNavigation];
     [self setNavigationTitle:@"Отзывы"];
 
-    [self createBarButtonAtLeft:NO buttonImage:@"icon-add-outline" target:self selector:@selector(addTapped)];
+    //[self createBarButtonAtLeft:NO buttonImage:@"icon-add-outline" target:self selector:@selector(addTapped:)];
+    [self createBarButtonAtLeftInNavigarion:NO buttonImage:@"icon-add-outline" target:self selector:@selector(addTapped)];
 
     list = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, [ASize screenWidth], [ASize screenHeightWithoutStatusBarAndNavigationBar]) style:UITableViewStylePlain];
     list.delegate = self;

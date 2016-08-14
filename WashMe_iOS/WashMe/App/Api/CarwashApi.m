@@ -44,7 +44,7 @@
     
     //map_carwash?lonlat__near=%f,%f&lonlat__max_distance=%@&working=true&limit=10000
 
-    [self GET:[NSString stringWithFormat:@"public_carwash?lonlat__near=%f,%f&lonlat__max_distance=%@&limit=10000&city=%@&mobile=%@", lon, lat, @(50000), city.code, [User currentUser].mobile] success:^(id response) {
+    [self GET:[NSString stringWithFormat:@"map_carwash?lonlat__near=%f,%f&lonlat__max_distance=%@&limit=10000&city=%@&mobile=%@", lon, lat, @(50000), city.code, [User currentUser].mobile] success:^(id response) {
         NSArray *objects = [response objectForKey:@"objects"];
         NSArray *carwashes = [objects map:^id(id object) {
             return [CarwashComplex instanceFromDictionary:object];

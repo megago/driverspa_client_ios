@@ -17,6 +17,7 @@
 @interface CarsCollectionView : UIView
 
 @property(nonatomic, weak) id <CarsCollectionViewDelegate> delegate;
+@property(nonatomic, assign, getter=isSelectedMode) BOOL selectedMode;
 
 - (void)addAddButton;
 - (void)addCar:(Car *)car;

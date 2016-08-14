@@ -154,6 +154,7 @@
     value = [value stringByReplacingOccurrencesOfString:@" " withString:@""];
     value = [value stringByReplacingOccurrencesOfString:@"(" withString:@""];
     value = [value stringByReplacingOccurrencesOfString:@")" withString:@""];
+    value = [value stringByReplacingOccurrencesOfString:@"-" withString:@""];
 
     return value;
 }

@@ -18,6 +18,7 @@
 #import "UIView+Loader.h"
 #import "ImageBundle.h"
 #import "ObjectImage.h"
+#import "CarwashApi.h"
 
 #define kPadding 10
 
@@ -86,6 +87,15 @@
     _carwash = carwash;
     [self removeLoader];
     [self.list reloadData];
+    
+//    NSLog(@"%@", _carwash);
+//    __weak CarwashMarkerInfoWindowView * weakSelf = self;
+//    [CarwashApi getCarwashDetails:carwash.carwashId success:^(id response) {
+//        _carwash = response;
+//        [weakSelf.list reloadData];
+//    } failure:^(NSInteger code, NSString *message) {
+//        
+//    }];
 }
 
 #pragma mark -

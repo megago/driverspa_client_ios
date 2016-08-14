@@ -11,6 +11,7 @@
 #import "UIView+ConcisePureLayout.h"
 #import "ServiceCollectionCell.h"
 #import "IdTitleObject.h"
+#import "ASize.h"
 
 #define kHeight 50
 
@@ -25,22 +26,24 @@
     self = [super init];
     if(self) {
         
-        [self aa_setHeight:kHeight];
+        //[self aa_setHeight:kHeight];
         
         self.items = [[NSMutableArray alloc] init];
         
         UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
         layout.sectionInset = UIEdgeInsetsMake(0, kViewControllerPadding, 0, kViewControllerPadding);
         layout.minimumInteritemSpacing = 5;
-        layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+        layout.scrollDirection = UICollectionViewScrollDirectionVertical;
         
         self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
         _collectionView.delegate = self;
         _collectionView.dataSource = self;
         _collectionView.backgroundColor = [UIColor clearColor];
-        _collectionView.alwaysBounceHorizontal = YES;
+        _collectionView.alwaysBounceHorizontal = NO;
+        _collectionView.alwaysBounceVertical = NO;
         _collectionView.pagingEnabled = NO;
         _collectionView.showsHorizontalScrollIndicator = NO;
+        _collectionView.allowsMultipleSelection = YES;
         [_collectionView registerClass:[ServiceCollectionCell class] forCellWithReuseIdentifier:@"ServiceCollectionCell"];
         [self addSubview:_collectionView];
         [_collectionView autoPinEdgesToSuperviewEdges];
@@ -55,10 +58,11 @@
     return self.items.count;
 }
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return CGSizeMake(2*kHeight, kHeight);
+    CGFloat width = (collectionView.frame.size.width - 4 * kViewControllerPadding) / 3;
+    return CGSizeMake(width, kHeight);
 }
 - (UIEdgeInsets)collectionView:(UICollectionView*)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
-    return UIEdgeInsetsMake(0, kViewControllerPadding, 0, 0);
+    return UIEdgeInsetsMake(0, kViewControllerPadding, 0, kViewControllerPadding);
 }
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -71,11 +75,22 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     NSArray<NSIndexPath*>* selectedIndexes = collectionView.indexPathsForSelectedItems;
     NSMutableArray *services = [[NSMutableArray alloc] init];
-    for (int i = 0; i < selectedIndexes.count; i++) {
-        IdTitleObject *item = self.items[indexPath.item];
+    for (NSIndexPath *path in selectedIndexes) {
+        IdTitleObject *item = self.items[path.row];;
         [services addObject:item];
-        [self.delegate carwashServiceCollectionViewSelectedServices:services];
     }
+    //NSLog(@"selected - %ld", (long)services.count);
+    [self.delegate carwashServiceCollectionViewSelectedServices:services];
+}
+- (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath {
+    NSArray<NSIndexPath*>* selectedIndexes = collectionView.indexPathsForSelectedItems;
+    NSMutableArray *services = [[NSMutableArray alloc] init];
+    for (NSIndexPath *path in selectedIndexes) {
+        IdTitleObject *item = self.items[path.row];;
+        [services addObject:item];
+    }
+    //NSLog(@"deselected - %ld", (long)services.count);
+    [self.delegate carwashServiceCollectionViewSelectedServices:services];
 }
 - (void)addService:(IdTitleObject *)service {
     [self.items addObject:service];
@@ -88,6 +103,18 @@
 }
 
 - (void)refreshServices:(NSArray *)services {
+    
+    int section = (int) services.count / 3;
+    if (section == 0) {
+        [self aa_setHeight:kHeight];
+    } else {
+        CGFloat height = services.count % 3 > 0 ? kHeight * (section + 1) + 15*section : kHeight * section;
+        [self aa_setHeight:height];
+    }
+    //            [self setNeedsUpdateConstraints];
+    //            [self setNeedsLayout];
+    //            [self layoutIfNeeded];
+    
     [self.items removeAllObjects];
     [self.items addObjectsFromArray:services];
     [self.collectionView reloadData];

@@ -53,8 +53,8 @@
             //[IdTitleObject instanceWithId:@"bonuses" title:@"Бонусы" value:@"iconPresent"],
             //[IdTitleObject instanceWithId:@"settings" title:@"Настройки" value:@"iconSettings"],
             //[IdTitleObject instanceWithId:@"share" title:@"Поделиться" value:@"iconShare"]
-           [IdTitleObject instanceWithId:@"carwashes" title:@"Мойки (Астана)" value:@"ic_share_white"],
-           [IdTitleObject instanceWithId:@"aboutus" title:@"О нас" value:@"ic_share_white"]
+           [IdTitleObject instanceWithId:@"carwashes" title:@"Мойки (Астана)" value:@"ic_business_white"],
+           [IdTitleObject instanceWithId:@"aboutus" title:@"О нас" value:@"ic_about_us"]
     ];
 }
 
@@ -168,8 +168,10 @@
         UIButton *logout = [UIButton newAutoLayoutView];
         [logout setBackgroundColor:[UIColor clearColor]];
         [logout setTitle:@"Выход" forState:UIControlStateNormal];
-        [logout setImage:[UIImage imageNamed:@"iconLogout"] forState:UIControlStateNormal];
+        [logout setImage:[UIImage imageNamed:@"ic_logout"] forState:UIControlStateNormal];
         [logout addTarget:self action:@selector(tapLogout) forControlEvents:UIControlEventTouchUpInside];
+        [logout setImageEdgeInsets:UIEdgeInsetsMake(0, 0, 0, 10)];
+        [logout setTitleEdgeInsets:UIEdgeInsetsMake(0, 10, 0, 0)];
         [footerView addSubview:logout];
         [logout aa_sameWidthWith:footerView];
         [logout aa_setHeight:40.f];
@@ -194,7 +196,7 @@
     IdTitleObject *object = self.items[indexPath.row];
     cell.textLabel.text = object.title;
 
-    UIView *imageView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 20, 30)];
+    UIView *imageView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
     imageView.opaque = NO;
     UIImageView *iconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:object.value]];
     [imageView addSubview:iconView];

@@ -198,7 +198,13 @@
 		A3BCA3C81D3D252D00FEE6B6 /* UserFavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BCA39F1D3D252D00FEE6B6 /* UserFavoritesViewController.m */; };
 		A3BCA3C91D3D252D00FEE6B6 /* UserSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BCA3A11D3D252D00FEE6B6 /* UserSettingsViewController.m */; };
 		A3C9B0E71D5C4B7C00979950 /* CenterTitle.m in Sources */ = {isa = PBXBuildFile; fileRef = A3C9B0E61D5C4B7C00979950 /* CenterTitle.m */; };
-		A3DD9EB71D47C96700C4DC87 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3DD9EB61D47C96700C4DC87 /* Images.xcassets */; };
+		A3C9B0F01D6065DA00979950 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3C9B0EF1D6065DA00979950 /* Images.xcassets */; };
+		A3C9B0F31D60710900979950 /* ic_business_white.png in Resources */ = {isa = PBXBuildFile; fileRef = A3C9B0F11D60710900979950 /* ic_business_white.png */; };
+		A3C9B0F41D60710900979950 /* ic_business_white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A3C9B0F21D60710900979950 /* ic_business_white@2x.png */; };
+		A3C9B0F91D60723B00979950 /* ic_about_us.png in Resources */ = {isa = PBXBuildFile; fileRef = A3C9B0F51D60723B00979950 /* ic_about_us.png */; };
+		A3C9B0FA1D60723B00979950 /* ic_about_us@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A3C9B0F61D60723B00979950 /* ic_about_us@2x.png */; };
+		A3C9B0FB1D60723B00979950 /* ic_logout.png in Resources */ = {isa = PBXBuildFile; fileRef = A3C9B0F71D60723B00979950 /* ic_logout.png */; };
+		A3C9B0FC1D60723B00979950 /* ic_logout@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A3C9B0F81D60723B00979950 /* ic_logout@2x.png */; };
 		A3EB6D581D5609C0004E8CB5 /* ios_admin_dummy.html in Resources */ = {isa = PBXBuildFile; fileRef = A3EB6D571D5609C0004E8CB5 /* ios_admin_dummy.html */; };
 		A3EB6D5B1D561011004E8CB5 /* AdminDummyViewControlller.m in Sources */ = {isa = PBXBuildFile; fileRef = A3EB6D5A1D561011004E8CB5 /* AdminDummyViewControlller.m */; };
 		A3EB6D5F1D565497004E8CB5 /* BookCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A3EB6D5E1D565497004E8CB5 /* BookCell.m */; };
@@ -743,7 +749,13 @@
 		A3BCA3A11D3D252D00FEE6B6 /* UserSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserSettingsViewController.m; sourceTree = "<group>"; };
 		A3C9B0E51D5C4B7C00979950 /* CenterTitle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CenterTitle.h; sourceTree = "<group>"; };
 		A3C9B0E61D5C4B7C00979950 /* CenterTitle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CenterTitle.m; sourceTree = "<group>"; };
-		A3DD9EB61D47C96700C4DC87 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		A3C9B0EF1D6065DA00979950 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		A3C9B0F11D60710900979950 /* ic_business_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_business_white.png; sourceTree = "<group>"; };
+		A3C9B0F21D60710900979950 /* ic_business_white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_business_white@2x.png"; sourceTree = "<group>"; };
+		A3C9B0F51D60723B00979950 /* ic_about_us.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_about_us.png; sourceTree = "<group>"; };
+		A3C9B0F61D60723B00979950 /* ic_about_us@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_about_us@2x.png"; sourceTree = "<group>"; };
+		A3C9B0F71D60723B00979950 /* ic_logout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_logout.png; sourceTree = "<group>"; };
+		A3C9B0F81D60723B00979950 /* ic_logout@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_logout@2x.png"; sourceTree = "<group>"; };
 		A3EB6D571D5609C0004E8CB5 /* ios_admin_dummy.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = ios_admin_dummy.html; sourceTree = "<group>"; };
 		A3EB6D591D561011004E8CB5 /* AdminDummyViewControlller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdminDummyViewControlller.h; sourceTree = "<group>"; };
 		A3EB6D5A1D561011004E8CB5 /* AdminDummyViewControlller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdminDummyViewControlller.m; sourceTree = "<group>"; };
@@ -1618,6 +1630,12 @@
 				A38003901D4DFDBD00806157 /* intro_2@2x.png */,
 				A38003911D4DFDBD00806157 /* intro_3.png */,
 				A38003921D4DFDBD00806157 /* intro_3@2x.png */,
+				A3C9B0F11D60710900979950 /* ic_business_white.png */,
+				A3C9B0F21D60710900979950 /* ic_business_white@2x.png */,
+				A3C9B0F51D60723B00979950 /* ic_about_us.png */,
+				A3C9B0F61D60723B00979950 /* ic_about_us@2x.png */,
+				A3C9B0F71D60723B00979950 /* ic_logout.png */,
+				A3C9B0F81D60723B00979950 /* ic_logout@2x.png */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -1673,7 +1691,7 @@
 				CE68D67619BB802700FCFF5B /* Views */,
 				CEABA62719BB1FDF00CBAEBF /* AppDelegate.h */,
 				CEABA62819BB1FDF00CBAEBF /* AppDelegate.m */,
-				A3DD9EB61D47C96700C4DC87 /* Images.xcassets */,
+				A3C9B0EF1D6065DA00979950 /* Images.xcassets */,
 				CEABA61F19BB1FDF00CBAEBF /* Supporting Files */,
 				5200B393E617F098E7DF3693 /* Storyboards */,
 			);
@@ -1806,7 +1824,6 @@
 				CE755C271A192F5E00A036DC /* icon-disclosure-indicator-white.png in Resources */,
 				CE755C651A192F5E00A036DC /* star-small-empty@2x.png in Resources */,
 				CE6C4A4B19DC4DA60014229D /* kz_almaty.gpx in Resources */,
-				A3DD9EB71D47C96700C4DC87 /* Images.xcassets in Resources */,
 				CE755C081A192F5E00A036DC /* btn_tab-settings_selected@2x.png in Resources */,
 				CE551AD71BCAB2850056AD5C /* UserMain.storyboard in Resources */,
 				5200BCBD2E3E4525C7C1D6AC /* Roboto-Bold.ttf in Resources */,
@@ -1823,6 +1840,7 @@
 				A38003961D4DFDBD00806157 /* intro_2@2x.png in Resources */,
 				CE755C4E1A192F5E00A036DC /* Icon-Small@2x-1.png in Resources */,
 				CE755C1D1A192F5E00A036DC /* icon-arrow-back.png in Resources */,
+				A3C9B0F01D6065DA00979950 /* Images.xcassets in Resources */,
 				CE755C291A192F5E00A036DC /* icon-favorite-filled.png in Resources */,
 				CE755C571A192F5E00A036DC /* icon-tel@2x.png in Resources */,
 				CE755C541A192F5E00A036DC /* icon-success-tick.png in Resources */,
@@ -1841,6 +1859,7 @@
 				CEDCFE0B19C74B6C00720AB5 /* RobotoCondensed-Light.ttf in Resources */,
 				CE755BE91A192F5E00A036DC /* btn_cartype1_normal.png in Resources */,
 				CE3753901A583FE300394BFE /* carwash-status-published.png in Resources */,
+				A3C9B0FA1D60723B00979950 /* ic_about_us@2x.png in Resources */,
 				CE755C5B1A192F5E00A036DC /* icon-wifi@2x.png in Resources */,
 				A3981CD41D4D20E700E0689B /* carwash-annotation-online.png in Resources */,
 				CE755BED1A192F5E00A036DC /* btn_cartype2_normal.png in Resources */,
@@ -1877,6 +1896,8 @@
 				CE3753921A583FE300394BFE /* carwash-status-unpublished.png in Resources */,
 				CE755C411A192F5E00A036DC /* icon-search.png in Resources */,
 				CE755C051A192F5E00A036DC /* btn_tab-settings_normal.png in Resources */,
+				A3C9B0FC1D60723B00979950 /* ic_logout@2x.png in Resources */,
+				A3C9B0F41D60710900979950 /* ic_business_white@2x.png in Resources */,
 				CE755C4D1A192F5E00A036DC /* Icon-Small.png in Resources */,
 				CE755C141A192F5E00A036DC /* icon-24hours.png in Resources */,
 				CE755C1B1A192F5E00A036DC /* icon-add-outline.png in Resources */,
@@ -1914,6 +1935,7 @@
 				5200B9A9A1BBDD1CBCA190D9 /* Roboto-LightItalic.ttf in Resources */,
 				CE755BDF1A192F5E00A036DC /* avatar-circle.png in Resources */,
 				CE755BFA1A192F5E00A036DC /* btn_tab-carwash_normal@2x.png in Resources */,
+				A3C9B0F31D60710900979950 /* ic_business_white.png in Resources */,
 				CE755BEF1A192F5E00A036DC /* btn_cartype2_selected.png in Resources */,
 				CE755C2E1A192F5E00A036DC /* icon-feedbacks@2x.png in Resources */,
 				CE755C231A192F5E00A036DC /* icon-checkmark.png in Resources */,
@@ -1930,8 +1952,10 @@
 				CE755C691A192F5E00A036DC /* washme-logo@2x.png in Resources */,
 				CE755C471A192F5E00A036DC /* Icon-Small-1.png in Resources */,
 				CE755BF51A192F5E00A036DC /* btn_cartype4_normal.png in Resources */,
+				A3C9B0F91D60723B00979950 /* ic_about_us.png in Resources */,
 				CE755C5F1A192F5E00A036DC /* mylocation-annotation@2x.png in Resources */,
 				CE755C331A192F5E00A036DC /* icon-map-carwash.png in Resources */,
+				A3C9B0FB1D60723B00979950 /* ic_logout.png in Resources */,
 				CE755C201A192F5E00A036DC /* icon-cafe@2x.png in Resources */,
 				CE755C521A192F5E00A036DC /* icon-status-red.png in Resources */,
 				CE755C0E1A192F5E00A036DC /* carwash-image-placeholder@2x.png in Resources */,

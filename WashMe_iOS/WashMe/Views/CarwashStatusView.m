@@ -17,7 +17,7 @@
         self.font = [UIFont robotoRegular:11.f];
         self.text = @"online запись";
         self.textColor = [UIColor whiteColor];
-        self.backgroundColor = [UIColor greenColor];
+        self.backgroundColor = [[UIColor greenColor] colorWithAlphaComponent:0.5f];
         
         self.layer.masksToBounds = YES;
         self.layer.cornerRadius = self.frame.size.height / 2;

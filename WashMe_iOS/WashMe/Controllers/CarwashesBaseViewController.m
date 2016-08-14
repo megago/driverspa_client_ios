@@ -123,9 +123,9 @@
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    __weak NSMutableArray *weakCarwashes = _carwashes;
-    __weak CarwashesBaseViewController *weakSelf = self;
     
+    __weak CarwashesBaseViewController *weakSelf = self;
+    __weak NSMutableArray *weakCarwashes = _carwashes;
     [self setTabBarVisible:NO animated:YES completion:^(BOOL finished) {
         CarwashViewController *v = [[CarwashViewController alloc] init];
         v.carwash = weakCarwashes[(NSUInteger) indexPath.row];

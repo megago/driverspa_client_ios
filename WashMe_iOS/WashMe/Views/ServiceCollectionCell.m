@@ -41,6 +41,7 @@
 }
 
 - (void)setSelected:(BOOL)selected {
+    [super setSelected:selected];
     if (selected) {
         self.contentView.layer.borderWidth = 1.f;
         self.contentView.layer.borderColor = [UIColor whiteColor].CGColor;

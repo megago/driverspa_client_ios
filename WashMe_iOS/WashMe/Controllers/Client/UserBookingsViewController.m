@@ -47,9 +47,17 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userBookUpdated) name:kUserBookEditedNotification object:nil];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self setTabBarVisible:YES animated:YES completion:nil];
+}
+
 - (void)viewDidAppear:(BOOL)animated {
     [self loadBookings];
 }
+
+#pragma mark - 
+#pragma mark - Config Action
 
 - (void)loadBookings
 {
@@ -90,6 +98,25 @@
         [[[[[self tabBarController] tabBar] items]
           objectAtIndex:3] setBadgeValue:nil];
     }
+}
+
+- (void)setTabBarVisible:(BOOL)visible animated:(BOOL)animated completion:(void (^)(BOOL))completion {
+    
+    if ([self tabBarIsVisible] == visible) return (completion)? completion(YES) : nil;
+    
+    CGRect frame = self.tabBarController.tabBar.frame;
+    CGFloat height = frame.size.height;
+    CGFloat offsetY = (visible)? -height : height;
+    
+    CGFloat duration = (animated)? 0.3 : 0.0;
+    
+    [UIView animateWithDuration:duration animations:^{
+        self.tabBarController.tabBar.frame = CGRectOffset(frame, 0, offsetY);
+    } completion:completion];
+}
+
+- (BOOL)tabBarIsVisible {
+    return self.tabBarController.tabBar.frame.origin.y < CGRectGetMaxY(self.view.frame);
 }
 
 #pragma mark -
@@ -142,10 +169,15 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 
-    UserBookViewController *v = [[UserBookViewController alloc] init];
-    v.delegate = self;
-    v.book = bookings[(NSUInteger) indexPath.row];
-    [self.navigationController pushViewController:v animated:YES];
+    __weak UserBookingsViewController * weakSelf = self;
+    __weak NSMutableArray * weakBookings = bookings;
+    [self setTabBarVisible:NO animated:YES completion:^(BOOL finished) {
+        UserBookViewController *v = [[UserBookViewController alloc] init];
+        v.delegate = weakSelf;
+        v.book = weakBookings[(NSUInteger) indexPath.row];
+        v.hidesBottomBarWhenPushed = YES;
+        [weakSelf.navigationController pushViewController:v animated:YES];
+    }];
 }
 
 #pragma mark -

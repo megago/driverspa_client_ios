@@ -68,6 +68,9 @@
     if (_selectedCity) {
         [_cityRowButton setTitle:_selectedCity.title];
         [UserSettings setCurrentCity:_selectedCity];
+    } else {
+        self.selectedCity = [Cache carwashRefs].cities.lastObject;
+        [_cityRowButton setTitle:_selectedCity.title];
     }
 
     if(kDEBUGMODE) {
@@ -96,8 +99,11 @@
 
     [SVProgressHUD showWithStatus:@"Сохранение"];
     [UserApi updateProfileWithName:_nameField.value lastname:nil cars:self.cars city:_selectedCity success:^(id response) {
-
         [SVProgressHUD dismiss];
+        
+        User *user = [User instanceFromDictionary:response];
+        // Store user data
+        [User setAuthorizedUserData:response withMobile:user.mobile];
 
         // Set that user entered profile in registration.
         [User setRegistrationProfileEntered:[User currentUser].mobile];
@@ -185,13 +191,15 @@
     [addAutoTitleLabel aa_leading:_telField];
 
     _carsCollectionView = [CarsCollectionView newAutoLayoutView];
+    _carsCollectionView.selectedMode = NO;
     _carsCollectionView.delegate = self;
     [_carsCollectionView addAddButton];
     [self.contentView addSubview:_carsCollectionView];
     [_carsCollectionView aa_pinUnderView:addAutoTitleLabel offset:8];
     [_carsCollectionView aa_superviewFitWidth];
 
-    _cityRowButton = [[RowButtonDropdownView alloc] initWithWidth:kContentWidth icon:nil title:@"Город" target:self selector:@selector(tapCity)];
+    //_cityRowButton = [[RowButtonDropdownView alloc] initWithWidth:kContentWidth icon:nil title:@"Город" target:self selector:@selector(tapCity)];
+    _cityRowButton = [[RowButtonDropdownView alloc] initWithWidth:kContentWidth icon:nil title:@"Город" target:nil selector:nil];
     [_cityRowButton aa_setDimensions];
     [self.contentView addSubview:_cityRowButton];
     [_cityRowButton aa_pinUnderView:_carsCollectionView offset:20];
@@ -201,7 +209,7 @@
     AAButton *addButton = [[AAButton alloc] initWithWidth:170 onTap:^(UIView *_self) {
         [weakSelf tapSave];
     }];
-    [addButton commonStyleButtonWithTitle:@"Сохранить"];
+    [addButton commonStyleButtonWithTitle:@"СОХРАНИТЬ"];
     [addButton setTitleFont:[UIFont robotoRegular:18]];
     addButton.height = 40;
     [self.contentView addSubview:addButton];

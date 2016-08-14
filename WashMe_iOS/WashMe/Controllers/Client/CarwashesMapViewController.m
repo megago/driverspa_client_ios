@@ -34,17 +34,19 @@
 }
 
 -(void)initVars {
-    self.annotationsEnabled = YES;
+    //self.annotationsEnabled = YES;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.annotationsEnabled = YES;
     [self configUI];
     [self loadCarwaches];
 }
 
 -(void)viewWillAppear:(BOOL)animated {
+    [self setTabBarVisible:YES animated:YES completion:nil];
     //[[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
 }
 
@@ -119,6 +121,25 @@
     }
 }
 
+- (void)setTabBarVisible:(BOOL)visible animated:(BOOL)animated completion:(void (^)(BOOL))completion {
+    
+    if ([self tabBarIsVisible] == visible) return (completion)? completion(YES) : nil;
+    
+    CGRect frame = self.tabBarController.tabBar.frame;
+    CGFloat height = frame.size.height;
+    CGFloat offsetY = (visible)? -height : height;
+    
+    CGFloat duration = (animated)? 0.3 : 0.0;
+    
+    [UIView animateWithDuration:duration animations:^{
+        self.tabBarController.tabBar.frame = CGRectOffset(frame, 0, offsetY);
+    } completion:completion];
+}
+
+- (BOOL)tabBarIsVisible {
+    return self.tabBarController.tabBar.frame.origin.y < CGRectGetMaxY(self.view.frame);
+}
+
 #pragma mark -
 #pragma mark GMSMapView
 
@@ -133,11 +154,15 @@
 -(void)mapView:(GMSMapView *)mapView didTapInfoWindowOfMarker:(GMSMarker *)marker
 {
     if(self.annotationsEnabled) {
-        CarwashComplex *carwash = self.carwashes[(NSUInteger) [marker.userData integerValue]];
-
-        CarwashViewController *v = [[CarwashViewController alloc] init];
-        v.carwash = carwash;
-        [self.navigationController pushViewController:v animated:YES];
+        __weak CarwashesMapViewController * weakSelft = self;
+        [self setTabBarVisible:NO animated:YES completion:^(BOOL finished) {
+            CarwashComplex *carwash = weakSelft.carwashes[(NSUInteger) [marker.userData integerValue]];
+            
+            CarwashViewController *v = [[CarwashViewController alloc] init];
+            v.carwash = carwash;
+            v.hidesBottomBarWhenPushed = YES;
+            [weakSelft.navigationController pushViewController:v animated:YES];
+        }];
     }
 }
 

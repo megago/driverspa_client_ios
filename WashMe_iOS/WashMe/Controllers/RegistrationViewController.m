@@ -16,7 +16,7 @@
 #import "UserSettings.h"
 
 
-@interface RegistrationViewController ()
+@interface RegistrationViewController () <UITextFieldDelegate>
 @end
 
 @implementation RegistrationViewController {
@@ -135,11 +135,13 @@
     [sv addSubview:countryCodeField];
 
     telField = [[InputTextField alloc] initWithWidth:kContentWidth height:countryCodeField.height];
+    telField.textField.delegate = self;
     telField.centerX = self.view.centerX;
     telField.y = countryCodeField.bottom;
-    telField.textField.keyboardType = UIKeyboardTypePhonePad;
+    telField.textField.keyboardType = UIKeyboardTypeNumberPad;
     [telField setPlaceholder:@"Введите номер телефона"];
-    if([AppUtils isAlmas]) [telField setValue:![UserSettings isAdmin]?@"+77019852754":@"+70000000000"]; // TODO: for testing
+    //if([AppUtils isAlmas]) [telField setValue:![UserSettings isAdmin]?@"+77019852754":@"+70000000000"]; // TODO: for testing
+    if(kDEBUGMODE) [telField setValue:![UserSettings isAdmin]?@"+77019852754":@"+70000000000"]; // TODO: for testing
     [sv addSubview:telField];
     [editableFields addObject:telField];
 
@@ -152,7 +154,7 @@
     AAButton *okButton = [[AAButton alloc] initWithWidth:130 onTap:^(UIView *_self) {
         [wSelf okTapped];
     }];
-    [okButton commonStyleButtonWithTitle:@"Далее"];
+    [okButton commonStyleButtonWithTitle:@"ДАЛЕЕ"];
     [okButton setTitleFont:[UIFont robotoRegular:20]];
     okButton.centerX = self.view.centerX;
     okButton.y = telField.bottom + 20;
@@ -165,6 +167,82 @@
 
 -(void)dealloc {
 
+}
+
+#pragma mark - UITextFieldDelegate
+
+-(NSString*) formatPhoneString:(NSString*) preFormatted
+{    //delegate only allows numbers to be entered, so '-' is the only non-legal char.
+    NSString* workingString = [preFormatted stringByReplacingOccurrencesOfString:@"(" withString:@""];
+    workingString = [workingString stringByReplacingOccurrencesOfString:@")" withString:@""];
+    workingString = [workingString stringByReplacingOccurrencesOfString:@"-" withString:@""];
+    workingString = [workingString stringByReplacingOccurrencesOfString:@" " withString:@""];
+    workingString = [workingString stringByReplacingOccurrencesOfString:@"+7" withString:@""];
+    
+    //insert '('
+    if(workingString.length > 1 && [preFormatted length] > 0)
+    {
+        workingString = [workingString stringByReplacingCharactersInRange:NSMakeRange(0, 0) withString:@"("];
+    }
+    
+    //insert ')'
+    if(workingString.length > 4 && [preFormatted length] > 0)
+    {
+        workingString = [workingString stringByReplacingCharactersInRange:NSMakeRange(4, 0) withString:@")"];
+    }
+    
+    //insert ' '
+    if(workingString.length > 5 && [preFormatted length] > 0)
+    {
+        workingString = [workingString stringByReplacingCharactersInRange:NSMakeRange(5, 0) withString:@" "];
+    }
+    
+    //insert first '-'
+    if(workingString.length > 9 && [preFormatted length] > 0)
+    {
+        workingString = [workingString stringByReplacingCharactersInRange:NSMakeRange(9, 0) withString:@"-"];
+    }
+    
+    //insert second '-'
+    if(workingString.length > 12 && [preFormatted length] > 0)
+    {
+        workingString = [workingString stringByReplacingCharactersInRange:NSMakeRange(12, 0) withString:@"-"];
+    }
+    
+    workingString =[NSString stringWithFormat:@"+7 %@", workingString];
+    return workingString;
+    
+}
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    
+    if (textField == telField.textField) {
+        //calculate new length
+        NSInteger moddedLength = textField.text.length-(range.length-string.length);
+        
+        // max size.
+        if (moddedLength > 18) {
+            return NO;
+        }
+        
+        // Reject non-number characters
+        if (range.length == 0 &&![[NSCharacterSet decimalDigitCharacterSet] characterIsMember:[string characterAtIndex:0]]) {
+            return NO;
+        }
+        
+        textField.text = [self formatPhoneString:[textField.text stringByReplacingCharactersInRange:range withString:string]];
+        return NO;
+    }
+    
+    return YES;
+}
+
+
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
+{
+    if (telField.textField.text.length == 0) {
+        telField.textField.text = @"+7";
+    }
+    return YES;
 }
 
 @end

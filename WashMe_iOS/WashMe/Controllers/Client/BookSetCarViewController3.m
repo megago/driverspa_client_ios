@@ -110,6 +110,7 @@
             totalPrice += [menuItem.price floatValue];
             totalTime += [menuItem.time floatValue];
         }
+        //NSLog(@"%d - %d - %d", menuItem.type.intValue, menuItem.price.intValue, menuItem.time.intValue);
     }
     
     _bookObject.price = @(totalPrice);
@@ -209,7 +210,6 @@
         
         if(services.count > 0) {
             [carwashServiceCollectionView refreshServices:services];
-            //[carwashServiceCollectionView selectItemAtIndex:0];
         } else {
             NSLog(@"services not found");
         }
@@ -231,7 +231,7 @@
     [super configUI];
     [self setBlueBackground];
     [self setBackButtonInNavigation];
-    [self setNavigationTitle:@"Бронировать"];
+    [self setNavigationTitle:@"Бронирование"];
     [self setNavigationBarTransparent];
     
     NSString *str = [NSString stringWithFormat:@"Автомойка %@", _carwash.name];
@@ -277,6 +277,7 @@
     [selectCarLabel aa_pinUnderView:line1 offset:10];
 
     carsCollectionView = [CarsCollectionView newAutoLayoutView];
+    carsCollectionView.selectedMode = YES;
     carsCollectionView.delegate = self;
     [carsCollectionView addAddButton];
     [self.contentView addSubview:carsCollectionView];
@@ -300,7 +301,7 @@
     selectServiceLabel.textAlignment = NSTextAlignmentLeft;
     selectServiceLabel.numberOfLines = 0;
     selectServiceLabel.lineBreakMode = NSLineBreakByWordWrapping;
-    selectServiceLabel.text = @"Выберите автомобиль:";
+    selectServiceLabel.text = @"Выберите услуги:";
     [selectServiceLabel sizeToFit];
     [self.contentView addSubview:selectServiceLabel];
     [selectServiceLabel aa_setDimensions];
@@ -358,7 +359,7 @@
     AAButton *addButton = [[AAButton alloc] initWithWidth:170 onTap:^(UIView *_self) {
         [weakSelf continueTapped];
     }];
-    [addButton commonStyleButtonWithTitle:@"Выбрать время"];
+    [addButton commonStyleButtonWithTitle:@"ВЫБРАТЬ ВРЕМЯ"];
     [addButton setTitleFont:[UIFont robotoRegular:18]];
     addButton.height = 40;
     [self.contentView addSubview:addButton];

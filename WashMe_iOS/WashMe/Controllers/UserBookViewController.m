@@ -68,6 +68,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.tabBarController.tabBar.hidden = YES;
     [self configUI];
 
     [Cache carwashRefs:^(id obj) {
@@ -101,8 +102,6 @@
     v.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     [self presentViewController:v animated:YES completion:nil];
 }
-#pragma mark -
-#pragma mark Actions
 
 - (void)cancelTapped {
     [UIAlertView showWithTitle:@"Отменить бронирование?" message:@"" cancelButtonTitle:@"Нет" otherButtonTitles:@[@"Да"] tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
@@ -150,6 +149,15 @@
     }
 }
 
+- (NSString *)localizedCarNumber{
+    NSString *s = _book.clientKey;
+    NSRange r1 = [s rangeOfString:@"("];
+    NSRange r2 = [s rangeOfString:@")"];
+    NSRange rSub = NSMakeRange(r1.location + r1.length, r2.location - r1.location - r1.length);
+    NSString *sub = [s substringWithRange:rSub];
+    s = [s stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"(%@)", sub] withString:@""];
+    return s;
+}
 
 #pragma mark -
 
@@ -187,15 +195,15 @@
     if([_book isPending]) {
         [self setNavigationTitle:@"Бронь отправлена"]; //@"Ожидает";
     } else if([_book isRejected]) {
-        [self setNavigationTitle:@"Бронь отменена"]; //@"Отклонен";
+        [self setNavigationTitle:@"Бронь отклонена"]; //@"Отклонен";
     } else if([_book isFinished]) {
         [self setNavigationTitle:@"Бронь завершена"]; //@"Завершен";
     } else if([_book isApproved]) {
         [self setNavigationTitle:@"Бронь подтверждена"]; //@"Услуга принята";
     } else if([_book isStarted]) {
-        [self setNavigationTitle:@"Бронь подтверждена"]; //@"В процессе";
+        [self setNavigationTitle:@"Бронь в процессе"]; //@"В процессе";
     } else if([_book isNoCome]) {
-        [self setNavigationTitle:@"Бронь подтверждена"]; //@"Клиент не явился";
+        [self setNavigationTitle:@"Клиент не явился"]; //@"Клиент не явился";
     } else if([_book isCancelled]) {
         [self setNavigationTitle:@"Бронь отменена"]; //@"Отменен";
     }
@@ -250,7 +258,7 @@
 
     
     if ([_book isCancelled]){
-        CenterTitle *statusLabel = [[CenterTitle alloc] initWithTitle:@"БРОНЬ ОТМЕНЕНА" width:rowWidth];
+        CenterTitle *statusLabel = [[CenterTitle alloc] initWithTitle:@"БРОНЬ ОТМЕНЕНА КЛИЕНТОМ" width:rowWidth];
         statusLabel.font = [UIFont robotoRegular:14];
         statusLabel.textColor = [UIColor redColor];
         [statusLabel sizeToFit];
@@ -262,7 +270,7 @@
     }
     
     if ([_book isRejected]){
-        CenterTitle *statusLabel = [[CenterTitle alloc] initWithTitle:@"БРОНЬ ОТМЕНЕНА" width:rowWidth];
+        CenterTitle *statusLabel = [[CenterTitle alloc] initWithTitle:@"БРОНЬ ОТКЛОНЕНА" width:rowWidth];
         statusLabel.font = [UIFont robotoRegular:14];
         statusLabel.textColor = [UIColor redColor];
         [statusLabel sizeToFit];
@@ -290,7 +298,7 @@
         [cancelButton setTitleFont:[UIFont robotoRegular:18]];
         [cancelButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
         cancelButton.centerX = self.view.centerX;
-        cancelButton.y = yPosition + 30;
+        cancelButton.y = yPosition + rowsSpacing;
         cancelButton.height = 40;
         [sv addSubview:cancelButton];
         
@@ -317,7 +325,7 @@
     nameLabel.y = secondBlockTitle.bottom + 2*rowsSpacing;
     [sv addSubview:nameLabel];
     
-    carLabel = [[CenterTitle alloc] initWithTitle:[NSString stringWithFormat:@"%@ %@", [_book carTypeTitle], _book.clientKey] width:rowWidth];
+    carLabel = [[CenterTitle alloc] initWithTitle:[NSString stringWithFormat:@"%@ %@", [_book carTypeTitle], [self localizedCarNumber]] width:rowWidth];
     [carLabel sizeToFit];
     carLabel.centerX = sv.centerX;
     carLabel.y = nameLabel.bottom;
@@ -330,7 +338,7 @@
     serviceLabel.y = carLabel.bottom;
     [sv addSubview:serviceLabel];
     
-    dateLabel = [[CenterTitle alloc] initWithTitle:[NSString stringWithFormat:@"%@ (%@) в %@", [_book localizedDaysAgo], [_book localizedBookDate], [_book bookTime]] width:rowWidth];
+    dateLabel = [[CenterTitle alloc] initWithTitle:[NSString stringWithFormat:@"%@ (%@) в %@", [_book localizedDaysAgo], [_book localizedBookDate], [_book localBookTime]] width:rowWidth];
     [dateLabel sizeToFit];
     dateLabel.centerX = sv.centerX;
     dateLabel.y = serviceLabel.bottom + 2*rowsSpacing;

@@ -172,12 +172,12 @@
             bookButton = [[AAButton alloc] initWithWidth:200 onTap:^(UIView *_self) {
                 [wSelf bookButtonTapped];
             }];
-            [bookButton commonStyleButtonWithTitle:@"Бронировать"];
+            [bookButton commonStyleButtonWithTitle:@"БРОНИРОВАТЬ"];
         } else {
             bookButton = [[AAButton alloc] initWithWidth:260 onTap:^(UIView *_self) {
                 [wSelf editBookButtonTapped];
             }];
-            [bookButton commonStyleButtonWithTitle:@"Обновить бронирование"];
+            [bookButton commonStyleButtonWithTitle:@"ОБНОВИТЬ БРОНИРОВАНИЕ"];
         }
 
         [bookButton setTitleFont:[UIFont robotoRegular:18]];

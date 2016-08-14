@@ -24,7 +24,7 @@
 #import "RegisterProfileViewController.h"
 
 
-@interface ConfirmSmsViewController ()
+@interface ConfirmSmsViewController () <UITextFieldDelegate>
 @end
 
 @implementation ConfirmSmsViewController {
@@ -45,8 +45,6 @@
 {
     [super viewDidLoad];
     [self configUI];
-
-    if(kDEBUGMODE) [codeField setValue:@"000000"]; // TODO: for testing
 }
 
 -(void)viewDidAppear:(BOOL)animated {
@@ -100,10 +98,16 @@
             [User setRegistrationProfileEntered:[User currentUser].mobile];
             [[UIHelper appDelegate] setAdminAuthorizedTabbarController];
         } else {
-            RegisterProfileViewController *v = [[RegisterProfileViewController alloc] init];
-            [self.navigationController pushViewController:v animated:YES];
+            if (user.cars.count > 0 && user.fio.length > 0 && user.cityCode.length > 0){
+                // Set that user entered profile in registration.
+                [User setRegistrationProfileEntered:[User currentUser].mobile];
+                // User authorized, goto main page.
+                [[UIHelper appDelegate] setUserAuthorizedTabbarController];
+            } else {
+                RegisterProfileViewController *v = [[RegisterProfileViewController alloc] init];
+                [self.navigationController pushViewController:v animated:YES];
+            }
         }
-
     } failure:^(NSInteger code, NSString *message) {
         [codeField setValue:@""];
         [codeField focus];
@@ -121,7 +125,7 @@
 
     [self setBlueBackground];
     [self createWashMeWhiteLogo];
-    [self setBackButtonInNavigation];
+    [self setBackButton];
     [sv addSubview:[self whiteLogo]];
 
     UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectZero];
@@ -152,17 +156,19 @@
     InputTextField *telField = [[InputTextField alloc] initWithWidth:kContentWidth height:45];
     telField.centerX = self.view.centerX;
     telField.y = resendButton.bottom + 40;
-    telField.textField.keyboardType = UIKeyboardTypePhonePad;
+    telField.textField.keyboardType = UIKeyboardTypeNumberPad;
     [telField setValue:[self.phoneNumber phoneNumberPresentation]];
     [telField setRightText:@"KZ"];
     [telField enabled:NO];
     [sv addSubview:telField];
 
     codeField = [[InputTextField alloc] initWithWidth:kContentWidth height:telField.height];
+    codeField.textField.delegate = self;
     codeField.centerX = self.view.centerX;
     codeField.y = telField.bottom + 10;
     codeField.textField.keyboardType = UIKeyboardTypeNumberPad;
     [codeField setPlaceholder:@"Код подтверждения"];
+    if(kDEBUGMODE) [codeField setValue:@"000000"]; // TODO: for testing
     [sv addSubview:codeField];
 
     [self addKeyboardControlFields:@[telField]];
@@ -171,7 +177,7 @@
     AAButton *okButton = [[AAButton alloc] initWithWidth:160 onTap:^(UIView *_self) {
         [wSelf confirmTapped];
     }];
-    [okButton commonStyleButtonWithTitle:@"Подтвердить"];
+    [okButton commonStyleButtonWithTitle:@"ПОДТВЕРДИТЬ"];
     [okButton setTitleFont:[UIFont robotoRegular:20]];
     okButton.centerX = self.view.centerX;
     okButton.y = codeField.bottom + 20;
@@ -187,5 +193,21 @@
 -(void)dealloc {
 
 }
+
+#pragma mark - UITextFieldDelegate
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    if (textField == codeField.textField) {
+        //calculate new length
+        NSInteger moddedLength = textField.text.length-(range.length-string.length);
+        
+        // max size.
+        if (moddedLength > 6) {
+            return NO;
+        }
+    }
+    return YES;
+}
+
 
 @end
