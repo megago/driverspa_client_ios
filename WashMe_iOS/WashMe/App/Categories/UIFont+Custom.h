@@ -10,6 +10,7 @@
 + (UIFont *)robotoThin:(CGFloat)size;
 + (UIFont *)robotoRegular:(CGFloat)size;
 + (UIFont *)robotoBold:(CGFloat)size;
++ (UIFont *)robotoItalic:(CGFloat)size;
 + (UIFont *)robotoCondensedLight:(CGFloat)size;
 
 @end

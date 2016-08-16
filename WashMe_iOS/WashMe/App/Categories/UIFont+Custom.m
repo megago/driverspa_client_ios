@@ -20,6 +20,9 @@
     return [UIFont fontWithName:@"Roboto-Bold" size:size];
 }
 
++ (UIFont *)robotoItalic:(CGFloat)size {
+    return [UIFont fontWithName:@"Roboto-Italic" size:size];
+}
 
 + (UIFont *)robotoCondensedLight:(CGFloat)size {
     return [UIFont fontWithName:@"RobotoCondensed-Light1100138" size:size];

@@ -19,7 +19,10 @@
 #define kPadding 10
 #define kCarwashTitleFont [UIFont robotoRegular:16]
 #define kCarwashAddressFont [UIFont robotoRegular:14]
-#define kCarwashTitleWidth ([ASize screenWidth] - 20)
+#define kCarwashTitleWidth ([ASize screenWidth] - 30)
+
+#define kCarwashTitleFontOffline [UIFont robotoItalic:16]
+#define kCarwashAddressFontOffline [UIFont robotoItalic:14]
 
 @implementation CarwashCell {
     AMRatingControl *amRatingControl;
@@ -44,9 +47,11 @@
         
         
         amRatingControl = [[AMRatingControl alloc] initWithLocation:CGPointMake(kPadding, kPadding)
-                                                         emptyImage:[UIImage imageWithName:@"star-small-empty"]
-                                                         solidImage:[UIImage imageWithName:@"star-small-rated"]
+                                                         emptyImage:[UIImage imageWithName:@"star-new-empty"]
+                                                         solidImage:[UIImage imageWithName:@"star-new-rated"]
                                                        andMaxRating:5];
+        amRatingControl.starWidthAndHeight = 12;
+        amRatingControl.starSpacing = 1;
         amRatingControl.userInteractionEnabled = NO;
         [self addSubview:amRatingControl];
         
@@ -57,10 +62,11 @@
         carwashStatusView.x = [ASize screenWidth] - carwashStatusView.frame.size.width - 3 * kPadding;
         carwashStatusView.y = kPadding;
         [self addSubview:carwashStatusView];
+        
+        
 
         titleLabel = [[UILabel alloc] initWithFrame:CGRectZero];
         titleLabel.backgroundColor = [UIColor clearColor];
-        titleLabel.font = kCarwashTitleFont;
         titleLabel.textColor = [UIColor whiteColor];
         titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
         titleLabel.numberOfLines = 0;
@@ -68,7 +74,6 @@
         
         addressLabel = [[UILabel alloc] initWithFrame:CGRectZero];
         addressLabel.backgroundColor = [UIColor clearColor];
-        addressLabel.font = kCarwashAddressFont;
         addressLabel.textColor = [UIColor colorWithWhite:1.f alpha:0.5f];
         addressLabel.lineBreakMode = NSLineBreakByWordWrapping;
         addressLabel.numberOfLines = 0;
@@ -76,9 +81,7 @@
 
         priceLabel= [[UILabel alloc] initWithFrame:CGRectZero];
         priceLabel.backgroundColor = [UIColor clearColor];
-        priceLabel.font = [UIFont robotoRegular:14];
         priceLabel.textColor = [UIColor whiteColor];
-        priceLabel.x = kPadding;
         [self addSubview:priceLabel];
 
         //distanceLabel = [[UILabel alloc] initWithFrame:CGRectZero];
@@ -113,24 +116,27 @@
         [carwashStatusView setIsAvailable: NO];
     }
     
+    titleLabel.font = [carwash.status isEqualToString:@"approved"] ? kCarwashTitleFont : kCarwashTitleFontOffline;
     titleLabel.width = kCarwashTitleWidth;
     titleLabel.x = kPadding;
-    //titleLabel.y = ratingView.bottom + 5;
     titleLabel.y = amRatingControl.bottom + 5;
     titleLabel.text = carwashName;
     [titleLabel sizeToFit];
 
+    addressLabel.font = [carwash.status isEqualToString:@"approved"] ? kCarwashAddressFont : kCarwashAddressFontOffline;
     addressLabel.width = kCarwashTitleWidth;
     addressLabel.x = kPadding;
-    addressLabel.y = titleLabel.bottom + 5;
-    addressLabel.text = carwash.address;
+    addressLabel.y = titleLabel.bottom;
+    addressLabel.text = carwash.address.length > 0 ? carwash.address : @" ";
     [addressLabel sizeToFit];
 
     NSInteger price = [carwash.price integerValue];
-    priceLabel.width = 150;
+    priceLabel.font = [carwash.status isEqualToString:@"approved"] ? kCarwashAddressFont : kCarwashAddressFontOffline;
+    priceLabel.width = kCarwashTitleWidth;
+    priceLabel.x = kPadding;
+    priceLabel.y = addressLabel.bottom + 5;
     priceLabel.text = price > 0 ? [NSString stringWithFormat:@"Кузов-салон от %@ ₸", [NSString integerFormattedNumberText:price]] : @"";
     [priceLabel sizeToFit];
-    priceLabel.y = addressLabel.bottom + 5;
 
     //distanceLabel.width = 150;
     //distanceLabel.text = [carwash distanceToText];
@@ -143,9 +149,9 @@
 
 + (CGFloat)cellHeightWithCarwashName:(NSString *)name andAddress:(NSString *)address
 {
-    CGSize sizeName = [name sizeWithFont:kCarwashTitleFont constrainedToSize:CGSizeMake(kCarwashTitleWidth, CGFLOAT_MAX) lineBreakMode:NSLineBreakByWordWrapping];
-    CGSize sizeAddress = [name sizeWithFont:kCarwashAddressFont constrainedToSize:CGSizeMake(kCarwashTitleWidth, CGFLOAT_MAX) lineBreakMode:NSLineBreakByWordWrapping];
-    return sizeName.height + sizeName.height + 2 * kPadding + 43;
+    CGSize sizeName = [name sizeWithFont:kCarwashTitleFontOffline constrainedToSize:CGSizeMake(kCarwashTitleWidth, CGFLOAT_MAX) lineBreakMode:NSLineBreakByWordWrapping];
+    CGSize sizeAddress = [name sizeWithFont:kCarwashAddressFontOffline constrainedToSize:CGSizeMake(kCarwashTitleWidth, CGFLOAT_MAX) lineBreakMode:NSLineBreakByWordWrapping];
+    return sizeName.height + sizeName.height + 2 * kPadding + 36;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

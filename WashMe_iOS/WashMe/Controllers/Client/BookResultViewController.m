@@ -90,9 +90,10 @@
 -(void)configUI
 {
     [super configUI];
-    [self setBackButtonInNavigation];
+    //[self setBackButtonInNavigation];
     [self setBlueBackground];
     [self setNavigationTitle:@"Бронь отправлена"];
+    self.navigationItem.hidesBackButton = YES;
     
     User *user = [User currentUser];
     //CarwashRefs *carwashRefs = [Cache carwashRefs];
@@ -117,7 +118,7 @@
     
     
     CenterTitle *secondBlockTitle = [[CenterTitle alloc] initWithTitle:@"Бронь на имя" width:rowWidth];
-    [secondBlockTitle setFont:[UIFont robotoRegular:16.f]];
+    [secondBlockTitle setFont:[UIFont robotoRegular:18.f]];
     [secondBlockTitle sizeToFit];
     secondBlockTitle.centerX = sv.centerX;
     secondBlockTitle.y = line1.bottom + rowsSpacing;
@@ -126,10 +127,10 @@
     CenterTitle *nameLabel = [[CenterTitle alloc] initWithTitle:[NSString stringWithFormat:@"%@ %@", [user fio], user.mobile] width:rowWidth];
     [nameLabel sizeToFit];
     nameLabel.centerX = sv.centerX;
-    nameLabel.y = secondBlockTitle.bottom + rowsSpacing;
+    nameLabel.y = secondBlockTitle.bottom + 2*rowsSpacing;
     [sv addSubview:nameLabel];
 
-    CenterTitle *carLabel = [[CenterTitle alloc] initWithTitle:[NSString stringWithFormat:@"%@ %@", [_carwashBook carTypeTitle], _bookObject.clientKey] width:rowWidth];
+    CenterTitle *carLabel = [[CenterTitle alloc] initWithTitle:[NSString stringWithFormat:@"%@ %@", [_carwashBook carTypeTitle], [_carwashBook localizedCarNumber]] width:rowWidth];
     [carLabel sizeToFit];
     carLabel.centerX = sv.centerX;
     carLabel.y = nameLabel.bottom;
@@ -142,10 +143,10 @@
     serviceLabel.y = carLabel.bottom;
     [sv addSubview:serviceLabel];
     
-    CenterTitle *dateLabel = [[CenterTitle alloc] initWithTitle:[NSString stringWithFormat:@"%@ (%@) в %@", [_carwashBook localizedDaysAgo], [_carwashBook localizedBookDate], [_carwashBook bookTime]] width:rowWidth];
+    CenterTitle *dateLabel = [[CenterTitle alloc] initWithTitle:[NSString stringWithFormat:@"%@ (%@) в %@", [_carwashBook localizedDaysAgo], [_carwashBook localizedBookDate], [_carwashBook localBookTime]] width:rowWidth];
     [dateLabel sizeToFit];
     dateLabel.centerX = sv.centerX;
-    dateLabel.y = serviceLabel.bottom;
+    dateLabel.y = serviceLabel.bottom + 2*rowsSpacing;
     [sv addSubview:dateLabel];
     
     UIView *line2 = [[UIView alloc] initWithFrame:CGRectMake(0, dateLabel.bottom + rowsSpacing, rowWidth, 0.5)];
@@ -158,7 +159,7 @@
     
     
     CenterTitle *carwashLabel = [[CenterTitle alloc] initWithTitle:[NSString stringWithFormat:@"Автомойка %@", _carwashBook.carwashName] width:rowWidth];
-    [carwashLabel setFont:[UIFont robotoRegular:16.f]];
+    [carwashLabel setFont:[UIFont robotoRegular:18.f]];
     [carwashLabel sizeToFit];
     carwashLabel.centerX = sv.centerX;
     carwashLabel.y = line2.bottom + rowsSpacing;
@@ -167,7 +168,7 @@
     CenterTitle *addressLabel = [[CenterTitle alloc] initWithTitle:_bookObject.carwash.address width:rowWidth];
     [addressLabel sizeToFit];
     addressLabel.centerX = sv.centerX;
-    addressLabel.y = carwashLabel.bottom + rowsSpacing;
+    addressLabel.y = carwashLabel.bottom + 2*rowsSpacing;
     [sv addSubview:addressLabel];
     
     __weak BookResultViewController *wSelf = self;

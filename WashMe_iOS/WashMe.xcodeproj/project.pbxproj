@@ -123,6 +123,10 @@
 		5200BFDF40830DB87ECBA4A4 /* CustomTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200BC50BB4615CDFA938B87 /* CustomTabBarController.m */; };
 		5200BFED80E38BB6F0548E03 /* ButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200B6A6D631D3A7F3F44EA2 /* ButtonView.m */; };
 		5200BFFD23EEAC25F896C0C5 /* AddPhotoCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200BD1C9D8E1652E6151DA2 /* AddPhotoCircleView.m */; };
+		A31844CD1D6231C8002A258B /* star-new-empty.png in Resources */ = {isa = PBXBuildFile; fileRef = A31844C91D6231C8002A258B /* star-new-empty.png */; };
+		A31844CE1D6231C8002A258B /* star-new-empty@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A31844CA1D6231C8002A258B /* star-new-empty@2x.png */; };
+		A31844CF1D6231C8002A258B /* star-new-rated.png in Resources */ = {isa = PBXBuildFile; fileRef = A31844CB1D6231C8002A258B /* star-new-rated.png */; };
+		A31844D01D6231C8002A258B /* star-new-rated@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A31844CC1D6231C8002A258B /* star-new-rated@2x.png */; };
 		A32D1A1E1D46764800A577F9 /* AboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A32D1A1D1D46764800A577F9 /* AboutUsViewController.m */; };
 		A341BB401D44A8B4005E27DD /* AdminMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A341BB3F1D44A8B4005E27DD /* AdminMain.storyboard */; };
 		A341BB431D44B6CE005E27DD /* AdminTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = A341BB421D44B6CE005E27DD /* AdminTabBarController.m */; };
@@ -609,6 +613,10 @@
 		7E76B64380276926994A15C0 /* Pods-WashMe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WashMe.release.xcconfig"; path = "Pods/Target Support Files/Pods-WashMe/Pods-WashMe.release.xcconfig"; sourceTree = "<group>"; };
 		966FDCF9B51A58F24459B45A /* libPods-WashMe.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WashMe.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A137D133A3245F49615DD123 /* Pods-WashMe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WashMe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WashMe/Pods-WashMe.debug.xcconfig"; sourceTree = "<group>"; };
+		A31844C91D6231C8002A258B /* star-new-empty.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star-new-empty.png"; sourceTree = "<group>"; };
+		A31844CA1D6231C8002A258B /* star-new-empty@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star-new-empty@2x.png"; sourceTree = "<group>"; };
+		A31844CB1D6231C8002A258B /* star-new-rated.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star-new-rated.png"; sourceTree = "<group>"; };
+		A31844CC1D6231C8002A258B /* star-new-rated@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star-new-rated@2x.png"; sourceTree = "<group>"; };
 		A32D1A1C1D46764800A577F9 /* AboutUsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutUsViewController.h; sourceTree = "<group>"; };
 		A32D1A1D1D46764800A577F9 /* AboutUsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutUsViewController.m; sourceTree = "<group>"; };
 		A341BB3F1D44A8B4005E27DD /* AdminMain.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AdminMain.storyboard; sourceTree = "<group>"; };
@@ -1620,6 +1628,10 @@
 				CE755BD81A192F5E00A036DC /* star-small-empty@2x.png */,
 				CE755BD91A192F5E00A036DC /* star-small-rated.png */,
 				CE755BDA1A192F5E00A036DC /* star-small-rated@2x.png */,
+				A31844C91D6231C8002A258B /* star-new-empty.png */,
+				A31844CA1D6231C8002A258B /* star-new-empty@2x.png */,
+				A31844CB1D6231C8002A258B /* star-new-rated.png */,
+				A31844CC1D6231C8002A258B /* star-new-rated@2x.png */,
 				CE755BDB1A192F5E00A036DC /* washme-logo.png */,
 				CE755BDC1A192F5E00A036DC /* washme-logo@2x.png */,
 				CE755BDD1A192F5E00A036DC /* welcome-vc-bg.png */,
@@ -1817,6 +1829,7 @@
 				CEABA62319BB1FDF00CBAEBF /* InfoPlist.strings in Resources */,
 				A38003931D4DFDBD00806157 /* intro_1.png in Resources */,
 				CE755BF11A192F5E00A036DC /* btn_cartype3_normal.png in Resources */,
+				A31844D01D6231C8002A258B /* star-new-rated@2x.png in Resources */,
 				CE755C391A192F5E00A036DC /* icon-orders.png in Resources */,
 				CE755C3D1A192F5E00A036DC /* icon-rating-star.png in Resources */,
 				CEB52E921A2054A7005A2DC1 /* icon-close-light.png in Resources */,
@@ -1824,6 +1837,7 @@
 				CE755C271A192F5E00A036DC /* icon-disclosure-indicator-white.png in Resources */,
 				CE755C651A192F5E00A036DC /* star-small-empty@2x.png in Resources */,
 				CE6C4A4B19DC4DA60014229D /* kz_almaty.gpx in Resources */,
+				A31844CF1D6231C8002A258B /* star-new-rated.png in Resources */,
 				CE755C081A192F5E00A036DC /* btn_tab-settings_selected@2x.png in Resources */,
 				CE551AD71BCAB2850056AD5C /* UserMain.storyboard in Resources */,
 				5200BCBD2E3E4525C7C1D6AC /* Roboto-Bold.ttf in Resources */,
@@ -1907,6 +1921,7 @@
 				CE755BE11A192F5E00A036DC /* blue-bg.png in Resources */,
 				CE755BE81A192F5E00A036DC /* border-button-pattern@2x.png in Resources */,
 				CE755BE41A192F5E00A036DC /* border-button-bg@2x.png in Resources */,
+				A31844CE1D6231C8002A258B /* star-new-empty@2x.png in Resources */,
 				CE3753911A583FE300394BFE /* carwash-status-published@2x.png in Resources */,
 				CE755C641A192F5E00A036DC /* star-small-empty.png in Resources */,
 				CE755C461A192F5E00A036DC /* icon-settings-thin@2x.png in Resources */,
@@ -1949,6 +1964,7 @@
 				CE755BF71A192F5E00A036DC /* btn_cartype4_selected.png in Resources */,
 				5200BBEEA6CD358B7C5D3145 /* RobotoCondensed-BoldItalic.ttf in Resources */,
 				A3EB6D581D5609C0004E8CB5 /* ios_admin_dummy.html in Resources */,
+				A31844CD1D6231C8002A258B /* star-new-empty.png in Resources */,
 				CE755C691A192F5E00A036DC /* washme-logo@2x.png in Resources */,
 				CE755C471A192F5E00A036DC /* Icon-Small-1.png in Resources */,
 				CE755BF51A192F5E00A036DC /* btn_cartype4_normal.png in Resources */,

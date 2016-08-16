@@ -149,16 +149,6 @@
     }
 }
 
-- (NSString *)localizedCarNumber{
-    NSString *s = _book.clientKey;
-    NSRange r1 = [s rangeOfString:@"("];
-    NSRange r2 = [s rangeOfString:@")"];
-    NSRange rSub = NSMakeRange(r1.location + r1.length, r2.location - r1.location - r1.length);
-    NSString *sub = [s substringWithRange:rSub];
-    s = [s stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"(%@)", sub] withString:@""];
-    return s;
-}
-
 #pragma mark -
 
 - (NSString *)stringFromTimeInterval:(NSTimeInterval)interval {
@@ -195,7 +185,7 @@
     if([_book isPending]) {
         [self setNavigationTitle:@"Бронь отправлена"]; //@"Ожидает";
     } else if([_book isRejected]) {
-        [self setNavigationTitle:@"Бронь отклонена"]; //@"Отклонен";
+        [self setNavigationTitle:@"Бронь отменена администратором"]; //@"Отклонен";
     } else if([_book isFinished]) {
         [self setNavigationTitle:@"Бронь завершена"]; //@"Завершен";
     } else if([_book isApproved]) {
@@ -205,7 +195,7 @@
     } else if([_book isNoCome]) {
         [self setNavigationTitle:@"Клиент не явился"]; //@"Клиент не явился";
     } else if([_book isCancelled]) {
-        [self setNavigationTitle:@"Бронь отменена"]; //@"Отменен";
+        [self setNavigationTitle:@"Бронь отменена клиентом"]; //@"Отменен";
     }
     
     // Infos
@@ -270,7 +260,7 @@
     }
     
     if ([_book isRejected]){
-        CenterTitle *statusLabel = [[CenterTitle alloc] initWithTitle:@"БРОНЬ ОТКЛОНЕНА" width:rowWidth];
+        CenterTitle *statusLabel = [[CenterTitle alloc] initWithTitle:@"БРОНЬ ОТМЕНЕНА АДМИНИСТРАТОРОМ" width:rowWidth];
         statusLabel.font = [UIFont robotoRegular:14];
         statusLabel.textColor = [UIColor redColor];
         [statusLabel sizeToFit];
@@ -289,7 +279,7 @@
     }
     
     
-    if ([_book isPending]){
+    if ([_book isPending] || [_book isApproved]){
         __weak UserBookViewController *wSelf = self;
         AAButton *cancelButton = [[AAButton alloc] initWithWidth:250 onTap:^(UIView *_self) {
             [wSelf cancelTapped];
@@ -325,7 +315,7 @@
     nameLabel.y = secondBlockTitle.bottom + 2*rowsSpacing;
     [sv addSubview:nameLabel];
     
-    carLabel = [[CenterTitle alloc] initWithTitle:[NSString stringWithFormat:@"%@ %@", [_book carTypeTitle], [self localizedCarNumber]] width:rowWidth];
+    carLabel = [[CenterTitle alloc] initWithTitle:[NSString stringWithFormat:@"%@ %@", [_book carTypeTitle], [_book localizedCarNumber]] width:rowWidth];
     [carLabel sizeToFit];
     carLabel.centerX = sv.centerX;
     carLabel.y = nameLabel.bottom;

@@ -51,6 +51,8 @@
 
 - (NSString *)localizedPrice;
 
+- (NSString *)localizedCarNumber;
+
 - (BOOL)isPending;
 - (BOOL)isApproved;
 - (BOOL)isFinished;

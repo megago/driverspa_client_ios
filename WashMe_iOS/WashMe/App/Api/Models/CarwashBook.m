@@ -146,6 +146,16 @@
     return [NSString stringWithFormat:@"%@ тг.", [NSString numberFormattedNumberText:self.price]];
 }
 
+- (NSString *)localizedCarNumber {
+    NSString *s = self.clientKey;
+    NSRange r1 = [s rangeOfString:@"("];
+    NSRange r2 = [s rangeOfString:@")"];
+    NSRange rSub = NSMakeRange(r1.location + r1.length, r2.location - r1.location - r1.length);
+    NSString *sub = [s substringWithRange:rSub];
+    s = [s stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"(%@)", sub] withString:@""];
+    return s;
+}
+
 - (BOOL)isPending {
     return [self.status isEqual:kBookStatusPending];
 }
@@ -178,19 +188,19 @@
 
 - (NSString *)localizedStatus {
     if([self isPending]) {
-        return @"Ожидает";
+        return @"Ожидает подтверждения";
     } else if([self isRejected]) {
-        return @"Отклонен";
+        return @"Отменён администратором";
     } else if([self isFinished]) {
         return @"Завершен";
     } else if([self isApproved]) {
-        return @"Услуга принята";
+        return @"Услуга подтверждена";
     } else if([self isStarted]) {
         return @"В процессе";
     } else if([self isNoCome]) {
         return @"Клиент не явился";
     } else if([self isCancelled]) {
-        return @"Отменен";
+        return @"Отменён клиентом";
     }
     return @"";
 }
