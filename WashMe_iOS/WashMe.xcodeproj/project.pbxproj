@@ -1774,7 +1774,7 @@
 				ORGANIZATIONNAME = "Almas Adilbek";
 				TargetAttributes = {
 					CEABA61419BB1FDF00CBAEBF = {
-						DevelopmentTeam = U5QXUX8LLQ;
+						DevelopmentTeam = CF9V9VAHXD;
 					};
 				};
 			};
@@ -2348,7 +2348,7 @@
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = kz.ikorotkikh.washme;
+				PRODUCT_BUNDLE_IDENTIFIER = kz.korotkikh.washme;
 				PRODUCT_NAME = "Wash! Me";
 				PROVISIONING_PROFILE = "";
 				USER_HEADER_SEARCH_PATHS = "\"${PROJECT_DIR}/Pods\"/**";
@@ -2381,7 +2381,7 @@
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = kz.ikorotkikh.washme;
+				PRODUCT_BUNDLE_IDENTIFIER = kz.korotkikh.washme;
 				PRODUCT_NAME = "Wash! Me";
 				PROVISIONING_PROFILE = "";
 				USER_HEADER_SEARCH_PATHS = "\"${PROJECT_DIR}/Pods\"/**";

@@ -28,6 +28,7 @@
 
 #import "User.h"
 #import "CenterTitle.h"
+#import "UIViewController+NavigationBar.h"
 
 @interface UserBookViewController ()
 @end
@@ -70,7 +71,23 @@
     [super viewDidLoad];
     self.tabBarController.tabBar.hidden = YES;
     [self configUI];
+    
+    //NSLog(@"!!book!! - %@", _book.resourceUri);
+    if (_afterNotification) {
+        [self loadBook:_bookId];
+    } else {
+        [self showBook];
+    }
+}
 
+- (void)configAction
+{
+    // Carwash map tap
+    UITapGestureRecognizer *mapGes = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(mapTapped)];
+    [carwashMapView addGestureRecognizer:mapGes];
+}
+
+- (void)showBook {
     [Cache carwashRefs:^(id obj) {
         _carwashRefs = obj;
         [Toast showHudLoading];
@@ -80,16 +97,18 @@
             [self buildUI];
             [self configAction];
         } failure:^(NSInteger code, NSString *message) {
-
+            
         }];
     }];
 }
 
-- (void)configAction
-{
-    // Carwash map tap
-    UITapGestureRecognizer *mapGes = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(mapTapped)];
-    [carwashMapView addGestureRecognizer:mapGes];
+- (void)loadBook: (NSString *)bookId {
+    [UserApi bookDetails:bookId success:^(id response) {
+        _book = response;
+        [self showBook];
+    } failure:^(NSInteger code, NSString *message) {
+        
+    }];
 }
 
 #pragma mark -
@@ -380,8 +399,13 @@
 -(void)configUI
 {
     [super configUI];
-    [self setBackButtonInNavigation];
     [self setBlueBackground];
+    if (_afterNotification) {
+        [self setNavigationBarTransparent];
+        [self showMenuButton];
+    } else {
+        [self setBackButtonInNavigation];
+    }
 }
 
 - (void)didReceiveMemoryWarning {

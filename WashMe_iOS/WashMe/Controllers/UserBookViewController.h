@@ -20,4 +20,7 @@
 @property(nonatomic, weak) id <ClientBookViewControllerDelegate> delegate;
 @property(nonatomic, strong) CarwashBook *book;
 
+@property (nonatomic, assign) BOOL afterNotification;
+@property (nonatomic, assign) NSString *bookId;
+
 @end

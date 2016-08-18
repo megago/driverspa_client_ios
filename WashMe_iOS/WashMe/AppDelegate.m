@@ -34,6 +34,7 @@
 #import <Crashlytics/Crashlytics.h>
 #import <GoogleMaps/GoogleMaps.h>
 
+#import "UserBookViewController.h"
 
 @implementation AppDelegate {
 }
@@ -52,7 +53,7 @@
     [self requestPushAndLocalNotificationPermissions];
 
     //Crashlytics
-    [Fabric with:@[[Crashlytics class]]];
+    //[Fabric with:@[[Crashlytics class]]];
     
     // Check user
     id v = nil;
@@ -98,6 +99,15 @@
         [Cache loadCompanyRefs:nil];
     }];
 
+    
+    //Remote Notification Info
+    NSDictionary * remoteNotifiInfo = [launchOptions objectForKey: UIApplicationLaunchOptionsRemoteNotificationKey];
+    
+    //Accept push notification when app is not open
+    if (remoteNotifiInfo) {
+        [self application:application didReceiveRemoteNotification: remoteNotifiInfo];
+    }
+    
     [self.window makeKeyAndVisible];
     return YES;
 }
@@ -139,6 +149,26 @@
     _frostedViewController.liveBlurBackgroundStyle = REFrostedViewControllerLiveBackgroundStyleLight;
     _frostedViewController.direction = REFrostedViewControllerDirectionLeft;
     _frostedViewController.menuViewSize = CGSizeMake([AdminMenuViewController menuWidth], self.window.frame.size.height);
+    
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.rootViewController = _frostedViewController;
+    
+    [self.window makeKeyAndVisible];
+}
+
+- (void)setUserAuthorizedBookControllerWith:(NSString *)objectId {
+    UserBookViewController *vc = [UserBookViewController new];
+    vc.afterNotification = YES;
+    vc.bookId = objectId;
+    UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:vc];
+    
+    MenuViewController *menuController = [[MenuViewController alloc] init];
+    
+    self.frostedViewController = [[REFrostedViewController alloc] initWithContentViewController:nc menuViewController:menuController];
+    _frostedViewController.liveBlur = YES;
+    _frostedViewController.liveBlurBackgroundStyle = REFrostedViewControllerLiveBackgroundStyleLight;
+    _frostedViewController.direction = REFrostedViewControllerDirectionLeft;
+    _frostedViewController.menuViewSize = CGSizeMake([MenuViewController menuWidth], self.window.frame.size.height);
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.rootViewController = _frostedViewController;
@@ -189,6 +219,23 @@
         params[kSettingsKeyPlatform] = @"iOS";
         params[kSettingsKeyAppVersion] = [AppUtils appVersion];
         [UserApi settingsAddDictionary:params success:nil failure:nil];
+    }
+}
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
+{
+    NSString *typeMessage = [userInfo objectForKey:@"type"];
+    
+    if ([User isAuthorized]){
+        if ([typeMessage isEqualToString:@"booking_created"]) {
+            NSString *objectId = [userInfo objectForKey:@"object_id"];
+            if (objectId) {
+                [self setUserAuthorizedBookControllerWith:objectId];
+            }
+        }
+    } else {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Предупреждение" message:@"Чтобы просмотреть сообщение необходимо авторизоваться" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+        [alert show];
     }
 }
 
