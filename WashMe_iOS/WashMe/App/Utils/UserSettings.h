@@ -11,6 +11,11 @@
 #define kSettingsKeyAppVersion @"appVersion"
 #define kSettingsKeyPlatform @"platform"
 
+#define kSettingsKeyDevice @"device"
+#define kSettingsKeyOS @"os"
+#define kSettingsKeyPushType @"push_type"
+#define kSettingsKeyPushToken @"token_id"
+
 static BOOL _isAdmin = NO;
 
 static NSString *kNotificationCityChanged = @"notificationCityChanged";

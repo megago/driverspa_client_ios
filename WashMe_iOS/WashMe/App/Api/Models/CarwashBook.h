@@ -62,5 +62,6 @@
 - (BOOL)isNoCome;
 
 - (NSString *)localizedStatus;
+- (NSString *)localizedAdminStatus;
 
 @end

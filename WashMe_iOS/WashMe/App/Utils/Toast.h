@@ -15,7 +15,7 @@
 
 +(void)hideHud;
 +(void)showHudLoading;
-+ (void)showHudWait;
++(void)showHudWait;
 
 // Toast huds
 +(void)showToastWithIcon:(NSString *)iconName;

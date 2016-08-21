@@ -38,7 +38,13 @@ PODS:
   - EARestrictedScrollView (1.1.0)
   - Fabric (1.6.7)
   - FrameAccessor (2.0)
-  - GoogleMaps (1.13.0)
+  - GoogleMaps (2.0.1):
+    - GoogleMaps/Maps (= 2.0.1)
+  - GoogleMaps/Base (2.0.1)
+  - GoogleMaps/Maps (2.0.1):
+    - GoogleMaps/Base (= 2.0.1)
+  - HTHorizontalSelectionList (0.7.3):
+    - M13BadgeView (~> 1.0.4)
   - INTULocationManager (4.2.0)
   - IQKeyboardManager (4.0.1)
   - LGRefreshView (1.0.5):
@@ -82,7 +88,8 @@ DEPENDENCIES:
   - EAIntroView (~> 2.9.0)
   - Fabric (= 1.6.7)
   - FrameAccessor (= 2.0)
-  - GoogleMaps (= 1.13.0)
+  - GoogleMaps
+  - HTHorizontalSelectionList (~> 0.7.3)
   - INTULocationManager (= 4.2.0)
   - IQKeyboardManager (= 4.0.1)
   - LGRefreshView (~> 1.0.0)
@@ -119,7 +126,8 @@ SPEC CHECKSUMS:
   EARestrictedScrollView: b0c2a3f92fb2610bb44d71c5e4893777c89e45ef
   Fabric: caf7580c725e64db144f610ac65cd60956911dc7
   FrameAccessor: 443a13e58e23a10ff22180da0897b28c3f6abf66
-  GoogleMaps: 7a6caeb8336d7cb42982e969fc9b1b20a889fe79
+  GoogleMaps: f09da64fc987c1aa29394567c3cab5a3df83c402
+  HTHorizontalSelectionList: f7db90d6e14849eed337236dc30ad82ee883eadf
   INTULocationManager: 73f8254b3d05c897c56bb13c190e5b7c648c0998
   IQKeyboardManager: 0c11a0cb402a621f7aa1aff506f60ab6d2388969
   LGRefreshView: 34746afadbd23de8d1449cab15f3d89269645d43
@@ -143,6 +151,6 @@ SPEC CHECKSUMS:
   UIAlertView+Blocks: a46c99c5144f6c5dbc7d62fd2a0678daceec89a3
   UIScrollView-InfiniteScroll: 14e204c50ca4040467e1cbfa141dad7a18919b56
 
-PODFILE CHECKSUM: dff2913676d022a186765978577f784449bcefb0
+PODFILE CHECKSUM: 5683c7203a032469de5b8463e433b81073f209bf
 
 COCOAPODS: 1.0.1

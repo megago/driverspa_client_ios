@@ -35,6 +35,7 @@
 #import <GoogleMaps/GoogleMaps.h>
 
 #import "UserBookViewController.h"
+#import "NSObject+Json.h"
 
 @implementation AppDelegate {
 }
@@ -50,7 +51,7 @@
     [GMSServices provideAPIKey:@"AIzaSyDPc1K20zfP_d6Ji3FYbVivKKkLjNr4JuY"];//@"AIzaSyD9KOGWAAAtoJUHzqtfzPXvt-I5TBwcatM"];
 
     // Request push notification permissions
-    [self requestPushAndLocalNotificationPermissions];
+    //[self requestPushAndLocalNotificationPermissions];
 
     //Crashlytics
     //[Fabric with:@[[Crashlytics class]]];
@@ -193,20 +194,32 @@
     NSString *token = [[deviceToken description] stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]];
     token = [token stringByReplacingOccurrencesOfString:@" " withString:@""];
 
+    NSString* udid = [[[UIDevice currentDevice] identifierForVendor] UUIDString]; // IOS 6+
+    
     // Save token to user defaults
     [[NSUserDefaults standardUserDefaults] setValue:token forKey:@"pushNotificationToken"];
+    [[NSUserDefaults standardUserDefaults] setValue:udid forKey:@"UDID"];
 
     // Save token in settings if authorized
     if([User isAuthorized])
     {
-        [UserApi settingsSetValue:token forKey:kSettingsKeyAPNSToken success:^(id response) {
-            // Set apns is allowed in settings
-            NSMutableDictionary *params = [NSMutableDictionary dictionary];
-            params[kSettingsKeyAllowAPNS] = @"1";
-            params[kSettingsKeyPlatform] = @"iOS";
-            params[kSettingsKeyAppVersion] = [AppUtils appVersion];
-            [UserApi settingsAddDictionary:params success:^(id response) {
-                NSLog(@"settingsAddDictionary: %@", response);
+        NSMutableDictionary *body = [NSMutableDictionary dictionary];
+        body[kSettingsKeyDevice] = [NSString stringWithFormat:@"%@ %@", [[UIDevice currentDevice] systemName], [[UIDevice currentDevice] systemVersion]];
+        body[kSettingsKeyOS] = @"iOS";
+        body[kSettingsKeyPushType] = @"aps";
+        body[kSettingsKeyPushToken] = token;
+        
+        NSString *path = [NSString stringWithFormat:@"devices/%@", udid];
+        [APIClient PUT:path body:[body JSONRepresentation] success:^(id response) {
+            [UserApi settingsSetValue:token forKey:kSettingsKeyAPNSToken success:^(id response) {
+                // Set apns is allowed in settings
+                NSMutableDictionary *params = [NSMutableDictionary dictionary];
+                params[kSettingsKeyAllowAPNS] = @"1";
+                params[kSettingsKeyPlatform] = @"iOS";
+                params[kSettingsKeyAppVersion] = [AppUtils appVersion];
+                [UserApi settingsAddDictionary:params success:^(id response) {
+                    NSLog(@"settingsAddDictionary: %@", response);
+                } failure:nil];
             } failure:nil];
         } failure:nil];
     }
@@ -224,15 +237,15 @@
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
 {
-    NSString *typeMessage = [userInfo objectForKey:@"type"];
+    //NSString *typeMessage = [userInfo objectForKey:@"type"];
     
     if ([User isAuthorized]){
-        if ([typeMessage isEqualToString:@"booking_created"]) {
+        //if ([typeMessage isEqualToString:@"booking_created"]) {
             NSString *objectId = [userInfo objectForKey:@"object_id"];
             if (objectId) {
                 [self setUserAuthorizedBookControllerWith:objectId];
             }
-        }
+        //}
     } else {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Предупреждение" message:@"Чтобы просмотреть сообщение необходимо авторизоваться" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
         [alert show];

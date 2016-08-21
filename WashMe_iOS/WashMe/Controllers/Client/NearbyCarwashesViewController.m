@@ -28,6 +28,8 @@
 #import "FilterManager.h"
 #import "User.h"
 #import "LGRefreshView.h"
+#import "AppDelegate.h"
+#import "Toast.h"
 
 @interface NearbyCarwashesViewController ()
 @end
@@ -38,6 +40,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    // Request push notification permissions
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    [appDelegate requestPushAndLocalNotificationPermissions];
 
     [[LocationHelper sharedInstance] requestLocation:^(CLLocation *currentLocation) {
         [self loadCarwashes:YES];
@@ -60,7 +66,7 @@
     // Remove no content message if any
     [self removeNoContentMessageIfExists];
 
-    if(!loadingMore) [SVProgressHUD showLoading];
+    if(!loadingMore || (loadingMore && self.page == 1))[SVProgressHUD showLoading];
     
     //[CarwashApi getPublicCarwashes:nil success:^(NSArray *response) {
     [CarwashApi getCarwashes:self.page filterManager:self.filterManager success:^(NSArray *response) {
@@ -94,10 +100,10 @@
     // Remove no content message if any
     [self removeNoContentMessageIfExists];
     
-    self.page = 0;
-    self.filterManager = 0;
+    self.page = 1;
+    //self.filterManager = 0;
     
-    [SVProgressHUD showLoading];
+    //[SVProgressHUD showLoading];
     [CarwashApi getCarwashes:self.page filterManager:self.filterManager success:^(NSArray *response) {
         
         [SVProgressHUD dismiss];

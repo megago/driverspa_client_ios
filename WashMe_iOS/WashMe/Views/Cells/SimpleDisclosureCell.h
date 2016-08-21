@@ -9,7 +9,11 @@
 
 
 #import "SimpleCell.h"
+@class CarwashBook;
 
 @interface SimpleDisclosureCell : SimpleCell
+
+- (void)setCarwashBook: (CarwashBook *)carwashBook;
++ (CGFloat)cellHeight: (CarwashBook *)book;
 
 @end

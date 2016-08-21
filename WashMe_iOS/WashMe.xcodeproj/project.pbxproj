@@ -131,6 +131,7 @@
 		A341BB401D44A8B4005E27DD /* AdminMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A341BB3F1D44A8B4005E27DD /* AdminMain.storyboard */; };
 		A341BB431D44B6CE005E27DD /* AdminTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = A341BB421D44B6CE005E27DD /* AdminTabBarController.m */; };
 		A341BB491D44C8CC005E27DD /* AdminMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A341BB481D44C8CC005E27DD /* AdminMenuViewController.m */; };
+		A36A21961D69808C001F73EE /* UITabBarItem+CustomBadge.m in Sources */ = {isa = PBXBuildFile; fileRef = A36A21951D69808C001F73EE /* UITabBarItem+CustomBadge.m */; };
 		A38003931D4DFDBD00806157 /* intro_1.png in Resources */ = {isa = PBXBuildFile; fileRef = A380038D1D4DFDBD00806157 /* intro_1.png */; };
 		A38003941D4DFDBD00806157 /* intro_1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A380038E1D4DFDBD00806157 /* intro_1@2x.png */; };
 		A38003951D4DFDBD00806157 /* intro_2.png in Resources */ = {isa = PBXBuildFile; fileRef = A380038F1D4DFDBD00806157 /* intro_2.png */; };
@@ -624,6 +625,8 @@
 		A341BB421D44B6CE005E27DD /* AdminTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdminTabBarController.m; sourceTree = "<group>"; };
 		A341BB471D44C8CC005E27DD /* AdminMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdminMenuViewController.h; sourceTree = "<group>"; };
 		A341BB481D44C8CC005E27DD /* AdminMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdminMenuViewController.m; sourceTree = "<group>"; };
+		A36A21941D69808C001F73EE /* UITabBarItem+CustomBadge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBarItem+CustomBadge.h"; sourceTree = "<group>"; };
+		A36A21951D69808C001F73EE /* UITabBarItem+CustomBadge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBarItem+CustomBadge.m"; sourceTree = "<group>"; };
 		A380038D1D4DFDBD00806157 /* intro_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = intro_1.png; sourceTree = "<group>"; };
 		A380038E1D4DFDBD00806157 /* intro_1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "intro_1@2x.png"; sourceTree = "<group>"; };
 		A380038F1D4DFDBD00806157 /* intro_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = intro_2.png; sourceTree = "<group>"; };
@@ -1261,6 +1264,8 @@
 		CE68D67119BB802700FCFF5B /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				A36A21941D69808C001F73EE /* UITabBarItem+CustomBadge.h */,
+				A36A21951D69808C001F73EE /* UITabBarItem+CustomBadge.m */,
 				5200B2DA8B96F2F15D6B89B6 /* UIColor+Extensions.m */,
 				5200B619D9A20BA62905614B /* UIColor+Extensions.h */,
 				5200B963B6450BC27AC1C01A /* NSObject+Json.h */,
@@ -2119,6 +2124,7 @@
 				5200B2968F3B6C662011C947 /* TextareaField.m in Sources */,
 				5200BB60257648BB32032424 /* LPlaceholderTextView.m in Sources */,
 				A3981CC51D4CE90600E0689B /* CarwashMapViewController.m in Sources */,
+				A36A21961D69808C001F73EE /* UITabBarItem+CustomBadge.m in Sources */,
 				A3EB6D641D57383F004E8CB5 /* BookSetCarViewController.m in Sources */,
 				5200B7B29E7DAE61EEAA4282 /* UIScrollView+Ext.m in Sources */,
 				5200B86B961F2D68609E6078 /* CarTypesTabbarView.m in Sources */,

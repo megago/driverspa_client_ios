@@ -17,6 +17,7 @@
 #import "UIViewController+NavigationBar.h"
 #import "LGRefreshView.h"
 #import "BookCell.h"
+#import "UITabBarItem+CustomBadge.h"
 
 @interface UserBookingsViewController ()
 @property(nonatomic, strong) LGRefreshView *refreshView;
@@ -92,8 +93,9 @@
         }
     }
     if (badgeCount > 0) {
-        [[[[[self tabBarController] tabBar] items]
-          objectAtIndex:3] setBadgeValue:[NSString stringWithFormat:@"%i", badgeCount]];
+        [[[[[self tabBarController] tabBar] items] objectAtIndex:3] setCustomBadgeValue:[NSString stringWithFormat:@"%i", badgeCount] withFont:[UIFont robotoBold:12.f] andFontColor:[UIColor whiteColor] andBackgroundColor:[UIColor colorWithRed:37.f/255.f green:195.f/255.f blue:91.f/255.f alpha:1.f]];
+//        [[[[[self tabBarController] tabBar] items]
+//          objectAtIndex:3] setBadgeValue:[NSString stringWithFormat:@"%i", badgeCount]];
     } else {
         [[[[[self tabBarController] tabBar] items]
           objectAtIndex:3] setBadgeValue:nil];

@@ -32,9 +32,11 @@
     [UITabBar appearance].barTintColor = [UIColor fromRGB:0x000c1c];
     [UITabBar appearance].tintColor = [UIColor fromRGB:0x03a9f4];
 
-    [[UITabBarItem appearance] setTitleTextAttributes:@{ NSForegroundColorAttributeName : [UIColor whiteColor] }
+    [[UITabBarItem appearance] setTitleTextAttributes:@{ NSFontAttributeName : [UIFont robotoRegular:10],
+                                                         NSForegroundColorAttributeName : [UIColor whiteColor] }
                                              forState:UIControlStateNormal];
-    [[UITabBarItem appearance] setTitleTextAttributes:@{ NSForegroundColorAttributeName : [UIColor fromRGB:0x03a9f4] }
+    [[UITabBarItem appearance] setTitleTextAttributes:@{ NSFontAttributeName : [UIFont robotoRegular:10],
+                                                         NSForegroundColorAttributeName : [UIColor fromRGB:0x03a9f4] }
                                              forState:UIControlStateSelected];
 
     NSArray *images = @[@"tab-favorites", @"tab-free", @"tab-map", @"tab-timer"];

@@ -21,6 +21,6 @@
 @property(nonatomic, strong) CarwashBook *book;
 
 @property (nonatomic, assign) BOOL afterNotification;
-@property (nonatomic, assign) NSString *bookId;
+@property (nonatomic, strong) NSString *bookId;
 
 @end

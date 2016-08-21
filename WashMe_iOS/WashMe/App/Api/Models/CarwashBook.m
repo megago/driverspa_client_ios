@@ -205,4 +205,23 @@
     return @"";
 }
 
+- (NSString *)localizedAdminStatus {
+    if([self isPending]) {
+        return @"Ожидает";
+    } else if([self isRejected]) {
+        return @"Отклонен";
+    } else if([self isFinished]) {
+        return @"Завершен";
+    } else if([self isApproved]) {
+        return @"Одобрен";
+    } else if([self isStarted]) {
+        return @"В процессе";
+    } else if([self isNoCome]) {
+        return @"Клиент не явился";
+    } else if([self isCancelled]) {
+        return @"Отменён клиентом";
+    }
+    return @"";
+}
+
 @end

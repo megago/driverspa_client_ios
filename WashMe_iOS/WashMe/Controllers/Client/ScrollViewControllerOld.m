@@ -44,6 +44,7 @@
     }
     self.keyboardControls = [[BSKeyboardControls alloc] initWithFields:textFields];
     self.keyboardControls.delegate = self;
+    self.keyboardControls.doneTitle = @"Готово";
 }
 
 -(void)setScrollContentHeight:(CGFloat)height {
