@@ -132,6 +132,7 @@
 		A341BB431D44B6CE005E27DD /* AdminTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = A341BB421D44B6CE005E27DD /* AdminTabBarController.m */; };
 		A341BB491D44C8CC005E27DD /* AdminMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A341BB481D44C8CC005E27DD /* AdminMenuViewController.m */; };
 		A36A21961D69808C001F73EE /* UITabBarItem+CustomBadge.m in Sources */ = {isa = PBXBuildFile; fileRef = A36A21951D69808C001F73EE /* UITabBarItem+CustomBadge.m */; };
+		A36A219B1D69B4CC001F73EE /* BookAdminCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A36A219A1D69B4CC001F73EE /* BookAdminCell.m */; };
 		A38003931D4DFDBD00806157 /* intro_1.png in Resources */ = {isa = PBXBuildFile; fileRef = A380038D1D4DFDBD00806157 /* intro_1.png */; };
 		A38003941D4DFDBD00806157 /* intro_1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A380038E1D4DFDBD00806157 /* intro_1@2x.png */; };
 		A38003951D4DFDBD00806157 /* intro_2.png in Resources */ = {isa = PBXBuildFile; fileRef = A380038F1D4DFDBD00806157 /* intro_2.png */; };
@@ -627,6 +628,8 @@
 		A341BB481D44C8CC005E27DD /* AdminMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdminMenuViewController.m; sourceTree = "<group>"; };
 		A36A21941D69808C001F73EE /* UITabBarItem+CustomBadge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBarItem+CustomBadge.h"; sourceTree = "<group>"; };
 		A36A21951D69808C001F73EE /* UITabBarItem+CustomBadge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBarItem+CustomBadge.m"; sourceTree = "<group>"; };
+		A36A21991D69B4CC001F73EE /* BookAdminCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookAdminCell.h; sourceTree = "<group>"; };
+		A36A219A1D69B4CC001F73EE /* BookAdminCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookAdminCell.m; sourceTree = "<group>"; };
 		A380038D1D4DFDBD00806157 /* intro_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = intro_1.png; sourceTree = "<group>"; };
 		A380038E1D4DFDBD00806157 /* intro_1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "intro_1@2x.png"; sourceTree = "<group>"; };
 		A380038F1D4DFDBD00806157 /* intro_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = intro_2.png; sourceTree = "<group>"; };
@@ -1050,6 +1053,8 @@
 				5200B05D2ABEB1A39FA92FAC /* DoubleCell.m */,
 				A3EB6D5D1D565497004E8CB5 /* BookCell.h */,
 				A3EB6D5E1D565497004E8CB5 /* BookCell.m */,
+				A36A21991D69B4CC001F73EE /* BookAdminCell.h */,
+				A36A219A1D69B4CC001F73EE /* BookAdminCell.m */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -2076,6 +2081,7 @@
 				A3981D0D1D4D2DB100E0689B /* ImageBundle.m in Sources */,
 				5200B7DB1E1BEB17F85B22A0 /* NSObject+Json.m in Sources */,
 				5200B4FF128E315908AB6526 /* APIClient.m in Sources */,
+				A36A219B1D69B4CC001F73EE /* BookAdminCell.m in Sources */,
 				5200B6FCB7CED5006A891D6F /* UIHelper.m in Sources */,
 				A3BCA3AC1D3D252D00FEE6B6 /* BoxSettingsListViewController.m in Sources */,
 				5200B2279FAC7D132DA25ED9 /* UIImage+Extensions.m in Sources */,

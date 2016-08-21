@@ -11,7 +11,7 @@
 #import "UIViewController+Ext.h"
 #import "AdminApi.h"
 #import "AAButton+Styles.h"
-#import "SimpleDisclosureCell.h"
+#import "BookAdminCell.h"
 #import "CarwashBook.h"
 #import "AdminBookViewController.h"
 #import "UIViewController+NoContent.h"
@@ -134,13 +134,13 @@
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     CarwashBook *book = books[(NSUInteger) indexPath.row];
-    return [SimpleDisclosureCell cellHeight:book];
+    return [BookAdminCell cellHeight:book];
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"cell";
-    SimpleDisclosureCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    BookAdminCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[SimpleDisclosureCell alloc] initWithReuseIdentifier:CellIdentifier];
+        cell = [[BookAdminCell alloc] initWithReuseIdentifier:CellIdentifier];
     }
 
     CarwashBook *book = books[indexPath.row];
