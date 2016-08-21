@@ -74,8 +74,8 @@
 - (void)carwashButtonTapped
 {
     [UserSettings setIsAdmin:YES];
-    [self gotoRegistration];
-    //[self gotoDummy];
+    //[self gotoRegistration];
+    [self gotoDummy];
 }
 
 - (void)gotoRegistration {
