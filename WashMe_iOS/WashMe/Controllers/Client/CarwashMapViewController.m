@@ -135,14 +135,13 @@
                                                                  zoom:12];
     mapView_ = [GMSMapView mapWithFrame:CGRectZero camera:camera];
     mapView_.delegate = self;
-    mapView_.myLocationEnabled = NO;
-    mapView_.settings.myLocationButton = YES;
     self.view = mapView_;
     
     // My location icon
     GMSMarker *myMarker = [GMSMarker markerWithPosition:CLLocationCoordinate2DMake([[LocationHelper sharedInstance] latitude], [[LocationHelper sharedInstance] longitude])];
     myMarker.icon = [UIImage imageNamed:@"mylocation-annotation"];
     myMarker.groundAnchor = CGPointMake(0.5, 1);
+    myMarker.tappable = NO;
     myMarker.map = mapView_;
     
     // Close Button

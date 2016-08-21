@@ -70,6 +70,8 @@
 //            break;
 //        }
 //    }
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"UpdateBooksBadge" object:nil];
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 

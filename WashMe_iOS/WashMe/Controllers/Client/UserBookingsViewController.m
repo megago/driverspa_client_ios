@@ -94,12 +94,13 @@
     }
     if (badgeCount > 0) {
         [[[[[self tabBarController] tabBar] items] objectAtIndex:3] setCustomBadgeValue:[NSString stringWithFormat:@"%i", badgeCount] withFont:[UIFont robotoBold:12.f] andFontColor:[UIColor whiteColor] andBackgroundColor:[UIColor colorWithRed:37.f/255.f green:195.f/255.f blue:91.f/255.f alpha:1.f]];
-//        [[[[[self tabBarController] tabBar] items]
-//          objectAtIndex:3] setBadgeValue:[NSString stringWithFormat:@"%i", badgeCount]];
+        [UIApplication sharedApplication].applicationIconBadgeNumber = badgeCount;
     } else {
-        [[[[[self tabBarController] tabBar] items]
-          objectAtIndex:3] setBadgeValue:nil];
+        [[[[[self tabBarController] tabBar] items] objectAtIndex:3] setBadgeValue:nil];
+        [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
     }
+    [[NSUserDefaults standardUserDefaults] setValue:[NSNumber numberWithInt:badgeCount] forKey:@"badgeCountApplication"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 - (void)setTabBarVisible:(BOOL)visible animated:(BOOL)animated completion:(void (^)(BOOL))completion {

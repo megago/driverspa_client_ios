@@ -30,6 +30,9 @@
 #import "LGRefreshView.h"
 #import "AppDelegate.h"
 #import "Toast.h"
+#import "UITabBarItem+CustomBadge.h"
+#import "USerApi.h"
+#import "CarwashBook.h"
 
 @interface NearbyCarwashesViewController ()
 @end
@@ -40,10 +43,19 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self subscribeForNotifications];
     
     // Request push notification permissions
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     [appDelegate requestPushAndLocalNotificationPermissions];
+    
+    //Set badge
+    NSNumber *badgeCount = [[NSUserDefaults standardUserDefaults] objectForKey:@"badgeCountApplication"];
+    if (badgeCount.intValue > 0) {
+        [[[[[self tabBarController] tabBar] items] objectAtIndex:3] setCustomBadgeValue:[NSString stringWithFormat:@"%i", badgeCount.intValue] withFont:[UIFont robotoBold:12.f] andFontColor:[UIColor whiteColor] andBackgroundColor:[UIColor colorWithRed:37.f/255.f green:195.f/255.f blue:91.f/255.f alpha:1.f]];
+    } else {
+        [[[[[self tabBarController] tabBar] items] objectAtIndex:3] setBadgeValue:nil];
+    }
 
     [[LocationHelper sharedInstance] requestLocation:^(CLLocation *currentLocation) {
         [self loadCarwashes:YES];
@@ -129,6 +141,29 @@
     }];
 }
 
+- (void)updateBooksBadge:(NSNotification *) notification {
+    [UserApi bookingsWithStatus:nil success:^(id response) {
+        NSArray *bookings = [NSArray arrayWithArray:response];
+        int badgeCount = 0;
+        for (CarwashBook *book in bookings) {
+            if (book.isPending || book.isApproved) {
+                badgeCount++;
+            }
+        }
+        if (badgeCount > 0) {
+            [[[[[self tabBarController] tabBar] items] objectAtIndex:3] setCustomBadgeValue:[NSString stringWithFormat:@"%i", badgeCount] withFont:[UIFont robotoBold:12.f] andFontColor:[UIColor whiteColor] andBackgroundColor:[UIColor colorWithRed:37.f/255.f green:195.f/255.f blue:91.f/255.f alpha:1.f]];
+            [UIApplication sharedApplication].applicationIconBadgeNumber = badgeCount;
+        } else {
+            [[[[[self tabBarController] tabBar] items] objectAtIndex:3] setBadgeValue:nil];
+            [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
+        }
+        [[NSUserDefaults standardUserDefaults] setValue:[NSNumber numberWithInt:badgeCount] forKey:@"badgeCountApplication"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    } failure:^(NSInteger code, NSString *message) {
+        
+    }];
+}
+
 #pragma mark -
 #pragma mark Actions
 
@@ -150,6 +185,25 @@
     }];
 }
 
+#pragma mark - Notifications
+
+- (void) subscribeForNotifications
+{
+    [self unsubscribeFromNotifications];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(updateBooksBadge:)
+                                                 name: @"UpdateBooksBadge"
+                                               object:nil];
+}
+
+- (void) unsubscribeFromNotifications
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name: @"UpdateBooksBadge"
+                                                  object:nil];
+}
+
+
 #pragma mark -
 
 -(void)configUI
@@ -163,7 +217,7 @@
 }
 
 -(void)dealloc {
-
+    [self unsubscribeFromNotifications];
 }
 
 @end

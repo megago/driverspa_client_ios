@@ -178,31 +178,29 @@
     GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:[[LocationHelper sharedInstance] latitude]
                                                             longitude:[[LocationHelper sharedInstance] longitude]
                                                                  zoom:12];
+    _mapView.camera = camera;
+    _mapView.delegate = self;
     
 //    mapView_ = [GMSMapView mapWithFrame:CGRectZero camera:camera];
 //    mapView_.delegate = self;
 //    mapView_.myLocationEnabled = NO;
 //    mapView_.settings.myLocationButton = NO;
 //    self.mapView = mapView_;
-    
-    _mapView.camera = camera;
-    _mapView.delegate = self;
-    _mapView.myLocationEnabled = YES;
-    _mapView.settings.myLocationButton = YES;
 
     // My location icon
     GMSMarker *myMarker = [GMSMarker markerWithPosition:CLLocationCoordinate2DMake([[LocationHelper sharedInstance] latitude], [[LocationHelper sharedInstance] longitude])];
     myMarker.icon = [UIImage imageNamed:@"mylocation-annotation"];
     myMarker.groundAnchor = CGPointMake(0.5, 1);
+    myMarker.tappable = NO;
     myMarker.map = _mapView;
 
     // Close Button
-    UIButton *closeButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [closeButton addTarget:self action:@selector(closeMap) forControlEvents:UIControlEventTouchUpInside];
-    UIImage *iconImage = [UIImage imageNamed:@"icon-map-close.png"];
-    [closeButton setBackgroundImage:iconImage forState:UIControlStateNormal];
-    closeButton.frame = CGRectMake([ASize screenWidth] - iconImage.size.width - 10, 10, iconImage.size.width, iconImage.size.height);
-    //[self.view addSubview:closeButton];
+//    UIButton *closeButton = [UIButton buttonWithType:UIButtonTypeCustom];
+//    [closeButton addTarget:self action:@selector(closeMap) forControlEvents:UIControlEventTouchUpInside];
+//    UIImage *iconImage = [UIImage imageNamed:@"icon-map-close.png"];
+//    [closeButton setBackgroundImage:iconImage forState:UIControlStateNormal];
+//    closeButton.frame = CGRectMake([ASize screenWidth] - iconImage.size.width - 10, 10, iconImage.size.width, iconImage.size.height);
+//    [self.view addSubview:closeButton];
 }
 
 - (void)didReceiveMemoryWarning {

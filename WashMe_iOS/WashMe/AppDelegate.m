@@ -48,7 +48,7 @@
     [self configSVProgressHUD];
 
     // Google maps
-    [GMSServices provideAPIKey:@"AIzaSyDPc1K20zfP_d6Ji3FYbVivKKkLjNr4JuY"];//@"AIzaSyD9KOGWAAAtoJUHzqtfzPXvt-I5TBwcatM"];
+    [GMSServices provideAPIKey:@"AIzaSyDdOQIac6I0iNYyaX7oQlL3R3clgu1nC_s"];
 
     // Request push notification permissions
     //[self requestPushAndLocalNotificationPermissions];
@@ -108,6 +108,9 @@
     if (remoteNotifiInfo) {
         [self application:application didReceiveRemoteNotification: remoteNotifiInfo];
     }
+    
+    NSNumber *badgeCount = [[NSUserDefaults standardUserDefaults] objectForKey:@"badgeCountApplication"];
+    [UIApplication sharedApplication].applicationIconBadgeNumber = badgeCount.integerValue;
     
     [self.window makeKeyAndVisible];
     return YES;
@@ -199,6 +202,7 @@
     // Save token to user defaults
     [[NSUserDefaults standardUserDefaults] setValue:token forKey:@"pushNotificationToken"];
     [[NSUserDefaults standardUserDefaults] setValue:udid forKey:@"UDID"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 
     // Save token in settings if authorized
     if([User isAuthorized])
