@@ -72,7 +72,6 @@
     self.tabBarController.tabBar.hidden = YES;
     [self configUI];
     
-    //NSLog(@"!!book!! - %@", _book.resourceUri);
     if (_afterNotification) {
         [self loadBook:_bookId];
     } else {
