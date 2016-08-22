@@ -19,6 +19,7 @@
 #import "UIViewController+NavigationBar.h"
 #import "UIViewController+NoContent.h"
 #import "LGRefreshView.h"
+#import <SVProgressHUD/SVProgressHUD.h>
 
 @interface UserFavoritesViewController ()
 @property(nonatomic, strong) NSArray *carwashes;
@@ -35,8 +36,7 @@
     [self configUI];
     [self addObservers];
 
-    [Toast showHudLoading];
-    [self refreshCarwashes];
+    [self refreshCarwashesWithLoader:YES];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -44,8 +44,10 @@
     [self setTabBarVisible:YES animated:YES completion:nil];
 }
 
--(void)refreshCarwashes {
+-(void)refreshCarwashesWithLoader:(BOOL)loader {
+    if (loader) [SVProgressHUD showWithStatus:@"Загрузка"];
     [UserApi bookmarks:^(id response) {
+        [SVProgressHUD dismiss];
         [self onCarwashesResponse:response];
         [self.refreshView endRefreshing];
     } failure:^(NSInteger code, NSString *message) {
@@ -211,7 +213,7 @@
     _refreshView = [LGRefreshView refreshViewWithScrollView:_list
                                              refreshHandler:^(LGRefreshView *refreshView)
                     {
-                        [wself refreshCarwashes];
+                        [wself refreshCarwashesWithLoader:NO];
                     }];
     _refreshView.tintColor = [UIColor whiteColor];
     _refreshView.backgroundColor = [UIColor clearColor];

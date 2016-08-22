@@ -194,7 +194,7 @@
     AAButton *okButton = [[AAButton alloc] initWithWidth:250 onTap:^(UIView *_self) {
         [wSelf okTapped];
     }];
-    [okButton commonStyleButtonWithTitle:@"ВЕРНУТЬСЯ В МЕНЮ"];
+    [okButton commonStyleButtonWithTitle:@"ВЕРНУТЬСЯ К СПИСКУ"];
     [okButton setTitleFont:[UIFont robotoRegular:18]];
     okButton.centerX = self.view.centerX;
     okButton.y = line3.bottom + rowsSpacing;

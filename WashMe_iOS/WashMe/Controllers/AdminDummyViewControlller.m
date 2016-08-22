@@ -10,11 +10,11 @@
 #import "UIViewController+NavigationBar.h"
 #import "UIViewController+Ext.h"
 #import "ASize.h"
+#import <SVProgressHUD/SVProgressHUD.h>
 
-@interface AdminDummyViewControlller () <UIWebViewDelegate> {
-    UIWebView *webView;
+@interface AdminDummyViewControlller () {
+    UIWebView *_webView;
 }
-
 @end
 
 @implementation AdminDummyViewControlller
@@ -28,43 +28,40 @@
 
 - (void)loadDummy
 {
-    [self configUI];
-
+    [SVProgressHUD showWithStatus:@"Загрузка"];
     NSString *path = [[NSBundle mainBundle] pathForResource:@"ios_admin_dummy" ofType:@"html"];
     NSURL *url = [NSURL fileURLWithPath:path];
-    [webView loadRequest:[NSURLRequest requestWithURL:url]];
+    [_webView loadRequest:[NSURLRequest requestWithURL:url]];
 }
 
 -(void)configUI
 {
+    self.view.backgroundColor = [UIColor whiteColor];
     [self setBlueBackground];
     [self setBackButton];
     [self setNavigationBarTransparent];
     
-    webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 64.f, [ASize screenWidth], [ASize screenHeight]-64.f)];
-    webView.delegate = self;
-    webView.backgroundColor = [UIColor clearColor];
-    webView.scalesPageToFit = NO;
-    [self.view addSubview:webView];
-}
+    _webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 64.f, [ASize screenWidth], [ASize screenHeight] - 64.f)];
+    _webView.delegate = self;
+    _webView.backgroundColor = [UIColor clearColor];
+    _webView.hidden = YES;
+    _webView.scalesPageToFit = NO;
+    [self.view addSubview:_webView];}
 
-#pragma mark - WebView delegate
+#pragma mark - WebView delegate\
 
-- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
-    NSLog(@"%@", request);
+- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
+{
+    if ([request.URL.description rangeOfString:@"washme.kz"].location != NSNotFound) {
+        [[UIApplication sharedApplication] openURL:request.URL];
+        return NO;
+    }
     return YES;
 }
 
-- (void)webViewDidStartLoad:(UIWebView *)webView {
-    NSLog(@"start");
-}
-
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
-    NSLog(@"finish");
-}
-
-- (void)webView:(UIWebView *)webView didFailLoadWithError:(nullable NSError *)error {
-    NSLog(@"failed");
+    [SVProgressHUD dismiss];
+    _webView.hidden = NO;
 }
 
 @end

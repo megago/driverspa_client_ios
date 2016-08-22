@@ -18,6 +18,7 @@
 #import "LGRefreshView.h"
 #import "BookCell.h"
 #import "UITabBarItem+CustomBadge.h"
+#import <SVProgressHUD/SVProgressHUD.h>
 
 @interface UserBookingsViewController ()
 @property(nonatomic, strong) LGRefreshView *refreshView;
@@ -54,17 +55,18 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    [self loadBookings];
+    [self loadBookingsWithLoader:YES];
 }
 
 #pragma mark - 
 #pragma mark - Config Action
 
-- (void)loadBookings
+- (void)loadBookingsWithLoader:(BOOL)loader
 {
-    [Toast showHudLoading];
+    if (loader) [SVProgressHUD showWithStatus:@"Загрузка"];
     [UserApi bookingsWithStatus:nil success:^(id response) {
         bookings = [NSMutableArray arrayWithArray:response];
+        [SVProgressHUD dismiss];
         [self reloadList];
         [self updateBadge];
         [self.refreshView endRefreshing];
@@ -80,7 +82,7 @@
         [self removeNoContentMessageIfExists];
     } else {
         //__weak UserBookingsViewController *wSelf = self;
-        [self showNoContentMessage:@"У Вас нет автивных броней" withButton:@"Обновить" selector:@selector(loadBookings)];
+        [self showNoContentMessage:@"У Вас нет автивных броней" withButton:@"Обновить" selector:@selector(userBookUpdated)];
         list.hidden = YES;
     }
 }
@@ -126,7 +128,7 @@
 #pragma mark Notifications
 
 - (void)userBookUpdated {
-    [self loadBookings];
+    [self loadBookingsWithLoader:YES];
 }
 
 #pragma mark -
@@ -204,7 +206,7 @@
     _refreshView = [LGRefreshView refreshViewWithScrollView:list
                                              refreshHandler:^(LGRefreshView *refreshView)
                     {
-                        [wself loadBookings];
+                        [wself loadBookingsWithLoader:NO];
                     }];
     _refreshView.tintColor = [UIColor whiteColor];
     _refreshView.backgroundColor = [UIColor clearColor];

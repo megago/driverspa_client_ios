@@ -11,9 +11,10 @@
 #import "UIViewController+Ext.h"
 #import "ASize.h"
 #import "UtilsApi.h"
+#import <SVProgressHUD/SVProgressHUD.h>
 
 @interface AboutUsViewController () {
-    UIWebView *webView;
+    UIWebView *_webView;
 }
 @end
 
@@ -28,11 +29,10 @@
 
 - (void)loadAbouUs
 {
-    [Toast showHudLoading];
-    
+    [SVProgressHUD showWithStatus:@"Загрузка"];
     [UtilsApi aboutUs:^(id response) {
-        [webView loadHTMLString:response baseURL:nil];
-        webView.hidden = NO;
+        [SVProgressHUD dismiss];
+        [_webView loadHTMLString:response baseURL:nil];
     } failure:^(NSInteger code, NSString *message) {
         
     }];
@@ -45,13 +45,28 @@
     [self showMenuButton];
     [self setNavigationBarTransparent];
     
-    webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, [ASize screenWidth], [ASize screenHeight])];
-    webView.delegate = self;
-    webView.backgroundColor = [UIColor clearColor];
-    webView.hidden = YES;
-    webView.scalesPageToFit = NO;
-    [self.view addSubview:webView];
+    _webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, [ASize screenWidth], [ASize screenHeight])];
+    _webView.delegate = self;
+    _webView.backgroundColor = [UIColor clearColor];
+    _webView.hidden = YES;
+    _webView.scalesPageToFit = NO;
+    [self.view addSubview:_webView];
 }
 
+#pragma mark - WebView delegate\
+
+- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
+{
+    if ([request.URL.description rangeOfString:@"washme.kz"].location != NSNotFound) {
+        [[UIApplication sharedApplication] openURL:request.URL];
+        return NO;
+    }
+    return YES;
+}
+
+- (void)webViewDidFinishLoad:(UIWebView *)webView {
+    [SVProgressHUD dismiss];
+    _webView.hidden = NO;
+}
 
 @end

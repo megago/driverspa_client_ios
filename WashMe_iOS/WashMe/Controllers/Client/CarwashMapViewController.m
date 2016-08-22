@@ -44,6 +44,18 @@
     
     [[LocationHelper sharedInstance] requestLocation:^(CLLocation *currentLocation) {
         [self createAnnotations];
+        
+        // My location icon
+        GMSMarker *myMarker = [GMSMarker markerWithPosition:CLLocationCoordinate2DMake([[LocationHelper sharedInstance] latitude], [[LocationHelper sharedInstance] longitude])];
+        myMarker.icon = [UIImage imageNamed:@"mylocation-annotation"];
+        myMarker.groundAnchor = CGPointMake(0.5, 1);
+        myMarker.tappable = NO;
+        myMarker.map = mapView_;
+        
+        GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:[[LocationHelper sharedInstance] latitude]
+                                                                longitude:[[LocationHelper sharedInstance] longitude]
+                                                                     zoom:13];
+        [mapView_ animateToCameraPosition:camera];
     } failed:^(INTULocationStatus status) {
         [self createAnnotations];
     }];
@@ -91,15 +103,15 @@
         ++index;
     }
     
-    if(!self.annotationsEnabled) {
-        Carwash *carwash = self.carwashes[0];
-        if(carwash) {
-            GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:carwash.lat
-                                                                    longitude:carwash.lon
-                                                                         zoom:13];
-            [mapView_ animateToCameraPosition:camera];
-        }
-    }
+//    if(!self.annotationsEnabled) {
+//        Carwash *carwash = self.carwashes[0];
+//        if(carwash) {
+//            GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:carwash.lat
+//                                                                    longitude:carwash.lon
+//                                                                         zoom:13];
+//            [mapView_ animateToCameraPosition:camera];
+//        }
+//    }
 }
 
 #pragma mark -
@@ -135,14 +147,9 @@
                                                                  zoom:12];
     mapView_ = [GMSMapView mapWithFrame:CGRectZero camera:camera];
     mapView_.delegate = self;
+    mapView_.myLocationEnabled = YES;
+    mapView_.settings.myLocationButton = YES;
     self.view = mapView_;
-    
-    // My location icon
-    GMSMarker *myMarker = [GMSMarker markerWithPosition:CLLocationCoordinate2DMake([[LocationHelper sharedInstance] latitude], [[LocationHelper sharedInstance] longitude])];
-    myMarker.icon = [UIImage imageNamed:@"mylocation-annotation"];
-    myMarker.groundAnchor = CGPointMake(0.5, 1);
-    myMarker.tappable = NO;
-    myMarker.map = mapView_;
     
     // Close Button
     UIButton *closeButton = [UIButton buttonWithType:UIButtonTypeCustom];

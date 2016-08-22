@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AdminDummyViewControlller : UIViewController
+@interface AdminDummyViewControlller : UIViewController <UIWebViewDelegate>
 
 @end
