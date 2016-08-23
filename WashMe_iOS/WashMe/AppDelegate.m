@@ -185,10 +185,12 @@
 #pragma mark Push Notifications
 
 -(void)requestPushAndLocalNotificationPermissions {
-    [[UIApplication sharedApplication] registerForRemoteNotifications];
-
-    if ([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)]){
-        [[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeBadge|UIUserNotificationTypeSound categories:nil]];
+    if (![[UIApplication sharedApplication] isRegisteredForRemoteNotifications]){
+        [[UIApplication sharedApplication] registerForRemoteNotifications];
+        
+        if ([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)]){
+            [[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeBadge|UIUserNotificationTypeSound categories:nil]];
+        }
     }
 }
 

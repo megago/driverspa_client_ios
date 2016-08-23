@@ -88,7 +88,7 @@ DEPENDENCIES:
   - EAIntroView (~> 2.9.0)
   - Fabric (= 1.6.7)
   - FrameAccessor (= 2.0)
-  - GoogleMaps
+  - GoogleMaps (~> 2.0.1)
   - HTHorizontalSelectionList (~> 0.7.3)
   - INTULocationManager (= 4.2.0)
   - IQKeyboardManager (= 4.0.1)
@@ -151,6 +151,6 @@ SPEC CHECKSUMS:
   UIAlertView+Blocks: a46c99c5144f6c5dbc7d62fd2a0678daceec89a3
   UIScrollView-InfiniteScroll: 14e204c50ca4040467e1cbfa141dad7a18919b56
 
-PODFILE CHECKSUM: 5683c7203a032469de5b8463e433b81073f209bf
+PODFILE CHECKSUM: b7f7101477b1be061ef0c9ef36d191dbff971656
 
 COCOAPODS: 1.0.1

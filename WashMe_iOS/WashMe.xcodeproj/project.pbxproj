@@ -140,6 +140,9 @@
 		A36A21A51D69CFF6001F73EE /* launch-car@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A36A21A31D69CFF6001F73EE /* launch-car@2x.png */; };
 		A36A21A81D69D0CD001F73EE /* washme-logo-launch.png in Resources */ = {isa = PBXBuildFile; fileRef = A36A21A61D69D0CD001F73EE /* washme-logo-launch.png */; };
 		A36A21A91D69D0CD001F73EE /* washme-logo-launch@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A36A21A71D69D0CD001F73EE /* washme-logo-launch@2x.png */; };
+		A36BC4141D6CC08900C628DA /* aboutme.html in Resources */ = {isa = PBXBuildFile; fileRef = A36BC4121D6CC08900C628DA /* aboutme.html */; };
+		A36BC4151D6CC08900C628DA /* ios_admin_dummy.html in Resources */ = {isa = PBXBuildFile; fileRef = A36BC4131D6CC08900C628DA /* ios_admin_dummy.html */; };
+		A36BC4181D6CCBAF00C628DA /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A36BC4171D6CCBAF00C628DA /* MessageUI.framework */; };
 		A38003931D4DFDBD00806157 /* intro_1.png in Resources */ = {isa = PBXBuildFile; fileRef = A380038D1D4DFDBD00806157 /* intro_1.png */; };
 		A38003941D4DFDBD00806157 /* intro_1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A380038E1D4DFDBD00806157 /* intro_1@2x.png */; };
 		A38003951D4DFDBD00806157 /* intro_2.png in Resources */ = {isa = PBXBuildFile; fileRef = A380038F1D4DFDBD00806157 /* intro_2.png */; };
@@ -218,7 +221,6 @@
 		A3C9B0FA1D60723B00979950 /* ic_about_us@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A3C9B0F61D60723B00979950 /* ic_about_us@2x.png */; };
 		A3C9B0FB1D60723B00979950 /* ic_logout.png in Resources */ = {isa = PBXBuildFile; fileRef = A3C9B0F71D60723B00979950 /* ic_logout.png */; };
 		A3C9B0FC1D60723B00979950 /* ic_logout@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A3C9B0F81D60723B00979950 /* ic_logout@2x.png */; };
-		A3EB6D581D5609C0004E8CB5 /* ios_admin_dummy.html in Resources */ = {isa = PBXBuildFile; fileRef = A3EB6D571D5609C0004E8CB5 /* ios_admin_dummy.html */; };
 		A3EB6D5B1D561011004E8CB5 /* AdminDummyViewControlller.m in Sources */ = {isa = PBXBuildFile; fileRef = A3EB6D5A1D561011004E8CB5 /* AdminDummyViewControlller.m */; };
 		A3EB6D5F1D565497004E8CB5 /* BookCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A3EB6D5E1D565497004E8CB5 /* BookCell.m */; };
 		A3EB6D641D57383F004E8CB5 /* BookSetCarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3EB6D631D57383F004E8CB5 /* BookSetCarViewController.m */; };
@@ -644,6 +646,9 @@
 		A36A21A31D69CFF6001F73EE /* launch-car@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "launch-car@2x.png"; sourceTree = "<group>"; };
 		A36A21A61D69D0CD001F73EE /* washme-logo-launch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "washme-logo-launch.png"; sourceTree = "<group>"; };
 		A36A21A71D69D0CD001F73EE /* washme-logo-launch@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "washme-logo-launch@2x.png"; sourceTree = "<group>"; };
+		A36BC4121D6CC08900C628DA /* aboutme.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = aboutme.html; sourceTree = "<group>"; };
+		A36BC4131D6CC08900C628DA /* ios_admin_dummy.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = ios_admin_dummy.html; sourceTree = "<group>"; };
+		A36BC4171D6CCBAF00C628DA /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		A380038D1D4DFDBD00806157 /* intro_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = intro_1.png; sourceTree = "<group>"; };
 		A380038E1D4DFDBD00806157 /* intro_1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "intro_1@2x.png"; sourceTree = "<group>"; };
 		A380038F1D4DFDBD00806157 /* intro_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = intro_2.png; sourceTree = "<group>"; };
@@ -784,7 +789,6 @@
 		A3C9B0F61D60723B00979950 /* ic_about_us@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_about_us@2x.png"; sourceTree = "<group>"; };
 		A3C9B0F71D60723B00979950 /* ic_logout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_logout.png; sourceTree = "<group>"; };
 		A3C9B0F81D60723B00979950 /* ic_logout@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_logout@2x.png"; sourceTree = "<group>"; };
-		A3EB6D571D5609C0004E8CB5 /* ios_admin_dummy.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = ios_admin_dummy.html; sourceTree = "<group>"; };
 		A3EB6D591D561011004E8CB5 /* AdminDummyViewControlller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdminDummyViewControlller.h; sourceTree = "<group>"; };
 		A3EB6D5A1D561011004E8CB5 /* AdminDummyViewControlller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdminDummyViewControlller.m; sourceTree = "<group>"; };
 		A3EB6D5D1D565497004E8CB5 /* BookCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookCell.h; sourceTree = "<group>"; };
@@ -955,7 +959,7 @@
 		CE755BDC1A192F5E00A036DC /* washme-logo-old@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "washme-logo-old@2x.png"; sourceTree = "<group>"; };
 		CE755BDD1A192F5E00A036DC /* welcome-vc-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "welcome-vc-bg.png"; sourceTree = "<group>"; };
 		CE755BDE1A192F5E00A036DC /* welcome-vc-bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "welcome-vc-bg@2x.png"; sourceTree = "<group>"; };
-		CEABA61519BB1FDF00CBAEBF /* Wash! Me.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Wash! Me.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CEABA61519BB1FDF00CBAEBF /* Wash!Me.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Wash!Me.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEABA61819BB1FDF00CBAEBF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		CEABA61A19BB1FDF00CBAEBF /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		CEABA61C19BB1FDF00CBAEBF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -982,6 +986,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A36BC4181D6CCBAF00C628DA /* MessageUI.framework in Frameworks */,
 				CE39F78119CB62700010228C /* SystemConfiguration.framework in Frameworks */,
 				CE39F77F19CB62650010228C /* QuartzCore.framework in Frameworks */,
 				CE39F77D19CB625A0010228C /* OpenGLES.framework in Frameworks */,
@@ -1696,7 +1701,7 @@
 		CEABA61619BB1FDF00CBAEBF /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CEABA61519BB1FDF00CBAEBF /* Wash! Me.app */,
+				CEABA61519BB1FDF00CBAEBF /* Wash!Me.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1704,6 +1709,7 @@
 		CEABA61719BB1FDF00CBAEBF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A36BC4171D6CCBAF00C628DA /* MessageUI.framework */,
 				CE39F78019CB62700010228C /* SystemConfiguration.framework */,
 				CE39F77E19CB62650010228C /* QuartzCore.framework */,
 				CE39F77C19CB625A0010228C /* OpenGLES.framework */,
@@ -1746,7 +1752,8 @@
 			children = (
 				CE755B511A192F5E00A036DC /* Images */,
 				CE6C4A4A19DC4DA60014229D /* kz_almaty.gpx */,
-				A3EB6D571D5609C0004E8CB5 /* ios_admin_dummy.html */,
+				A36BC4121D6CC08900C628DA /* aboutme.html */,
+				A36BC4131D6CC08900C628DA /* ios_admin_dummy.html */,
 				CEABA62019BB1FDF00CBAEBF /* WashMe-Info.plist */,
 				CEABA62119BB1FDF00CBAEBF /* InfoPlist.strings */,
 				CEABA62419BB1FDF00CBAEBF /* main.m */,
@@ -1792,7 +1799,7 @@
 			);
 			name = WashMe;
 			productName = WashMe;
-			productReference = CEABA61519BB1FDF00CBAEBF /* Wash! Me.app */;
+			productReference = CEABA61519BB1FDF00CBAEBF /* Wash!Me.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -1806,6 +1813,14 @@
 				TargetAttributes = {
 					CEABA61419BB1FDF00CBAEBF = {
 						DevelopmentTeam = CF9V9VAHXD;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -1988,6 +2003,7 @@
 				CE755BFA1A192F5E00A036DC /* btn_tab-carwash_normal@2x.png in Resources */,
 				A3C9B0F31D60710900979950 /* ic_business_white.png in Resources */,
 				CE755BEF1A192F5E00A036DC /* btn_cartype2_selected.png in Resources */,
+				A36BC4141D6CC08900C628DA /* aboutme.html in Resources */,
 				CE755C2E1A192F5E00A036DC /* icon-feedbacks@2x.png in Resources */,
 				CE755C231A192F5E00A036DC /* icon-checkmark.png in Resources */,
 				5200B2B75A2FE1B3010A83F0 /* RobotoCondensed-Bold.ttf in Resources */,
@@ -1997,10 +2013,10 @@
 				A3981CD51D4D20E700E0689B /* carwash-annotation-online@2x.png in Resources */,
 				CE755BF01A192F5E00A036DC /* btn_cartype2_selected@2x.png in Resources */,
 				CE755C3B1A192F5E00A036DC /* icon-pin.png in Resources */,
+				A36BC4151D6CC08900C628DA /* ios_admin_dummy.html in Resources */,
 				CE755BF71A192F5E00A036DC /* btn_cartype4_selected.png in Resources */,
 				A36A21A81D69D0CD001F73EE /* washme-logo-launch.png in Resources */,
 				5200BBEEA6CD358B7C5D3145 /* RobotoCondensed-BoldItalic.ttf in Resources */,
-				A3EB6D581D5609C0004E8CB5 /* ios_admin_dummy.html in Resources */,
 				A31844CD1D6231C8002A258B /* star-new-empty.png in Resources */,
 				CE755C691A192F5E00A036DC /* washme-logo-old@2x.png in Resources */,
 				CE755C471A192F5E00A036DC /* Icon-Small-1.png in Resources */,
@@ -2388,7 +2404,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = kz.korotkikh.washme;
-				PRODUCT_NAME = "Wash! Me";
+				PRODUCT_NAME = "Wash!Me";
 				PROVISIONING_PROFILE = "";
 				USER_HEADER_SEARCH_PATHS = "\"${PROJECT_DIR}/Pods\"/**";
 				VALID_ARCHS = "armv7 armv7s arm64 i386";
@@ -2420,7 +2436,7 @@
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = kz.korotkikh.washme;
-				PRODUCT_NAME = "Wash! Me";
+				PRODUCT_NAME = "Wash!Me";
 				PROVISIONING_PROFILE = "";
 				USER_HEADER_SEARCH_PATHS = "\"${PROJECT_DIR}/Pods\"/**";
 				VALID_ARCHS = "armv7 armv7s arm64 i386";

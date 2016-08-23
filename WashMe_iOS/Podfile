@@ -36,4 +36,5 @@ target "WashMe" do
   pod 'EAIntroView', '~> 2.9.0'
   pod 'LGRefreshView', '~> 1.0.0'
   pod 'HTHorizontalSelectionList', '~> 0.7.3'
+  #pod 'OneSignal', '~> 2.0.0'
 end

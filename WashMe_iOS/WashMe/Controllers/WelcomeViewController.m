@@ -99,6 +99,7 @@
     UIImageView *bgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"welcome-vc-bg"]];
     bgView.width = [ASize screenWidth];
     bgView.height = [ASize screenHeight];
+    bgView.contentMode = UIViewContentModeScaleToFill;
     [self.view addSubview:bgView];
 
     [self createWashMeWhiteLogo];

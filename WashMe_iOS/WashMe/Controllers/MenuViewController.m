@@ -19,6 +19,7 @@
 #import "NotificationsHelper.h"
 #import "UIHelper.h"
 #import "AppDelegate.h"
+#import "APIClient.h"
 
 @interface MenuViewController ()
 @property(nonatomic, strong) UITableView *list;
@@ -90,8 +91,17 @@
 - (void)tapLogout {
     [[User currentUser] logoutQuestion:^(UIActionSheet *actionSheet, NSInteger buttonIndex) {
         if(actionSheet.cancelButtonIndex != buttonIndex) {
-            [[User currentUser] logout];
-            [[UIHelper appDelegate] gotoWelcomeViewController];
+            
+            NSString *udid = [[NSUserDefaults standardUserDefaults] valueForKey:@"UDID"];
+            NSString *path = [NSString stringWithFormat:@"devices/%@", udid];
+            [APIClient DELETE:path success:^(id response) {
+                [[UIApplication sharedApplication] unregisterForRemoteNotifications];
+                [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"pushNotificationToken"];
+                [[NSUserDefaults standardUserDefaults] synchronize];
+                
+                [[User currentUser] logout];
+                [[UIHelper appDelegate] gotoWelcomeViewController];
+            } failure:nil];
         }
     }];
 }
