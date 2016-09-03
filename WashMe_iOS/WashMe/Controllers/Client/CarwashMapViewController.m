@@ -94,7 +94,7 @@
         GMSMarker *marker = [[GMSMarker alloc] init];
         marker.position = CLLocationCoordinate2DMake(carwash.lat, carwash.lon);
         if ([carwash.status isEqualToString:@"approved"]){
-            marker.icon = [UIImage imageWithName:@"carwash-annotation-online"];
+            marker.icon = [UIImage imageWithName:@"carwash-annotation-online2"];
         } else {
             marker.icon = [UIImage imageWithName:@"carwash-annotation-offline"];
         }

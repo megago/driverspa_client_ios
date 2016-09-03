@@ -45,9 +45,9 @@
 }
 
 -(void)refreshCarwashesWithLoader:(BOOL)loader {
-    if (loader) [SVProgressHUD showWithStatus:@"Загрузка"];
+    if (loader) [Toast showHudLoading];//[SVProgressHUD showWithStatus:@"Загрузка"];
     [UserApi bookmarks:^(id response) {
-        [SVProgressHUD dismiss];
+        //[SVProgressHUD dismiss];
         [self onCarwashesResponse:response];
         [self.refreshView endRefreshing];
     } failure:^(NSInteger code, NSString *message) {

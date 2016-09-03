@@ -16,7 +16,7 @@
     GridBoxView *currentSelectedGridBoxView;
 }
 
-- (id)initWithTimeStatuses:(NSArray *)timeStatuses
+- (id)initWithTimeStatuses:(NSArray *)timeStatuses day:(CarwashBoxesTimeDay)currentDay
 {
     CGFloat padding = 15;
     self = [super initWithFrame:CGRectMake(0, 0, [ASize screenWidth] - 2 * padding, 200)];
@@ -24,8 +24,26 @@
         borderView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.width, self.height)];
         borderView.image = [[UIImage imageWithName:@"border-button-pattern"] stretchableImageWithLeftCapWidth:15 topCapHeight:15];
         [self addSubview:borderView];
-
-        NSInteger n = timeStatuses.count;
+        
+        NSMutableArray *newTimeStatuses = [[NSMutableArray alloc] init];
+        int disableCount = 0;
+        if (currentDay == CarwashBoxesTimeDayToday){
+            NSCalendar *calendar = [NSCalendar currentCalendar];
+            NSDateComponents *components = [calendar components:(NSCalendarUnitHour | NSCalendarUnitMinute) fromDate:[NSDate date]];
+            NSInteger hour = [components hour];
+            NSInteger minute = [components minute];
+            
+            disableCount = (int)hour * 2;
+            if (minute < 29) disableCount++;
+            if (minute > 30) disableCount = disableCount + 2;
+            
+            
+            for (int i = disableCount; i < timeStatuses.count; i++){
+                [newTimeStatuses addObject:timeStatuses[i]];
+            }
+        }
+        
+        NSInteger n = (currentDay == CarwashBoxesTimeDayToday) ? newTimeStatuses.count : timeStatuses.count;
 
         NSInteger cols = 5;
         CGFloat rowsFloat = (CGFloat)n / (CGFloat)cols;
@@ -35,10 +53,10 @@
 
         CGFloat bottomY = 0;
         NSUInteger j = 0;
-
+        
         for(NSInteger i=0; i<n; ++i)
         {
-            BOOL timeAvailable = [timeStatuses[i] boolValue];
+            BOOL timeAvailable = (currentDay == CarwashBoxesTimeDayToday) ? [newTimeStatuses[i] boolValue] : [timeStatuses[i] boolValue];
 
 
             if(i > 0 && (i % cols) == 0) {
@@ -51,7 +69,7 @@
             [self addSubview:box];
 
             if(timeAvailable) {
-                NSInteger minutes = i * 30;
+                NSInteger minutes = (currentDay == CarwashBoxesTimeDayToday) ? (disableCount * 30) + (i * 30) : i * 30;
                 NSInteger hour = (NSInteger) floor((minutes / 60));
                 NSInteger minute = minutes % 60;
 
@@ -107,6 +125,7 @@
                 NSInteger boxMinutesGone = gridBoxView.hours * 60 + gridBoxView.minutes;
                 if(boxMinutesGone <= minutesGone) {
                     [gridBoxView setDisabled];
+                    [gridBoxView removeFromSuperview];
                 }
             }
         }
@@ -118,6 +137,7 @@
             if([subview isKindOfClass:[GridBoxView class]]) {
                 GridBoxView *gridBoxView = (GridBoxView *)subview;
                 [gridBoxView setDisabled];
+                [gridBoxView removeFromSuperview];
             }
         }
     }

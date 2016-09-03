@@ -122,7 +122,7 @@
         bookButton = nil;
     }
 
-    boxesGridView = [[BoxesGridView alloc] initWithTimeStatuses:timeStatuses];
+    boxesGridView = [[BoxesGridView alloc] initWithTimeStatuses:timeStatuses day:currentTableDay];
     boxesGridView.delegate = self;
     boxesGridView.centerX = sv.centerX;
     boxesGridView.y = todayButton.bottom + 10;
@@ -162,36 +162,49 @@
             if(_bookObject.bookTime) [boxesGridView setBookTime:_bookObject.bookTime];
         }
     }
+    [sv setContentSizeHeight:boxesGridView.bottom + 30];
+
+    __weak BookChooseBoxViewController *wSelf = self;
+    bookButton = [[AAButton alloc] initWithWidth:200 onTap:^(UIView *_self) {
+        [wSelf bookButtonTapped];
+    }];
+    [bookButton commonStyleButtonWithTitle:@"БРОНИРОВАТЬ"];
+    
+    [bookButton setTitleFont:[UIFont robotoRegular:18]];
+    bookButton.centerX = self.view.centerX;
+    bookButton.y = sv.bottom + 2;
+    bookButton.height = 40;
+    [self.view addSubview:bookButton];
 
     // Bron
-    if(!self.preview)
-    {
-        __weak BookChooseBoxViewController *wSelf = self;
-        bookButton = nil;
-        if(!self.editMode) {
-            bookButton = [[AAButton alloc] initWithWidth:200 onTap:^(UIView *_self) {
-                [wSelf bookButtonTapped];
-            }];
-            [bookButton commonStyleButtonWithTitle:@"БРОНИРОВАТЬ"];
-        } else {
-            bookButton = [[AAButton alloc] initWithWidth:260 onTap:^(UIView *_self) {
-                [wSelf editBookButtonTapped];
-            }];
-            [bookButton commonStyleButtonWithTitle:@"ОБНОВИТЬ БРОНИРОВАНИЕ"];
-        }
-
-        [bookButton setTitleFont:[UIFont robotoRegular:18]];
-        bookButton.centerX = self.view.centerX;
-        bookButton.y = boxesGridView.bottom + 30;
-        bookButton.height = 40;
-        [sv addSubview:bookButton];
-
-        [sv setContentSizeHeight:bookButton.bottom + 20];
-    }
-    else {
-        [sv setContentSizeHeight:boxesGridView.bottom + 20];
-        boxesGridView.userInteractionEnabled = NO;
-    }
+//    if(!self.preview)
+//    {
+//        __weak BookChooseBoxViewController *wSelf = self;
+//        bookButton = nil;
+//        if(!self.editMode) {
+//            bookButton = [[AAButton alloc] initWithWidth:200 onTap:^(UIView *_self) {
+//                [wSelf bookButtonTapped];
+//            }];
+//            [bookButton commonStyleButtonWithTitle:@"БРОНИРОВАТЬ"];
+//        } else {
+//            bookButton = [[AAButton alloc] initWithWidth:260 onTap:^(UIView *_self) {
+//                [wSelf editBookButtonTapped];
+//            }];
+//            [bookButton commonStyleButtonWithTitle:@"ОБНОВИТЬ БРОНИРОВАНИЕ"];
+//        }
+//
+//        [bookButton setTitleFont:[UIFont robotoRegular:18]];
+//        bookButton.centerX = self.view.centerX;
+//        bookButton.y = boxesGridView.bottom + 30;
+//        bookButton.height = 40;
+//        [sv addSubview:bookButton];
+//
+//        [sv setContentSizeHeight:bookButton.bottom + 20];
+//    }
+//    else {
+//        [sv setContentSizeHeight:boxesGridView.bottom + 20];
+//        boxesGridView.userInteractionEnabled = NO;
+//    }
 }
 
 #pragma mark -
@@ -296,6 +309,7 @@
     [super configUI];
     [self setBlueBackground];
     [self setBackButtonInNavigation];
+    [sv setFrame:CGRectMake(0, 64, [ASize screenWidth], [ASize screenHeightWithoutStatusBarAndNavigationBarAndTabBar])];
 
     NSString *str = [NSString stringWithFormat:@"Автомойка %@", _bookObject.carwash.name];
     str = [str stringByReplacingOccurrencesOfString:@"Автомойка Автомойка" withString:@"Автомойка"];

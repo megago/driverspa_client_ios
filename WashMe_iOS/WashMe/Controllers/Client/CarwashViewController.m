@@ -330,24 +330,29 @@
     sv.height = [ASize screenHeightWithoutStatusBarAndNavigationBar] - 3;
     
     __weak CarwashViewController *wSelf = self;
-    AAButton *bookButton1 = [[AAButton alloc] initWithWidth:200 onTap:^(UIView *_self) {
-        [wSelf bookButtonTapped];
-    }];
-    if(_carwashComplex.isBookable) {
-        [bookButton1 commonStyleButtonWithTitle:@"ЗАБРОНИРОВАТЬ"];
-    } else {
-        bookButton1.hidden = YES;
+    float yPoint = 5.f;
+    if ([_carwashComplex.status isEqualToString:@"approved"] || [_carwashComplex.carwashId isEqualToString:@"578dabe7ff42375f6308a9fc"]){
+        AAButton *bookButton1 = [[AAButton alloc] initWithWidth:200 onTap:^(UIView *_self) {
+            [wSelf bookButtonTapped];
+        }];
+        if(_carwashComplex.isBookable) {
+            [bookButton1 commonStyleButtonWithTitle:@"ЗАБРОНИРОВАТЬ"];
+        } else {
+            bookButton1.hidden = YES;
+        }
+        
+        [bookButton1 setTitleFont:[UIFont robotoRegular:18]];
+        bookButton1.centerX = self.view.centerX;
+        bookButton1.y = yPoint;
+        bookButton1.height = 40;
+        [sv addSubview:bookButton1];
+        
+        yPoint = bookButton1.height + 30.f;
     }
-    
-    [bookButton1 setTitleFont:[UIFont robotoRegular:18]];
-    bookButton1.centerX = self.view.centerX;
-    bookButton1.y = 5;
-    bookButton1.height = 40;
-    [sv addSubview:bookButton1];
 
     carwashMapView = [[CarwashMapView alloc] initWithCoordinate:_carwashComplex.coordinate];
     carwashMapView.x = (CGFloat) ((self.view.width - carwashMapView.width) * 0.5);
-    carwashMapView.y = bookButton1.bottom + 30.f;
+    carwashMapView.y = yPoint;
     [sv addSubview:carwashMapView];
 
     CirclePictureView *carwashPictureView = [[CirclePictureView alloc] initWithDimension:80];
@@ -481,6 +486,7 @@
     feedbacksButton.y = pricesButton.bottom;
     [sv addSubview:feedbacksButton];
     [self updateFeedbacksRowTitle];
+    yPoint = feedbacksButton.bottom;
 
     //reservationTableButton = [[RowButtonDisclosureView alloc] initWithIcon:@"icon-grid" title:@"Расписание" target:self selector:@selector(reservationTableButtonTapped)];
     //reservationTableButton.y = feedbacksButton.bottom;
@@ -488,24 +494,27 @@
     //[sv addSubview:reservationTableButton];
 
     // Bron
-    //__weak CarwashViewController *wSelf = self;
-    AAButton *bookButton = [[AAButton alloc] initWithWidth:200 onTap:^(UIView *_self) {
-        [wSelf bookButtonTapped];
-    }];
-    if(_carwashComplex.isBookable) {
-        [bookButton commonStyleButtonWithTitle:@"ЗАБРОНИРОВАТЬ"];
-    } else {
-        bookButton.hidden = YES;
+    if ([_carwashComplex.status isEqualToString:@"approved"] || [_carwashComplex.carwashId isEqualToString:@"578dabe7ff42375f6308a9fc"]){
+        AAButton *bookButton = [[AAButton alloc] initWithWidth:200 onTap:^(UIView *_self) {
+            [wSelf bookButtonTapped];
+        }];
+        if(_carwashComplex.isBookable) {
+            [bookButton commonStyleButtonWithTitle:@"ЗАБРОНИРОВАТЬ"];
+        } else {
+            bookButton.hidden = YES;
+        }
+        
+        [bookButton setTitleFont:[UIFont robotoRegular:18]];
+        bookButton.centerX = self.view.centerX;
+        bookButton.y = feedbacksButton.bottom + 30;
+        bookButton.height = 40;
+        [sv addSubview:bookButton];
+        
+        yPoint = bookButton.bottom;
     }
 
-    [bookButton setTitleFont:[UIFont robotoRegular:18]];
-    bookButton.centerX = self.view.centerX;
-    bookButton.y = feedbacksButton.bottom + 30;
-    bookButton.height = 40;
-    [sv addSubview:bookButton];
-
     CGSize contentSize = sv.contentSize;
-    contentSize.height = bookButton.bottom + 20;
+    contentSize.height = yPoint + 20;
     [sv setContentSize:contentSize];
 }
 

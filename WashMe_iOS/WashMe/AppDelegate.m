@@ -33,9 +33,11 @@
 #import <Fabric/Fabric.h>
 #import <Crashlytics/Crashlytics.h>
 #import <GoogleMaps/GoogleMaps.h>
-
 #import "UserBookViewController.h"
 #import "NSObject+Json.h"
+
+//#import <OneSignal/OneSignal.h>
+//#define OneSignalOn YES
 
 @implementation AppDelegate {
 }
@@ -49,9 +51,12 @@
 
     // Google maps
     [GMSServices provideAPIKey:@"AIzaSyDdOQIac6I0iNYyaX7oQlL3R3clgu1nC_s"];
+    
+    // OneSignal config
+    //[OneSignal initWithLaunchOptions:launchOptions appId:@"2a4b8148-7864-4dba-85fc-ec3d7e86d2a2"];
 
     // Request push notification permissions
-    //[self requestPushAndLocalNotificationPermissions];
+    [self requestPushAndLocalNotificationPermissions];
 
     //Crashlytics
     //[Fabric with:@[[Crashlytics class]]];
@@ -185,13 +190,13 @@
 #pragma mark Push Notifications
 
 -(void)requestPushAndLocalNotificationPermissions {
-    if (![[UIApplication sharedApplication] isRegisteredForRemoteNotifications]){
+    //if (![[UIApplication sharedApplication] isRegisteredForRemoteNotifications]){
         [[UIApplication sharedApplication] registerForRemoteNotifications];
         
         if ([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)]){
             [[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeBadge|UIUserNotificationTypeSound categories:nil]];
         }
-    }
+    //}
 }
 
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
@@ -242,16 +247,25 @@
 }
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
-{
-    //NSString *typeMessage = [userInfo objectForKey:@"type"];
-    
+{    
     if ([User isAuthorized]){
-        //if ([typeMessage isEqualToString:@"booking_created"]) {
-            NSString *objectId = [userInfo objectForKey:@"object_id"];
-            if (objectId) {
-                [self setUserAuthorizedBookControllerWith:objectId];
-            }
-        //}
+        NSString *objectId = [userInfo objectForKey:@"object_id"];
+        if (objectId) {
+            [self setUserAuthorizedBookControllerWith:objectId];
+        }
+    
+//        if (OneSignalOn) {
+//            NSDictionary *d = [userInfo objectForKey:@"custom"];
+//            if (d) {
+//                NSDictionary *a = [d objectForKey:@"a"];
+//                if (a) {
+//                    NSString *objectId = [a objectForKey:@"object_id"];
+//                    if (objectId) {
+//                        [self setUserAuthorizedBookControllerWith:objectId];
+//                    }
+//                }
+//            }
+//        }
     } else {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Предупреждение" message:@"Чтобы просмотреть сообщение необходимо авторизоваться" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
         [alert show];

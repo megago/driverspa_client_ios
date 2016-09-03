@@ -78,12 +78,12 @@
     // Remove no content message if any
     [self removeNoContentMessageIfExists];
 
-    if(!loadingMore || (loadingMore && self.page == 1))[SVProgressHUD showLoading];
+    if(!loadingMore || (loadingMore && self.page == 1))[Toast showHudLoading];//[SVProgressHUD showLoading];
     
     //[CarwashApi getPublicCarwashes:nil success:^(NSArray *response) {
     [CarwashApi getCarwashes:self.page filterManager:self.filterManager success:^(NSArray *response) {
 
-        [SVProgressHUD dismiss];
+        //[SVProgressHUD dismiss];
         [self.list finishInfiniteScroll];
 
         if(response && response.count == 0) {

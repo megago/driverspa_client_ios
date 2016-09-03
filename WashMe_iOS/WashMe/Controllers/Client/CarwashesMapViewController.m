@@ -68,10 +68,11 @@
 #pragma mark ACtions
 
 - (void)loadCarwaches {
-    [SVProgressHUD showWithStatus:@"Загрузка"];
+    //[SVProgressHUD showWithStatus:@"Загрузка"];
+    [Toast showHudLoading];
     [CarwashApi getComplexCarwashes:^(NSArray *response) {
         
-        [SVProgressHUD dismiss];
+        //[SVProgressHUD dismiss];
         self.carwashes = response;
         [self requestLocation];
         
@@ -113,7 +114,7 @@
         GMSMarker *marker = [[GMSMarker alloc] init];
         marker.position = CLLocationCoordinate2DMake(carwash.lat, carwash.lon);
         if ([carwash.status isEqualToString:@"approved"]){
-            marker.icon = [UIImage imageWithName:@"carwash-annotation-online"];
+            marker.icon = [UIImage imageWithName:@"carwash-annotation-online2"];
         } else {
             marker.icon = [UIImage imageWithName:@"carwash-annotation-offline"];
         }

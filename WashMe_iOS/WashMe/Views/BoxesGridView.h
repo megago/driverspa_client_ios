@@ -8,6 +8,7 @@
 
 
 #import "GridBoxView.h"
+#import "CarwashApi.h"
 
 @class BoxesGridView;
 
@@ -22,7 +23,8 @@
 @property(nonatomic, assign, getter=isTimeSelected) BOOL timeSelected;
 @property(nonatomic, copy, readonly) NSString *bookDateString;
 
--(id)initWithTimeStatuses:(NSArray *)timeStatuses;
+//-(id)initWithTimeStatuses:(NSArray *)timeStatuses;
+-(id)initWithTimeStatuses:(NSArray *)timeStatuses day:(CarwashBoxesTimeDay)currentDay;
 
 -(NSString *)bookTime;
 -(void)setBookTime:(NSString *)bookTime;

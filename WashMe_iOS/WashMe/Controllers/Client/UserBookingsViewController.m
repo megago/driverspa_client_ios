@@ -63,10 +63,10 @@
 
 - (void)loadBookingsWithLoader:(BOOL)loader
 {
-    if (loader) [SVProgressHUD showWithStatus:@"Загрузка"];
+    if (loader) [Toast showHudLoading];//[SVProgressHUD showWithStatus:@"Загрузка"];
     [UserApi bookingsWithStatus:nil success:^(id response) {
         bookings = [NSMutableArray arrayWithArray:response];
-        [SVProgressHUD dismiss];
+        //[SVProgressHUD dismiss];
         [self reloadList];
         [self updateBadge];
         [self.refreshView endRefreshing];

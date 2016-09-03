@@ -84,7 +84,7 @@
 
 - (void)buildTableWithTimeStatuses:(NSArray *)timeStatuses
 {
-    boxesGridView = [[BoxesGridView alloc] initWithTimeStatuses:timeStatuses];
+    boxesGridView = [[BoxesGridView alloc] initWithTimeStatuses:timeStatuses day:currentTableDay];
     boxesGridView.delegate = self;
     boxesGridView.userInteractionEnabled = NO;
     boxesGridView.y = todayButton.bottom + 15;

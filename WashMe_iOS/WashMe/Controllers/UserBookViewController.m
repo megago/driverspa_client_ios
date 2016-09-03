@@ -402,6 +402,7 @@
     if (_afterNotification) {
         [self setNavigationBarTransparent];
         [self showMenuButton];
+        [sv setFrame:CGRectMake(0, 64, [ASize screenWidth], [ASize screenHeightWithoutStatusBarAndNavigationBar])];
     } else {
         [self setBackButtonInNavigation];
     }
