@@ -52,10 +52,10 @@
 #pragma mark -
 #pragma mark UITableView
 
--(int)numberOfSectionsInTableView:(UITableView *)tableView {
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
--(int)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 10;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -65,7 +65,7 @@
         cell = [[SimpleCheckboxCell alloc] initWithReuseIdentifier:CellIdentifier];
     }
 
-    [cell setTitle:[NSString stringWithFormat:@"  %i", (indexPath.row + 1)]];
+    [cell setTitle:[NSString stringWithFormat:@"  %li", (indexPath.row + 1)]];
     cell.isChecked = indexPath.row == selectedRow;
 
     return cell;
@@ -95,7 +95,7 @@
     [self setBackButtonInNavigation];
     [self setNavigationTitle:@"Количество боксов"];
 
-    list = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, [ASize screenWidth], [ASize screenHeightWithoutStatusBarAndNavigationBar]-44) style:UITableViewStylePlain];
+    list = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, [ASize screenWidth], [ASize screenHeightWithoutStatusBarAndNavigationBar]) style:UITableViewStylePlain];
     list.delegate = self;
     list.dataSource = self;
     list.backgroundColor = [UIColor clearColor];

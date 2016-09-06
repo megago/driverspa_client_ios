@@ -309,7 +309,7 @@
     [super configUI];
     [self setBlueBackground];
     [self setBackButtonInNavigation];
-    [sv setFrame:CGRectMake(0, 64, [ASize screenWidth], [ASize screenHeightWithoutStatusBarAndNavigationBarAndTabBar])];
+    //[sv setFrame:CGRectMake(0, 64, [ASize screenWidth], [ASize screenHeightWithoutStatusBarAndNavigationBarAndTabBar])];
 
     NSString *str = [NSString stringWithFormat:@"Автомойка %@", _bookObject.carwash.name];
     str = [str stringByReplacingOccurrencesOfString:@"Автомойка Автомойка" withString:@"Автомойка"];

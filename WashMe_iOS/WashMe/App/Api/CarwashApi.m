@@ -208,7 +208,7 @@
 
 + (void)uploadCarwashImage:(UIImage *)image carwashId:(NSString *)carwashId success:(success)success failure:(failure)failure
 {
-    NSData *imageData = UIImageJPEGRepresentation(image, 0.8);
+    NSData *imageData = UIImageJPEGRepresentation(image, 0.3);
 
     [self POST:@"image_upload/new" uploadImage:imageData dataName:@"image" parameters:@{@"carwash":carwashId} success:^(id response) {
         success([ImageBundle instanceFromDictionary:response]);

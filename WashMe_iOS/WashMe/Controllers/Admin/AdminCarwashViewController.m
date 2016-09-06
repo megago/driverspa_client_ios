@@ -35,8 +35,10 @@
 #import "CarwashPhotosViewerView.h"
 #import "RowButtonDropdownView.h"
 #import "City.h"
+#import "UIViewController+NavigationBar.h"
+#import "AdminApi.h"
 
-@interface AdminCarwashViewController ()
+@interface AdminCarwashViewController () 
 @end
 
 @implementation AdminCarwashViewController {
@@ -60,24 +62,66 @@
 {
     [super viewDidLoad];
     [self configUI];
-
+    [self loadCarwashes];
+    
     CreateCarwashDraft *draft = [CreateCarwashDraft sharedInstance];
     [nameField setValue:draft.carwashName];
+}
 
+- (void)viewWillDisappear:(BOOL)animated {
+    [self hideKeyboard];
+}
+
+- (void)loadCarwashes
+{
+    [Toast showHudLoading];
+    [AdminApi myCarwashes:^(id response) {
+        [self onCarwashesLoaded:response];
+    } failure:^(NSInteger code, NSString *message) {
+        
+    }];
+}
+
+- (void)onCarwashesLoaded:(id)response
+{
+    NSArray *arr = response;
+    if(arr.count == 0) {
+        [Toast showHudLoading];
+        NSMutableDictionary *o = [NSMutableDictionary dictionary];
+        
+        o[@"is_public"] = @(_carwash.isPublic);
+        o[@"city"] = @"astana";
+        o[@"name"] = @"";
+        o[@"lonlat"] = @[@(0), @(0)];
+        o[@"address"] = @"";
+        
+        NSLog(@"info: %@", o);
+
+        [AdminApi createCarwash:o success:^(id response) {
+            _carwash = response;
+            [self loadCarwash];
+        } failure:^(NSInteger code, NSString *message) {
+            
+        }];
+    } else {
+        //load detail carwash
+        _carwash = arr.firstObject;
+        [self loadCarwash];
+    }
+}
+
+- (void)loadCarwash {
     // If edit mode
     if(_carwash) {
         [Toast showHudWithTitle:@"Загрузка мойки"];
         [AdminApi getCarwashDetails:_carwash.carwashId success:^(id response) {
             _carwashComplex = response;
+            [self buildUI];
             [self onCarwashComplex];
         } failure:^(NSInteger code, NSString *message) {
             [self.navigationController popViewControllerAnimated:YES];
         }];
     }
-}
-
-- (void)viewWillDisappear:(BOOL)animated {
-    [self hideKeyboard];
 }
 
 - (void)onCarwashComplex
@@ -323,9 +367,14 @@
 -(void)configUI
 {
     [super configUI];
-    [self setBackButtonInNavigation];
     [self setBlueBackground];
+    [self showMenuButton];
+    [self setNavigationBarTransparent];
+    
+    //[sv setFrame:CGRectMake(0, 64, [ASize screenWidth], [ASize screenHeightWithoutStatusBarAndNavigationBar])];
+}
 
+- (void)buildUI {
     CGFloat nexty = 0;
     if(_carwash)
     {
@@ -333,21 +382,21 @@
         photosViewerView = [[CarwashPhotosViewerView alloc] init];
         photosViewerView.carwashId = _carwash.carwashId;
         [sv addSubview:photosViewerView];
-
+        
         // Status
         publishCarwashButton = [[RowButtonDropdownView alloc] initWithWidth:kContentWidth icon:nil title:@"" target:self selector:@selector(publishCarwashTapped)];
         publishCarwashButton.y = photosViewerView.bottom + 20;
         [publishCarwashButton removeTopLine];
         [sv addSubview:publishCarwashButton];
-
+        
         [self updateCarwashStatus];
-
+        
         nexty = publishCarwashButton.bottom + 15;
     }
     else
     {
         [self setNavigationTitle:@"+ Добавить автомойку"];
-
+        
         UILabel *messageLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, (CGFloat) ([ASize screenWidth] * 0.7), 1)];
         messageLabel.backgroundColor = [UIColor clearColor];
         messageLabel.font = [UIFont robotoRegular:16];
@@ -360,46 +409,46 @@
         messageLabel.centerX = self.view.middleX;
         messageLabel.y = 15;
         [sv addSubview:messageLabel];
-
+        
         nexty = messageLabel.bottom + 30;
     }
-
+    
     nameField = [[InputTextField alloc] initWithWidth:kContentWidth height:45];
     nameField.centerX = self.view.centerX;
     nameField.y = nexty;
     nameField.textField.autocapitalizationType = UITextAutocapitalizationTypeSentences;
     [nameField setPlaceholder:@"Название мойки"];
     [sv addSubview:nameField];
-
+    
     RowButtonDisclosureView *addressButton = [[RowButtonDisclosureView alloc] initWithWidth:kContentWidth icon:nil title:@"Адрес" target:self selector:@selector(addressTapped)];
     addressButton.y = nameField.bottom + 10;
     [addressButton removeTopLine];
     [sv addSubview:addressButton];
-
+    
     RowButtonDisclosureView *carTypesButton = [[RowButtonDisclosureView alloc] initWithWidth:kContentWidth icon:nil title:@"Типы машин" target:self selector:@selector(carTypesTapped)];
     carTypesButton.y = addressButton.bottom;
     [sv addSubview:carTypesButton];
-
+    
     RowButtonDisclosureView *servicesButton = [[RowButtonDisclosureView alloc] initWithWidth:kContentWidth icon:nil title:@"Услуги" target:self selector:@selector(servicesTapped)];
     servicesButton.y = carTypesButton.bottom;
     [sv addSubview:servicesButton];
-
+    
     RowButtonDisclosureView *pricesButton = [[RowButtonDisclosureView alloc] initWithWidth:kContentWidth icon:nil title:@"Цены" target:self selector:@selector(pricesTapped)];
     pricesButton.y = servicesButton.bottom;
     [sv addSubview:pricesButton];
-
+    
     RowButtonDisclosureView *boxesButton = [[RowButtonDisclosureView alloc] initWithWidth:kContentWidth icon:nil title:@"Боксы" target:self selector:@selector(boxesTapped)];
     boxesButton.y = pricesButton.bottom;
     [sv addSubview:boxesButton];
-
+    
     RowButtonDisclosureView *scheduleButton = [[RowButtonDisclosureView alloc] initWithWidth:kContentWidth icon:nil title:@"Время работы" target:self selector:@selector(scheduleTaped)];
     scheduleButton.y = boxesButton.bottom;
     [sv addSubview:scheduleButton];
-
+    
     RowButtonDisclosureView *otherInfoButton = [[RowButtonDisclosureView alloc] initWithWidth:kContentWidth icon:nil title:@"Дополнительная информация" target:self selector:@selector(otherInfoTapped)];
     otherInfoButton.y = scheduleButton.bottom;
     [sv addSubview:otherInfoButton];
-
+    
     // Button
     __weak AdminCarwashViewController *wSelf = self;
     AAButton *addButton = [[AAButton alloc] initWithWidth:200 onTap:^(UIView *_self) {
@@ -415,7 +464,7 @@
     addButton.y = otherInfoButton.bottom + 25;
     addButton.height = 40;
     [sv addSubview:addButton];
-
+    
     // -----
     [sv setContentSizeHeight:addButton.bottom + 40];
     [self addKeyboardControlFields:@[nameField.textField]];

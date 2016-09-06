@@ -15,7 +15,7 @@
 @end
 
 @implementation SetCarwashCoordinateViewController {
-    GMSMapView *mapView_;
+    GMSMapView *_mapView;
 }
 
 -(id)init {
@@ -32,6 +32,7 @@
 {
     [super viewDidLoad];
     [self configUI];
+    
 
     [Toast showHudLoading];
     [[LocationHelper sharedInstance] requestLocation:^(CLLocation *currentLocation) {
@@ -39,8 +40,11 @@
         [self createMap];
     } failed:^(INTULocationStatus status) {
         [Toast hideHud];
-        [self.navigationController popViewControllerAnimated:YES];
-        [UIHelper showAlertTryAgain];
+        _coordinate.latitude = 51.149588;
+        _coordinate.longitude = 71.448503;
+        [self createMap];
+        //[self.navigationController popViewControllerAnimated:YES];
+        //[UIHelper showAlertTryAgain];
     }];
 }
 
@@ -57,18 +61,18 @@
     GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:location.latitude
                                                             longitude:location.longitude
                                                                  zoom:14];
-    mapView_ = [GMSMapView mapWithFrame:CGRectMake(0, 64, [ASize screenWidth], [ASize screenHeightWithoutStatusBarAndNavigationBar] - 44) camera:camera];
-    mapView_.delegate = self;
-    mapView_.myLocationEnabled = YES;
-    mapView_.settings.myLocationButton = YES;
-    [self.view addSubview:mapView_];
+    _mapView = [GMSMapView mapWithFrame:CGRectMake(0, 64, [ASize screenWidth], [ASize screenHeightWithoutStatusBarAndNavigationBar]) camera:camera];
+    _mapView.delegate = self;
+    _mapView.myLocationEnabled = YES;
+    _mapView.settings.myLocationButton = YES;
+    [self.view addSubview:_mapView];
 
     // My location icon
     GMSMarker *myMarker = [GMSMarker markerWithPosition:location];
     myMarker.icon = [UIImage imageNamed:@"mylocation-annotation"];
     myMarker.groundAnchor = CGPointMake(0.5, 1);
     [myMarker setDraggable:YES];
-    myMarker.map = mapView_;
+    myMarker.map = _mapView;
 }
 
 #pragma mark -

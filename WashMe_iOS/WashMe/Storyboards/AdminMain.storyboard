@@ -63,10 +63,10 @@
             </objects>
             <point key="canvasLocation" x="-1257" y="-634"/>
         </scene>
-        <!--Admin Carwashes View Controller-->
+        <!--Admin Carwash View Controller-->
         <scene sceneID="eaz-YX-g64">
             <objects>
-                <viewController storyboardIdentifier="AdminCarwashesViewController" id="2NY-Lc-gaC" customClass="AdminCarwashesViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AdminCarwashViewController" id="2NY-Lc-gaC" customClass="AdminCarwashViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="lGJ-vf-eaU"/>
                         <viewControllerLayoutGuide type="bottom" id="kDI-2C-04a"/>
