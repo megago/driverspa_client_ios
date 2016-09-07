@@ -125,7 +125,7 @@
                 NSInteger boxMinutesGone = gridBoxView.hours * 60 + gridBoxView.minutes;
                 if(boxMinutesGone <= minutesGone) {
                     [gridBoxView setDisabled];
-                    [gridBoxView removeFromSuperview];
+                    //[gridBoxView removeFromSuperview];
                 }
             }
         }
@@ -137,7 +137,7 @@
             if([subview isKindOfClass:[GridBoxView class]]) {
                 GridBoxView *gridBoxView = (GridBoxView *)subview;
                 [gridBoxView setDisabled];
-                [gridBoxView removeFromSuperview];
+                //[gridBoxView removeFromSuperview];
             }
         }
     }

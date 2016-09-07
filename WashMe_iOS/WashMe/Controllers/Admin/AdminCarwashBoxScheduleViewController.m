@@ -12,6 +12,8 @@
 #import "AAButton+Styles.h"
 #import "BoxTimeTable.h"
 #import "BoxSetting.h"
+#import "HMSegmentedControl.h"
+#import "ASize.h"
 
 @interface AdminCarwashBoxScheduleViewController ()
 @end
@@ -20,6 +22,7 @@
     BoxesGridView *boxesGridView;
     AAButton *todayButton;
     AAButton *tomorrowButton;
+    HMSegmentedControl *segmentedControl;
     CarwashBoxesTimeDay currentTableDay;
 }
 
@@ -139,7 +142,21 @@
     [self setBlueBackground];
     [self setNavigationTitle:[NSString stringWithFormat:@"Бокс #%li", (long)self.boxIndex]];
     [self setBackButtonInNavigation];
-
+    
+    segmentedControl = [[HMSegmentedControl alloc] initWithFrame:CGRectMake(0, 5, [ASize screenWidth], 30)];
+    segmentedControl.sectionTitles = @[@"Бокс 1", @"Бокс 2", @"Бокс 3"];
+    segmentedControl.selectedSegmentIndex = 0;
+    segmentedControl.backgroundColor = [UIColor colorWithWhite:0.f alpha:0.25];
+    segmentedControl.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor colorWithWhite:1.f alpha:0.25f], NSFontAttributeName: [UIFont robotoBold:14.f]};
+    segmentedControl.selectedTitleTextAttributes = @{NSForegroundColorAttributeName : [UIColor whiteColor]};
+    segmentedControl.selectionIndicatorColor = [UIColor whiteColor];
+    segmentedControl.selectionStyle = HMSegmentedControlSelectionStyleTextWidthStripe;
+    segmentedControl.selectionIndicatorLocation = HMSegmentedControlSelectionIndicatorLocationDown;
+    segmentedControl.selectionIndicatorHeight = 2.f;
+    segmentedControl.segmentEdgeInset = UIEdgeInsetsMake(0, 20, 0, 20);
+    [segmentedControl addTarget:self action:@selector(segmentedControlChangedValue:) forControlEvents:UIControlEventValueChanged];
+    [sv addSubview:segmentedControl];
+    
     CGFloat buttonWidth = (CGFloat) ([ASize screenWidth] * 0.5);
     __weak AdminCarwashBoxScheduleViewController * weakSelf = self;
     UIFont *font = [UIFont robotoCondensedLight:16];
@@ -151,7 +168,7 @@
     [todayButton noBorderStyleButtonWithTitle:@"Сегодня"];
     [todayButton setTitleFont:font];
     [todayButton.button setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
-    todayButton.y = 5;
+    todayButton.y = segmentedControl.bottom + 5.f;
     [sv addSubview:todayButton];
 
     tomorrowButton = [[AAButton alloc] initWithWidth:buttonWidth onTap:^(UIView *_self) {
@@ -165,6 +182,10 @@
     tomorrowButton.y = todayButton.y;
     tomorrowButton.alpha = 0.5;
     [sv addSubview:tomorrowButton];
+}
+
+- (void)segmentedControlChangedValue:(HMSegmentedControl *)segmentedControl {
+    NSLog(@"Selected index %ld (via UIControlEventValueChanged)", (long)segmentedControl.selectedSegmentIndex);
 }
 
 - (void)didReceiveMemoryWarning {
