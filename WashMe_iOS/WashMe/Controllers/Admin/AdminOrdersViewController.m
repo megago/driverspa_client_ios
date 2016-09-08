@@ -54,8 +54,7 @@
     [self configUI];
     
     //Check autorized carwash
-    NSDictionary *d = [CarwashComplex authorizedCarwashDataWithMobile:[User currentUser].mobile];
-    CarwashComplex *complex = [CarwashComplex instanceFromDictionary:d];
+    //CarwashComplex *complex = [CarwashComplex authorizedCarwashDataWithMobile:[User currentUser].mobile];
     
     [self loadBooks];
 }

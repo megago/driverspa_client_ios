@@ -37,6 +37,8 @@
 #import "City.h"
 #import "UIViewController+NavigationBar.h"
 #import "AdminApi.h"
+#import "User.h"
+#import "CarwashComplex.h"
 
 @interface AdminCarwashViewController () 
 @end
@@ -248,7 +250,7 @@
     NSMutableDictionary *o = [NSMutableDictionary dictionary];
 
     o[@"is_public"] = @(_carwash.isPublic);
-    o[@"city"] = @"almaty";
+    o[@"city"] = @"astana";
     o[@"name"] = [nameField value];
     o[@"lonlat"] = @[@(draft.coordinate.longitude), @(draft.coordinate.latitude)];
     o[@"address"] = [draft address];
@@ -267,6 +269,7 @@
     if(_carwash) {
         [Toast showHudWithTitle:@"Сохранение"];
         [AdminApi updateCarwash:_carwash.carwashId params:o success:^(id response) {
+            [CarwashComplex setAuthorizedCarwashData:response withMobile:[User currentUser].mobile];
             [self.delegate adminCarwashViewControllerCarwashUpdated:response];
             [self.navigationController popViewControllerAnimated:YES];
         } failure:^(NSInteger code, NSString *message) {
@@ -302,6 +305,7 @@
                 _carwash = response;
                 [self updateCarwashStatus];
                 [self.delegate adminCarwashViewControllerCarwashUpdated:response];
+                [CarwashComplex setAuthorizedCarwashData:response withMobile:[User currentUser].mobile];
             } failure:^(NSInteger code, NSString *message) {
 
             }];

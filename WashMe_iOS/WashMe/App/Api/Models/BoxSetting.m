@@ -20,6 +20,7 @@
 
     self.bookingType = [aDictionary objectForKey:@"booking_type"];
     self.uid = [aDictionary objectForKey:@"uid"];
+    self.boxName = [aDictionary objectForKey:@"box_name"];
 
 }
 

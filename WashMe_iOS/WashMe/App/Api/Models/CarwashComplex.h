@@ -28,9 +28,8 @@
 
 - (NSString *)boxNameById:(NSString *)uid;
 
-+ (void)setAuthorizedCarwashData:(NSDictionary *)carwashData withMobile:(NSString *)_mobile;
++ (void)setAuthorizedCarwashData:(CarwashComplex *)carwashData withMobile:(NSString *)_mobile;
++ (CarwashComplex *)authorizedCarwashDataWithMobile:(NSString *)_mobile;
 + (void)clearAuthorizedCarwashDataWithMobile:(NSString *)_mobile;
-+ (NSDictionary *)authorizedCarwashDataWithMobile:(NSString *)_mobile;
-+ (void)updateUserDataAttribute:(id)obj forAttributeName:(NSString *)attrName;
 
 @end

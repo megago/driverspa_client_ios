@@ -158,10 +158,10 @@
 
 - (void)loadCarwashDetail:(CarwashComplex *)carwash {
     [Toast showHudLoading];
-    [AdminApi getCarwashDetailsDictionary:carwash.carwashId success:^(id response) {
+    [AdminApi getCarwashDetails:carwash.carwashId success:^(id response) {
         [self onCarwashComplex: response];
     } failure:^(NSInteger code, NSString *message) {
-        //[self.navigationController popViewControllerAnimated:YES];
+        
     }];
 }
 

@@ -60,12 +60,6 @@
     } failure:failure];
 }
 
-+ (void)getCarwashDetailsDictionary:(NSString *)carwashID success:(success)success failure:(failure)failure {
-    [self GET:[NSString stringWithFormat:@"company_carwash/%@", carwashID] success:^(id response) {
-        success(response);
-    } failure:failure];
-}
-
 #pragma mark -
 #pragma mark Bookings
 

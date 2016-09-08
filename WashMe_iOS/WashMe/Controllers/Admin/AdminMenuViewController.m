@@ -20,6 +20,7 @@
 #import "AboutUsViewController.h"
 #import "UIHelper.h"
 #import "AppDelegate.h"
+#import "CarwashComplex.h"
 
 @interface AdminMenuViewController ()
 @property(nonatomic, strong) UITableView *list;
@@ -71,6 +72,13 @@
 - (void)tapLogout {
     [[User currentUser] logoutQuestion:^(UIActionSheet *actionSheet, NSInteger buttonIndex) {
         if(actionSheet.cancelButtonIndex != buttonIndex) {
+            [[UIApplication sharedApplication] unregisterForRemoteNotifications];
+            [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"pushNotificationToken"];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+            
+            [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
+            
+            [CarwashComplex clearAuthorizedCarwashDataWithMobile:[User currentUser].mobile];
             [[User currentUser] logout];
             [[UIHelper appDelegate] gotoWelcomeViewController];
         }

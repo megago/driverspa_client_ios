@@ -99,6 +99,7 @@
                 [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"pushNotificationToken"];
                 [[NSUserDefaults standardUserDefaults] synchronize];
                 
+                [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
                 [[User currentUser] logout];
                 [[UIHelper appDelegate] gotoWelcomeViewController];
             } failure:nil];
