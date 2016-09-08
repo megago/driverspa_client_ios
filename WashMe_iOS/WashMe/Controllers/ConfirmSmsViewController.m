@@ -22,7 +22,8 @@
 #import "UserSettings.h"
 #import "AppDelegate.h"
 #import "RegisterProfileViewController.h"
-
+#import "AdminApi.h"
+#import "CarwashComplex.h"
 
 @interface ConfirmSmsViewController () <UITextFieldDelegate>
 @end
@@ -96,7 +97,9 @@
             
             // Set that user entered profile in registration.
             [User setRegistrationProfileEntered:[User currentUser].mobile];
-            [[UIHelper appDelegate] setAdminAuthorizedTabbarController];
+            [self loadCarwashes];
+            
+            //[[UIHelper appDelegate] setAdminAuthorizedTabbarController];
         } else {
             if (user.cars.count > 0 && user.fio.length > 0 && user.cityCode.length > 0){
                 // Set that user entered profile in registration.
@@ -112,6 +115,59 @@
         [codeField setValue:@""];
         [codeField focus];
     }];
+}
+
+#pragma mark - Check carwash
+
+- (void)loadCarwashes
+{
+    [Toast showHudLoading];
+    [AdminApi myCarwashes:^(id response) {
+        [self onCarwashesLoaded:response];
+    } failure:^(NSInteger code, NSString *message) {
+        
+    }];
+}
+
+- (void)onCarwashesLoaded:(id)response
+{
+    NSArray *arr = response;
+    if(arr.count == 0) {
+        [Toast showHudLoading];
+        NSMutableDictionary *o = [NSMutableDictionary dictionary];
+        
+        o[@"is_public"] = @(NO);
+        o[@"city"] = @"astana";
+        o[@"name"] = @"";
+        o[@"lonlat"] = @[@(0), @(0)];
+        o[@"address"] = @"";
+        
+        NSLog(@"info: %@", o);
+        
+        [AdminApi createCarwash:o success:^(id response) {
+            [self loadCarwashDetail:response];
+        } failure:^(NSInteger code, NSString *message) {
+            
+        }];
+    } else {
+        //load detail carwash
+        CarwashComplex *carwash = arr.firstObject;
+        [self loadCarwashDetail:carwash];
+    }
+}
+
+- (void)loadCarwashDetail:(CarwashComplex *)carwash {
+    [Toast showHudLoading];
+    [AdminApi getCarwashDetailsDictionary:carwash.carwashId success:^(id response) {
+        [self onCarwashComplex: response];
+    } failure:^(NSInteger code, NSString *message) {
+        //[self.navigationController popViewControllerAnimated:YES];
+    }];
+}
+
+- (void)onCarwashComplex:(id)response {
+    [CarwashComplex setAuthorizedCarwashData:response withMobile:[User currentUser].mobile];
+    [[UIHelper appDelegate] setAdminAuthorizedTabbarController];
 }
 
 #pragma mark -

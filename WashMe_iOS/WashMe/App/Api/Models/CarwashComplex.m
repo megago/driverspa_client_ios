@@ -1,5 +1,6 @@
-
-
+#import <TMCache/TMCache.h>
+#import "NSObject+Json.h"
+#import "User.h"
 #import "BoxSetting.h"
 #import "CarwashContact.h"
 #import "CarwashSchedule.h"
@@ -130,6 +131,53 @@
         }
     }
     return @"";
+}
+
+- (NSString *)boxNameById:(NSString *)uid {
+    for (BoxSetting *setting in self.boxSettings){
+        if ([setting.uid isEqual:uid]){
+            return setting.boxName;
+        }
+    }
+    return @"";
+}
+
+#pragma mark -
+#pragma mark User cache
+
++ (void)setAuthorizedCarwashData:(NSDictionary *)carwashData withMobile:(NSString *)_mobile
+{
+    [[TMCache sharedCache] setObject:[carwashData JSONRepresentation] forKey:[self carwashdataCacheKeyWithMobile:_mobile]];
+}
+
++ (NSDictionary *)authorizedCarwashDataWithMobile:(NSString *)_mobile {
+    id object = [[TMCache sharedCache] objectForKey:[self carwashdataCacheKeyWithMobile:_mobile]];
+    return object ? [object JSONValue] : nil;
+}
+
++ (void)clearAuthorizedCarwashDataWithMobile:(NSString *)_mobile {
+    [[TMCache sharedCache] removeObjectForKey:[self carwashdataCacheKeyWithMobile:_mobile]];
+}
+
+/**
+ * Update carwash object cached data's attribute with name
+ */
++ (void)updateUserDataAttribute:(id)obj forAttributeName:(NSString *)attrName {
+    if([User isAuthorized]) {
+        NSString *mobile = [[User currentUser] mobile];
+        NSDictionary *userData = [self authorizedCarwashDataWithMobile:mobile];
+        if(userData) {
+            NSMutableDictionary *mutableUserData = [userData mutableCopy];
+            mutableUserData[attrName] = obj;
+            
+            [self setAuthorizedCarwashData:mutableUserData withMobile:mobile];
+        }
+    }
+}
+
++ (NSString *)carwashdataCacheKeyWithMobile:(NSString *)_mobile {
+    _mobile = [_mobile stringByReplacingOccurrencesOfString:@"+" withString:@""];
+    return [NSString stringWithFormat:@"cachedCarwashObject_%@", _mobile];
 }
 
 @end

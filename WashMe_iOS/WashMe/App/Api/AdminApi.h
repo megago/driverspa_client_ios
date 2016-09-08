@@ -21,6 +21,7 @@
 + (void)updateCarwash:(NSString *)carwashId params:(NSDictionary *)params success:(success)success failure:(failure)failure;
 
 + (void)getCarwashDetails:(NSString *)carwashID success:(success)success failure:(failure)failure;
++ (void)getCarwashDetailsDictionary:(NSString *)carwashID success:(success)success failure:(failure)failure;
 
 // Bookings
 + (void)rejectBook:(NSString *)bookId success:(success)success failure:(failure)failure;

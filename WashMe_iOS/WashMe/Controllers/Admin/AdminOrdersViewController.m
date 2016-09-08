@@ -19,6 +19,9 @@
 #import <HTHorizontalSelectionList/HTHorizontalSelectionList.h>
 #import "UIFont+Custom.h"
 
+#import "CarwashComplex.h"
+#import "User.h"
+
 @interface AdminOrdersViewController () <HTHorizontalSelectionListDataSource, HTHorizontalSelectionListDelegate>
 @end
 
@@ -49,7 +52,11 @@
 {
     [super viewDidLoad];
     [self configUI];
-
+    
+    //Check autorized carwash
+    NSDictionary *d = [CarwashComplex authorizedCarwashDataWithMobile:[User currentUser].mobile];
+    CarwashComplex *complex = [CarwashComplex instanceFromDictionary:d];
+    
     [self loadBooks];
 }
 

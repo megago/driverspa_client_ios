@@ -14,6 +14,7 @@
 #import "City.h"
 #import "Cache.h"
 #import "CarwashRefs.h"
+#import "CarwashComplex.h"
 
 @implementation User
 
@@ -198,6 +199,7 @@ static User *_user = nil;
     _user = nil;
     [User setRegistrationProfileEntered:self.mobile status:NO];
     [User clearAuthorizedUserDataWithMobile:self.mobile];
+    [CarwashComplex clearAuthorizedCarwashDataWithMobile:self.mobile];
     [SSKeychain deletePasswordForService:kAuthorizationService account:self.mobile];
 }
 

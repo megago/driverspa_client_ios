@@ -18,12 +18,19 @@
 @property (nonatomic, copy) NSArray *services;
 @property (nonatomic, strong) NSDictionary *menu;
 
-+ (Carwash *)instanceFromDictionary:(NSDictionary *)aDictionary;
++ (CarwashComplex *)instanceFromDictionary:(NSDictionary *)aDictionary;
 - (void)setAttributesFromDictionary:(NSDictionary *)aDictionary;
 
--(NSString *)contactsMobilePhone;
+- (NSString *)contactsMobilePhone;
 - (NSString *)contactsWebsiteAlias;
 - (NSString *)contactsWebsite;
 - (NSString *)contactsEmail;
+
+- (NSString *)boxNameById:(NSString *)uid;
+
++ (void)setAuthorizedCarwashData:(NSDictionary *)carwashData withMobile:(NSString *)_mobile;
++ (void)clearAuthorizedCarwashDataWithMobile:(NSString *)_mobile;
++ (NSDictionary *)authorizedCarwashDataWithMobile:(NSString *)_mobile;
++ (void)updateUserDataAttribute:(id)obj forAttributeName:(NSString *)attrName;
 
 @end
