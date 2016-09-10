@@ -26,5 +26,24 @@
     self.small = [ObjectImage instanceFromDictionary:aDictionary[@"thumb2"]];
 }
 
+#pragma mark -
+#pragma mark NSCoding
+
+- (id)initWithCoder:(NSCoder *)decoder {
+    if (self = [super init]) {
+        self.imagesId = [decoder decodeObjectForKey:@"imagesId"];
+        self.original = [decoder decodeObjectForKey:@"original"];
+        self.medium = [decoder decodeObjectForKey:@"medium"];
+        self.small = [decoder decodeObjectForKey:@"small"];
+    }
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)encoder {
+    [encoder encodeObject:self.imagesId forKey:@"imagesId"];
+    [encoder encodeObject:self.original forKey:@"original"];
+    [encoder encodeObject:self.medium forKey:@"medium"];
+    [encoder encodeObject:self.small forKey:@"small"];
+}
 
 @end

@@ -40,5 +40,24 @@
     return [self.type isEqual:@"phone"];
 }
 
+#pragma mark -
+#pragma mark NSCoding
+
+- (id)initWithCoder:(NSCoder *)decoder {
+    if (self = [super init]) {
+        self.alias = [decoder decodeObjectForKey:@"alias"];
+        self.comment = [decoder decodeObjectForKey:@"comment"];
+        self.type = [decoder decodeObjectForKey:@"type"];
+        self.value = [decoder decodeObjectForKey:@"value"];
+    }
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)encoder {
+    [encoder encodeObject:self.alias forKey:@"alias"];
+    [encoder encodeObject:self.comment forKey:@"comment"];
+    [encoder encodeObject:self.type forKey:@"type"];
+    [encoder encodeObject:self.value forKey:@"value"];
+}
 
 @end

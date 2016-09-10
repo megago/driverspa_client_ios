@@ -29,5 +29,26 @@
     objectData = nil;
 }
 
+#pragma mark -
+#pragma mark NSCoding
+
+- (id)initWithCoder:(NSCoder *)decoder {
+    if (self = [super init]) {
+        self.carwash = [decoder decodeObjectForKey:@"carwash"];
+        self.mark = [decoder decodeObjectForKey:@"mark"];
+        self.text = [decoder decodeObjectForKey:@"text"];
+        self.author = [decoder decodeObjectForKey:@"author"];
+        self.authorId = [decoder decodeObjectForKey:@"authorId"];
+    }
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)encoder {
+    [encoder encodeObject:self.carwash forKey:@"carwash"];
+    [encoder encodeObject:self.mark forKey:@"mark"];
+    [encoder encodeObject:self.text forKey:@"text"];
+    [encoder encodeObject:self.author forKey:@"author"];
+    [encoder encodeObject:self.authorId forKey:@"authorId"];
+}
 
 @end

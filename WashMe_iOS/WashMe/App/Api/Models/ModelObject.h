@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface ModelObject : NSObject {
+@interface ModelObject : NSObject <NSCoding> {
     NSDictionary *objectData;
 }
 

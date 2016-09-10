@@ -143,6 +143,39 @@
 }
 
 #pragma mark -
+#pragma mark NSCoding
+
+- (id)initWithCoder:(NSCoder *)decoder {
+    if (self = [super init]) {
+        self.additionalInfos = [decoder decodeObjectForKey:@"additionalInfos"];
+        self.boxSettings = [decoder decodeObjectForKey:@"boxSettings"];
+        self.cartypes = [decoder decodeObjectForKey:@"cartypes"];
+        self.contacts = [decoder decodeObjectForKey:@"contacts"];
+        self.carwashId = [decoder decodeObjectForKey:@"carwashId"];
+        self.payoptions = [decoder decodeObjectForKey:@"payoptions"];
+        self.reviews = [decoder decodeObjectForKey:@"reviews"];
+        self.schedule = [decoder decodeObjectForKey:@"schedule"];
+        self.services = [decoder decodeObjectForKey:@"services"];
+        self.menu = [decoder decodeObjectForKey:@"menu"];
+
+    }
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)encoder {
+    [encoder encodeObject:self.additionalInfos forKey:@"additionalInfos"];
+    [encoder encodeObject:self.boxSettings forKey:@"boxSettings"];
+    [encoder encodeObject:self.cartypes forKey:@"cartypes"];
+    [encoder encodeObject:self.contacts forKey:@"contacts"];
+    [encoder encodeObject:self.carwashId forKey:@"carwashId"];
+    [encoder encodeObject:self.payoptions forKey:@"payoptions"];
+    [encoder encodeObject:self.reviews forKey:@"reviews"];
+    [encoder encodeObject:self.schedule forKey:@"schedule"];
+    [encoder encodeObject:self.services forKey:@"services"];
+    [encoder encodeObject:self.menu forKey:@"menu"];
+}
+
+#pragma mark -
 #pragma mark User cache
 
 + (void)setAuthorizedCarwashData:(CarwashComplex *)carwashData withMobile:(NSString *)_mobile

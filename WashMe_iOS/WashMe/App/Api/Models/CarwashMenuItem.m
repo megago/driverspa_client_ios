@@ -42,5 +42,22 @@
     return @{@"type":self.type, @"price":self.price, @"time":self.time};
 }
 
+#pragma mark -
+#pragma mark NSCoding
+
+- (id)initWithCoder:(NSCoder *)decoder {
+    if (self = [super init]) {
+        self.price = [decoder decodeObjectForKey:@"price"];
+        self.time = [decoder decodeObjectForKey:@"time"];
+        self.type = [decoder decodeObjectForKey:@"type"];
+    }
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)encoder {
+    [encoder encodeObject:self.price forKey:@"price"];
+    [encoder encodeObject:self.time forKey:@"time"];
+    [encoder encodeObject:self.type forKey:@"type"];
+}
 
 @end

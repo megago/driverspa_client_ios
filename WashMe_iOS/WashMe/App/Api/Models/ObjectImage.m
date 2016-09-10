@@ -43,5 +43,23 @@
     return [NSURL URLWithString:[self webUrl]];
 }
 
+#pragma mark -
+#pragma mark NSCoding
+
+- (id)initWithCoder:(NSCoder *)decoder {
+    if (self = [super init]) {
+        self.relativeUrl = [decoder decodeObjectForKey:@"relativeUrl"];
+        self.imageWidth = [decoder decodeFloatForKey:@"imageWidth"];
+        self.imageHeight = [decoder decodeFloatForKey:@"imageHeight"];
+    }
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)encoder {
+    [encoder encodeObject:self.relativeUrl forKey:@"relativeUrl"];
+    [encoder encodeFloat:self.imageWidth forKey:@"imageWidth"];
+    [encoder encodeFloat:self.imageHeight forKey:@"imageHeight"];
+    
+}
 
 @end

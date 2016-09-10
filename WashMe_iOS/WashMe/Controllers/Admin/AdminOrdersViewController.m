@@ -54,7 +54,7 @@
     [self configUI];
     
     //Check autorized carwash
-    //CarwashComplex *complex = [CarwashComplex authorizedCarwashDataWithMobile:[User currentUser].mobile];
+    CarwashComplex *complex = [CarwashComplex authorizedCarwashDataWithMobile:[User currentUser].mobile];
     
     [self loadBooks];
 }

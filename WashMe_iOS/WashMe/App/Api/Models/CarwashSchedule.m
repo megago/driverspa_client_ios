@@ -54,6 +54,34 @@
 }
 
 #pragma mark -
+#pragma mark NSCoding
+
+- (id)initWithCoder:(NSCoder *)decoder {
+    if (self = [super init]) {
+        self.comment = [decoder decodeObjectForKey:@"comment"];
+        self.fri = [decoder decodeObjectForKey:@"fri"];
+        self.mon = [decoder decodeObjectForKey:@"mon"];
+        self.sat = [decoder decodeObjectForKey:@"sat"];
+        self.sun = [decoder decodeObjectForKey:@"sun"];
+        self.thu = [decoder decodeObjectForKey:@"thu"];
+        self.tue = [decoder decodeObjectForKey:@"tue"];
+        self.wed = [decoder decodeObjectForKey:@"wed"];
+    }
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)encoder {
+    [encoder encodeObject:self.comment forKey:@"comment"];
+    [encoder encodeObject:self.fri forKey:@"fri"];
+    [encoder encodeObject:self.mon forKey:@"mon"];
+    [encoder encodeObject:self.sat forKey:@"sat"];
+    [encoder encodeObject:self.sun forKey:@"sun"];
+    [encoder encodeObject:self.thu forKey:@"thu"];
+    [encoder encodeObject:self.tue forKey:@"tue"];
+    [encoder encodeObject:self.wed forKey:@"wed"];
+}
+
+#pragma mark -
 #pragma mark Helper
 
 -(NSArray *)weekDayScheduleToArray:(NSArray *)received {
@@ -63,6 +91,5 @@
     }
     return array;
 }
-
 
 @end

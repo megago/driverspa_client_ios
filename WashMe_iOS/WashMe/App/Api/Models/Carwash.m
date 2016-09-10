@@ -57,6 +57,49 @@
 }
 
 #pragma mark -
+#pragma mark NSCoding
+
+- (id)initWithCoder:(NSCoder *)decoder {
+    if (self = [super init]) {
+        self.public = [decoder decodeBoolForKey:@"public"];
+        self.address = [decoder decodeObjectForKey:@"address"];
+        self.city = [decoder decodeObjectForKey:@"city"];
+        self.carwashId = [decoder decodeObjectForKey:@"carwashId"];
+        self.isWorking = [decoder decodeBoolForKey:@"isWorking"];
+        self.isBookable = [decoder decodeBoolForKey:@"isBookable"];
+        self.name = [decoder decodeObjectForKey:@"name"];
+        //self.payoptions = [decoder decodeObjectForKey:@"payoptions"];
+        self.rating = [decoder decodeObjectForKey:@"rating"];
+        self.resourceUri = [decoder decodeObjectForKey:@"resourceUri"];
+        self.lat = [decoder decodeFloatForKey:@"lat"];
+        self.lon = [decoder decodeFloatForKey:@"lon"];
+        self.carwashImages = [decoder decodeObjectForKey:@"carwashImages"];
+        self.price = [decoder decodeObjectForKey:@"price"];
+        self.status = [decoder decodeObjectForKey:@"status"];
+    }
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)encoder {
+    
+    [encoder encodeBool:self.public forKey:@"public"];
+    [encoder encodeObject:self.address forKey:@"address"];
+    [encoder encodeObject:self.city forKey:@"city"];
+    [encoder encodeObject:self.carwashId forKey:@"carwashId"];
+    [encoder encodeBool:self.isWorking forKey:@"isWorking"];
+    [encoder encodeBool:self.isBookable forKey:@"isBookable"];
+    [encoder encodeObject:self.name forKey:@"name"];
+    //[encoder encodeObject:self.payoptions forKey:@"payoptions"];
+    [encoder encodeObject:self.rating forKey:@"rating"];
+    [encoder encodeObject:self.resourceUri forKey:@"resourceUri"];
+    [encoder encodeFloat:self.lat forKey:@"lat"];
+    [encoder encodeFloat:self.lon forKey:@"lon"];
+    [encoder encodeObject:self.carwashImages forKey:@"carwashImages"];
+    [encoder encodeObject:self.price forKey:@"price"];
+    [encoder encodeObject:self.status forKey:@"status"]; 
+}
+
+#pragma mark -
 #pragma mark Distance
 
 - (long)distanceInMeters {

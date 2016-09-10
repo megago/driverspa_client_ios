@@ -2,7 +2,7 @@
 
 @implementation BoxSetting
 
-@synthesize bookingType, uid;
+@synthesize bookingType, uid, boxName;
 
 + (BoxSetting *)instanceFromDictionary:(NSDictionary *)aDictionary {
 
@@ -24,5 +24,22 @@
 
 }
 
+#pragma mark -
+#pragma mark NSCoding
+
+- (id)initWithCoder:(NSCoder *)decoder {
+    if (self = [super init]) {
+        self.bookingType = [decoder decodeObjectForKey:@"bookingType"];
+        self.uid = [decoder decodeObjectForKey:@"uid"];
+        self.boxName = [decoder decodeObjectForKey:@"boxName"];
+    }
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)encoder {
+    [encoder encodeObject:self.bookingType forKey:@"bookingType"];
+    [encoder encodeObject:self.uid forKey:@"uid"];
+    [encoder encodeObject:self.boxName forKey:@"boxName"];
+}
 
 @end

@@ -11,7 +11,7 @@
 }
 
 @property (nonatomic, copy) NSString *alias;
-@property (nonatomic, strong) id comment;
+@property (nonatomic, strong) NSString *comment;
 @property (nonatomic, copy) NSString *type;
 @property (nonatomic, copy) NSString *value;
 

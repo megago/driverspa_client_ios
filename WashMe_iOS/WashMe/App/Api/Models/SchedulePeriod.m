@@ -46,5 +46,20 @@
     return [NSString stringWithFormat:@"%@:%@ - %@:%@", fromHourStr, fromMinutesStr, toHourStr, toMinutesStr];
 }
 
+#pragma mark -
+#pragma mark NSCoding
+
+- (id)initWithCoder:(NSCoder *)decoder {
+    if (self = [super init]) {
+        self.from = [decoder decodeObjectForKey:@"from"];
+        self.to = [decoder decodeObjectForKey:@"to"];
+    }
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)encoder {
+    [encoder encodeObject:self.from forKey:@"from"];
+    [encoder encodeObject:self.to forKey:@"to"];
+}
 
 @end
