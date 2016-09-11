@@ -108,9 +108,9 @@
     BoxSetting *boxSetting = boxSettings[indexPath.row];
 
     AdminCarwashBoxScheduleViewController *v = [[AdminCarwashBoxScheduleViewController alloc] init];
-    v.boxIndex = indexPath.row + 1;
-    v.boxSetting = boxSetting;
-    v.carwashId = carwashId;
+    //v.boxIndex = indexPath.row + 1;
+    //v.boxSetting = boxSetting;
+    //v.carwashId = carwashId;
     [self.navigationController pushViewController:v animated:YES];
 
 }

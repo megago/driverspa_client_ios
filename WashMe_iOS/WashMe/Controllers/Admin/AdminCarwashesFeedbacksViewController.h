@@ -10,6 +10,6 @@
 
 #import "ScrollViewControllerOld.h"
 
-@interface AdminCarwashesFeedbacksViewController : ScrollViewControllerOld
+@interface AdminCarwashesFeedbacksViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>//ScrollViewControllerOld
 
 @end

@@ -8,12 +8,15 @@
 
 #import "AdminCarwashBoxScheduleViewController.h"
 #import "UIViewController+Ext.h"
+#import "UIViewController+NavigationBar.h"
 #import "CarwashApi.h"
 #import "AAButton+Styles.h"
 #import "BoxTimeTable.h"
 #import "BoxSetting.h"
 #import "HMSegmentedControl.h"
 #import "ASize.h"
+#import "CarwashComplex.h"
+#import "User.h"
 
 @interface AdminCarwashBoxScheduleViewController ()
 @end
@@ -24,21 +27,31 @@
     AAButton *tomorrowButton;
     HMSegmentedControl *segmentedControl;
     CarwashBoxesTimeDay currentTableDay;
+    
+    NSArray *boxes;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self configUI];
-
     currentTableDay = CarwashBoxesTimeDayToday;
+    self.currentCarwash = [CarwashComplex authorizedCarwashDataWithMobile:[User currentUser].mobile];
+    self.currentCarwash.boxSettings > 0 ? self.currentBox = self.currentCarwash.boxSettings.firstObject : nil;
+    
+    NSMutableArray *titles = [NSMutableArray new];
+    for (BoxSetting *box in self.currentCarwash.boxSettings) {
+        [titles addObject:box.boxName];
+    }
+    boxes = [NSArray arrayWithArray:titles];
+    
+    [self configUI];
     [self loadCarwashTimetable];
 }
 
 - (void)loadCarwashTimetable
 {
     [Toast showHudWithTitle:@"Загрузка таблицы"];
-    [CarwashApi timeTableWithCarwashId:self.carwashId day:currentTableDay success:^(id response) {
+    [CarwashApi timeTableWithCarwashId:self.currentCarwash.carwashId day:currentTableDay success:^(id response) {
         [self onTimeTableLoaded:response];
     } failure:^(NSInteger code, NSString *message) {
 
@@ -58,7 +71,7 @@
         for(BoxTimeTable *boxTimeTable in responseArray)
         {
             // If it is the selected box
-            if([boxTimeTable.uid isEqual:self.boxSetting.uid])
+            if([boxTimeTable.uid isEqual:self.currentBox.uid])
             {
                 NSMutableArray *timeStatuses = [[NSMutableArray alloc] init];
 
@@ -90,7 +103,7 @@
     boxesGridView = [[BoxesGridView alloc] initWithTimeStatuses:timeStatuses day:currentTableDay];
     boxesGridView.delegate = self;
     boxesGridView.userInteractionEnabled = NO;
-    boxesGridView.y = todayButton.bottom + 15;
+    boxesGridView.y = segmentedControl.bottom + 15;
     boxesGridView.centerX = self.view.middleX;
     [sv addSubview:boxesGridView];
 
@@ -140,22 +153,10 @@
 {
     [super configUI];
     [self setBlueBackground];
-    [self setNavigationTitle:[NSString stringWithFormat:@"Бокс #%li", (long)self.boxIndex]];
-    [self setBackButtonInNavigation];
-    
-    segmentedControl = [[HMSegmentedControl alloc] initWithFrame:CGRectMake(0, 5, [ASize screenWidth], 30)];
-    segmentedControl.sectionTitles = @[@"Бокс 1", @"Бокс 2", @"Бокс 3"];
-    segmentedControl.selectedSegmentIndex = 0;
-    segmentedControl.backgroundColor = [UIColor colorWithWhite:0.f alpha:0.25];
-    segmentedControl.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor colorWithWhite:1.f alpha:0.25f], NSFontAttributeName: [UIFont robotoBold:14.f]};
-    segmentedControl.selectedTitleTextAttributes = @{NSForegroundColorAttributeName : [UIColor whiteColor]};
-    segmentedControl.selectionIndicatorColor = [UIColor whiteColor];
-    segmentedControl.selectionStyle = HMSegmentedControlSelectionStyleTextWidthStripe;
-    segmentedControl.selectionIndicatorLocation = HMSegmentedControlSelectionIndicatorLocationDown;
-    segmentedControl.selectionIndicatorHeight = 2.f;
-    segmentedControl.segmentEdgeInset = UIEdgeInsetsMake(0, 20, 0, 20);
-    [segmentedControl addTarget:self action:@selector(segmentedControlChangedValue:) forControlEvents:UIControlEventValueChanged];
-    [sv addSubview:segmentedControl];
+    [self setNavigationTitle:@"Таблица броней"];
+    [self showMenuButton];
+    [self setNavigationBarTransparent];
+    [sv setFrame:CGRectMake(0, 64, [ASize screenWidth], [ASize screenHeightWithoutStatusBarAndNavigationBarAndTabBar])];
     
     CGFloat buttonWidth = (CGFloat) ([ASize screenWidth] * 0.5);
     __weak AdminCarwashBoxScheduleViewController * weakSelf = self;
@@ -168,7 +169,7 @@
     [todayButton noBorderStyleButtonWithTitle:@"Сегодня"];
     [todayButton setTitleFont:font];
     [todayButton.button setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
-    todayButton.y = segmentedControl.bottom + 5.f;
+    todayButton.y = 5.f;
     [sv addSubview:todayButton];
 
     tomorrowButton = [[AAButton alloc] initWithWidth:buttonWidth onTap:^(UIView *_self) {
@@ -182,6 +183,20 @@
     tomorrowButton.y = todayButton.y;
     tomorrowButton.alpha = 0.5;
     [sv addSubview:tomorrowButton];
+    
+    segmentedControl = [[HMSegmentedControl alloc] initWithFrame:CGRectMake(0, todayButton.bottom, [ASize screenWidth], 30)];
+    segmentedControl.sectionTitles = boxes;
+    segmentedControl.selectedSegmentIndex = 0;
+    segmentedControl.backgroundColor = [UIColor colorWithWhite:0.f alpha:0.25];
+    segmentedControl.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor colorWithWhite:1.f alpha:0.25f], NSFontAttributeName: [UIFont robotoBold:14.f]};
+    segmentedControl.selectedTitleTextAttributes = @{NSForegroundColorAttributeName : [UIColor whiteColor]};
+    segmentedControl.selectionIndicatorColor = [UIColor whiteColor];
+    segmentedControl.selectionStyle = HMSegmentedControlSelectionStyleTextWidthStripe;
+    segmentedControl.selectionIndicatorLocation = HMSegmentedControlSelectionIndicatorLocationDown;
+    segmentedControl.selectionIndicatorHeight = 2.f;
+    segmentedControl.segmentEdgeInset = UIEdgeInsetsMake(0, 20, 0, 20);
+    [segmentedControl addTarget:self action:@selector(segmentedControlChangedValue:) forControlEvents:UIControlEventValueChanged];
+    [sv addSubview:segmentedControl];
 }
 
 - (void)segmentedControlChangedValue:(HMSegmentedControl *)segmentedControl {

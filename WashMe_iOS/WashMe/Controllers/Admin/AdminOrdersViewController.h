@@ -8,9 +8,10 @@
 
 #import "AdminBookViewController.h"
 
-typedef NS_ENUM(NSUInteger, AdminOrdersTimeDay) {
+typedef NS_ENUM(NSUInteger, AdminOrdersFilter) {
+    AdminOrdersInProcessing,
     AdminOrdersTimeDayToday,
-    AdminOrdersTimeDayTomorrow
+    AdminOrdersAll,
 };
 
 @interface AdminOrdersViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, AdminBookViewControllerDelegate>

@@ -23,6 +23,12 @@
     } failure:failure];
 }
 
++ (void)ordersAll:(success)success failure:(failure)failure {
+    [self GET:@"company_booking" success:^(id response) {
+        success([self responseToCompanyBooks:response[@"objects"]]);
+    } failure:failure];
+}
+
 + (void)ordersToday:(success)success failure:(failure)failure {
     [self GET:@"company_booking?day=today" success:^(id response) {
         success([self responseToCompanyBooks:response[@"objects"]]);
@@ -95,6 +101,16 @@
 {
     [self POST:@"company_booking/nocome" body:[@{@"id":bookId} JSONRepresentation] success:^(id response) {
         success(response);
+    } failure:failure];
+}
+
+#pragma mark - 
+#pragma mark Reviews
+
++ (void)myReviews:(success)success failure:(failure)failure {
+    [self GET:@"company_reviews" success:^(id response) {
+        NSArray *objects = [response objectForKey:@"objects"];
+        success([ApiUtils responseToCarwashReviews:objects]);
     } failure:failure];
 }
 

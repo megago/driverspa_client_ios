@@ -97,9 +97,7 @@
             
             // Set that user entered profile in registration.
             [User setRegistrationProfileEntered:[User currentUser].mobile];
-            [self loadCarwashes];
-            
-            //[[UIHelper appDelegate] setAdminAuthorizedTabbarController];
+            [self chechCarwashes];
         } else {
             if (user.cars.count > 0 && user.fio.length > 0 && user.cityCode.length > 0){
                 // Set that user entered profile in registration.
@@ -119,7 +117,7 @@
 
 #pragma mark - Check carwash
 
-- (void)loadCarwashes
+- (void)chechCarwashes
 {
     [Toast showHudLoading];
     [AdminApi myCarwashes:^(id response) {
@@ -150,7 +148,6 @@
             
         }];
     } else {
-        //load detail carwash
         CarwashComplex *carwash = arr.firstObject;
         [self loadCarwashDetail:carwash];
     }
@@ -159,15 +156,11 @@
 - (void)loadCarwashDetail:(CarwashComplex *)carwash {
     [Toast showHudLoading];
     [AdminApi getCarwashDetails:carwash.carwashId success:^(id response) {
-        [self onCarwashComplex: response];
+        [CarwashComplex setAuthorizedCarwashData:response withMobile:[User currentUser].mobile];
+        [[UIHelper appDelegate] setAdminAuthorizedTabbarController];
     } failure:^(NSInteger code, NSString *message) {
         
     }];
-}
-
-- (void)onCarwashComplex:(id)response {
-    [CarwashComplex setAuthorizedCarwashData:response withMobile:[User currentUser].mobile];
-    [[UIHelper appDelegate] setAdminAuthorizedTabbarController];
 }
 
 #pragma mark -

@@ -10,11 +10,14 @@
 #import "BoxesGridView.h"
 
 @class BoxSetting;
+@class CarwashComplex;
 
 @interface AdminCarwashBoxScheduleViewController : ScrollViewControllerOld <BoxesGridViewDelegate>
 
-@property(nonatomic, assign) NSInteger boxIndex;
-@property(nonatomic, strong) BoxSetting *boxSetting;
-@property(nonatomic, copy) NSString *carwashId;
+//@property(nonatomic, assign) NSInteger boxIndex;
+//@property(nonatomic, copy) NSString *carwashId;
+
+@property(nonatomic, strong) BoxSetting *currentBox;
+@property(nonatomic, strong) CarwashComplex *currentCarwash;
 
 @end

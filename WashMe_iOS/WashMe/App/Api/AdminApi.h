@@ -13,6 +13,7 @@
 @interface AdminApi : APIClient
 
 + (void)myCarwashes:(success)success failure:(failure)failure;
++ (void)ordersAll:(success)success failure:(failure)failure;
 + (void)ordersToday:(success)success failure:(failure)failure;
 + (void)ordersTomorrow:(success)success failure:(failure)failure;
 + (void)orderBook:(NSString *)bookId success:(success)success failure:(failure)failure;
@@ -28,5 +29,8 @@
 + (void)startBook:(NSString *)bookId success:(success)success failure:(failure)failure;
 + (void)finishBook:(NSString *)bookId success:(success)success failure:(failure)failure;
 + (void)clientDidNotCome:(NSString *)bookId success:(success)success failure:(failure)failure;
+
+// Reviews
++ (void)myReviews:(success)success failure:(failure)failure;
 
 @end

@@ -10,6 +10,7 @@
 #import "IdTitleObject.h"
 #import "Carwash.h"
 #import "CarwashBook.h"
+#import "CarwashReview.h"
 #import "ImageBundle.h"
 
 @implementation ApiUtils
@@ -32,6 +33,14 @@
     return array;
 }
 
++ (NSArray *)responseToCarwashReviews:(id)responseArray
+{
+    NSMutableArray * array = [NSMutableArray array];
+    for(NSDictionary *o in responseArray) {
+        [array addObject:[CarwashReview instanceFromDictionary:o]];
+    }
+    return array;
+}
 
 + (NSArray *)responseArrayToIdTitleObjectsArray:(id)responseArray
 {

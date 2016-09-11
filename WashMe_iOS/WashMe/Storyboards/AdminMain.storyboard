@@ -5,10 +5,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
-        <!--Admin Carwash Boxes Schedules View Controller-->
+        <!--Admin Carwash Box Schedule View Controller-->
         <scene sceneID="jCV-hL-Fwh">
             <objects>
-                <viewController storyboardIdentifier="AdminCarwashBoxesSchedulesViewController" id="mCf-GR-9P3" customClass="AdminCarwashBoxesSchedulesViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AdminCarwashBoxScheduleViewController" id="mCf-GR-9P3" customClass="AdminCarwashBoxScheduleViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7FP-bP-Z9J"/>
                         <viewControllerLayoutGuide type="bottom" id="WpT-wj-ja7"/>

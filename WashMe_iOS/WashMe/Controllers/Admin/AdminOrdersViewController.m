@@ -31,7 +31,7 @@
 
     AAButton *todayButton;
     AAButton *tomorrowButton;
-    enum AdminOrdersTimeDay currentTableDay;
+    enum AdminOrdersFilter currentTableFilter;
     UITableView *list;
     NSMutableArray *books;
 }
@@ -45,17 +45,13 @@
 }
 
 -(void)initVars {
-    currentTableDay = AdminOrdersTimeDayToday;
+    currentTableFilter = AdminOrdersInProcessing;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     [self configUI];
-    
-    //Check autorized carwash
-    CarwashComplex *complex = [CarwashComplex authorizedCarwashDataWithMobile:[User currentUser].mobile];
-    
     [self loadBooks];
 }
 
@@ -63,17 +59,23 @@
 {
     [Toast showHudLoading];
 
-    if(currentTableDay == AdminOrdersTimeDayToday) {
-        [AdminApi ordersToday:^(id response) {
+    if(currentTableFilter == AdminOrdersTimeDayToday) {
+        [AdminApi ordersAll:^(id response) {
             [self onBooksResponse:response];
         } failure:^(NSInteger code, NSString *message) {
 
         }];
-    } else {
-        [AdminApi ordersTomorrow:^(id response) {
+    } else  if (currentTableFilter == AdminOrdersInProcessing){
+        [AdminApi ordersAll:^(id response) {
             [self onBooksResponse:response];
         } failure:^(NSInteger code, NSString *message) {
 
+        }];
+    } else if (currentTableFilter == AdminOrdersAll) {
+        [AdminApi ordersAll:^(id response) {
+            [self onBooksResponse:response];
+        } failure:^(NSInteger code, NSString *message) {
+            
         }];
     }
 }
@@ -89,29 +91,6 @@
     } else {
         list.hidden = YES;
         [self showNoContentMessage:@"Нет заказов" withButton:@"Обновить" selector:@selector(loadBooks)];
-    }
-}
-
-#pragma mark -
-#pragma mark Actions
-
-- (void)todayTapped {
-    if(currentTableDay != AdminOrdersTimeDayToday) {
-        currentTableDay = AdminOrdersTimeDayToday;
-        todayButton.alpha = 1;
-        tomorrowButton.alpha = 0.5;
-
-        [self loadBooks];
-    }
-}
-
-- (void)tomorrowTapped {
-    if(currentTableDay != AdminOrdersTimeDayTomorrow) {
-        currentTableDay = AdminOrdersTimeDayTomorrow;
-        tomorrowButton.alpha = 1;
-        todayButton.alpha = 0.5;
-
-        [self loadBooks];
     }
 }
 
@@ -151,12 +130,6 @@
 
     CarwashBook *book = books[indexPath.row];
     [cell setCarwashBook:book];
-//    if(currentTableDay == AdminOrdersTimeDayToday) {
-//        [cell setTitle:[NSString stringWithFormat:@"В %@", [book localBookTime]]];
-//    } else {
-//        [cell setTitle:[NSString stringWithFormat:@"Завтра в %@", [book localBookTime]]];
-//    }
-
     return cell;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -178,33 +151,6 @@
     [self setNavigationTitle:@"Заказы"];
     [self showMenuButton];
     [self setNavigationBarTransparent];
-
-//    // Tabs
-//    CGFloat buttonWidth = (CGFloat) ([ASize screenWidth] * 0.5);
-//    __weak AdminOrdersViewController *wSelf = self;
-//    UIFont *font = [UIFont robotoCondensedLight:16];
-//
-//    todayButton = [[AAButton alloc] initWithWidth:buttonWidth onTap:^(UIView *_self) {
-//        [wSelf todayTapped];
-//    }];
-//    todayButton.height = 30;
-//    [todayButton noBorderStyleButtonWithTitle:@"Сегодня"];
-//    [todayButton setTitleFont:font];
-//    [todayButton.button setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
-//    todayButton.y = 70;
-//    [self.view addSubview:todayButton];
-//
-//    tomorrowButton = [[AAButton alloc] initWithWidth:buttonWidth onTap:^(UIView *_self) {
-//        [wSelf tomorrowTapped];
-//    }];
-//    tomorrowButton.height = todayButton.height;
-//    [tomorrowButton noBorderStyleButtonWithTitle:@"Завтра"];
-//    [tomorrowButton setTitleFont:font];
-//    [tomorrowButton.button setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
-//    tomorrowButton.x = todayButton.right;
-//    tomorrowButton.y = todayButton.y;
-//    tomorrowButton.alpha = 0.5;
-//    [self.view addSubview:tomorrowButton];
     
     selectionList = [[HTHorizontalSelectionList alloc] initWithFrame:CGRectMake(0, 64, self.view.frame.size.width, 30)];
     selectionList.delegate = self;
@@ -224,7 +170,7 @@
                       ];
     
     // List
-    CGFloat listY = selectionList.bottom;//tomorrowButton.bottom + 5;
+    CGFloat listY = selectionList.bottom;
     list = [[UITableView alloc] initWithFrame:CGRectMake(0, listY, [ASize screenWidth], [ASize screenHeight]-44 - listY) style:UITableViewStylePlain];
     list.delegate = self;
     list.dataSource = self;
@@ -256,7 +202,14 @@
 #pragma mark - HTHorizontalSelectionListDelegate Protocol Methods
 
 - (void)selectionList:(HTHorizontalSelectionList *)selectionList didSelectButtonWithIndex:(NSInteger)index {
-    // update the view for the corresponding index
+    if (index == AdminOrdersInProcessing){
+        currentTableFilter = AdminOrdersInProcessing;
+    } else if (index == AdminOrdersTimeDayToday){
+        currentTableFilter = AdminOrdersTimeDayToday;
+    } else if (index == AdminOrdersAll){
+        currentTableFilter = AdminOrdersAll;
+    }
+    [self loadBooks];
 }
 
 @end

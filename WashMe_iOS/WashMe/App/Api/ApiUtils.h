@@ -12,7 +12,10 @@
 
 + (NSArray *)responseToCarwashes:(id)response;
 + (NSArray *)responseToCarwashBooks:(id)response;
++ (NSArray *)responseToCarwashReviews:(id)response;
 + (NSArray *)responseArrayToIdTitleObjectsArray:(id)responseArray;
 + (NSArray *)responseImagesToImageBundles:(NSArray *)images;
+
+
 
 @end
