@@ -51,6 +51,32 @@
     return self;
 }
 
+- (id)initWithFrame:(CGRect)frame {
+    self = [super initWithFrame:frame];
+    if(self) {
+
+        self.items = [[NSMutableArray alloc] init];
+        
+        UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
+        layout.sectionInset = UIEdgeInsetsMake(0, kViewControllerPadding, 0, kViewControllerPadding);
+        layout.minimumInteritemSpacing = 5;
+        layout.scrollDirection = UICollectionViewScrollDirectionVertical;
+        
+        self.collectionView = [[UICollectionView alloc] initWithFrame:self.bounds collectionViewLayout:layout];
+        _collectionView.delegate = self;
+        _collectionView.dataSource = self;
+        _collectionView.backgroundColor = [UIColor clearColor];
+        _collectionView.alwaysBounceHorizontal = NO;
+        _collectionView.alwaysBounceVertical = NO;
+        _collectionView.pagingEnabled = NO;
+        _collectionView.showsHorizontalScrollIndicator = NO;
+        _collectionView.allowsMultipleSelection = YES;
+        [_collectionView registerClass:[ServiceCollectionCell class] forCellWithReuseIdentifier:@"ServiceCollectionCell"];
+        [self addSubview:_collectionView];
+    }
+    return self;
+}
+
 #pragma mark -
 #pragma mark UICollectionView
 
@@ -102,8 +128,22 @@
     [self.collectionView reloadData];
 }
 
-- (void)refreshServices:(NSArray *)services {
+- (void)adminRefreshServices:(NSArray *)services {
+    int section = (int) services.count / 3;
+    if (section == 0) {
+        self.height = kHeight;
+    } else {
+        CGFloat height = services.count % 3 > 0 ? kHeight * (section + 1) + 15*section : kHeight * section;
+        self.height = height;
+    }
+    self.collectionView.frame = self.bounds;
     
+    [self.items removeAllObjects];
+    [self.items addObjectsFromArray:services];
+    [self.collectionView reloadData];
+}
+
+- (void)refreshServices:(NSArray *)services {
     int section = (int) services.count / 3;
     if (section == 0) {
         [self aa_setHeight:kHeight];
@@ -111,9 +151,6 @@
         CGFloat height = services.count % 3 > 0 ? kHeight * (section + 1) + 15*section : kHeight * section;
         [self aa_setHeight:height];
     }
-    //            [self setNeedsUpdateConstraints];
-    //            [self setNeedsLayout];
-    //            [self layoutIfNeeded];
     
     [self.items removeAllObjects];
     [self.items addObjectsFromArray:services];

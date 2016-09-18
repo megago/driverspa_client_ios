@@ -13,16 +13,18 @@
 #import "AAButton+Styles.h"
 #import "BoxTimeTable.h"
 #import "BoxSetting.h"
+#import "BookObject.h"
 #import "HMSegmentedControl.h"
 #import "ASize.h"
 #import "CarwashComplex.h"
-#import "User.h"
+#import "AdminBookSetCarViewController.h"
 
 @interface AdminCarwashBoxScheduleViewController ()
 @end
 
 @implementation AdminCarwashBoxScheduleViewController {
     BoxesGridView *boxesGridView;
+    AAButton *bookButton;
     AAButton *todayButton;
     AAButton *tomorrowButton;
     HMSegmentedControl *segmentedControl;
@@ -31,11 +33,23 @@
     NSArray *boxes;
 }
 
+-(id)init {
+    self = [super init];
+    if(self) {
+        [self initVars];
+    }
+    return self;
+}
+
+-(void)initVars {
+    self.bookObject = [[BookObject alloc] init];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     currentTableDay = CarwashBoxesTimeDayToday;
-    self.currentCarwash = [CarwashComplex authorizedCarwashDataWithMobile:[User currentUser].mobile];
+    self.currentCarwash = [CarwashComplex cashedCarwash];
     self.currentCarwash.boxSettings > 0 ? self.currentBox = self.currentCarwash.boxSettings.firstObject : nil;
     
     NSMutableArray *titles = [NSMutableArray new];
@@ -62,6 +76,10 @@
 {
     if(boxesGridView) {
         [boxesGridView removeFromSuperview];
+    }
+    
+    if (bookButton) {
+        [bookButton removeFromSuperview];
     }
 
     NSArray *responseArray = (NSArray *)response;
@@ -102,12 +120,24 @@
 {
     boxesGridView = [[BoxesGridView alloc] initWithTimeStatuses:timeStatuses day:currentTableDay];
     boxesGridView.delegate = self;
-    boxesGridView.userInteractionEnabled = NO;
+    boxesGridView.userInteractionEnabled = YES;
     boxesGridView.y = segmentedControl.bottom + 15;
     boxesGridView.centerX = self.view.middleX;
     [sv addSubview:boxesGridView];
+    
+    __weak AdminCarwashBoxScheduleViewController *wSelf = self;
+    bookButton = [[AAButton alloc] initWithWidth:200 onTap:^(UIView *_self) {
+        [wSelf bookButtonTapped];
+    }];
+    [bookButton commonStyleButtonWithTitle:@"БРОНИРОВАТЬ"];
+    
+    [bookButton setTitleFont:[UIFont robotoRegular:18]];
+    bookButton.centerX = self.view.centerX;
+    bookButton.y = boxesGridView.bottom + 10;
+    bookButton.height = 40;
+    [sv addSubview:bookButton];
 
-    [sv setContentSizeHeight:boxesGridView.bottom + 20];
+    [sv setContentSizeHeight:bookButton.bottom + 20];
 }
 
 #pragma mark -
@@ -129,12 +159,47 @@
     }
 }
 
+
+-(void)bookButtonTapped
+{
+    __weak BookObject *weakBook = self.bookObject;
+    __weak BoxSetting *weakBox = self.currentBox;
+    __weak CarwashComplex *weakCarwash = self.currentCarwash;
+    __weak AdminCarwashBoxScheduleViewController * weakSelf = self;
+    [self setTabBarVisible:NO animated:YES completion:^(BOOL finished) {
+        if([weakSelf validatePrepareBookAction])
+        {
+            AdminBookSetCarViewController *v = [[AdminBookSetCarViewController alloc] init];
+            v.carwash = weakCarwash;
+            v.bookObject = weakBook;
+            v.boxSetting = weakBox;
+            [weakSelf.navigationController pushViewController:v animated:YES];
+        }
+    }];
+}
+
+#pragma mark -
+#pragma mark Actions Helper
+
+- (BOOL)validatePrepareBookAction
+{
+    if(!boxesGridView.isTimeSelected) {
+        [UIHelper showAlertWithMessage:@"Выберите время посещения мойки"];
+        return NO;
+    }
+    
+    // Set book date and time
+    _bookObject.time = [boxesGridView bookDateString];
+    return YES;
+}
+
 #pragma mark -
 #pragma mark BoxGrid
 
 - (void)boxesGridViewTimeSelected:(BoxesGridView *)gridView
 {
-
+    _bookObject.bookDate = gridView.bookDate;
+    _bookObject.bookTime = [gridView bookTime];
 }
 
 #pragma mark -
@@ -200,7 +265,7 @@
 }
 
 - (void)segmentedControlChangedValue:(HMSegmentedControl *)segmentedControl {
-    NSLog(@"Selected index %ld (via UIControlEventValueChanged)", (long)segmentedControl.selectedSegmentIndex);
+    self.currentBox = self.currentCarwash.boxSettings[segmentedControl.selectedSegmentIndex];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -45,7 +45,7 @@
 }
 
 -(void)initVars {
-    currentTableFilter = AdminOrdersInProcessing;
+    currentTableFilter = AdminOrdersInPending;
 }
 
 - (void)viewDidLoad
@@ -55,18 +55,23 @@
     [self loadBooks];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self setTabBarVisible:YES animated:YES completion:nil];
+}
+
 - (void)loadBooks
 {
     [Toast showHudLoading];
 
     if(currentTableFilter == AdminOrdersTimeDayToday) {
-        [AdminApi ordersAll:^(id response) {
+        [AdminApi ordersToday:^(id response) {
             [self onBooksResponse:response];
         } failure:^(NSInteger code, NSString *message) {
 
         }];
-    } else  if (currentTableFilter == AdminOrdersInProcessing){
-        [AdminApi ordersAll:^(id response) {
+    } else  if (currentTableFilter == AdminOrdersInPending){
+        [AdminApi ordersPending:^(id response) {
             [self onBooksResponse:response];
         } failure:^(NSInteger code, NSString *message) {
 
@@ -135,11 +140,14 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 
-    CarwashBook *book = books[indexPath.row];
-    AdminBookViewController *v = [[AdminBookViewController alloc] init];
-    v.delegate = self;
-    v.book = book;
-    [self.navigationController pushViewController:v animated:YES];
+    __weak CarwashBook *weakBook = books[indexPath.row];
+    __weak AdminOrdersViewController * weakSelf = self;
+    [self setTabBarVisible:NO animated:YES completion:^(BOOL finished) {
+        AdminBookViewController *v = [[AdminBookViewController alloc] init];
+        v.delegate = weakSelf;
+        v.book = weakBook;
+        [weakSelf.navigationController pushViewController:v animated:YES];
+    }];
 }
 
 #pragma mark -
@@ -202,8 +210,8 @@
 #pragma mark - HTHorizontalSelectionListDelegate Protocol Methods
 
 - (void)selectionList:(HTHorizontalSelectionList *)selectionList didSelectButtonWithIndex:(NSInteger)index {
-    if (index == AdminOrdersInProcessing){
-        currentTableFilter = AdminOrdersInProcessing;
+    if (index == AdminOrdersInPending){
+        currentTableFilter = AdminOrdersInPending;
     } else if (index == AdminOrdersTimeDayToday){
         currentTableFilter = AdminOrdersTimeDayToday;
     } else if (index == AdminOrdersAll){

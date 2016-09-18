@@ -142,6 +142,10 @@
     return @"";
 }
 
++ (CarwashComplex *)cashedCarwash {
+    return [CarwashComplex authorizedCarwashDataWithMobile:[User currentUser].mobile];
+}
+
 #pragma mark -
 #pragma mark NSCoding
 

@@ -105,25 +105,6 @@
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
-- (void)setTabBarVisible:(BOOL)visible animated:(BOOL)animated completion:(void (^)(BOOL))completion {
-    
-    if ([self tabBarIsVisible] == visible) return (completion)? completion(YES) : nil;
-    
-    CGRect frame = self.tabBarController.tabBar.frame;
-    CGFloat height = frame.size.height;
-    CGFloat offsetY = (visible)? -height : height;
-    
-    CGFloat duration = (animated)? 0.3 : 0.0;
-    
-    [UIView animateWithDuration:duration animations:^{
-        self.tabBarController.tabBar.frame = CGRectOffset(frame, 0, offsetY);
-    } completion:completion];
-}
-
-- (BOOL)tabBarIsVisible {
-    return self.tabBarController.tabBar.frame.origin.y < CGRectGetMaxY(self.view.frame);
-}
-
 #pragma mark -
 #pragma mark Notifications
 
@@ -159,14 +140,11 @@
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"cell";
-    //SimpleDetailsDisclosureCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     BookCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[BookCell alloc] initWithReuseIdentifier:CellIdentifier];
     }
-
     CarwashBook *book = bookings[(NSUInteger) indexPath.row];
-    //[cell setTitle:book.carwashName details:[book localizedPrettyDate]];
     [cell setCarwashBook:book];
 
     return cell;

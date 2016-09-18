@@ -78,7 +78,7 @@
             
             [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
             
-            [CarwashComplex clearAuthorizedCarwashDataWithMobile:[User currentUser].mobile];
+            [CarwashComplex cashedCarwash];
             [[User currentUser] logout];
             [[UIHelper appDelegate] gotoWelcomeViewController];
         }

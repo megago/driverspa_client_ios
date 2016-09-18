@@ -229,6 +229,11 @@
 		A3EB6D6A1D5753A0004E8CB5 /* CarwashServiceCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = A3EB6D691D5753A0004E8CB5 /* CarwashServiceCollectionView.m */; };
 		A3EB6D701D575C1F004E8CB5 /* ServiceCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A3EB6D6F1D575C1F004E8CB5 /* ServiceCollectionCell.m */; };
 		A3EB6D731D57706A004E8CB5 /* BookSetCarViewController3.m in Sources */ = {isa = PBXBuildFile; fileRef = A3EB6D721D57706A004E8CB5 /* BookSetCarViewController3.m */; };
+		A3FA55E31D8D728B0012A884 /* AdminBookSetCarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3FA55E11D8D728B0012A884 /* AdminBookSetCarViewController.m */; };
+		A3FA55E81D8D9E8F0012A884 /* btn_cartype5_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = A3FA55E41D8D9E8F0012A884 /* btn_cartype5_normal.png */; };
+		A3FA55E91D8D9E8F0012A884 /* btn_cartype5_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A3FA55E51D8D9E8F0012A884 /* btn_cartype5_normal@2x.png */; };
+		A3FA55EA1D8D9E8F0012A884 /* btn_cartype5_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A3FA55E61D8D9E8F0012A884 /* btn_cartype5_selected@2x.png */; };
+		A3FA55EB1D8D9E8F0012A884 /* btn_cartype5_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = A3FA55E71D8D9E8F0012A884 /* btn_cartype5_selected.png */; };
 		CE2A33CC1CB00DFD005CC5B6 /* Menu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE2A33CB1CB00DFD005CC5B6 /* Menu.storyboard */; };
 		CE2A33CF1CB03011005CC5B6 /* UIViewController+FrostedMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2A33CE1CB03011005CC5B6 /* UIViewController+FrostedMenu.m */; };
 		CE2A33D11CB2BA58005CC5B6 /* CarwashMarkerInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE2A33D01CB2BA58005CC5B6 /* CarwashMarkerInfoView.xib */; };
@@ -804,6 +809,12 @@
 		A3EB6D6F1D575C1F004E8CB5 /* ServiceCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServiceCollectionCell.m; sourceTree = "<group>"; };
 		A3EB6D711D57706A004E8CB5 /* BookSetCarViewController3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookSetCarViewController3.h; sourceTree = "<group>"; };
 		A3EB6D721D57706A004E8CB5 /* BookSetCarViewController3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookSetCarViewController3.m; sourceTree = "<group>"; };
+		A3FA55E11D8D728B0012A884 /* AdminBookSetCarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdminBookSetCarViewController.m; sourceTree = "<group>"; };
+		A3FA55E21D8D728B0012A884 /* AdminBookSetCarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdminBookSetCarViewController.h; sourceTree = "<group>"; };
+		A3FA55E41D8D9E8F0012A884 /* btn_cartype5_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_cartype5_normal.png; sourceTree = "<group>"; };
+		A3FA55E51D8D9E8F0012A884 /* btn_cartype5_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_cartype5_normal@2x.png"; sourceTree = "<group>"; };
+		A3FA55E61D8D9E8F0012A884 /* btn_cartype5_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_cartype5_selected@2x.png"; sourceTree = "<group>"; };
+		A3FA55E71D8D9E8F0012A884 /* btn_cartype5_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_cartype5_selected.png; sourceTree = "<group>"; };
 		CE2A33CB1CB00DFD005CC5B6 /* Menu.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Menu.storyboard; sourceTree = "<group>"; };
 		CE2A33CD1CB03011005CC5B6 /* UIViewController+FrostedMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+FrostedMenu.h"; sourceTree = "<group>"; };
 		CE2A33CE1CB03011005CC5B6 /* UIViewController+FrostedMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+FrostedMenu.m"; sourceTree = "<group>"; };
@@ -1178,6 +1189,8 @@
 				A3BCA3561D3D252C00FEE6B6 /* AdminCarwashBoxesSchedulesViewController.m */,
 				A3BCA3571D3D252C00FEE6B6 /* AdminCarwashBoxScheduleViewController.h */,
 				A3BCA3581D3D252C00FEE6B6 /* AdminCarwashBoxScheduleViewController.m */,
+				A3FA55E21D8D728B0012A884 /* AdminBookSetCarViewController.h */,
+				A3FA55E11D8D728B0012A884 /* AdminBookSetCarViewController.m */,
 				A3BCA3591D3D252C00FEE6B6 /* AdminCarwashesFeedbacksViewController.h */,
 				A3BCA35A1D3D252C00FEE6B6 /* AdminCarwashesFeedbacksViewController.m */,
 				A3BCA35B1D3D252C00FEE6B6 /* AdminCarwashesViewController.h */,
@@ -1557,6 +1570,10 @@
 				CE755B691A192F5E00A036DC /* btn_cartype4_normal@2x.png */,
 				CE755B6A1A192F5E00A036DC /* btn_cartype4_selected.png */,
 				CE755B6B1A192F5E00A036DC /* btn_cartype4_selected@2x.png */,
+				A3FA55E41D8D9E8F0012A884 /* btn_cartype5_normal.png */,
+				A3FA55E51D8D9E8F0012A884 /* btn_cartype5_normal@2x.png */,
+				A3FA55E71D8D9E8F0012A884 /* btn_cartype5_selected.png */,
+				A3FA55E61D8D9E8F0012A884 /* btn_cartype5_selected@2x.png */,
 				CE755B6C1A192F5E00A036DC /* btn_tab-carwash_normal.png */,
 				CE755B6D1A192F5E00A036DC /* btn_tab-carwash_normal@2x.png */,
 				CE755B6E1A192F5E00A036DC /* btn_tab-carwash_selected.png */,
@@ -1894,6 +1911,7 @@
 				CE6C4A4B19DC4DA60014229D /* kz_almaty.gpx in Resources */,
 				A31844CF1D6231C8002A258B /* star-new-rated.png in Resources */,
 				CE755C081A192F5E00A036DC /* btn_tab-settings_selected@2x.png in Resources */,
+				A3FA55E91D8D9E8F0012A884 /* btn_cartype5_normal@2x.png in Resources */,
 				CE551AD71BCAB2850056AD5C /* UserMain.storyboard in Resources */,
 				5200BCBD2E3E4525C7C1D6AC /* Roboto-Bold.ttf in Resources */,
 				CE755C031A192F5E00A036DC /* btn_tab-profile_selected.png in Resources */,
@@ -1972,6 +1990,7 @@
 				A3C9B0F41D60710900979950 /* ic_business_white@2x.png in Resources */,
 				CE755C4D1A192F5E00A036DC /* Icon-Small.png in Resources */,
 				CE755C141A192F5E00A036DC /* icon-24hours.png in Resources */,
+				A3FA55EB1D8D9E8F0012A884 /* btn_cartype5_selected.png in Resources */,
 				CE755C1B1A192F5E00A036DC /* icon-add-outline.png in Resources */,
 				CE755C681A192F5E00A036DC /* washme-logo-old.png in Resources */,
 				CE755BE71A192F5E00A036DC /* border-button-pattern.png in Resources */,
@@ -1991,6 +2010,7 @@
 				CE755C0A1A192F5E00A036DC /* carwash-annotation-arrow@2x.png in Resources */,
 				CE755C091A192F5E00A036DC /* carwash-annotation-arrow.png in Resources */,
 				5200BD825879F9BCF3EB82D9 /* Roboto-BoldItalic.ttf in Resources */,
+				A3FA55E81D8D9E8F0012A884 /* btn_cartype5_normal.png in Resources */,
 				A3981CD31D4D20E700E0689B /* carwash-annotation-offline@2x.png in Resources */,
 				CE755C551A192F5E00A036DC /* icon-success-tick@2x.png in Resources */,
 				CE755BFD1A192F5E00A036DC /* btn_tab-list_normal.png in Resources */,
@@ -2040,6 +2060,7 @@
 				CE755C061A192F5E00A036DC /* btn_tab-settings_normal@2x.png in Resources */,
 				CE755C5A1A192F5E00A036DC /* icon-wifi.png in Resources */,
 				CE755BF21A192F5E00A036DC /* btn_cartype3_normal@2x.png in Resources */,
+				A3FA55EA1D8D9E8F0012A884 /* btn_cartype5_selected@2x.png in Resources */,
 				CE755C511A192F5E00A036DC /* icon-status-green@2x.png in Resources */,
 				CE755C441A192F5E00A036DC /* icon-settings-bold@2x.png in Resources */,
 				CE755BFF1A192F5E00A036DC /* btn_tab-list_selected.png in Resources */,
@@ -2263,6 +2284,7 @@
 				A341BB491D44C8CC005E27DD /* AdminMenuViewController.m in Sources */,
 				5200B201C23C4DA0D99417AD /* UIViewController+NavigationBar.m in Sources */,
 				A3BCA3A21D3D252D00FEE6B6 /* AdminBookViewController.m in Sources */,
+				A3FA55E31D8D728B0012A884 /* AdminBookSetCarViewController.m in Sources */,
 				5200B57E637F4BC11D538770 /* UIViewController+NoContent.m in Sources */,
 				5200BEA3F369C2104335B455 /* RegisterProfileViewController.m in Sources */,
 				5200B2485B010EC6692DC888 /* ScrollViewController.m in Sources */,

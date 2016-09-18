@@ -20,6 +20,7 @@
 - (void)addService:(IdTitleObject *)service;
 - (void)addServices:(NSArray *)services;
 - (void)refreshServices:(NSArray *)services;
+- (void)adminRefreshServices:(NSArray *)services;
 - (void)selectItemAtIndex : (NSInteger)index;
 - (void)reloadData;
 @end

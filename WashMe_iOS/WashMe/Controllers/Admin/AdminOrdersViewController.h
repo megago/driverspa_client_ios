@@ -9,7 +9,7 @@
 #import "AdminBookViewController.h"
 
 typedef NS_ENUM(NSUInteger, AdminOrdersFilter) {
-    AdminOrdersInProcessing,
+    AdminOrdersInPending,
     AdminOrdersTimeDayToday,
     AdminOrdersAll,
 };

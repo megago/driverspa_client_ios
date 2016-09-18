@@ -9,9 +9,7 @@
 #import "BookAdminCell.h"
 #import "CarwashBook.h"
 #import "UIView+Ext.h"
-
 #import "CarwashComplex.h"
-#import "User.h"
 
 #define  kBookTimeWidth 60
 
@@ -89,7 +87,7 @@
 
 -(void)setCarwashBook:(CarwashBook *)book
 {
-    CarwashComplex *complex = [CarwashComplex authorizedCarwashDataWithMobile:[User currentUser].mobile];
+    CarwashComplex *complex = [CarwashComplex cashedCarwash];
     
     titleLabel.text = book.clientKey;
     [titleLabel sizeToFit];

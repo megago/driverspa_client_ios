@@ -26,4 +26,8 @@
 // Moda VC
 -(void)closeModalViewController;
 
+//TabBar
+- (void)setTabBarVisible:(BOOL)visible animated:(BOOL)animated completion:(void (^)(BOOL))completion;
+- (BOOL)tabBarIsVisible;
+
 @end

@@ -11,13 +11,12 @@
 
 @class BoxSetting;
 @class CarwashComplex;
+@class BookObject;
 
 @interface AdminCarwashBoxScheduleViewController : ScrollViewControllerOld <BoxesGridViewDelegate>
 
-//@property(nonatomic, assign) NSInteger boxIndex;
-//@property(nonatomic, copy) NSString *carwashId;
-
 @property(nonatomic, strong) BoxSetting *currentBox;
 @property(nonatomic, strong) CarwashComplex *currentCarwash;
+@property(nonatomic, strong) BookObject *bookObject;
 
 @end

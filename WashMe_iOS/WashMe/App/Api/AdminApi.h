@@ -13,6 +13,7 @@
 @interface AdminApi : APIClient
 
 + (void)myCarwashes:(success)success failure:(failure)failure;
++ (void)ordersPending:(success)success failure:(failure)failure;
 + (void)ordersAll:(success)success failure:(failure)failure;
 + (void)ordersToday:(success)success failure:(failure)failure;
 + (void)ordersTomorrow:(success)success failure:(failure)failure;
