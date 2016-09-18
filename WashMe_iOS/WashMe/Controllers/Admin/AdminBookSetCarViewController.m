@@ -21,19 +21,23 @@
 #import "IdTitleObject.h"
 #import "InputTextField+Validation.h"
 #import "UserApi.h"
-#import "BookObject.h"
 #import "BoxSetting.h"
 #import "CarwashServiceCollectionView.h"
 #import "Cache.h"
 #import "CarwashRefs.h"
+#import "IconTitleView.h"
+#import "CenterTitle.h"
 
 
-@interface AdminBookSetCarViewController ()
+@interface AdminBookSetCarViewController () <CarTypesTabbarViewDelegate, CarwashServiceCollectionDelegate>
 @property (nonatomic, strong) NSMutableArray *cars;
 @property (nonatomic, strong) NSMutableArray *checkedServices;
 @end
 
 @implementation AdminBookSetCarViewController {
+    
+    IconTitleView *washDelay;
+    CenterTitle *priceLabel;
     
     CarTypesTabbarView *carTypesTabbarView;
     CarwashServiceCollectionView *carwashServiceCollectionView;
@@ -41,12 +45,9 @@
     InputTextField *telField;
     InputTextField *carNumberField;
     InputTextField *carBrandField;
-    //RowButtonDisclosureView *servicesButton;
 
     NSArray *carTypeServices;
     NSArray *services;
-    NSArray *checkedServices;
-    M13BadgeView *priceView;
 }
 
 -(id)init {
@@ -58,7 +59,7 @@
 }
 
 -(void)initVars {
-    checkedServices = [[NSArray alloc] init];
+    self.checkedServices = [[NSMutableArray alloc] init];
 }
 
 - (void)viewDidLoad
@@ -69,9 +70,7 @@
     if(self.editMode)
     {
         carTypesTabbarView.carType = _bookObject.carType;
-        priceView.text = [_bookObject localizedPrice];
-        checkedServices = _bookObject.services;
-        //[self setServicesButtonTitle];
+        self.checkedServices = [NSMutableArray arrayWithArray:_bookObject.services];
     }
     else
     {
@@ -84,10 +83,10 @@
 
 - (void)continueTapped
 {
-//    if(![fioField validate]) {
-//        [UIHelper showAlertFillRequiredField];
-//        return;
-//    }
+    if(![fioField validate]) {
+        [UIHelper showAlertFillRequiredField];
+        return;
+    }
 
     if(![carNumberField validate]) {
         [UIHelper showAlertFillRequiredField];
@@ -104,19 +103,21 @@
         return;
     }
 
-    if(checkedServices.count == 0) {
+    if(self.checkedServices.count == 0) {
         [UIHelper showAlertWithMessage:@"Выберите услуги"];
         return;
     }
 
     [Toast showHudWithTitle:@"Ждите"];
+    
+    
     [UserApi updateProfileWithName:[fioField value] lastname:nil cars:nil success:^(id response) {
         // Update user datas
         [User instanceFromDictionary:response];
 
         // Set book objects
         _bookObject.carwash = self.carwash;
-        _bookObject.services = checkedServices;
+        _bookObject.services = self.checkedServices;
         _bookObject.carType = carTypesTabbarView.carType;
 //        _bookObject.clientKey = [User currentUser].carNumber;
         _bookObject.bookDate = nil;
@@ -132,12 +133,38 @@
     }];
 }
 
-- (void)servicesTapped {
-    BookingCarwashServicesViewController *v = [[BookingCarwashServicesViewController alloc] init];
-    v.delegate = self;
-    v.carwashServices = carTypeServices;
-    v.checkedServices = [NSMutableArray arrayWithArray:checkedServices];
-    [self.navigationController pushViewController:v animated:YES];
+-(void)updatePrice {
+    NSDictionary *menu = self.carwash.menu;
+    NSDictionary *prices = menu[[NSString stringWithFormat:@"%ld", carTypesTabbarView.carType]];
+    CGFloat totalPrice = 0;
+    CGFloat totalTime = 0;
+    
+    for(IdTitleObject *obj in self.checkedServices) {
+        CarwashMenuItem *menuItem = prices[obj.objectId];
+        if(menuItem) {
+            totalPrice += [menuItem.price floatValue];
+            totalTime += [menuItem.time floatValue];
+        }
+        //NSLog(@"%d - %d - %d", menuItem.type.intValue, menuItem.price.intValue, menuItem.time.intValue);
+    }
+    
+    _bookObject.price = @(totalPrice);
+    _bookObject.bookTime = [NSString stringWithFormat:@"%d", (int)totalTime];
+    priceLabel.text = [_bookObject localizedPrice];
+    washDelay.titleLabel.text = [NSString stringWithFormat:@" %d мин.", (int)totalTime];
+    washDelay.width = washDelay.titleLabel.right;
+    washDelay.centerX = sv.centerX;
+}
+
+
+- (void)resetPrice {
+    priceLabel.text = @" 0 тг.";
+}
+
+- (void)resetTime {
+    washDelay.titleLabel.text = @" 0 мин.";
+    washDelay.width = washDelay.titleLabel.right;
+    washDelay.centerX = sv.centerX;
 }
 
 #pragma mark -
@@ -177,41 +204,11 @@
 }
 
 #pragma mark -
-#pragma mark CarwashServicesViewController
+#pragma mark CarwashServiceCollection Delegate
 
--(void)carwashServicesViewControllerSelectedServices:(NSArray *)_checkedServices {
-    checkedServices = [_checkedServices mutableCopy];
-    //[self setServicesButtonTitle];
-
-    NSDictionary *menu = self.carwash.menu;
-    NSDictionary *prices = menu[[NSString stringWithFormat:@"%d", carTypesTabbarView.carType]];
-    CGFloat totalPrice = 0;
-
-    for(IdTitleObject *obj in checkedServices) {
-        CarwashMenuItem *menuItem = prices[obj.objectId];
-        if(menuItem) {
-            totalPrice += [menuItem.price floatValue];
-        }
-    }
-
-    _bookObject.price = @(totalPrice);
-    priceView.text = [_bookObject localizedPrice];
-}
-
-//-(void)setServicesButtonTitle {
-//    if(checkedServices.count > 0) {
-//        [servicesButton setTitle:[NSString stringWithFormat:@"Выбрано услуг (%i)", checkedServices.count]];
-//    } else {
-//        [servicesButton setTitle:@"Выберите услуги"];
-//    }
-//}
-
-- (void)resetPrice {
-    priceView.text = @"0 тг.";
-}
-
-- (void)resetTime {
-//    timeLabel.text = @"Время мойки: 0 мин.";
+- (void)carwashServiceCollectionViewSelectedServices:(NSArray *)selectedServices {
+    self.checkedServices = [NSMutableArray arrayWithArray:selectedServices];
+    [self updatePrice];
 }
 
 #pragma mark -
@@ -222,17 +219,28 @@
 
     [self setBlueBackground];
     [self setBackButtonInNavigation];
-    [self setNavigationTitle:@"Информация об авто"];
+    [self setNavigationTitle:[NSString stringWithFormat:@"%@ - %@ в %@", _boxSetting.boxName, _bookObject.localizedDaysAgo, _bookObject.bookTime]];
     
     [sv setFrame:CGRectMake(0, 64, [ASize screenWidth], [ASize screenHeightWithoutStatusBarAndNavigationBar])];
 
-    UILabel *boxTitle = [sv setNavigationSubtitle:self.boxSetting.boxName];
-    boxTitle.y = 10;
-    [sv addSubview:boxTitle];
+    washDelay = [[IconTitleView alloc] initWithIcon:@"icon-orders" title:@"     0 мин."];
+    washDelay.x = [ASize screenWidth]/2 - washDelay.frame.size.width/2;
+    washDelay.y = 5;
+    washDelay.titleLabel.font = [UIFont robotoRegular:18.f];
+    [washDelay.titleLabel  sizeToFit];
+    washDelay.width = washDelay.titleLabel.right;
+    washDelay.centerX = sv.centerX;
+    [sv addSubview:washDelay];
+    
+    priceLabel = [[CenterTitle alloc] initWithTitle:@"0 тг." width:250];
+    priceLabel.centerX = sv.centerX;
+    priceLabel.y = washDelay.bottom + 5;
+    priceLabel.font = [UIFont robotoRegular:18.f];
+    [sv addSubview:priceLabel];
     
     carTypesTabbarView = [[CarTypesTabbarView alloc] initWithCarTypeIds:self.carwash.cartypes];
     carTypesTabbarView.delegate = self;
-    carTypesTabbarView.y = boxTitle.bottom + 15;
+    carTypesTabbarView.y = priceLabel.bottom + 15;
     [sv addSubview:carTypesTabbarView];
     
     // Fields
@@ -272,7 +280,7 @@
     [sv addSubview:carBrandField];
     
     carwashServiceCollectionView = [[CarwashServiceCollectionView alloc] initWithFrame:CGRectMake(0, carBrandField.bottom + 5, [ASize screenWidth], 50)];
-    //carwashServiceCollectionView.delegate = self;
+    carwashServiceCollectionView.delegate = self;
     [sv addSubview:carwashServiceCollectionView];
 
     
@@ -280,23 +288,6 @@
     [line setBackgroundColor:[UIColor whiteColor]];
     line.alpha = 0.2;
     [sv addSubview:line];
-
-//    servicesButton = [[RowButtonDisclosureView alloc] initWithWidth:kContentWidth icon:nil title:nil target:self selector:@selector(servicesTapped)];
-//    servicesButton.y = carBrandField.bottom + 30;
-//    [self setServicesButtonTitle];
-//    [sv addSubview:servicesButton];
-    
-    // Badge
-//    priceView = [[M13BadgeView alloc] initWithFrame:CGRectZero];
-//    [self resetPrice];
-//    priceView.badgeBackgroundColor = [UIColor whiteColor];
-//    priceView.textColor = [UIColor blackColor];
-//    priceView.horizontalAlignment = M13BadgeViewHorizontalAlignmentNone;
-//    priceView.verticalAlignment = M13BadgeViewVerticalAlignmentNone;
-//    priceView.cornerRadius = 5;
-//    priceView.x = kViewControllerPadding;
-//    priceView.y = carwashServiceCollectionView.bottom + 10;
-//    [sv addSubview:priceView];
 
     // Bron
     __weak AdminBookSetCarViewController *wSelf = self;

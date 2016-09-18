@@ -18,6 +18,7 @@
 #import "ASize.h"
 #import "CarwashComplex.h"
 #import "AdminBookSetCarViewController.h"
+#import "NSDate+Utilities.h"
 
 @interface AdminCarwashBoxScheduleViewController ()
 @end
@@ -42,12 +43,14 @@
 }
 
 -(void)initVars {
-    self.bookObject = [[BookObject alloc] init];
+    
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.bookObject = [[BookObject alloc] init];
+    
     currentTableDay = CarwashBoxesTimeDayToday;
     self.currentCarwash = [CarwashComplex cashedCarwash];
     self.currentCarwash.boxSettings > 0 ? self.currentBox = self.currentCarwash.boxSettings.firstObject : nil;
@@ -125,6 +128,16 @@
     boxesGridView.centerX = self.view.middleX;
     [sv addSubview:boxesGridView];
     
+    if(currentTableDay == CarwashBoxesTimeDayToday)
+    {
+        boxesGridView.bookDate = [NSDate date];
+    }
+    else
+    {
+        boxesGridView.bookDate = [NSDate dateTomorrow];
+    }
+
+    
     __weak AdminCarwashBoxScheduleViewController *wSelf = self;
     bookButton = [[AAButton alloc] initWithWidth:200 onTap:^(UIView *_self) {
         [wSelf bookButtonTapped];
@@ -162,17 +175,14 @@
 
 -(void)bookButtonTapped
 {
-    __weak BookObject *weakBook = self.bookObject;
-    __weak BoxSetting *weakBox = self.currentBox;
-    __weak CarwashComplex *weakCarwash = self.currentCarwash;
     __weak AdminCarwashBoxScheduleViewController * weakSelf = self;
     [self setTabBarVisible:NO animated:YES completion:^(BOOL finished) {
         if([weakSelf validatePrepareBookAction])
         {
             AdminBookSetCarViewController *v = [[AdminBookSetCarViewController alloc] init];
-            v.carwash = weakCarwash;
-            v.bookObject = weakBook;
-            v.boxSetting = weakBox;
+            v.carwash = weakSelf.currentCarwash;
+            v.bookObject = weakSelf.bookObject;
+            v.boxSetting = weakSelf.currentBox;
             [weakSelf.navigationController pushViewController:v animated:YES];
         }
     }];

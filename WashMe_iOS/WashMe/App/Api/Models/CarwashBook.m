@@ -181,7 +181,6 @@
     return [self.status isEqual:kBookStatusCancelled];
 }
 
-
 - (BOOL)isNoCome {
     return [self.status isEqual:kBookStatusNoCome];
 }

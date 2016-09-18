@@ -12,7 +12,7 @@
 
 -(id)initWithTitle:(NSString *)title width:(CGFloat)width
 {
-    self = [super initWithFrame:CGRectMake(0, 0, width, 1)];
+    self = [super initWithFrame:CGRectMake(0, 0, width, 21)];
     if(self) {
         self.backgroundColor = [UIColor clearColor];
         self.font = [UIFont robotoRegular:14];

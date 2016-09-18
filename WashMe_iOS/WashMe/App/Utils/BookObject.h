@@ -27,5 +27,6 @@
 - (NSString *)localizedPrice;
 - (NSString *)servicesTitles;
 - (NSString *)prettyTime;
+- (NSString *)localizedDaysAgo;
 
 @end

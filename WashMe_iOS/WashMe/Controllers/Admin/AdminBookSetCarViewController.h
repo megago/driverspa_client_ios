@@ -16,7 +16,7 @@
 @class BookObject;
 @class BoxSetting;
 
-@interface AdminBookSetCarViewController : ScrollViewControllerOld <WashParamsViewControllerDelegate, CarTypesTabbarViewDelegate>
+@interface AdminBookSetCarViewController : ScrollViewControllerOld 
 
 @property(nonatomic, strong) CarwashComplex *carwash;
 @property(nonatomic, strong) BoxSetting *boxSetting;
