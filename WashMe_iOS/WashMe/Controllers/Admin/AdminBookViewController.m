@@ -22,6 +22,7 @@
 #import "UserObject.h"
 #import "CenterTitle.h"
 #import "NSString+Ext.h"
+#import "CarwashComplex.h"
 
 @interface AdminBookViewController ()
 @end
@@ -360,7 +361,8 @@
     }
     
     if ([_book isApproved]){
-        CenterTitle *subtitleLabel = [[CenterTitle alloc] initWithTitle:@"Бокс 1" width:rowWidth];
+        CarwashComplex *carwash = [CarwashComplex cashedCarwash];
+        CenterTitle *subtitleLabel = [[CenterTitle alloc] initWithTitle:[carwash boxNameById:_book.boxId] width:rowWidth];
         [subtitleLabel sizeToFit];
         subtitleLabel.centerX = sv.centerX;
         subtitleLabel.y = yPosition + rowsSpacing;

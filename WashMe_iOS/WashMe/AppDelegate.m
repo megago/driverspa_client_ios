@@ -59,7 +59,7 @@
     [self requestPushAndLocalNotificationPermissions];
 
     //Crashlytics
-    //[Fabric with:@[[Crashlytics class]]];
+    [Fabric with:@[[Crashlytics class]]];
     
     // Check user
     id v = nil;

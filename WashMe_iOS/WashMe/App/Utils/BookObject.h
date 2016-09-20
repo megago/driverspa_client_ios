@@ -11,6 +11,7 @@
 #import "CarTypesTabbarView.h"
 
 @class CarwashComplex;
+@class BoxSetting;
 
 @interface BookObject : NSObject
 
@@ -23,6 +24,8 @@
 @property(nonatomic, strong) NSDate *bookDate;
 @property(nonatomic, copy) NSString *bookTime;
 @property(nonatomic, copy) NSString *bookId;
+@property(nonatomic, assign) BOOL isOffline;
+@property(nonatomic, strong) BoxSetting *boxSetting;
 
 - (NSString *)localizedPrice;
 - (NSString *)servicesTitles;

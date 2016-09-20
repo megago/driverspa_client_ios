@@ -8,6 +8,7 @@
 
 #import "BookObject.h"
 #import "CarwashComplex.h"
+#import "BoxSetting.h"
 #import "IdTitleObject.h"
 #import "NSString+Ext.h"
 #import "NSDate+Utilities.h"

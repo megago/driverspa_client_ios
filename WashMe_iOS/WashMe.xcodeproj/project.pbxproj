@@ -2131,7 +2131,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Fabric/run\" 36aae67deb1edf82e54e30b749d2fa48e01b5f1c 4bac680a00b22258d2dc9d0e5e72df5f1739651c049b272575180db34f414db6";
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" 319c0fbdd58ffe6289e7fb40dbb609b25b1c2c40 4fdea0fbca8b5d793b754ddb82e06078ffe7a8993aeda18d85f40c765c5572a4";
 		};
 /* End PBXShellScriptBuildPhase section */
 

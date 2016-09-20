@@ -36,6 +36,10 @@
         [_serviceLabel aa_superviewFillWithInset:0];
         
         [self.contentView addSubview:container];
+        
+        self.contentView.layer.borderWidth = 0.f;
+        self.contentView.layer.borderColor = [UIColor clearColor].CGColor;
+        self.contentView.backgroundColor = [[UIColor fromRGB:0x184977] colorWithAlphaComponent:0.25f];
     }
     return self;
 }

@@ -34,18 +34,6 @@
     NSArray *boxes;
 }
 
--(id)init {
-    self = [super init];
-    if(self) {
-        [self initVars];
-    }
-    return self;
-}
-
--(void)initVars {
-    
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -63,6 +51,11 @@
     
     [self configUI];
     [self loadCarwashTimetable];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self setTabBarVisible:YES animated:YES completion:nil];
 }
 
 - (void)loadCarwashTimetable

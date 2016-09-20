@@ -27,7 +27,7 @@
 #import "CarwashRefs.h"
 #import "IconTitleView.h"
 #import "CenterTitle.h"
-
+#import "CarwashApi.h"
 
 @interface AdminBookSetCarViewController () <CarTypesTabbarViewDelegate, CarwashServiceCollectionDelegate>
 @property (nonatomic, strong) NSMutableArray *cars;
@@ -44,7 +44,7 @@
     InputTextField *fioField;
     InputTextField *telField;
     InputTextField *carNumberField;
-    InputTextField *carBrandField;
+    //InputTextField *carBrandField;
 
     NSArray *carTypeServices;
     NSArray *services;
@@ -75,6 +75,7 @@
     else
     {
         [carTypesTabbarView setCarType:CarTypeSedan];
+        //[self carTypesTabbarViewDidChangeTabWithType:CarTypeSedan];
     }
 }
 
@@ -93,43 +94,29 @@
         return;
     }
 
-//    if(![carBrandField validate]) {
-//        [UIHelper showAlertFillRequiredField];
-//        return;
-//    }
-
-    if(![carNumberField validate]) {
-        [UIHelper showAlertFillRequiredField];
-        return;
-    }
-
     if(self.checkedServices.count == 0) {
         [UIHelper showAlertWithMessage:@"Выберите услуги"];
         return;
     }
-
-    [Toast showHudWithTitle:@"Ждите"];
-    
-    
-    [UserApi updateProfileWithName:[fioField value] lastname:nil cars:nil success:^(id response) {
-        // Update user datas
-        [User instanceFromDictionary:response];
-
+        
+    [CarwashApi getCarwashDetails:self.carwash.carwashId success:^(id response) {
         // Set book objects
-        _bookObject.carwash = self.carwash;
+        _bookObject.carwash = response;
+        _bookObject.boxSetting = _boxSetting;
         _bookObject.services = self.checkedServices;
         _bookObject.carType = carTypesTabbarView.carType;
-//        _bookObject.clientKey = [User currentUser].carNumber;
-        _bookObject.bookDate = nil;
-        _bookObject.bookTime = nil;
-
-        BookChooseBoxViewController *v = [[BookChooseBoxViewController alloc] init];
-        v.bookObject = _bookObject;
-        v.editMode = self.editMode;
-        [self.navigationController pushViewController:v animated:YES];
-
+        _bookObject.clientKey = [NSString stringWithFormat:@"%@ (%@)", carNumberField.textField.text, fioField.textField.text];
+        _bookObject.isOffline = YES;
+        
+        [Toast showHudWithTitle:@"Бронирование"];
+        [UserApi bookWithBookObject:_bookObject success:^(id response) {
+            [Toast showSuccessToastWithMessage:@"Забронированно"];
+            [self.navigationController popToRootViewControllerAnimated:YES];
+        } failure:^(NSInteger code, NSString *message) {
+            
+        }];
     } failure:^(NSInteger code, NSString *message) {
-
+        
     }];
 }
 
@@ -271,15 +258,15 @@
     carNumberField.textField.autocapitalizationType = UITextAutocapitalizationTypeAllCharacters;
     [sv addSubview:carNumberField];
 
-    carBrandField = [[InputTextField alloc] initWithWidth:kContentWidth height:h];
-    carBrandField.userInteractionEnabled = YES;
-    carBrandField.centerX = sv.centerX;
-    carBrandField.y = carNumberField.bottom;
-    [carBrandField setValue:@""];
-    [carBrandField setPlaceholder:@"Марка автомобиля"];
-    [sv addSubview:carBrandField];
+//    carBrandField = [[InputTextField alloc] initWithWidth:kContentWidth height:h];
+//    carBrandField.userInteractionEnabled = YES;
+//    carBrandField.centerX = sv.centerX;
+//    carBrandField.y = carNumberField.bottom;
+//    [carBrandField setValue:@""];
+//    [carBrandField setPlaceholder:@"Марка автомобиля"];
+//    [sv addSubview:carBrandField];
     
-    carwashServiceCollectionView = [[CarwashServiceCollectionView alloc] initWithFrame:CGRectMake(0, carBrandField.bottom + 5, [ASize screenWidth], 50)];
+    carwashServiceCollectionView = [[CarwashServiceCollectionView alloc] initWithFrame:CGRectMake(0, carNumberField.bottom + 5, [ASize screenWidth], 50)];
     carwashServiceCollectionView.delegate = self;
     [sv addSubview:carwashServiceCollectionView];
 
@@ -302,7 +289,8 @@
     [sv addSubview:continueButton];
 
     [self setScrollContentHeight:carwashServiceCollectionView.bottom];
-    [self addKeyboardControlFields:@[fioField.textField, telField.textField, carNumberField.textField, carBrandField.textField]];
+    //[self addKeyboardControlFields:@[fioField.textField, telField.textField, carNumberField.textField, carBrandField.textField]];
+    [self addKeyboardControlFields:@[fioField.textField, telField.textField, carNumberField.textField]];
 }
 
 -(void)dealloc {

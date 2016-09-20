@@ -19,7 +19,7 @@
 #import "Car.h"
 #import "NSArray+ObjectiveSugar.h"
 #import "City.h"
-
+#import "BoxSetting.h"
 
 @implementation UserApi {
 
@@ -99,7 +99,9 @@
     o[@"services"] = services;
     o[@"client_key"] = bookObject.clientKey;
     o[@"cartype"] = @(bookObject.carType);
+    o[@"box_id"] = bookObject.boxSetting.uid;
     o[@"requestType"] = @"NEW";
+    o[@"is_offline"] = [NSNumber numberWithBool:bookObject.isOffline];
 
     NSLog(@"%@", o);
 //    return;

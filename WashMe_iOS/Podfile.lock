@@ -27,7 +27,7 @@ PODS:
   - ChameleonFramework/Default (2.1.0)
   - ConcisePureLayout (0.3.1):
     - PureLayout (~> 3.0.2)
-  - Crashlytics (3.7.0):
+  - Crashlytics (3.8.1):
     - Fabric (~> 1.6.3)
   - CRGradientNavigationBar (0.3.2)
   - DACircularProgress (2.3.1)
@@ -36,14 +36,14 @@ PODS:
   - EAIntroView (2.9.0):
     - EARestrictedScrollView (~> 1.1.0)
   - EARestrictedScrollView (1.1.0)
-  - Fabric (1.6.7)
+  - Fabric (1.6.8)
   - FrameAccessor (2.0)
   - GoogleMaps (2.0.1):
     - GoogleMaps/Maps (= 2.0.1)
   - GoogleMaps/Base (2.0.1)
   - GoogleMaps/Maps (2.0.1):
     - GoogleMaps/Base (= 2.0.1)
-  - HMSegmentedControl (1.5.2)
+  - HMSegmentedControl (1.5.3)
   - HTHorizontalSelectionList (0.7.3):
     - M13BadgeView (~> 1.0.4)
   - INTULocationManager (4.2.0)
@@ -82,12 +82,12 @@ DEPENDENCIES:
   - BSKeyboardControls
   - ChameleonFramework (= 2.1.0)
   - ConcisePureLayout (= 0.3.1)
-  - Crashlytics (= 3.7.0)
+  - Crashlytics
   - CRGradientNavigationBar
   - DateTools (= 1.7.0)
   - DZNEmptyDataSet (= 1.7.3)
   - EAIntroView (~> 2.9.0)
-  - Fabric (= 1.6.7)
+  - Fabric
   - FrameAccessor (= 2.0)
   - GoogleMaps (~> 2.0.1)
   - HMSegmentedControl
@@ -119,17 +119,17 @@ SPEC CHECKSUMS:
   BSKeyboardControls: b701935e789961102e3f20063bba7185800a2d3f
   ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
   ConcisePureLayout: 318b85d44b35c9c7b45d1817da2ebb614e687734
-  Crashlytics: c3a2333dea9e2733d2777f730910321fc9e25c0d
+  Crashlytics: 4391d8df0b125345e9f209c5db6e7f40a6a8435d
   CRGradientNavigationBar: ee6fa0398e3d64af32a792b63336e094bb55402e
   DACircularProgress: 4dd437c0fc3da5161cb289e07ac449493d41db71
   DateTools: 53288ee8b905fdc75897a1e6b5cc0144b14cba60
   DZNEmptyDataSet: dd7cca17c1d07dfa78956859b1e70a52505678ef
   EAIntroView: 76f68cc56242f2e25359419e6ecc2344ee7e1756
   EARestrictedScrollView: b0c2a3f92fb2610bb44d71c5e4893777c89e45ef
-  Fabric: caf7580c725e64db144f610ac65cd60956911dc7
+  Fabric: 5755268d0171435ab167e3d0878a28a777deaf10
   FrameAccessor: 443a13e58e23a10ff22180da0897b28c3f6abf66
   GoogleMaps: f09da64fc987c1aa29394567c3cab5a3df83c402
-  HMSegmentedControl: 83b9686022d2176fb6457d2bdb61e5d6393fed7d
+  HMSegmentedControl: 7c6145afb50f26cec5f3243082f6f12b9f41318f
   HTHorizontalSelectionList: f7db90d6e14849eed337236dc30ad82ee883eadf
   INTULocationManager: 73f8254b3d05c897c56bb13c190e5b7c648c0998
   IQKeyboardManager: 0c11a0cb402a621f7aa1aff506f60ab6d2388969
@@ -154,6 +154,6 @@ SPEC CHECKSUMS:
   UIAlertView+Blocks: a46c99c5144f6c5dbc7d62fd2a0678daceec89a3
   UIScrollView-InfiniteScroll: 14e204c50ca4040467e1cbfa141dad7a18919b56
 
-PODFILE CHECKSUM: 5476e237a5eb8266683b3c8f4380f9446e35b5f1
+PODFILE CHECKSUM: ebd9e67eeffe8fc94ef86b688f9863e5bb818173
 
 COCOAPODS: 1.0.1
