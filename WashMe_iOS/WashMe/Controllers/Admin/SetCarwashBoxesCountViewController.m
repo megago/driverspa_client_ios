@@ -8,11 +8,16 @@
 
 #import "SetCarwashBoxesCountViewController.h"
 #import "UIViewController+Ext.h"
+#import "UIViewController+NavigationBar.h"
 
-#import "SimpleCheckboxCell.h"
+#import "CarwashComplex.h"
+#import "BoxSetting.h"
+#import "BoxAdminCell.h"
 #import "CreateCarwashDraft.h"
 
-@interface SetCarwashBoxesCountViewController ()
+@interface SetCarwashBoxesCountViewController () {
+    CarwashComplex *carwash;
+}
 @end
 
 @implementation SetCarwashBoxesCountViewController {
@@ -20,71 +25,46 @@
     NSInteger selectedRow;
 }
 
--(id)init {
-    self = [super init];
-    if(self) {
-        [self initVars];
-    }
-    return self;
-}
-
--(void)initVars {
-    selectedRow = [[CreateCarwashDraft sharedInstance] boxesCount] - 1;
-    if(selectedRow < 0) selectedRow = 2;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    carwash = [CarwashComplex cashedCarwash];
+    
     [self configUI];
-    [self configAction];
+}
+
+- (void)tapAddBox {
+    
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [[CreateCarwashDraft sharedInstance] setBoxesCount:(selectedRow + 1)];
 }
 
-- (void)configAction
-{
-
-}
-
 #pragma mark -
 #pragma mark UITableView
 
--(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
-}
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;
+    return carwash.boxSettings.count;
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    BoxSetting *box = carwash.boxSettings[(NSUInteger) indexPath.row];
+    return [BoxAdminCell cellHeight:box];
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"cell";
-    SimpleCheckboxCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    BoxAdminCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[SimpleCheckboxCell alloc] initWithReuseIdentifier:CellIdentifier];
+        cell = [[BoxAdminCell alloc] initWithReuseIdentifier:CellIdentifier];
     }
 
-    [cell setTitle:[NSString stringWithFormat:@"  %li", (indexPath.row + 1)]];
-    cell.isChecked = indexPath.row == selectedRow;
-
+    BoxSetting *box = carwash.boxSettings[indexPath.row];
+    [cell setBoxSetting:box];
     return cell;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-
-    if(indexPath.row == selectedRow) return;
-
-    SimpleCheckboxCell *cell = (SimpleCheckboxCell *) [tableView cellForRowAtIndexPath:indexPath];
-    cell.isChecked = !cell.isChecked;
-
-    if(selectedRow >= 0) {
-        SimpleCheckboxCell *previousCheckedCell = (SimpleCheckboxCell *) [tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:selectedRow inSection:0]];
-        previousCheckedCell.isChecked = NO;
-    }
-
-    selectedRow = indexPath.row;
 }
 
 #pragma mark -
@@ -94,6 +74,7 @@
     [self setBlueBackground];
     [self setBackButtonInNavigation];
     [self setNavigationTitle:@"Количество боксов"];
+    [self setNavigationButtonWithIcon:@"iconCirclePlus" atLeft:NO selector:@selector(tapMap)];
 
     list = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, [ASize screenWidth], [ASize screenHeightWithoutStatusBarAndNavigationBar]) style:UITableViewStylePlain];
     list.delegate = self;

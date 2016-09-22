@@ -129,6 +129,7 @@
 		A31844CE1D6231C8002A258B /* star-new-empty@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A31844CA1D6231C8002A258B /* star-new-empty@2x.png */; };
 		A31844CF1D6231C8002A258B /* star-new-rated.png in Resources */ = {isa = PBXBuildFile; fileRef = A31844CB1D6231C8002A258B /* star-new-rated.png */; };
 		A31844D01D6231C8002A258B /* star-new-rated@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A31844CC1D6231C8002A258B /* star-new-rated@2x.png */; };
+		A3290C5E1D9450A3007E74F3 /* BoxAdminCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A3290C5D1D9450A3007E74F3 /* BoxAdminCell.m */; };
 		A32D1A1E1D46764800A577F9 /* AboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A32D1A1D1D46764800A577F9 /* AboutUsViewController.m */; };
 		A341BB401D44A8B4005E27DD /* AdminMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A341BB3F1D44A8B4005E27DD /* AdminMain.storyboard */; };
 		A341BB431D44B6CE005E27DD /* AdminTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = A341BB421D44B6CE005E27DD /* AdminTabBarController.m */; };
@@ -637,6 +638,8 @@
 		A31844CA1D6231C8002A258B /* star-new-empty@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star-new-empty@2x.png"; sourceTree = "<group>"; };
 		A31844CB1D6231C8002A258B /* star-new-rated.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star-new-rated.png"; sourceTree = "<group>"; };
 		A31844CC1D6231C8002A258B /* star-new-rated@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star-new-rated@2x.png"; sourceTree = "<group>"; };
+		A3290C5C1D9450A3007E74F3 /* BoxAdminCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoxAdminCell.h; sourceTree = "<group>"; };
+		A3290C5D1D9450A3007E74F3 /* BoxAdminCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoxAdminCell.m; sourceTree = "<group>"; };
 		A32D1A1C1D46764800A577F9 /* AboutUsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutUsViewController.h; sourceTree = "<group>"; };
 		A32D1A1D1D46764800A577F9 /* AboutUsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutUsViewController.m; sourceTree = "<group>"; };
 		A341BB3F1D44A8B4005E27DD /* AdminMain.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AdminMain.storyboard; sourceTree = "<group>"; };
@@ -1090,6 +1093,8 @@
 				A3EB6D5E1D565497004E8CB5 /* BookCell.m */,
 				A36A21991D69B4CC001F73EE /* BookAdminCell.h */,
 				A36A219A1D69B4CC001F73EE /* BookAdminCell.m */,
+				A3290C5C1D9450A3007E74F3 /* BoxAdminCell.h */,
+				A3290C5D1D9450A3007E74F3 /* BoxAdminCell.m */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -2234,6 +2239,7 @@
 				A3EB6D701D575C1F004E8CB5 /* ServiceCollectionCell.m in Sources */,
 				5200BC8A0A135D5B4595FBA1 /* UILabel+Components.m in Sources */,
 				A3EB6D6A1D5753A0004E8CB5 /* CarwashServiceCollectionView.m in Sources */,
+				A3290C5E1D9450A3007E74F3 /* BoxAdminCell.m in Sources */,
 				5200B2679C87A034A2C0DCA6 /* TimeIntervalPickerView.m in Sources */,
 				A3981D121D4D2DB100E0689B /* UserObject.m in Sources */,
 				5200BDD58B7160B989921F79 /* AdminApi.m in Sources */,
