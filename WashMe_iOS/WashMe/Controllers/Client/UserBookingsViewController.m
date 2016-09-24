@@ -21,10 +21,12 @@
 #import <SVProgressHUD/SVProgressHUD.h>
 
 @interface UserBookingsViewController ()
-@property(nonatomic, strong) LGRefreshView *refreshView;
 @end
 
 @implementation UserBookingsViewController {
+    LGRefreshView *refreshView;
+
+
     NSMutableArray  *bookings;
     UITableView *list;
     int badgeCount;
@@ -69,7 +71,7 @@
         //[SVProgressHUD dismiss];
         [self reloadList];
         [self updateBadge];
-        [self.refreshView endRefreshing];
+        [refreshView endRefreshing];
     } failure:^(NSInteger code, NSString *message) {
 
     }];
@@ -181,13 +183,13 @@
     [self.view addSubview:list];
     
     __weak typeof(self) wself = self;
-    _refreshView = [LGRefreshView refreshViewWithScrollView:list
+    refreshView = [LGRefreshView refreshViewWithScrollView:list
                                              refreshHandler:^(LGRefreshView *refreshView)
                     {
                         [wself loadBookingsWithLoader:NO];
                     }];
-    _refreshView.tintColor = [UIColor whiteColor];
-    _refreshView.backgroundColor = [UIColor clearColor];
+    refreshView.tintColor = [UIColor whiteColor];
+    refreshView.backgroundColor = [UIColor clearColor];
 }
 
 - (void)didReceiveMemoryWarning {

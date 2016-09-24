@@ -22,7 +22,7 @@
         self.accessoryView = [[UIImageView alloc] initWithImage:[UIImage imageWithName:@"icon-checkmark"]];
     } else {
 //        self.accessoryType = UITableViewCellAccessoryNone;
-        self.accessoryView = [[UIView alloc] init];
+        self.accessoryView = [[UIImageView alloc] initWithImage:[UIImage imageWithName:@"icon-checkmark-off"]];
     }
 }
 

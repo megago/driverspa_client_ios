@@ -14,6 +14,7 @@
 #import "BoxSetting.h"
 #import "BoxAdminCell.h"
 #import "CreateCarwashDraft.h"
+#import "AddBoxViewController.h"
 
 @interface SetCarwashBoxesCountViewController () {
     CarwashComplex *carwash;
@@ -34,7 +35,8 @@
 }
 
 - (void)tapAddBox {
-    
+    AddBoxViewController *v = [[AddBoxViewController alloc] init];
+    [self.navigationController pushViewController:v animated:YES];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -74,7 +76,7 @@
     [self setBlueBackground];
     [self setBackButtonInNavigation];
     [self setNavigationTitle:@"Количество боксов"];
-    [self setNavigationButtonWithIcon:@"iconCirclePlus" atLeft:NO selector:@selector(tapMap)];
+    [self setNavigationButtonWithIcon:@"iconCirclePlus" atLeft:NO selector:@selector(tapAddBox)];
 
     list = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, [ASize screenWidth], [ASize screenHeightWithoutStatusBarAndNavigationBar]) style:UITableViewStylePlain];
     list.delegate = self;

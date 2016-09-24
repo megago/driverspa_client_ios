@@ -18,7 +18,7 @@
 #import "UIViewController+NavigationBar.h"
 #import <HTHorizontalSelectionList/HTHorizontalSelectionList.h>
 #import "UIFont+Custom.h"
-
+#import "LGRefreshView.h"
 #import "CarwashComplex.h"
 #import "User.h"
 
@@ -26,6 +26,7 @@
 @end
 
 @implementation AdminOrdersViewController {
+    LGRefreshView *refreshView;
     HTHorizontalSelectionList *selectionList;
     NSArray *tabsMakes;
 
@@ -58,6 +59,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self setTabBarVisible:YES animated:YES completion:nil];
+    [self loadBooks];
 }
 
 - (void)loadBooks
@@ -67,18 +69,21 @@
     if(currentTableFilter == AdminOrdersTimeDayToday) {
         [AdminApi ordersToday:^(id response) {
             [self onBooksResponse:response];
+            [refreshView endRefreshing];
         } failure:^(NSInteger code, NSString *message) {
 
         }];
     } else  if (currentTableFilter == AdminOrdersInPending){
         [AdminApi ordersPending:^(id response) {
             [self onBooksResponse:response];
+            [refreshView endRefreshing];
         } failure:^(NSInteger code, NSString *message) {
 
         }];
     } else if (currentTableFilter == AdminOrdersAll) {
         [AdminApi ordersAll:^(id response) {
             [self onBooksResponse:response];
+            [refreshView endRefreshing];
         } failure:^(NSInteger code, NSString *message) {
             
         }];
@@ -187,6 +192,15 @@
     list.separatorColor = [UIColor clearColor];
     list.hidden = YES;
     [self.view addSubview:list];
+    
+    __weak typeof(self) wself = self;
+    refreshView = [LGRefreshView refreshViewWithScrollView:list
+                                             refreshHandler:^(LGRefreshView *refreshView)
+                    {
+                        [wself loadBooks];
+                    }];
+    refreshView.tintColor = [UIColor whiteColor];
+    refreshView.backgroundColor = [UIColor clearColor];
 }
 
 - (void)didReceiveMemoryWarning {

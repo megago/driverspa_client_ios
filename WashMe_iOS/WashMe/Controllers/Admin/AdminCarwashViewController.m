@@ -391,6 +391,7 @@
         publishCarwashButton = [[RowButtonDropdownView alloc] initWithWidth:kContentWidth icon:nil title:@"" target:self selector:@selector(publishCarwashTapped)];
         publishCarwashButton.y = photosViewerView.bottom + 20;
         [publishCarwashButton removeTopLine];
+        publishCarwashButton.userInteractionEnabled = NO;
         [sv addSubview:publishCarwashButton];
         
         [self updateCarwashStatus];

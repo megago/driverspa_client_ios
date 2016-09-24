@@ -110,11 +110,11 @@
     daysAgoLabel.y = timeLabel.bottom;
     daysAgoLabel.height = boxLabel.height + statusLabel.height;
     
-    //    if (book.isApproved || book.isPending) {
-    //        self.backgroundColor = [UIColor colorWithWhite:0.f alpha:0.5f];
-    //    } else {
-    //        self.backgroundColor = [UIColor clearColor];
-    //    }
+    if (book.isApproved || book.isPending) {
+        self.backgroundColor = [UIColor colorWithWhite:0.f alpha:0.5f];
+    } else {
+        self.backgroundColor = [UIColor clearColor];
+    }
 }
 
 + (CGFloat)cellHeight: (CarwashBook *)book {

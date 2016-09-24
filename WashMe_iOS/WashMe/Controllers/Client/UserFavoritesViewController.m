@@ -23,10 +23,11 @@
 
 @interface UserFavoritesViewController ()
 @property(nonatomic, strong) NSArray *carwashes;
-@property(nonatomic, strong) LGRefreshView *refreshView;
 @end
 
-@implementation UserFavoritesViewController
+@implementation UserFavoritesViewController {
+    LGRefreshView *refreshView;
+}
 
 -(void)initVars {}
 
@@ -49,7 +50,7 @@
     [UserApi bookmarks:^(id response) {
         //[SVProgressHUD dismiss];
         [self onCarwashesResponse:response];
-        [self.refreshView endRefreshing];
+        [refreshView endRefreshing];
     } failure:^(NSInteger code, NSString *message) {
         
     }];
@@ -190,13 +191,13 @@
     [_list autoPinToBottomLayoutGuideOfViewController:self withInset:0];
     
     __weak typeof(self) wself = self;
-    _refreshView = [LGRefreshView refreshViewWithScrollView:_list
+    refreshView = [LGRefreshView refreshViewWithScrollView:_list
                                              refreshHandler:^(LGRefreshView *refreshView)
                     {
                         [wself refreshCarwashesWithLoader:NO];
                     }];
-    _refreshView.tintColor = [UIColor whiteColor];
-    _refreshView.backgroundColor = [UIColor clearColor];
+    refreshView.tintColor = [UIColor whiteColor];
+    refreshView.backgroundColor = [UIColor clearColor];
 }
 
 - (void)didReceiveMemoryWarning {

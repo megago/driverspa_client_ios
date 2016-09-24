@@ -29,7 +29,7 @@
 #import "CenterTitle.h"
 #import "CarwashApi.h"
 
-@interface AdminBookSetCarViewController () <CarTypesTabbarViewDelegate, CarwashServiceCollectionDelegate>
+@interface AdminBookSetCarViewController () <CarTypesTabbarViewDelegate, CarwashServiceCollectionDelegate, UITextFieldDelegate>
 @property (nonatomic, strong) NSMutableArray *cars;
 @property (nonatomic, strong) NSMutableArray *checkedServices;
 @end
@@ -242,6 +242,7 @@
     [sv addSubview:fioField];
 
     telField = [[InputTextField alloc] initWithWidth:kContentWidth height:h];
+    telField.textField.delegate = self;
     telField.userInteractionEnabled = YES;
     telField.centerX = sv.centerX;
     telField.y = fioField.bottom;
@@ -289,12 +290,100 @@
     [sv addSubview:continueButton];
 
     [self setScrollContentHeight:carwashServiceCollectionView.bottom];
-    //[self addKeyboardControlFields:@[fioField.textField, telField.textField, carNumberField.textField, carBrandField.textField]];
     [self addKeyboardControlFields:@[fioField.textField, telField.textField, carNumberField.textField]];
 }
 
 -(void)dealloc {
 
+}
+
+#pragma mark - UITextFieldDelegate
+
+-(NSString*) formatPhoneString:(NSString*) preFormatted
+{    //delegate only allows numbers to be entered, so '-' is the only non-legal char.
+    NSString* workingString = [preFormatted stringByReplacingOccurrencesOfString:@"(" withString:@""];
+    workingString = [workingString stringByReplacingOccurrencesOfString:@")" withString:@""];
+    workingString = [workingString stringByReplacingOccurrencesOfString:@"-" withString:@""];
+    workingString = [workingString stringByReplacingOccurrencesOfString:@" " withString:@""];
+    workingString = [workingString stringByReplacingOccurrencesOfString:@"+7" withString:@""];
+    
+    //insert '('
+    if(workingString.length > 1 && [preFormatted length] > 0)
+    {
+        workingString = [workingString stringByReplacingCharactersInRange:NSMakeRange(0, 0) withString:@"("];
+    }
+    
+    //insert ')'
+    if(workingString.length > 4 && [preFormatted length] > 0)
+    {
+        workingString = [workingString stringByReplacingCharactersInRange:NSMakeRange(4, 0) withString:@")"];
+    }
+    
+    //insert ' '
+    if(workingString.length > 5 && [preFormatted length] > 0)
+    {
+        workingString = [workingString stringByReplacingCharactersInRange:NSMakeRange(5, 0) withString:@" "];
+    }
+    
+    //insert first '-'
+    if(workingString.length > 9 && [preFormatted length] > 0)
+    {
+        workingString = [workingString stringByReplacingCharactersInRange:NSMakeRange(9, 0) withString:@"-"];
+    }
+    
+    //insert second '-'
+    if(workingString.length > 12 && [preFormatted length] > 0)
+    {
+        workingString = [workingString stringByReplacingCharactersInRange:NSMakeRange(12, 0) withString:@"-"];
+    }
+    
+    workingString =[NSString stringWithFormat:@"+7 %@", workingString];
+    return workingString;
+    
+}
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    
+    if (textField == carNumberField.textField){
+        NSRange lowercaseCharRange = [string rangeOfCharacterFromSet:[NSCharacterSet lowercaseLetterCharacterSet]];
+        
+        if (lowercaseCharRange.location != NSNotFound) {
+            textField.text = [textField.text stringByReplacingCharactersInRange:range
+                                                                     withString:[string uppercaseString]];
+            return NO;
+        }
+        return YES;
+    }
+    
+    if (textField == telField.textField) {
+        //calculate new length
+        NSInteger moddedLength = textField.text.length-(range.length-string.length);
+        
+        // max size.
+        if (moddedLength > 18) {
+            return NO;
+        }
+        
+        // Reject non-number characters
+        if (range.length == 0 &&![[NSCharacterSet decimalDigitCharacterSet] characterIsMember:[string characterAtIndex:0]]) {
+            return NO;
+        }
+        
+        textField.text = [self formatPhoneString:[textField.text stringByReplacingCharactersInRange:range withString:string]];
+        return NO;
+    }
+    
+    return YES;
+}
+
+
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
+{
+    if (textField == telField.textField){
+        if (telField.textField.text.length == 0) {
+            telField.textField.text = @"+7";
+        }
+    }
+    return YES;
 }
 
 @end

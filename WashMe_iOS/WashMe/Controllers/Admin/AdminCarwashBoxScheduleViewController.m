@@ -56,6 +56,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self setTabBarVisible:YES animated:YES completion:nil];
+    [self loadCarwashTimetable];
 }
 
 - (void)loadCarwashTimetable
@@ -129,21 +130,21 @@
     {
         boxesGridView.bookDate = [NSDate dateTomorrow];
     }
-
     
-    __weak AdminCarwashBoxScheduleViewController *wSelf = self;
-    bookButton = [[AAButton alloc] initWithWidth:200 onTap:^(UIView *_self) {
-        [wSelf bookButtonTapped];
-    }];
-    [bookButton commonStyleButtonWithTitle:@"БРОНИРОВАТЬ"];
-    
-    [bookButton setTitleFont:[UIFont robotoRegular:18]];
-    bookButton.centerX = self.view.centerX;
-    bookButton.y = boxesGridView.bottom + 10;
-    bookButton.height = 40;
-    [sv addSubview:bookButton];
-
-    [sv setContentSizeHeight:bookButton.bottom + 20];
+//    __weak AdminCarwashBoxScheduleViewController *wSelf = self;
+//    bookButton = [[AAButton alloc] initWithWidth:200 onTap:^(UIView *_self) {
+//        [wSelf bookButtonTapped];
+//    }];
+//    [bookButton commonStyleButtonWithTitle:@"БРОНИРОВАТЬ"];
+//    
+//    [bookButton setTitleFont:[UIFont robotoRegular:18]];
+//    bookButton.centerX = self.view.centerX;
+//    bookButton.y = boxesGridView.bottom + 10;
+//    bookButton.height = 40;
+//    [sv addSubview:bookButton];
+//
+//    [sv setContentSizeHeight:bookButton.bottom + 20];
+    [sv setContentSizeHeight:boxesGridView.bottom + 20];
 }
 
 #pragma mark -
@@ -203,6 +204,18 @@
 {
     _bookObject.bookDate = gridView.bookDate;
     _bookObject.bookTime = [gridView bookTime];
+    
+    __weak AdminCarwashBoxScheduleViewController * weakSelf = self;
+    [self setTabBarVisible:NO animated:YES completion:^(BOOL finished) {
+        if([weakSelf validatePrepareBookAction])
+        {
+            AdminBookSetCarViewController *v = [[AdminBookSetCarViewController alloc] init];
+            v.carwash = weakSelf.currentCarwash;
+            v.bookObject = weakSelf.bookObject;
+            v.boxSetting = weakSelf.currentBox;
+            [weakSelf.navigationController pushViewController:v animated:YES];
+        }
+    }];
 }
 
 #pragma mark -

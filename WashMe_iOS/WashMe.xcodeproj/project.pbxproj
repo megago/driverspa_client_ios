@@ -224,6 +224,9 @@
 		A3C9B0FA1D60723B00979950 /* ic_about_us@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A3C9B0F61D60723B00979950 /* ic_about_us@2x.png */; };
 		A3C9B0FB1D60723B00979950 /* ic_logout.png in Resources */ = {isa = PBXBuildFile; fileRef = A3C9B0F71D60723B00979950 /* ic_logout.png */; };
 		A3C9B0FC1D60723B00979950 /* ic_logout@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A3C9B0F81D60723B00979950 /* ic_logout@2x.png */; };
+		A3E9E9C41D959E270029555F /* AddBoxViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3E9E9C31D959E270029555F /* AddBoxViewController.m */; };
+		A3E9E9C71D96EBD10029555F /* icon-checkmark-off.png in Resources */ = {isa = PBXBuildFile; fileRef = A3E9E9C51D96EBD10029555F /* icon-checkmark-off.png */; };
+		A3E9E9C81D96EBD10029555F /* icon-checkmark-off@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A3E9E9C61D96EBD10029555F /* icon-checkmark-off@2x.png */; };
 		A3EB6D5B1D561011004E8CB5 /* AdminDummyViewControlller.m in Sources */ = {isa = PBXBuildFile; fileRef = A3EB6D5A1D561011004E8CB5 /* AdminDummyViewControlller.m */; };
 		A3EB6D5F1D565497004E8CB5 /* BookCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A3EB6D5E1D565497004E8CB5 /* BookCell.m */; };
 		A3EB6D641D57383F004E8CB5 /* BookSetCarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3EB6D631D57383F004E8CB5 /* BookSetCarViewController.m */; };
@@ -801,6 +804,10 @@
 		A3C9B0F61D60723B00979950 /* ic_about_us@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_about_us@2x.png"; sourceTree = "<group>"; };
 		A3C9B0F71D60723B00979950 /* ic_logout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_logout.png; sourceTree = "<group>"; };
 		A3C9B0F81D60723B00979950 /* ic_logout@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_logout@2x.png"; sourceTree = "<group>"; };
+		A3E9E9C21D959E270029555F /* AddBoxViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddBoxViewController.h; sourceTree = "<group>"; };
+		A3E9E9C31D959E270029555F /* AddBoxViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddBoxViewController.m; sourceTree = "<group>"; };
+		A3E9E9C51D96EBD10029555F /* icon-checkmark-off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-checkmark-off.png"; sourceTree = "<group>"; };
+		A3E9E9C61D96EBD10029555F /* icon-checkmark-off@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-checkmark-off@2x.png"; sourceTree = "<group>"; };
 		A3EB6D591D561011004E8CB5 /* AdminDummyViewControlller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdminDummyViewControlller.h; sourceTree = "<group>"; };
 		A3EB6D5A1D561011004E8CB5 /* AdminDummyViewControlller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdminDummyViewControlller.m; sourceTree = "<group>"; };
 		A3EB6D5D1D565497004E8CB5 /* BookCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookCell.h; sourceTree = "<group>"; };
@@ -1200,8 +1207,8 @@
 				A3BCA35A1D3D252C00FEE6B6 /* AdminCarwashesFeedbacksViewController.m */,
 				A3BCA35B1D3D252C00FEE6B6 /* AdminCarwashesViewController.h */,
 				A3BCA35C1D3D252C00FEE6B6 /* AdminCarwashesViewController.m */,
-				A3BCA35E1D3D252C00FEE6B6 /* AdminCarwashViewController.m */,
 				A3BCA35D1D3D252C00FEE6B6 /* AdminCarwashViewController.h */,
+				A3BCA35E1D3D252C00FEE6B6 /* AdminCarwashViewController.m */,
 				A3BCA3611D3D252C00FEE6B6 /* AdminOrdersViewController.h */,
 				A3BCA3621D3D252C00FEE6B6 /* AdminOrdersViewController.m */,
 				A3BCA3631D3D252C00FEE6B6 /* AdminSettingsViewController.h */,
@@ -1232,6 +1239,8 @@
 				A341BB421D44B6CE005E27DD /* AdminTabBarController.m */,
 				A341BB471D44C8CC005E27DD /* AdminMenuViewController.h */,
 				A341BB481D44C8CC005E27DD /* AdminMenuViewController.m */,
+				A3E9E9C21D959E270029555F /* AddBoxViewController.h */,
+				A3E9E9C31D959E270029555F /* AddBoxViewController.m */,
 			);
 			path = Admin;
 			sourceTree = "<group>";
@@ -1619,6 +1628,8 @@
 				CE755B931A192F5E00A036DC /* icon-cafe@2x.png */,
 				CE755B941A192F5E00A036DC /* icon-car.png */,
 				CE755B951A192F5E00A036DC /* icon-car@2x.png */,
+				A3E9E9C51D96EBD10029555F /* icon-checkmark-off.png */,
+				A3E9E9C61D96EBD10029555F /* icon-checkmark-off@2x.png */,
 				CE755B961A192F5E00A036DC /* icon-checkmark.png */,
 				CE755B971A192F5E00A036DC /* icon-checkmark@2x.png */,
 				CE755B981A192F5E00A036DC /* icon-close-filled.png */,
@@ -1907,6 +1918,7 @@
 				A31844D01D6231C8002A258B /* star-new-rated@2x.png in Resources */,
 				A36A219F1D69BD24001F73EE /* washme-logo@2x.png in Resources */,
 				CE755C391A192F5E00A036DC /* icon-orders.png in Resources */,
+				A3E9E9C71D96EBD10029555F /* icon-checkmark-off.png in Resources */,
 				CE755C3D1A192F5E00A036DC /* icon-rating-star.png in Resources */,
 				CEB52E921A2054A7005A2DC1 /* icon-close-light.png in Resources */,
 				CE755BEE1A192F5E00A036DC /* btn_cartype2_normal@2x.png in Resources */,
@@ -1953,6 +1965,7 @@
 				CEDCFE0B19C74B6C00720AB5 /* RobotoCondensed-Light.ttf in Resources */,
 				CE755BE91A192F5E00A036DC /* btn_cartype1_normal.png in Resources */,
 				CE3753901A583FE300394BFE /* carwash-status-published.png in Resources */,
+				A3E9E9C81D96EBD10029555F /* icon-checkmark-off@2x.png in Resources */,
 				A3C9B0FA1D60723B00979950 /* ic_about_us@2x.png in Resources */,
 				CE755C5B1A192F5E00A036DC /* icon-wifi@2x.png in Resources */,
 				A3981CD41D4D20E700E0689B /* carwash-annotation-online.png in Resources */,
@@ -2316,6 +2329,7 @@
 				5200BBEF8CF74B46883A8428 /* CarwashMarkerInfoWindowView.m in Sources */,
 				A3BCA3AB1D3D252D00FEE6B6 /* AdminSettingsViewController.m in Sources */,
 				A3BCA3AF1D3D252D00FEE6B6 /* SetCarwashAddressViewController.m in Sources */,
+				A3E9E9C41D959E270029555F /* AddBoxViewController.m in Sources */,
 				5200BCCA785205BE09595DEF /* DoubleCell.m in Sources */,
 				5200B6A9512A3EFD223B3CFB /* IconTitleHorizontalView.m in Sources */,
 				5200BDCBE7B02E3402D75E69 /* UIView+Loader.m in Sources */,
