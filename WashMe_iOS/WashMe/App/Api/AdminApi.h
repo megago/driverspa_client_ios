@@ -21,8 +21,14 @@
 
 + (void)createCarwash:(NSDictionary *)params success:(success)success failure:(failure)failure;
 + (void)updateCarwash:(NSString *)carwashId params:(NSDictionary *)params success:(success)success failure:(failure)failure;
-
 + (void)getCarwashDetails:(NSString *)carwashID success:(success)success failure:(failure)failure;
+
+// Boxes
++ (void)getCarwashBoxes:(NSString *)carwashID success:(success)success failure:(failure)failure;
++ (void)getCarwashBoxDetail:(NSString *)carwashID box:(NSString *)boxID success:(success)success failure:(failure)failure;
++ (void)updateCarwashBox:(NSString *)carwashID box:(NSString *)boxID params:(NSDictionary *)params success:(success)success failure:(failure)failure;
++ (void)createCarwashBox:(NSString *)carwashID params:(NSDictionary *)params success:(success)success failure:(failure)failure;
++ (void)deleteCarwashBox:(NSString *)carwashID box:(NSString *)boxID success:(success)success failure:(failure)failure;
 
 // Bookings
 + (void)rejectBook:(NSString *)bookId success:(success)success failure:(failure)failure;

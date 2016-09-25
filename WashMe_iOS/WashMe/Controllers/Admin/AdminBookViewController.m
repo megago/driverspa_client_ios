@@ -260,14 +260,20 @@
     }
 }
 
-#pragma mark -
+#pragma mark - Timer helpers
 
 - (void)updateBookStatusView {
-    if(statusView) {
-        [statusView setText:[_book localizedStatus]];
-        [statusView setBadgeBackgroundColor:[UIColor carwashBookStatusColor:_book.status]];
-        statusView.centerX = sv.middleX;
+    
+    for (UIView *view in sv.subviews){
+        [view removeFromSuperview];
     }
+    [self buildUI];
+    
+//    if(statusView) {
+//        [statusView setText:[_book localizedStatus]];
+//        [statusView setBadgeBackgroundColor:[UIColor carwashBookStatusColor:_book.status]];
+//        statusView.centerX = sv.middleX;
+//    }
 }
 
 - (NSString *)stringFromTimeInterval:(NSTimeInterval)interval {
@@ -299,6 +305,7 @@
     timer = nil;
 }
 
+#pragma mark - ConfigUI
 
 - (void)buildUI
 {
@@ -461,61 +468,6 @@
     if ([_book isPending]){
         [self startTimer];
     }
-    
-//    UILabel *subtitle = [sv setNavigationSubtitle:[self.book localizedPrettyDate]];
-//    subtitle.y = 10;
-
-//    // Status
-//    statusView = [[M13BadgeView alloc] initWithFrame:CGRectZero];
-//    statusView.font = [UIFont robotoBold:13];
-//    statusView.textColor = [UIColor whiteColor];
-//    statusView.horizontalAlignment = M13BadgeViewHorizontalAlignmentNone;
-//    statusView.verticalAlignment = M13BadgeViewVerticalAlignmentNone;
-//    statusView.cornerRadius = 5;
-//    [self updateBookStatusView];
-//    statusView.y = subtitle.bottom + 10;
-//    [sv addSubview:statusView];
-//
-//    // Infos
-//    CGFloat rowWidth = [ASize screenWidth] - 50;
-//
-//    NSMutableArray * rows = [NSMutableArray array];
-//    [rows addObject:@{@"title":@"Гос.номер", @"value":_book.clientKey}];
-//    [rows addObject:@{@"title":@"Клиент", @"value":[userObject fio]}];
-//    [rows addObject:@{@"title":@"Телефон", @"value":userObject.username}];
-//    [rows addObject:@{@"title":@"Марка авто", @"value":userObject.carModel}];
-//    [rows addObject:@{@"title":@"Тип авто", @"value":[_book carTypeTitle]}];
-//    [rows addObject:@{@"title":@"Услуги", @"value":[_book servicesTitles]}];
-//    [rows addObject:@{@"title":@"Стоимость", @"value":[_book localizedPrice]}];
-//
-//    CGFloat nexty = statusView.bottom;
-//    for(NSDictionary *row in rows) {
-//        TitleValueView *rowView = [[TitleValueView alloc] initWithTitle:[NSString stringWithFormat:@"%@:", row[@"title"]] value:row[@"value"] width:rowWidth];
-//        rowView.centerX = sv.centerX;
-//        rowView.y = nexty + 20;
-//        [sv addSubview:rowView];
-//        nexty = rowView.bottom;
-//    }
-//
-//    if(![_book isRejected] && ![_book isFinished] && ![_book isNoCome])
-//    {
-//        __weak AdminBookViewController *wSelf = self;
-//        editButton = [[AAButton alloc] initWithWidth:140 onTap:^(UIView *_self) {
-//            [wSelf editTapped];
-//        }];
-//        [editButton commonStyleButtonWithTitle:@"Изменить"];
-//        [editButton setTitleFont:[UIFont robotoRegular:18]];
-//        editButton.centerX = self.view.centerX;
-//        editButton.y = nexty + 30;
-//        editButton.height = 40;
-//        [sv addSubview:editButton];
-//
-//        [sv setContentSizeHeight:editButton.bottom + 20];
-//    }
-//    else
-//    {
-//        [sv setContentSizeHeight:nexty + 20];
-//    }
 }
 
 - (void)buildInfoBlockAfter : (CGFloat)after rowWidth:(CGFloat)rowWidth rowsSpacing:(CGFloat)rowsSpacing {

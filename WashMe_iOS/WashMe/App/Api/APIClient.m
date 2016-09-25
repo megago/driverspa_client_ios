@@ -196,7 +196,7 @@ const NSString *kDATA = @"data";
     } else {
         [sharedManager.requestSerializer setValue:kContentTypeApplicationJson forHTTPHeaderField:@"Content-Type"];
     }
-
+    
     if(body) {
         NSLog(@"Request BODY:%@", body);
     }

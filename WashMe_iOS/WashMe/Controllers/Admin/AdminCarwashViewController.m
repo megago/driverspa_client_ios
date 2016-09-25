@@ -272,6 +272,7 @@
             [CarwashComplex setAuthorizedCarwashData:response withMobile:[User currentUser].mobile];
             [self.delegate adminCarwashViewControllerCarwashUpdated:response];
             [self.navigationController popViewControllerAnimated:YES];
+            [Toast showSuccessToastWithMessage:@"Сохранено"];
         } failure:^(NSInteger code, NSString *message) {
 
         }];

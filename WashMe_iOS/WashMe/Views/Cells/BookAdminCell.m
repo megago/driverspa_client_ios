@@ -18,6 +18,10 @@
     UILabel *statusLabel;
     UILabel *timeLabel;
     UILabel *daysAgoLabel;
+    UILabel *timerLabel;
+    
+    NSTimer *timer;
+    NSDate *waitingDate;
 }
 
 @end
@@ -72,6 +76,14 @@
         boxLabel.x = 2 * kPaddingTitleLeft + kBookTimeWidth;
         [self addSubview:boxLabel];
         
+        timerLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+        timerLabel.backgroundColor = [UIColor clearColor];
+        timerLabel.font = [UIFont robotoRegular:20];
+        timerLabel.textColor = [UIColor whiteColor];
+        timerLabel.lineBreakMode = NSLineBreakByWordWrapping;
+        timerLabel.numberOfLines = 1;
+        [self addSubview:timerLabel];
+        
         statusLabel = [[UILabel alloc] initWithFrame:CGRectZero];
         statusLabel.backgroundColor = [UIColor clearColor];
         statusLabel.font = kTitleFont;
@@ -96,6 +108,13 @@
     boxLabel.y = titleLabel.bottom;
     [boxLabel sizeToFit];
     
+    waitingDate = [[book tsDate] dateByAddingTimeInterval:15*60];
+    NSTimeInterval diff = [[NSDate date] timeIntervalSinceDate:waitingDate];
+    timerLabel.text = [book isPending] ? [self stringFromTimeInterval:diff] : @"";
+    [timerLabel sizeToFit];
+    timerLabel.x = self.width - 90;
+    timerLabel.y = titleLabel.bottom - 5;;
+    
     statusLabel.text = [book localizedStatus];
     statusLabel.y = boxLabel.bottom;
     [statusLabel sizeToFit];
@@ -115,6 +134,10 @@
     } else {
         self.backgroundColor = [UIColor clearColor];
     }
+    
+    if ([book isPending]){
+        [self startTimer];
+    }
 }
 
 + (CGFloat)cellHeight: (CarwashBook *)book {
@@ -125,5 +148,35 @@
     return titleSize.height + clientSize.height + statusSize.height + 2 * kTitlePaddingTop;
 }
 
+#pragma mark -
+
+- (NSString *)stringFromTimeInterval:(NSTimeInterval)interval {
+    NSInteger ti = (NSInteger)interval - 6*60*60;
+    if (ti < 0){
+        NSInteger seconds = abs(ti)  % 60;
+        NSInteger minutes = (abs(ti) / 60) % 60;
+        return [NSString stringWithFormat:@"%02ld:%02ld",(long)minutes, (long)seconds];
+    }
+    [self endTimer];
+    return @"00:00";
+}
+
+- (void)updateValueTimerLabel {
+    NSTimeInterval diff = [[NSDate date] timeIntervalSinceDate:waitingDate];
+    timerLabel.text = [self stringFromTimeInterval:diff];
+}
+
+- (void)startTimer {
+    timer = [NSTimer scheduledTimerWithTimeInterval:1.0
+                                             target:self
+                                           selector:@selector(updateValueTimerLabel)
+                                           userInfo:nil
+                                            repeats:YES];
+}
+
+- (void)endTimer {
+    [timer invalidate];
+    timer = nil;
+}
 
 @end

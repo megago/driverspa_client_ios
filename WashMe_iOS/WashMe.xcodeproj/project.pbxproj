@@ -177,6 +177,7 @@
 		A3981D101D4D2DB100E0689B /* SchedulePeriod.m in Sources */ = {isa = PBXBuildFile; fileRef = A3981CFA1D4D2DB100E0689B /* SchedulePeriod.m */; };
 		A3981D111D4D2DB100E0689B /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = A3981CFC1D4D2DB100E0689B /* User.m */; };
 		A3981D121D4D2DB100E0689B /* UserObject.m in Sources */ = {isa = PBXBuildFile; fileRef = A3981CFE1D4D2DB100E0689B /* UserObject.m */; };
+		A3AAFA0D1D981E9D00DD4A79 /* SetBoxSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3AAFA0C1D981E9D00DD4A79 /* SetBoxSettingViewController.m */; };
 		A3BCA3A21D3D252D00FEE6B6 /* AdminBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BCA3521D3D252C00FEE6B6 /* AdminBookViewController.m */; };
 		A3BCA3A31D3D252D00FEE6B6 /* AdminBoxViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BCA3541D3D252C00FEE6B6 /* AdminBoxViewController.m */; };
 		A3BCA3A41D3D252D00FEE6B6 /* AdminCarwashBoxesSchedulesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BCA3561D3D252C00FEE6B6 /* AdminCarwashBoxesSchedulesViewController.m */; };
@@ -224,7 +225,6 @@
 		A3C9B0FA1D60723B00979950 /* ic_about_us@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A3C9B0F61D60723B00979950 /* ic_about_us@2x.png */; };
 		A3C9B0FB1D60723B00979950 /* ic_logout.png in Resources */ = {isa = PBXBuildFile; fileRef = A3C9B0F71D60723B00979950 /* ic_logout.png */; };
 		A3C9B0FC1D60723B00979950 /* ic_logout@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A3C9B0F81D60723B00979950 /* ic_logout@2x.png */; };
-		A3E9E9C41D959E270029555F /* AddBoxViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3E9E9C31D959E270029555F /* AddBoxViewController.m */; };
 		A3E9E9C71D96EBD10029555F /* icon-checkmark-off.png in Resources */ = {isa = PBXBuildFile; fileRef = A3E9E9C51D96EBD10029555F /* icon-checkmark-off.png */; };
 		A3E9E9C81D96EBD10029555F /* icon-checkmark-off@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A3E9E9C61D96EBD10029555F /* icon-checkmark-off@2x.png */; };
 		A3EB6D5B1D561011004E8CB5 /* AdminDummyViewControlller.m in Sources */ = {isa = PBXBuildFile; fileRef = A3EB6D5A1D561011004E8CB5 /* AdminDummyViewControlller.m */; };
@@ -716,6 +716,8 @@
 		A3981CFC1D4D2DB100E0689B /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		A3981CFD1D4D2DB100E0689B /* UserObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserObject.h; sourceTree = "<group>"; };
 		A3981CFE1D4D2DB100E0689B /* UserObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserObject.m; sourceTree = "<group>"; };
+		A3AAFA0B1D981E9D00DD4A79 /* SetBoxSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetBoxSettingViewController.h; sourceTree = "<group>"; };
+		A3AAFA0C1D981E9D00DD4A79 /* SetBoxSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetBoxSettingViewController.m; sourceTree = "<group>"; };
 		A3BCA3511D3D252C00FEE6B6 /* AdminBookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdminBookViewController.h; sourceTree = "<group>"; };
 		A3BCA3521D3D252C00FEE6B6 /* AdminBookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdminBookViewController.m; sourceTree = "<group>"; };
 		A3BCA3531D3D252C00FEE6B6 /* AdminBoxViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdminBoxViewController.h; sourceTree = "<group>"; };
@@ -804,8 +806,6 @@
 		A3C9B0F61D60723B00979950 /* ic_about_us@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_about_us@2x.png"; sourceTree = "<group>"; };
 		A3C9B0F71D60723B00979950 /* ic_logout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_logout.png; sourceTree = "<group>"; };
 		A3C9B0F81D60723B00979950 /* ic_logout@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_logout@2x.png"; sourceTree = "<group>"; };
-		A3E9E9C21D959E270029555F /* AddBoxViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddBoxViewController.h; sourceTree = "<group>"; };
-		A3E9E9C31D959E270029555F /* AddBoxViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddBoxViewController.m; sourceTree = "<group>"; };
 		A3E9E9C51D96EBD10029555F /* icon-checkmark-off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-checkmark-off.png"; sourceTree = "<group>"; };
 		A3E9E9C61D96EBD10029555F /* icon-checkmark-off@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-checkmark-off@2x.png"; sourceTree = "<group>"; };
 		A3EB6D591D561011004E8CB5 /* AdminDummyViewControlller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdminDummyViewControlller.h; sourceTree = "<group>"; };
@@ -1239,8 +1239,8 @@
 				A341BB421D44B6CE005E27DD /* AdminTabBarController.m */,
 				A341BB471D44C8CC005E27DD /* AdminMenuViewController.h */,
 				A341BB481D44C8CC005E27DD /* AdminMenuViewController.m */,
-				A3E9E9C21D959E270029555F /* AddBoxViewController.h */,
-				A3E9E9C31D959E270029555F /* AddBoxViewController.m */,
+				A3AAFA0B1D981E9D00DD4A79 /* SetBoxSettingViewController.h */,
+				A3AAFA0C1D981E9D00DD4A79 /* SetBoxSettingViewController.m */,
 			);
 			path = Admin;
 			sourceTree = "<group>";
@@ -2216,6 +2216,7 @@
 				5200B9CFFB676D4F9422F857 /* RowButtonDisclosureView.m in Sources */,
 				5200BFED80E38BB6F0548E03 /* ButtonView.m in Sources */,
 				A3BCA3C31D3D252D00FEE6B6 /* FreeCarwashesViewController.m in Sources */,
+				A3AAFA0D1D981E9D00DD4A79 /* SetBoxSettingViewController.m in Sources */,
 				5200B78CF6E0B6A49F59F157 /* FeedbackCell.m in Sources */,
 				A3981D031D4D2DB100E0689B /* CarwashBook.m in Sources */,
 				5200B2968F3B6C662011C947 /* TextareaField.m in Sources */,
@@ -2329,7 +2330,6 @@
 				5200BBEF8CF74B46883A8428 /* CarwashMarkerInfoWindowView.m in Sources */,
 				A3BCA3AB1D3D252D00FEE6B6 /* AdminSettingsViewController.m in Sources */,
 				A3BCA3AF1D3D252D00FEE6B6 /* SetCarwashAddressViewController.m in Sources */,
-				A3E9E9C41D959E270029555F /* AddBoxViewController.m in Sources */,
 				5200BCCA785205BE09595DEF /* DoubleCell.m in Sources */,
 				5200B6A9512A3EFD223B3CFB /* IconTitleHorizontalView.m in Sources */,
 				5200BDCBE7B02E3402D75E69 /* UIView+Loader.m in Sources */,

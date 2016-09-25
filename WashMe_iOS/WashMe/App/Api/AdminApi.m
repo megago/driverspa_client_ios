@@ -13,6 +13,7 @@
 #import "NSObject+Json.h"
 #import "CarwashComplex.h"
 #import "CarwashBook.h"
+#import "BoxSetting.h"
 
 @implementation AdminApi
 
@@ -77,6 +78,44 @@
 }
 
 #pragma mark -
+#pragma mark Boxes
+
++ (void)getCarwashBoxes:(NSString *)carwashID success:(success)success failure:(failure)failure
+{
+    [self GET:[NSString stringWithFormat:@"company_carwash/%@/box", carwashID] success:^(id response) {
+        success([self responseToCompanyBoxes:response[@"objects"]]);
+    } failure:failure];
+}
+
++ (void)getCarwashBoxDetail:(NSString *)carwashID box:(NSString *)boxID success:(success)success failure:(failure)failure
+{
+    [self GET:[NSString stringWithFormat:@"company_carwash/%@/box/%@", carwashID, boxID] success:^(id response) {
+        success([BoxSetting instanceFromDictionary:response]);
+    } failure:failure];
+}
+
++ (void)updateCarwashBox:(NSString *)carwashID box:(NSString *)boxID params:(NSDictionary *)params success:(success)success failure:(failure)failure
+{
+    [self PATCH:[NSString stringWithFormat:@"company_carwash/%@/box/%@", carwashID, boxID] body:[params JSONRepresentation] success:^(id response) {
+        success([BoxSetting instanceFromDictionary:response]);
+    } failure:failure];
+}
+
++ (void)createCarwashBox:(NSString *)carwashID params:(NSDictionary *)params success:(success)success failure:(failure)failure
+{
+    [self POST:[NSString stringWithFormat:@"company_carwash/%@/box", carwashID] body:[params JSONRepresentation] success:^(id response) {
+        success([BoxSetting instanceFromDictionary:response]);
+    } failure:failure];
+}
+
++ (void)deleteCarwashBox:(NSString *)carwashID box:(NSString *)boxID success:(success)success failure:(failure)failure
+{
+    [self DELETE:[NSString stringWithFormat:@"company_carwash/%@/box/%@", carwashID, boxID] success:^(id response) {
+        success([BoxSetting instanceFromDictionary:response]);
+    } failure:failure];
+}
+
+#pragma mark -
 #pragma mark Bookings
 
 + (void)rejectBook:(NSString *)bookId success:(success)success failure:(failure)failure
@@ -134,6 +173,15 @@
         [books addObject:[CarwashBook instanceFromDictionary:item]];
     }
     return books;
+}
+
++ (NSArray *)responseToCompanyBoxes:(id)response
+{
+    NSMutableArray *boxes = [NSMutableArray array];
+    for(NSDictionary *item in response) {
+        [boxes addObject:[BoxSetting instanceFromDictionary:item]];
+    }
+    return boxes;
 }
 
 @end
