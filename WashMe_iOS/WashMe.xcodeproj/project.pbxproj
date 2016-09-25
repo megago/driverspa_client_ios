@@ -650,6 +650,7 @@
 		A341BB421D44B6CE005E27DD /* AdminTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdminTabBarController.m; sourceTree = "<group>"; };
 		A341BB471D44C8CC005E27DD /* AdminMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdminMenuViewController.h; sourceTree = "<group>"; };
 		A341BB481D44C8CC005E27DD /* AdminMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdminMenuViewController.m; sourceTree = "<group>"; };
+		A368208F1D9849E700478334 /* Wash!Me.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Wash!Me.entitlements"; sourceTree = "<group>"; };
 		A36A21941D69808C001F73EE /* UITabBarItem+CustomBadge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBarItem+CustomBadge.h"; sourceTree = "<group>"; };
 		A36A21951D69808C001F73EE /* UITabBarItem+CustomBadge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBarItem+CustomBadge.m"; sourceTree = "<group>"; };
 		A36A21991D69B4CC001F73EE /* BookAdminCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookAdminCell.h; sourceTree = "<group>"; };
@@ -1773,6 +1774,7 @@
 		CEABA61E19BB1FDF00CBAEBF /* WashMe */ = {
 			isa = PBXGroup;
 			children = (
+				A368208F1D9849E700478334 /* Wash!Me.entitlements */,
 				CE68D67019BB802700FCFF5B /* App */,
 				CE68D67419BB802700FCFF5B /* Controllers */,
 				CE68D67519BB802700FCFF5B /* Models */,
@@ -2435,6 +2437,7 @@
 			baseConfigurationReference = A137D133A3245F49615DD123 /* Pods-WashMe.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "WashMe/Wash!Me.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_RESOURCE_RULES_PATH = "";
@@ -2467,6 +2470,7 @@
 			baseConfigurationReference = 7E76B64380276926994A15C0 /* Pods-WashMe.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "WashMe/Wash!Me.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_RESOURCE_RULES_PATH = "";
