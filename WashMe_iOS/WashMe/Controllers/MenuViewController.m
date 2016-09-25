@@ -99,6 +99,7 @@
                 [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"pushNotificationToken"];
                 [[NSUserDefaults standardUserDefaults] synchronize];
                 
+                [[NSUserDefaults standardUserDefaults] setValue:[NSNumber numberWithInt:0] forKey:@"badgeCountApplication"];
                 [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
                 [[User currentUser] logout];
                 [[UIHelper appDelegate] gotoWelcomeViewController];
