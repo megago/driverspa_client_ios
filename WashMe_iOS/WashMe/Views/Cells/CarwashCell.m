@@ -116,6 +116,10 @@
         [carwashStatusView setIsAvailable: NO];
     }
     
+    if ([carwash.name isEqualToString:@"Тест"]){
+        [carwashStatusView setIsAvailable: YES];
+    }
+    
     titleLabel.font = [carwash.status isEqualToString:@"approved"] ? kCarwashTitleFont : kCarwashTitleFontOffline;
     titleLabel.width = kCarwashTitleWidth;
     titleLabel.x = kPadding;

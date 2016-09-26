@@ -17,6 +17,7 @@
 #import "CreateCarwashDraft.h"
 #import "SetBoxSettingViewController.h"
 #import "AdminApi.h"
+#import "User.h"
 
 @interface SetCarwashBoxesCountViewController () <SetBoxSettingViewControllerDelegate>
 @end
@@ -37,12 +38,26 @@
     [self loadBoxes];
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [self loadCarwash];
+}
+
 - (void)viewWillDisappear:(BOOL)animated {
     //[[CreateCarwashDraft sharedInstance] setBoxesCount:(selectedRow + 1)];
 }
 
 #pragma mark - 
 #pragma mark - Actions
+
+- (void)loadCarwash {
+    if(carwash) {
+        [AdminApi getCarwashDetails:carwash.carwashId success:^(id response) {
+            [CarwashComplex setAuthorizedCarwashData:response withMobile:[User currentUser].mobile];
+        } failure:^(NSInteger code, NSString *message) {
+            [self.navigationController popViewControllerAnimated:YES];
+        }];
+    }
+}
 
 - (void)loadBoxes {
     [Toast showHudLoading];

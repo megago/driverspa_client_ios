@@ -30,6 +30,7 @@
 
 @implementation ConfirmSmsViewController {
     InputTextField *codeField;
+    CarwashComplex *carwash;
 }
 
 -(id)init {
@@ -140,20 +141,34 @@
         o[@"lonlat"] = @[@(0), @(0)];
         o[@"address"] = @"";
         
+        o[@"cartypes"] = @[[NSNumber numberWithInt:1],[NSNumber numberWithInt:2],[NSNumber numberWithInt:3]];
+        o[@"services"] = @[[NSNumber numberWithInt:1],[NSNumber numberWithInt:2],[NSNumber numberWithInt:3]];
+        o[@"payoptions"] = @[@"cash"];
+        
         NSLog(@"info: %@", o);
         
         [AdminApi createCarwash:o success:^(id response) {
-            [self loadCarwashDetail:response];
+            carwash = response;
+            NSMutableDictionary *b = [NSMutableDictionary dictionary];
+            b[@"box_name"] = @"Бокс 1";
+            b[@"booking_type"] = @"offline";
+            NSLog(@"info: %@", b);
+            
+            [AdminApi createCarwashBox:carwash.carwashId params:b success:^(id response) {
+                [self loadCarwashDetail];
+            } failure:^(NSInteger code, NSString *message) {
+                
+            }];
         } failure:^(NSInteger code, NSString *message) {
             
         }];
     } else {
-        CarwashComplex *carwash = arr.firstObject;
-        [self loadCarwashDetail:carwash];
+        carwash = arr.firstObject;
+        [self loadCarwashDetail];
     }
 }
 
-- (void)loadCarwashDetail:(CarwashComplex *)carwash {
+- (void)loadCarwashDetail {
     [Toast showHudLoading];
     [AdminApi getCarwashDetails:carwash.carwashId success:^(id response) {
         [CarwashComplex setAuthorizedCarwashData:response withMobile:[User currentUser].mobile];

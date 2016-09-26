@@ -266,7 +266,7 @@
     [sv addSubview:tomorrowButton];
     
     segmentedControl = [[HMSegmentedControl alloc] initWithFrame:CGRectMake(0, todayButton.bottom, [ASize screenWidth], 30)];
-    segmentedControl.sectionTitles = boxes;
+    if (boxes.count>0) segmentedControl.sectionTitles = boxes;
     segmentedControl.selectedSegmentIndex = 0;
     segmentedControl.backgroundColor = [UIColor colorWithWhite:0.f alpha:0.25];
     segmentedControl.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor colorWithWhite:1.f alpha:0.25f], NSFontAttributeName: [UIFont robotoBold:14.f]};
@@ -278,10 +278,12 @@
     segmentedControl.segmentEdgeInset = UIEdgeInsetsMake(0, 20, 0, 20);
     [segmentedControl addTarget:self action:@selector(segmentedControlChangedValue:) forControlEvents:UIControlEventValueChanged];
     [sv addSubview:segmentedControl];
+
 }
 
 - (void)segmentedControlChangedValue:(HMSegmentedControl *)segmentedControl {
-    self.currentBox = self.currentCarwash.boxSettings[segmentedControl.selectedSegmentIndex];
+    if (boxes.count > 0)
+        self.currentBox = self.currentCarwash.boxSettings[segmentedControl.selectedSegmentIndex];
 }
 
 - (void)didReceiveMemoryWarning {

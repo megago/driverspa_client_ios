@@ -74,6 +74,8 @@
     [self hideKeyboard];
 }
 
+#pragma mark - Load data
+
 - (void)loadCarwashes
 {
     [Toast showHudLoading];
@@ -97,11 +99,25 @@
         o[@"lonlat"] = @[@(0), @(0)];
         o[@"address"] = @"";
         
+        o[@"cartypes"] = @[[NSNumber numberWithInt:1],[NSNumber numberWithInt:2],[NSNumber numberWithInt:3]];
+        o[@"services"] = @[[NSNumber numberWithInt:1],[NSNumber numberWithInt:2],[NSNumber numberWithInt:3]];
+        o[@"payoptions"] = @[@"cash"];
+        
         NSLog(@"info: %@", o);
 
         [AdminApi createCarwash:o success:^(id response) {
             _carwash = response;
-            [self loadCarwash];
+            
+            NSMutableDictionary *b = [NSMutableDictionary dictionary];
+            b[@"box_name"] = @"Бокс 1";
+            b[@"booking_type"] = @"offline";
+            NSLog(@"info: %@", b);
+            
+            [AdminApi createCarwashBox:_carwash.carwashId params:b success:^(id response) {
+                [self loadCarwash];
+            } failure:^(NSInteger code, NSString *message) {
+                
+            }];
         } failure:^(NSInteger code, NSString *message) {
             
         }];
@@ -380,6 +396,10 @@
 }
 
 - (void)buildUI {
+    for (UIView *view in sv.subviews){
+        [view removeFromSuperview];
+    }
+    
     CGFloat nexty = 0;
     if(_carwash)
     {
