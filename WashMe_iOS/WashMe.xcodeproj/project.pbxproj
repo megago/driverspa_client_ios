@@ -807,6 +807,7 @@
 		A3C9B0F61D60723B00979950 /* ic_about_us@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_about_us@2x.png"; sourceTree = "<group>"; };
 		A3C9B0F71D60723B00979950 /* ic_logout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_logout.png; sourceTree = "<group>"; };
 		A3C9B0F81D60723B00979950 /* ic_logout@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_logout@2x.png"; sourceTree = "<group>"; };
+		A3CBABEA1D9C2D0E00CE6F4E /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		A3E9E9C51D96EBD10029555F /* icon-checkmark-off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-checkmark-off.png"; sourceTree = "<group>"; };
 		A3E9E9C61D96EBD10029555F /* icon-checkmark-off@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-checkmark-off@2x.png"; sourceTree = "<group>"; };
 		A3EB6D591D561011004E8CB5 /* AdminDummyViewControlller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdminDummyViewControlller.h; sourceTree = "<group>"; };
@@ -1749,6 +1750,7 @@
 		CEABA61719BB1FDF00CBAEBF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A3CBABEA1D9C2D0E00CE6F4E /* MapKit.framework */,
 				A36BC4171D6CCBAF00C628DA /* MessageUI.framework */,
 				CE39F78019CB62700010228C /* SystemConfiguration.framework */,
 				CE39F77E19CB62650010228C /* QuartzCore.framework */,

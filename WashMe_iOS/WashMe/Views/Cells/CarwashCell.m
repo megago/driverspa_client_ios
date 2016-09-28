@@ -84,11 +84,11 @@
         priceLabel.textColor = [UIColor whiteColor];
         [self addSubview:priceLabel];
 
-        //distanceLabel = [[UILabel alloc] initWithFrame:CGRectZero];
-        //distanceLabel.backgroundColor = [UIColor clearColor];
-        //distanceLabel.font = [UIFont robotoThin:14];
-        //distanceLabel.textColor = [UIColor whiteColor];
-        //[self addSubview:distanceLabel];
+        distanceLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+        distanceLabel.backgroundColor = [UIColor clearColor];
+        distanceLabel.font = [UIFont robotoThin:14];
+        distanceLabel.textColor = [UIColor whiteColor];
+        [self addSubview:distanceLabel];
 
         line = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [ASize screenWidth] - 2 * kPadding, 0.5)];
         line.x = kPadding;
@@ -142,11 +142,11 @@
     priceLabel.text = price > 0 ? [NSString stringWithFormat:@"Кузов-салон от %@ ₸", [NSString integerFormattedNumberText:price]] : @"";
     [priceLabel sizeToFit];
 
-    //distanceLabel.width = 150;
-    //distanceLabel.text = [carwash distanceToText];
-    //[distanceLabel sizeToFit];
-    //distanceLabel.y = priceLabel.y;
-    //distanceLabel.x = [ASize screenWidth] - distanceLabel.width - 34;
+    distanceLabel.width = 150;
+    distanceLabel.text = [carwash distanceToText];
+    [distanceLabel sizeToFit];
+    distanceLabel.y = priceLabel.y;
+    distanceLabel.x = [ASize screenWidth] - distanceLabel.width - 34;
 
     line.y = (CGFloat) ([[self class] cellHeightWithCarwashName:carwash.name andAddress:carwash.address] - 0.5);
 }

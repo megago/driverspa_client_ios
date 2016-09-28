@@ -111,12 +111,17 @@
 }
 
 - (NSString *)distanceToText {
-    long meters = [self distanceInMeters];
-    if(meters < 1000) return [NSString stringWithFormat:@"%li м", meters];
-
-    CGFloat kilometers = (CGFloat) (meters * 0.001);
-
-    return [NSString stringWithFormat:@"%@ км", [[NSString stringWithFormat:@"%.02f", kilometers] formattedNumberText]];
+    if([CLLocationManager locationServicesEnabled] &&
+       [CLLocationManager authorizationStatus] != kCLAuthorizationStatusDenied)
+    {
+        long meters = [self distanceInMeters];
+        if(meters < 1000) return [@"~" stringByAppendingString:[NSString stringWithFormat:@"%li м", meters]];
+        
+        CGFloat kilometers = (CGFloat) (meters * 0.001);
+        
+        return [@"~" stringByAppendingString:[NSString stringWithFormat:@"%@ км", [[NSString stringWithFormat:@"%.02f", kilometers] formattedNumberText]]];
+    }
+    return nil;
 }
 
 - (City *)cityObject
@@ -129,6 +134,5 @@
     }
     return nil;
 }
-
 
 @end

@@ -35,6 +35,7 @@
 #import <GoogleMaps/GoogleMaps.h>
 #import "UserBookViewController.h"
 #import "NSObject+Json.h"
+#import "LocationHelper.h"
 
 //#import <OneSignal/OneSignal.h>
 //#define OneSignalOn YES
@@ -105,6 +106,12 @@
         [Cache loadCompanyRefs:nil];
     }];
 
+    //Request location
+    [[LocationHelper sharedInstance] requestLocation:^(CLLocation *currentLocation) {
+        
+    } failed:^(INTULocationStatus status) {
+        
+    }];
     
     //Remote Notification Info
     NSDictionary * remoteNotifiInfo = [launchOptions objectForKey: UIApplicationLaunchOptionsRemoteNotificationKey];

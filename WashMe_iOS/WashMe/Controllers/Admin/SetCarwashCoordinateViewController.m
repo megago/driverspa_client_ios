@@ -33,10 +33,18 @@
     [super viewDidLoad];
     [self configUI];
     
+    if (_coordinate.latitude == 0 && _coordinate.longitude == 0){
+        _coordinate.latitude = 51.149588;
+        _coordinate.longitude = 71.448503;
+    }
 
     [Toast showHudLoading];
     [[LocationHelper sharedInstance] requestLocation:^(CLLocation *currentLocation) {
         [Toast hideHud];
+        if ([LocationHelper sharedInstance].latitude == 0 && [LocationHelper sharedInstance].longitude == 0){
+            _coordinate.latitude = 51.149588;
+            _coordinate.longitude = 71.448503;
+        }
         [self createMap];
     } failed:^(INTULocationStatus status) {
         [Toast hideHud];

@@ -22,7 +22,7 @@
 }
 
 - (UIView *)showNoContentMessage:(NSString *)message withButton:(NSString *)buttonTitle selector:(SEL)_selector {
-    return [self showNoContentMessage:message icon:nil withButton:buttonTitle selector:nil];
+    return [self showNoContentMessage:message icon:nil withButton:buttonTitle selector:_selector];
 }
 
 - (UIView *)showNoContentMessage:(NSString *)message icon:(NSString *)iconName withButton:(NSString *)buttonTitle selector:(SEL)_selector
@@ -46,8 +46,8 @@
     
     UILabel *messageLabel = [UILabel newAutoLayoutView];
     messageLabel.backgroundColor = [UIColor clearColor];
-    messageLabel.font = [UIFont systemFontOfSize:14];
-    messageLabel.textColor = [UIColor whiteColor];
+    messageLabel.font = [UIFont systemFontOfSize:18];
+    messageLabel.textColor = [[UIColor whiteColor] colorWithAlphaComponent:0.5];
     messageLabel.lineBreakMode = NSLineBreakByWordWrapping;
     messageLabel.numberOfLines = 0;
     messageLabel.textAlignment = NSTextAlignmentCenter;
@@ -69,10 +69,19 @@
     if(buttonTitle && _selector) {
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
         [button addTarget:self action:_selector forControlEvents:UIControlEventTouchUpInside];
-        [button aa_setDimensions];
-        [button setTitle:buttonTitle forState:UIControlStateNormal];
+        
+        NSMutableAttributedString *btnString = [[NSMutableAttributedString alloc] initWithString:buttonTitle];
+        [btnString addAttributes:@{
+          NSUnderlineStyleAttributeName : [NSNumber numberWithInteger:NSUnderlineStyleSingle],
+          NSFontAttributeName : [UIFont robotoRegular:12],
+          NSForegroundColorAttributeName : [UIColor whiteColor]
+          } range:NSMakeRange(0, [btnString length])];
+        [button setAttributedTitle:btnString forState:UIControlStateNormal];
+        
         [container addSubview:button];
-        [button aa_pinUnderView:messageLabel offset:20];
+        [button aa_setWidth:260];
+        [button aa_setHeight:30];
+        [button aa_pinUnderView:messageLabel offset:0];
         [button aa_centerHorizontal];
         
         lastView = button;

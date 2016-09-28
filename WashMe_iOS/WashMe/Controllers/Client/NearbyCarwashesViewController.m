@@ -34,6 +34,8 @@
 #import "USerApi.h"
 #import "CarwashBook.h"
 
+#import <MapKit/MapKit.h>
+
 @interface NearbyCarwashesViewController ()
 @end
 
@@ -57,19 +59,8 @@
         [[[[[self tabBarController] tabBar] items] objectAtIndex:3] setBadgeValue:nil];
     }
 
-    [[LocationHelper sharedInstance] requestLocation:^(CLLocation *currentLocation) {
-        [self loadCarwashes:YES];
-
-        // Define or check the nearest city
-        [UserSettings defineCurrentCity];
-
-    } failed:^(INTULocationStatus status) {
-        [self loadCarwashes:NO];
-
-        // Define or check the nearest city
-        [UserSettings defineCurrentCity];
-    }];
-
+    [self refreshCarwashes];
+    
     self.allowInfiniteLoading = YES;
 }
 
@@ -103,6 +94,7 @@
             [self showNoContentMessage:@"Ничего не найдено"];
         }
         [self.list reloadData];
+        [self.refreshView endRefreshing];
     } failure:^(NSInteger code, NSString *message) {
         [SVProgressHUD dismiss];
     }];
@@ -114,30 +106,19 @@
     
     self.page = 1;
     //self.filterManager = 0;
+    self.carwashes = nil;
     
-    //[SVProgressHUD showLoading];
-    [CarwashApi getCarwashes:self.page filterManager:self.filterManager success:^(NSArray *response) {
+    [[LocationHelper sharedInstance] requestLocation:^(CLLocation *currentLocation) {
+        [self loadCarwashes:YES];
         
-        [SVProgressHUD dismiss];
-        [self.list finishInfiniteScroll];
+        // Define or check the nearest city
+        [UserSettings defineCurrentCity];
         
-        if(response && response.count == 0) {
-            self.allowInfiniteLoading = NO;
-        }
+    } failed:^(INTULocationStatus status) {
+        [self loadCarwashes:NO];
         
-        if(!self.carwashes) {
-            self.carwashes = [[NSMutableArray alloc] init];
-        }
-        self.carwashes = [response mutableCopy];
-        
-        if(self.carwashes.count == 0) {
-            [self showNoContentMessage:@"Ничего не найдено"];
-        }
-        [self.list reloadData];
-        [self.refreshView endRefreshing];
-        
-    } failure:^(NSInteger code, NSString *message) {
-        [SVProgressHUD dismiss];
+        // Define or check the nearest city
+        [UserSettings defineCurrentCity];
     }];
 }
 
