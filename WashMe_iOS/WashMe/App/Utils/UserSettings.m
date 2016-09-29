@@ -100,5 +100,42 @@
     return @[];
 }
 
++ (void)setIsRegisteredPushToken:(BOOL)isRegistered
+{
+    [[NSUserDefaults standardUserDefaults] setBool:isRegistered forKey:@"isRegisteredPushToken"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
++ (BOOL)isRegisteredPushToken {
+    return [[NSUserDefaults standardUserDefaults] boolForKey:@"isRegisteredPushToken"];
+}
+
++ (void)setCurrentPushToken:(NSString *)pushToken {
+    [[NSUserDefaults standardUserDefaults] setValue:pushToken forKey:kSettingsKeyPushToken];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
++ (void)removePushToken {
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:kSettingsKeyPushToken];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
++ (NSString *)currentPushToken {
+    return [[NSUserDefaults standardUserDefaults] valueForKey:kSettingsKeyPushToken];
+}
+
++ (void)setCurrentUDID:(NSString *)udid {
+    [[NSUserDefaults standardUserDefaults] setValue:udid forKey:kSettingsKeyUDID];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
++ (void)removeUDID {
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:kSettingsKeyUDID];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
++ (NSString *)currentUDID {
+    return [[NSUserDefaults standardUserDefaults] valueForKey:kSettingsKeyUDID];
+}
 
 @end

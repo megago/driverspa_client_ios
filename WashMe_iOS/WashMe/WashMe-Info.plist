@@ -47,6 +47,10 @@
 	<string>${NSLocationWhenInUseUsageDescription}</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Для того чтобы видеть ближайшие автомойки, Вы должны разрешить получить Ваше местоположение.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Для того чтобы добавлять фото, Вы должны разрешить использовать камеру.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Для того чтобы добавлять фото, Вы должны разрешить использовать галерею.</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Roboto-Thin.ttf</string>

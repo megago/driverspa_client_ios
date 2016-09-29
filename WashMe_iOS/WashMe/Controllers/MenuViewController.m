@@ -20,6 +20,7 @@
 #import "UIHelper.h"
 #import "AppDelegate.h"
 #import "APIClient.h"
+#import "UserSettings.h"
 
 @interface MenuViewController ()
 @property(nonatomic, strong) UITableView *list;
@@ -92,12 +93,13 @@
     [[User currentUser] logoutQuestion:^(UIActionSheet *actionSheet, NSInteger buttonIndex) {
         if(actionSheet.cancelButtonIndex != buttonIndex) {
             
-            NSString *udid = [[NSUserDefaults standardUserDefaults] valueForKey:@"UDID"];
+            NSString *udid = [UserSettings currentUDID];
             NSString *path = [NSString stringWithFormat:@"devices/%@", udid];
             [APIClient DELETE:path success:^(id response) {
                 [[UIApplication sharedApplication] unregisterForRemoteNotifications];
-                [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"pushNotificationToken"];
-                [[NSUserDefaults standardUserDefaults] synchronize];
+                [UserSettings setIsRegisteredPushToken:NO];
+                [UserSettings removePushToken];
+                [UserSettings removeUDID];
                 
                 [[NSUserDefaults standardUserDefaults] setValue:[NSNumber numberWithInt:0] forKey:@"badgeCountApplication"];
                 [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];

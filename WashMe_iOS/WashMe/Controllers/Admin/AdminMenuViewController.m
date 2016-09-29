@@ -21,6 +21,7 @@
 #import "UIHelper.h"
 #import "AppDelegate.h"
 #import "CarwashComplex.h"
+#import "UserSettings.h"
 
 @interface AdminMenuViewController ()
 @property(nonatomic, strong) UITableView *list;
@@ -72,16 +73,21 @@
 - (void)tapLogout {
     [[User currentUser] logoutQuestion:^(UIActionSheet *actionSheet, NSInteger buttonIndex) {
         if(actionSheet.cancelButtonIndex != buttonIndex) {
-            [[UIApplication sharedApplication] unregisterForRemoteNotifications];
-            [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"pushNotificationToken"];
-            [[NSUserDefaults standardUserDefaults] synchronize];
-            
-            [[NSUserDefaults standardUserDefaults] setValue:[NSNumber numberWithInt:0] forKey:@"badgeCountApplication"];
-            [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
-            
-            [CarwashComplex cashedCarwash];
-            [[User currentUser] logout];
-            [[UIHelper appDelegate] gotoWelcomeViewController];
+            NSString *udid = [UserSettings currentUDID];
+            NSString *path = [NSString stringWithFormat:@"devices/%@", udid];
+            [APIClient DELETE:path success:^(id response) {
+                [[UIApplication sharedApplication] unregisterForRemoteNotifications];
+                [UserSettings setIsRegisteredPushToken:NO];
+                [UserSettings removePushToken];
+                [UserSettings removeUDID];
+                
+                [[NSUserDefaults standardUserDefaults] setValue:[NSNumber numberWithInt:0] forKey:@"badgeCountApplication"];
+                [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
+                
+                [CarwashComplex clearAuthorizedCarwashDataWithMobile:[User currentUser].mobile];
+                [[User currentUser] logout];
+                [[UIHelper appDelegate] gotoWelcomeViewController];
+            } failure:nil];
         }
     }];
 }

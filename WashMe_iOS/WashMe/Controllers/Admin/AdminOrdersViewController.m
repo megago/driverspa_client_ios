@@ -21,6 +21,8 @@
 #import "LGRefreshView.h"
 #import "CarwashComplex.h"
 #import "User.h"
+#import "AppDelegate.h"
+#import "UITabBarItem+CustomBadge.h"
 
 @interface AdminOrdersViewController () <HTHorizontalSelectionListDataSource, HTHorizontalSelectionListDelegate>
 @end
@@ -35,6 +37,8 @@
     enum AdminOrdersFilter currentTableFilter;
     UITableView *list;
     NSMutableArray *books;
+    
+    int badgeCount;
 }
 
 -(id)init {
@@ -52,6 +56,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    // Request push notification permissions
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    [appDelegate requestPushAndLocalNotificationPermissions];
+    
     [self configUI];
     [self loadBooks];
 }
@@ -103,6 +112,25 @@
         [self showNoContentMessage:@"Нет заказов" withButton:@"Обновить" selector:@selector(loadBooks)];
     }
 }
+
+- (void)updateBadge {
+    badgeCount = 0;
+    for (CarwashBook *book in books) {
+        if (book.isPending || book.isApproved) {
+            badgeCount++;
+        }
+    }
+    if (badgeCount > 0) {
+        [[[[[self tabBarController] tabBar] items] objectAtIndex:3] setCustomBadgeValue:[NSString stringWithFormat:@"%i", badgeCount] withFont:[UIFont robotoBold:12.f] andFontColor:[UIColor whiteColor] andBackgroundColor:[UIColor colorWithRed:37.f/255.f green:195.f/255.f blue:91.f/255.f alpha:1.f]];
+        [UIApplication sharedApplication].applicationIconBadgeNumber = badgeCount;
+    } else {
+        [[[[[self tabBarController] tabBar] items] objectAtIndex:3] setBadgeValue:nil];
+        [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
+    }
+    [[NSUserDefaults standardUserDefaults] setValue:[NSNumber numberWithInt:badgeCount] forKey:@"badgeCountApplication"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
 
 #pragma mark -
 #pragma mark AdminBookViewController

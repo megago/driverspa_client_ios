@@ -37,9 +37,6 @@
 #import "NSObject+Json.h"
 #import "LocationHelper.h"
 
-//#import <OneSignal/OneSignal.h>
-//#define OneSignalOn YES
-
 @implementation AppDelegate {
 }
 
@@ -52,9 +49,6 @@
 
     // Google maps
     [GMSServices provideAPIKey:@"AIzaSyDdOQIac6I0iNYyaX7oQlL3R3clgu1nC_s"];
-    
-    // OneSignal config
-    //[OneSignal initWithLaunchOptions:launchOptions appId:@"2a4b8148-7864-4dba-85fc-ec3d7e86d2a2"];
 
     // Request push notification permissions
     [self requestPushAndLocalNotificationPermissions];
@@ -198,12 +192,13 @@
 
 -(void)requestPushAndLocalNotificationPermissions {
     //if (![[UIApplication sharedApplication] isRegisteredForRemoteNotifications]){
+    if (![UserSettings isRegisteredPushToken]){
         [[UIApplication sharedApplication] registerForRemoteNotifications];
         
         if ([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)]){
             [[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeBadge|UIUserNotificationTypeSound categories:nil]];
         }
-    //}
+    }
 }
 
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
@@ -214,9 +209,8 @@
     NSString* udid = [[[UIDevice currentDevice] identifierForVendor] UUIDString]; // IOS 6+
     
     // Save token to user defaults
-    [[NSUserDefaults standardUserDefaults] setValue:token forKey:@"pushNotificationToken"];
-    [[NSUserDefaults standardUserDefaults] setValue:udid forKey:@"UDID"];
-    [[NSUserDefaults standardUserDefaults] synchronize];
+    [UserSettings setCurrentPushToken:token];
+    [UserSettings setCurrentUDID:udid];
 
     // Save token in settings if authorized
     if([User isAuthorized])
@@ -237,6 +231,7 @@
                 params[kSettingsKeyAppVersion] = [AppUtils appVersion];
                 [UserApi settingsAddDictionary:params success:^(id response) {
                     NSLog(@"settingsAddDictionary: %@", response);
+                    [UserSettings setIsRegisteredPushToken:YES];
                 } failure:nil];
             } failure:nil];
         } failure:nil];
@@ -256,23 +251,15 @@
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
 {    
     if ([User isAuthorized]){
-        NSString *objectId = [userInfo objectForKey:@"object_id"];
-        if (objectId) {
-            [self setUserAuthorizedBookControllerWith:objectId];
+        
+        if ([UserSettings isAdmin]){
+            
+        } else {
+            NSString *objectId = [userInfo objectForKey:@"object_id"];
+            if (objectId) {
+                [self setUserAuthorizedBookControllerWith:objectId];
+            }
         }
-    
-//        if (OneSignalOn) {
-//            NSDictionary *d = [userInfo objectForKey:@"custom"];
-//            if (d) {
-//                NSDictionary *a = [d objectForKey:@"a"];
-//                if (a) {
-//                    NSString *objectId = [a objectForKey:@"object_id"];
-//                    if (objectId) {
-//                        [self setUserAuthorizedBookControllerWith:objectId];
-//                    }
-//                }
-//            }
-//        }
     } else {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Предупреждение" message:@"Чтобы просмотреть сообщение необходимо авторизоваться" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
         [alert show];

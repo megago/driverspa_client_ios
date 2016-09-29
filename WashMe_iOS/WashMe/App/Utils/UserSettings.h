@@ -15,6 +15,7 @@
 #define kSettingsKeyOS @"os"
 #define kSettingsKeyPushType @"push_type"
 #define kSettingsKeyPushToken @"token_id"
+#define kSettingsKeyUDID @"udid"
 
 static BOOL _isAdmin = NO;
 
@@ -36,5 +37,16 @@ static NSString *kNotificationCityChanged = @"notificationCityChanged";
 
 + (BOOL)isAdmin;
 + (void)setIsAdmin:(BOOL)isAdmin;
+
++ (void)setIsRegisteredPushToken:(BOOL)isRegistered;
++ (BOOL)isRegisteredPushToken;
+
++ (void)setCurrentPushToken:(NSString *)pushToken;
++ (void)removePushToken;
++ (NSString *)currentPushToken;
+
++ (void)setCurrentUDID:(NSString *)udid;
++ (void)removeUDID;
++ (NSString *)currentUDID;
 
 @end
