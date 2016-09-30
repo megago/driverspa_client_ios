@@ -129,7 +129,7 @@
     daysAgoLabel.y = timeLabel.bottom;
     daysAgoLabel.height = boxLabel.height + statusLabel.height;
     
-    if (book.isApproved || book.isPending) {
+    if (book.isPending) {
         self.backgroundColor = [UIColor colorWithWhite:0.f alpha:0.5f];
     } else {
         self.backgroundColor = [UIColor clearColor];

@@ -107,6 +107,7 @@
     if(books && books.count > 0) {
         [list reloadData];
         list.hidden = NO;
+        [self updateBadge];
     } else {
         list.hidden = YES;
         [self showNoContentMessage:@"Нет заказов" withButton:@"Обновить" selector:@selector(loadBooks)];
@@ -116,15 +117,15 @@
 - (void)updateBadge {
     badgeCount = 0;
     for (CarwashBook *book in books) {
-        if (book.isPending || book.isApproved) {
+        if (book.isPending) {
             badgeCount++;
         }
     }
     if (badgeCount > 0) {
-        [[[[[self tabBarController] tabBar] items] objectAtIndex:3] setCustomBadgeValue:[NSString stringWithFormat:@"%i", badgeCount] withFont:[UIFont robotoBold:12.f] andFontColor:[UIColor whiteColor] andBackgroundColor:[UIColor colorWithRed:37.f/255.f green:195.f/255.f blue:91.f/255.f alpha:1.f]];
+        [[[[[self tabBarController] tabBar] items] objectAtIndex:0] setCustomBadgeValue:[NSString stringWithFormat:@"%i", badgeCount] withFont:[UIFont robotoBold:12.f] andFontColor:[UIColor whiteColor] andBackgroundColor:[UIColor colorWithRed:37.f/255.f green:195.f/255.f blue:91.f/255.f alpha:1.f]];
         [UIApplication sharedApplication].applicationIconBadgeNumber = badgeCount;
     } else {
-        [[[[[self tabBarController] tabBar] items] objectAtIndex:3] setBadgeValue:nil];
+        [[[[[self tabBarController] tabBar] items] objectAtIndex:0] setBadgeValue:nil];
         [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
     }
     [[NSUserDefaults standardUserDefaults] setValue:[NSNumber numberWithInt:badgeCount] forKey:@"badgeCountApplication"];

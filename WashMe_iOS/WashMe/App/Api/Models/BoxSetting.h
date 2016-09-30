@@ -16,4 +16,6 @@
 + (BoxSetting *)instanceFromDictionary:(NSDictionary *)aDictionary;
 - (void)setAttributesFromDictionary:(NSDictionary *)aDictionary;
 
+- (NSString *)localizedBoxType;
+
 @end

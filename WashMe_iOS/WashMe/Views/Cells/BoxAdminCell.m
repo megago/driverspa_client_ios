@@ -55,7 +55,7 @@
     boxLabel.y = kTitlePaddingTop;
     [boxLabel sizeToFit];
     
-    statusLabel.text = @"Онлайн";
+    statusLabel.text = [box localizedBoxType];
     statusLabel.y = boxLabel.bottom;
     [statusLabel sizeToFit];
 }

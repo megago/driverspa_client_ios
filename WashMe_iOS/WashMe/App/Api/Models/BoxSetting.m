@@ -21,7 +21,15 @@
     self.bookingType = [aDictionary objectForKey:@"booking_type"];
     self.uid = [aDictionary objectForKey:@"uid"];
     self.boxName = [aDictionary objectForKey:@"box_name"];
+}
 
+- (NSString *)localizedBoxType {
+    if ([self.bookingType isEqual:@"online"]){
+        return @"Онлайн";
+    } else if ([self.bookingType isEqual:@"offline"]) {
+        return @"Офлайн";
+    }
+    return nil;
 }
 
 #pragma mark -
