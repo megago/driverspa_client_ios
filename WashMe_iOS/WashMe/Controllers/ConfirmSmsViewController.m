@@ -172,7 +172,8 @@
     [Toast showHudLoading];
     [AdminApi getCarwashDetails:carwash.carwashId success:^(id response) {
         [CarwashComplex setAuthorizedCarwashData:response withMobile:[User currentUser].mobile];
-        [[UIHelper appDelegate] setAdminAuthorizedTabbarController];
+        //[[UIHelper appDelegate] setAdminAuthorizedTabbarController];
+        [[UIHelper appDelegate] setAdminAuthorizedSettingsController];
     } failure:^(NSInteger code, NSString *message) {
         
     }];

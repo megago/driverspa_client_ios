@@ -148,24 +148,6 @@
     [self.window makeKeyAndVisible];
 }
 
-- (void)setAdminAuthorizedTabbarController {
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"AdminMain" bundle:nil];
-    self.tabBarController = [storyboard instantiateViewControllerWithIdentifier:@"tabBarcontroller"];
-    
-    AdminMenuViewController *menuController = [[AdminMenuViewController alloc] init];
-    
-    self.frostedViewController = [[REFrostedViewController alloc] initWithContentViewController:self.tabBarController menuViewController:menuController];
-    _frostedViewController.liveBlur = YES;
-    _frostedViewController.liveBlurBackgroundStyle = REFrostedViewControllerLiveBackgroundStyleLight;
-    _frostedViewController.direction = REFrostedViewControllerDirectionLeft;
-    _frostedViewController.menuViewSize = CGSizeMake([AdminMenuViewController menuWidth], self.window.frame.size.height);
-    
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.window.rootViewController = _frostedViewController;
-    
-    [self.window makeKeyAndVisible];
-}
-
 - (void)setUserAuthorizedBookControllerWith:(NSString *)objectId {
     UserBookViewController *vc = [UserBookViewController new];
     vc.afterNotification = YES;
@@ -186,6 +168,41 @@
     [self.window makeKeyAndVisible];
 }
 
+- (void)setAdminAuthorizedTabbarController {
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"AdminMain" bundle:nil];
+    self.tabBarController = [storyboard instantiateViewControllerWithIdentifier:@"tabBarcontroller"];
+    
+    AdminMenuViewController *menuController = [[AdminMenuViewController alloc] init];
+    
+    self.frostedViewController = [[REFrostedViewController alloc] initWithContentViewController:self.tabBarController menuViewController:menuController];
+    _frostedViewController.liveBlur = YES;
+    _frostedViewController.liveBlurBackgroundStyle = REFrostedViewControllerLiveBackgroundStyleLight;
+    _frostedViewController.direction = REFrostedViewControllerDirectionLeft;
+    _frostedViewController.menuViewSize = CGSizeMake([AdminMenuViewController menuWidth], self.window.frame.size.height);
+    
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.rootViewController = _frostedViewController;
+    
+    [self.window makeKeyAndVisible];
+}
+
+- (void)setAdminAuthorizedSettingsController {
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"AdminMain" bundle:nil];
+    self.tabBarController = [storyboard instantiateViewControllerWithIdentifier:@"box_settings"];
+    
+    AdminMenuViewController *menuController = [[AdminMenuViewController alloc] init];
+    
+    self.frostedViewController = [[REFrostedViewController alloc] initWithContentViewController:self.tabBarController menuViewController:menuController];
+    _frostedViewController.liveBlur = YES;
+    _frostedViewController.liveBlurBackgroundStyle = REFrostedViewControllerLiveBackgroundStyleLight;
+    _frostedViewController.direction = REFrostedViewControllerDirectionLeft;
+    _frostedViewController.menuViewSize = CGSizeMake([AdminMenuViewController menuWidth], self.window.frame.size.height);
+    
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.rootViewController = _frostedViewController;
+    
+    [self.window makeKeyAndVisible];
+}
 
 #pragma mark -
 #pragma mark Push Notifications
