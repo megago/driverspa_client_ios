@@ -94,9 +94,9 @@
                     [timeStatuses addObject:@NO];
                 }
 
-                for(BoxTimeTable *timeTable in responseArray)
-                {
-                    NSArray *slots = timeTable.slots;
+                //for(BoxTimeTable *timeTable in responseArray)
+                //{
+                    NSArray *slots = boxTimeTable.slots;
                     NSUInteger index = 0;
                     for(NSInteger i=0; i<slots.count; i += 2) {
                         NSString *status1 = slots[i];
@@ -104,7 +104,7 @@
                         if([status1 isEqual:kBoxTimeTableAvailableSign] && [status2 isEqual:kBoxTimeTableAvailableSign]) timeStatuses[index] = @YES;
                         ++index;
                     }
-                }
+                //}
 
                 [self buildTableWithTimeStatuses:timeStatuses];
                 break;
@@ -282,8 +282,10 @@
 }
 
 - (void)segmentedControlChangedValue:(HMSegmentedControl *)segmentedControl {
-    if (boxes.count > 0)
+    if (boxes.count > 0){
         self.currentBox = self.currentCarwash.boxSettings[segmentedControl.selectedSegmentIndex];
+        [self loadCarwashTimetable];
+    }
 }
 
 - (void)didReceiveMemoryWarning {

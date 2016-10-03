@@ -188,7 +188,26 @@
 
 - (void)setAdminAuthorizedSettingsController {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"AdminMain" bundle:nil];
-    self.tabBarController = [storyboard instantiateViewControllerWithIdentifier:@"box_settings"];
+    UINavigationController *nc = [storyboard instantiateViewControllerWithIdentifier:@"box_settings"];
+    
+    AdminMenuViewController *menuController = [[AdminMenuViewController alloc] init];
+    
+    self.frostedViewController = [[REFrostedViewController alloc] initWithContentViewController:nc menuViewController:menuController];
+    _frostedViewController.liveBlur = YES;
+    _frostedViewController.liveBlurBackgroundStyle = REFrostedViewControllerLiveBackgroundStyleLight;
+    _frostedViewController.direction = REFrostedViewControllerDirectionLeft;
+    _frostedViewController.menuViewSize = CGSizeMake([AdminMenuViewController menuWidth], self.window.frame.size.height);
+    
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.rootViewController = _frostedViewController;
+    
+    [self.window makeKeyAndVisible];
+}
+
+- (void)setAdminAuthorizedReviewsController {
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"AdminMain" bundle:nil];
+    self.tabBarController = [storyboard instantiateViewControllerWithIdentifier:@"tabBarcontroller"];
+    self.tabBarController.selectedIndex = 2;
     
     AdminMenuViewController *menuController = [[AdminMenuViewController alloc] init];
     
@@ -268,9 +287,15 @@
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
 {    
     if ([User isAuthorized]){
-        
         if ([UserSettings isAdmin]){
-            
+            NSString *type = [userInfo objectForKey:@"type"];
+            if (type){
+                if ([type isEqual:@"booking_created"]){
+                    [self setAdminAuthorizedTabbarController];
+                } else if ([type isEqual:@"review_created"]){
+                    [self setAdminAuthorizedReviewsController];
+                }
+            }
         } else {
             NSString *objectId = [userInfo objectForKey:@"object_id"];
             if (objectId) {
