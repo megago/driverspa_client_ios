@@ -10,7 +10,7 @@
 #import "Toast.h"
 #import "UIHelper.h"
 #import "NSObject+Json.h"
-#import "SDiPhoneVersion.h"
+//#import "SDiPhoneVersion.h"
 #import "NSString+Ext.h"
 #import "NSData+Base64.h"
 #import "User.h"

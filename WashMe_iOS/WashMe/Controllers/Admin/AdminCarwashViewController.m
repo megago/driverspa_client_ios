@@ -145,7 +145,9 @@
 - (void)onCarwashComplex
 {
     CreateCarwashDraft *draft = [CreateCarwashDraft sharedInstance];
-    [nameField setValue:_carwashComplex.name];
+    if (![_carwashComplex.name isEqual:@"NA"]){
+        [nameField setValue:_carwashComplex.name];
+    }
 
     [Cache companyCarwashRefs:^(id obj) {
 

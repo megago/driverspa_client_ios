@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="PtT-k7-vJb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="PtT-k7-vJb">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--User Favorites View Controller-->
@@ -15,16 +16,15 @@
                         <viewControllerLayoutGuide type="bottom" id="Zql-P8-tAJ"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="cSZ-la-EVT">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="XCG-jH-Fs1"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="41c-vz-ia1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-935" y="1182"/>
+            <point key="canvasLocation" x="-1481" y="1182"/>
         </scene>
         <!--Nearby Carwashes View Controller-->
         <scene sceneID="vU7-tL-wuB">
@@ -35,15 +35,15 @@
                         <viewControllerLayoutGuide type="bottom" id="4HH-8g-Wdp"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="BHp-pT-txU">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="8EL-NL-Nw1"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dWp-aW-Zjl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-504" y="1200"/>
+            <point key="canvasLocation" x="-754" y="1182"/>
         </scene>
         <!--Carwashes Map View Controller-->
         <scene sceneID="Bxc-dQ-A6U">
@@ -54,15 +54,14 @@
                         <viewControllerLayoutGuide type="bottom" id="pzX-Qr-lAP"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="74Y-zv-TXE">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PxI-Uw-N4Z" customClass="GMSMapView">
-                                <rect key="frame" x="-4" y="64" width="328" height="455"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="PxI-Uw-N4Z" secondAttribute="trailing" constant="-20" id="6e9-d8-VeX"/>
                             <constraint firstItem="pzX-Qr-lAP" firstAttribute="top" secondItem="PxI-Uw-N4Z" secondAttribute="bottom" id="I10-2m-g9Z"/>
@@ -88,25 +87,24 @@
                         <viewControllerLayoutGuide type="bottom" id="Lsg-6H-NSx"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="iGq-kd-f8O">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="K2j-ID-mf6"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mFK-yj-bxl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="326" y="1189"/>
+            <point key="canvasLocation" x="670" y="1182"/>
         </scene>
         <!--Custom Tab Bar Controller-->
         <scene sceneID="gL2-Af-WjU">
             <objects>
                 <tabBarController storyboardIdentifier="tabBarcontroller" id="PtT-k7-vJb" customClass="CustomTabBarController" sceneMemberID="viewController">
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="BBx-V9-zcv">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="P8W-t4-auQ" kind="relationship" relationship="viewControllers" id="CuZ-U3-gnD"/>
@@ -125,7 +123,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="75m-00-wdR" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="НА КАРТЕ" image="tab-nearby" id="n9d-pG-62c"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="yGb-M5-aC5">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="yGb-M5-aC5">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -144,7 +142,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="P8W-t4-auQ" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="ИЗБРАННЫЕ" image="tab-favorites" id="Sfr-Jc-gm6"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="lBa-O3-IO6">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="lBa-O3-IO6">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -155,7 +153,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="45S-wF-p1e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-935" y="473"/>
+            <point key="canvasLocation" x="-1481" y="473"/>
         </scene>
         <!--ВСЕ МОЙКИ-->
         <scene sceneID="pjd-Yi-Nbl">
@@ -163,7 +161,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3cc-Fe-6Sr" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="ВСЕ МОЙКИ" image="tab-free" id="WPz-ju-jrn"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="aEI-1B-lQ8">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="aEI-1B-lQ8">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -174,7 +172,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1hn-1N-Gw7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-504" y="473"/>
+            <point key="canvasLocation" x="-754" y="473"/>
         </scene>
         <!--МОИ БРОНИ-->
         <scene sceneID="Bdd-ot-oEn">
@@ -182,8 +180,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cxv-H6-KaP" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="МОИ БРОНИ" id="kmC-5a-h0G"/>
                     <toolbarItems/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="IdQ-u4-y6T">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="IdQ-u4-y6T">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -194,7 +191,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WW4-AL-FMD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="326" y="473"/>
+            <point key="canvasLocation" x="671" y="473"/>
         </scene>
         <!--About Us View Controller-->
         <scene sceneID="YzJ-98-K3f">
@@ -205,12 +202,11 @@
                         <viewControllerLayoutGuide type="bottom" id="EAV-C6-ply"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8Wq-jV-Q2e">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="QkD-kd-CfA"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bgP-7T-mRA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -225,9 +221,9 @@
                         <viewControllerLayoutGuide type="bottom" id="1Vc-cn-EYQ"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="0m8-PG-OQl">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="mOu-NH-EmX"/>
                 </viewController>
@@ -239,8 +235,7 @@
         <scene sceneID="Mw1-jN-9tg">
             <objects>
                 <navigationController storyboardIdentifier="profile" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hPL-DH-61r" sceneMemberID="viewController">
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="cEZ-2o-bI0">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="cEZ-2o-bI0">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -261,12 +256,11 @@
                         <viewControllerLayoutGuide type="bottom" id="VTz-Cz-g6F"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="X0R-3r-eMV">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="naU-LM-xJD"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hfh-J2-YNS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -277,8 +271,7 @@
             <objects>
                 <navigationController storyboardIdentifier="about_us" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="N8c-Ug-PGR" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="nf3-d1-xBX">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="nf3-d1-xBX">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -296,8 +289,7 @@
             <objects>
                 <navigationController storyboardIdentifier="user_book" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="l1u-KQ-gcS" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="jiO-3r-NXs">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="jiO-3r-NXs">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -312,8 +304,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="tab-favorites" width="26" height="25"/>
-        <image name="tab-free" width="20" height="25"/>
-        <image name="tab-nearby" width="19" height="27"/>
+        <image name="tab-favorites" width="26" height="24"/>
+        <image name="tab-free" width="20" height="24"/>
+        <image name="tab-nearby" width="18" height="26"/>
     </resources>
 </document>

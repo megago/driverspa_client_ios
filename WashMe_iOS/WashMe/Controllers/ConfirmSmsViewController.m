@@ -135,7 +135,7 @@
         [Toast showHudLoading];
         NSMutableDictionary *o = [NSMutableDictionary dictionary];
         
-        o[@"is_public"] = @(NO);
+        o[@"is_public"] = @(YES);
         o[@"city"] = @"astana";
         o[@"name"] = @"";
         o[@"lonlat"] = @[@(0), @(0)];
