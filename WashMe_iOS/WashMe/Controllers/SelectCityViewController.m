@@ -15,6 +15,8 @@
 #import "UIView+Ext.h"
 #import "UserSettings.h"
 #import "LocationHelper.h"
+#import "User.h"
+#import "CarwashComplex.h"
 
 @interface SelectCityViewController ()
 
@@ -58,6 +60,8 @@
 //    } else {
 //        [[CreateCarwashDraft sharedInstance] removeAdditionalInfo:row.userData];
 //    }
+    
+    [UserSettings setCurrentCity:(City*)view.userData];
     [self.delegate changeCurrentCity:view.userData];
     [self.navigationController popViewControllerAnimated:YES];
 }
@@ -119,11 +123,20 @@
         [sv addSubview:row];
         
         // Check if already set
-        if([UserSettings currentCity].code == city.code) {
-            row.isChecked = YES;
-            selectedRow = row;
+        if ([User isAuthorized]){
+            if ([UserSettings isAdmin]){
+                NSLog(@"%@ - %@",[UserSettings currentCity].code, city.code);
+                if ([[UserSettings currentCity].code isEqual:city.code]){
+                    row.isChecked = YES;
+                    selectedRow = row;
+                }
+            } else {
+                if([[User currentUser].city.code isEqual:city.code]) {
+                    row.isChecked = YES;
+                    selectedRow = row;
+                }
+            }
         }
-        
         nextY = row.bottom;
     }
 

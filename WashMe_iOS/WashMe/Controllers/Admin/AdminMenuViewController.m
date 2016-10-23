@@ -50,8 +50,14 @@
 }
 
 -(void)initVars {
+    NSString *orderItemStr;
+    if ([UserSettings currentCity]){
+        orderItemStr = [NSString stringWithFormat:@"Заказы (%@)", [UserSettings currentCity].title];
+    } else {
+        orderItemStr = [NSString stringWithFormat:@"Заказы"];
+    }
     self.items = @[
-                   [IdTitleObject instanceWithId:@"orders" title:[NSString stringWithFormat:@"Заказы (%@)", [UserSettings currentCity].title] value:@"ic_business_white"],
+                   [IdTitleObject instanceWithId:@"orders" title:orderItemStr value:@"ic_business_white"],
                    [IdTitleObject instanceWithId:@"aboutus" title:@"О нас" value:@"ic_about_us"]
                    ];
 }

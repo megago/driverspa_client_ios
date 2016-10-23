@@ -105,6 +105,7 @@
                 [User setRegistrationProfileEntered:[User currentUser].mobile];
                 // User authorized, goto main page.
                 [[UIHelper appDelegate] setUserAuthorizedTabbarController];
+                
             } else {
                 RegisterProfileViewController *v = [[RegisterProfileViewController alloc] init];
                 [self.navigationController pushViewController:v animated:YES];
@@ -172,8 +173,8 @@
     [Toast showHudLoading];
     [AdminApi getCarwashDetails:carwash.carwashId success:^(id response) {
         [CarwashComplex setAuthorizedCarwashData:response withMobile:[User currentUser].mobile];
-        //[[UIHelper appDelegate] setAdminAuthorizedTabbarController];
         [[UIHelper appDelegate] setAdminAuthorizedSettingsController];
+        [UserSettings setCurrentCity:[(CarwashComplex*)response cityObject]];
     } failure:^(NSInteger code, NSString *message) {
         
     }];

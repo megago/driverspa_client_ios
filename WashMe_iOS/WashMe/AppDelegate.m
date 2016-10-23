@@ -34,6 +34,7 @@
 #import <Crashlytics/Crashlytics.h>
 #import <GoogleMaps/GoogleMaps.h>
 #import "UserBookViewController.h"
+#import "AdminBookViewController.h"
 #import "NSObject+Json.h"
 #import "LocationHelper.h"
 
@@ -223,6 +224,26 @@
     [self.window makeKeyAndVisible];
 }
 
+- (void)setAdminAuthorizedBookControllerWith:(NSString *)objectId {
+    AdminBookViewController *vc = [AdminBookViewController new];
+    vc.afterNotification = YES;
+    vc.bookId = objectId;
+    UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:vc];
+    
+    AdminMenuViewController *menuController = [[AdminMenuViewController alloc] init];
+    
+    self.frostedViewController = [[REFrostedViewController alloc] initWithContentViewController:nc menuViewController:menuController];
+    _frostedViewController.liveBlur = YES;
+    _frostedViewController.liveBlurBackgroundStyle = REFrostedViewControllerLiveBackgroundStyleLight;
+    _frostedViewController.direction = REFrostedViewControllerDirectionLeft;
+    _frostedViewController.menuViewSize = CGSizeMake([AdminMenuViewController menuWidth], self.window.frame.size.height);
+    
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.rootViewController = _frostedViewController;
+    
+    [self.window makeKeyAndVisible];
+}
+
 #pragma mark -
 #pragma mark Push Notifications
 
@@ -290,8 +311,11 @@
         if ([UserSettings isAdmin]){
             NSString *type = [userInfo objectForKey:@"type"];
             if (type){
-                if ([type isEqual:@"booking_created"]){
-                    [self setAdminAuthorizedTabbarController];
+                if ([type isEqual:@"booking_created"] || [type isEqual:@"booking_auto_rejected"] || [type isEqual:@"booking_canceled"] || [type isEqual:@"booking_finish_inform"] || [type isEqual:@"booking_rejected"] || [type isEqual:@"booking_approved"] || [type isEqual:@"serving_finish"]){
+                    NSString *objectId = [userInfo objectForKey:@"object_id"];
+                    if (objectId) {
+                        [self setAdminAuthorizedBookControllerWith:objectId];
+                    }
                 } else if ([type isEqual:@"review_created"]){
                     [self setAdminAuthorizedReviewsController];
                 }

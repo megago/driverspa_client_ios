@@ -49,6 +49,13 @@
 }
 
 -(void)initVars {
+    NSString *carwashesItemStr;
+    if ([User currentUser].city){
+        carwashesItemStr = [NSString stringWithFormat:@"Мойки (%@)", [User currentUser].city.title];
+    } else {
+        carwashesItemStr = [NSString stringWithFormat:@"Мойки"];
+    }
+    
     self.items = @[
             //[IdTitleObject instanceWithId:@"city" title:@"Алматы" value:@"iconPin2"],
             //[IdTitleObject instanceWithId:@"mybook" title:@"Моя бронь" value:@"iconTimetable"],
@@ -57,7 +64,7 @@
             //[IdTitleObject instanceWithId:@"settings" title:@"Настройки" value:@"iconSettings"],
             //[IdTitleObject instanceWithId:@"share" title:@"Поделиться" value:@"iconShare"]
                    
-           [IdTitleObject instanceWithId:@"carwashes" title:[NSString stringWithFormat:@"Мойки (%@)", [UserSettings currentCity].title] value:@"ic_business_white"],
+           [IdTitleObject instanceWithId:@"carwashes" title:carwashesItemStr value:@"ic_business_white"],
            [IdTitleObject instanceWithId:@"aboutus" title:@"О нас" value:@"ic_about_us"]
     ];
 }

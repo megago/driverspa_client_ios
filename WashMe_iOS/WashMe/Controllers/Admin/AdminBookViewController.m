@@ -23,6 +23,7 @@
 #import "CenterTitle.h"
 #import "NSString+Ext.h"
 #import "CarwashComplex.h"
+#import "UIViewController+NavigationBar.h"
 
 @interface AdminBookViewController ()
 @end
@@ -61,29 +62,48 @@
     [super viewDidLoad];
     [self configUI];
 
+    if (_afterNotification) {
+        [self loadBook:_bookId];
+    } else {
+        [self showBook];
+    }
+}
+
+- (void)loadBook: (NSString *)bookId {
+    [AdminApi orderBook:bookId success:^(id response) {
+        _book = response;
+        [self showBook];
+    } failure:^(NSInteger code, NSString *message) {
+        
+    }];
+}
+
+- (void)showBook {
+    [self setNavigationTitle:[NSString stringWithFormat:@"Бронь %@ в %@", [_book localizedDaysAgo], [_book localBookTime]]];
+    
     [Toast showHudLoading];
     [AdminApi orderBook:self.book.carwashBookId success:^(id response)
-    {
-        self.book = response;
-
-        [Toast showHudWithTitle:@"Загрузка пользователя"];
-        NSString *path = [self.book.client stringByReplacingOccurrencesOfString:@"/api/v1/" withString:@""];
-        [UserApi userWithResourceUri:path success:^(id response)
-        {
-            userObject = response;
-            [self buildUI];
-
-        } failure:^(NSInteger code, NSString *message)
-        {
-            if([message length] == 0) [UIHelper showAlertTryAgain];
-            [self.navigationController popViewControllerAnimated:YES];
-        }];
-
-    } failure:^(NSInteger code, NSString *message)
-    {
-        if([message length] == 0) [UIHelper showAlertTryAgain];
-        [self.navigationController popViewControllerAnimated:YES];
-    }];
+     {
+         self.book = response;
+         
+         [Toast showHudWithTitle:@"Загрузка пользователя"];
+         NSString *path = [self.book.client stringByReplacingOccurrencesOfString:@"/api/v1/" withString:@""];
+         [UserApi userWithResourceUri:path success:^(id response)
+          {
+              userObject = response;
+              [self buildUI];
+              
+          } failure:^(NSInteger code, NSString *message)
+          {
+              if([message length] == 0) [UIHelper showAlertTryAgain];
+              [self.navigationController popViewControllerAnimated:YES];
+          }];
+         
+     } failure:^(NSInteger code, NSString *message)
+     {
+         if([message length] == 0) [UIHelper showAlertTryAgain];
+         [self.navigationController popViewControllerAnimated:YES];
+     }];
 }
 
 #pragma mark -
@@ -527,10 +547,14 @@
 -(void)configUI
 {
     [super configUI];
-    [self setBackButtonInNavigation];
-
+    //[self setBackButtonInNavigation];
     [self setBlueBackground];
-    [self setNavigationTitle:[NSString stringWithFormat:@"Бронь %@ в %@", [_book localizedDaysAgo], [_book localBookTime]]];
+    if (_afterNotification) {
+        [self setNavigationBarTransparent];
+        [self showMenuButton];
+    } else {
+        [self setBackButtonInNavigation];
+    }
 }
 
 - (void)didReceiveMemoryWarning {

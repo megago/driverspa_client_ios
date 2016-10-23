@@ -21,4 +21,7 @@
 @property(nonatomic, weak) id <AdminBookViewControllerDelegate> delegate;
 @property(nonatomic, strong) CarwashBook *book;
 
+@property (nonatomic, assign) BOOL afterNotification;
+@property (nonatomic, strong) NSString *bookId;
+
 @end
