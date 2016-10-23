@@ -45,8 +45,6 @@
 	</dict>
 	<key>NSCameraUsageDescription</key>
 	<string>Для того чтобы добавлять фото, Вы должны разрешить использовать камеру.</string>
-	<key>NSLocationUsageDescription</key>
-	<string>${NSLocationWhenInUseUsageDescription}</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Для того чтобы видеть ближайшие автомойки, Вы должны разрешить получить Ваше местоположение.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
