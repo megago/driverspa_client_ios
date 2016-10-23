@@ -29,6 +29,7 @@
 #import "AAButton+Styles.h"
 #import "InputTextField+Validation.h"
 #import "NotificationsHelper.h"
+#import "UserSettings.h"
 
 @interface ProfileViewController ()
 @property(nonatomic, strong) NSMutableArray *cars;
@@ -89,6 +90,7 @@
 
     [SVProgressHUD showWithStatus:@"Сохранение"];
     [UserApi updateProfileWithName:_nameField.value lastname:nil cars:self.cars city:self.city success:^(id response) {
+        [UserSettings setCurrentCity:self.city];
 
         [SVProgressHUD showSuccessWithStatus:@"Сохранено"];
         User *user = [User instanceFromDictionary:response];
@@ -366,8 +368,7 @@
     [_carsCollectionView aa_pinUnderView:_telField offset:15];
     [_carsCollectionView aa_superviewFitWidth];
 
-    //_cityRowButton = [[RowButtonDropdownView alloc] initWithWidth:kContentWidth icon:nil title:@"Город" target:self selector:@selector(tapCity)];
-    _cityRowButton = [[RowButtonDropdownView alloc] initWithWidth:kContentWidth icon:nil title:@"Город" target:nil selector:nil];
+    _cityRowButton = [[RowButtonDropdownView alloc] initWithWidth:kContentWidth icon:nil title:@"Город" target:self selector:@selector(tapCity)];
     [_cityRowButton aa_setDimensions];
     [self.contentView addSubview:_cityRowButton];
     [_cityRowButton aa_pinUnderView:_carsCollectionView offset:15];

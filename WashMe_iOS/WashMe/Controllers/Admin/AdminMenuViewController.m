@@ -22,6 +22,7 @@
 #import "AppDelegate.h"
 #import "CarwashComplex.h"
 #import "UserSettings.h"
+#import "City.h"
 
 @interface AdminMenuViewController ()
 @property(nonatomic, strong) UITableView *list;
@@ -50,7 +51,7 @@
 
 -(void)initVars {
     self.items = @[
-                   [IdTitleObject instanceWithId:@"orders" title:@"Заказы (Астана)" value:@"ic_business_white"],
+                   [IdTitleObject instanceWithId:@"orders" title:[NSString stringWithFormat:@"Заказы (%@)", [UserSettings currentCity].title] value:@"ic_business_white"],
                    [IdTitleObject instanceWithId:@"aboutus" title:@"О нас" value:@"ic_about_us"]
                    ];
 }
@@ -59,8 +60,7 @@
 {
     [super viewDidLoad];
     [self configUI];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userProfileUpdated) name:kNotificationUserProfileUpdated object:nil];
+    [self subscribeForNotifications];
 }
 
 + (CGFloat)menuWidth {
@@ -105,6 +105,9 @@
     //_nameLabel.text = [User currentUser].firstName;
     _nameLabel.text = @"Настройки";
     _telLabel.text = [User currentUser].mobile;
+    
+    [self initVars];
+    [_list reloadData];
 }
 
 #pragma mark -
@@ -235,6 +238,24 @@
     }
 }
 
+#pragma mark - Notifications
+
+- (void) subscribeForNotifications
+{
+    [self unsubscribeFromNotifications];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(userProfileUpdated)
+                                                 name:kNotificationUserProfileUpdated
+                                               object:nil];
+}
+
+- (void) unsubscribeFromNotifications
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name: kNotificationUserProfileUpdated
+                                                  object:nil];
+}
+
 #pragma mark -
 
 -(void)configUI
@@ -257,7 +278,7 @@
 }
 
 -(void)dealloc {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [self unsubscribeFromNotifications];
 }
 
 @end

@@ -17,6 +17,8 @@
 #import "UIViewController+NoContent.h"
 #import "CarwashComplex.h"
 #import "UIViewController+NavigationBar.h"
+#import "UserSettings.h"
+#import "City.h"
 
 @interface CarwashesMapViewController ()
 @end
@@ -93,8 +95,16 @@
         myMarker.tappable = NO;
         myMarker.map = _mapView;
         
-        GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:[[LocationHelper sharedInstance] latitude]
-                                                                longitude:[[LocationHelper sharedInstance] longitude]
+        City *city = [UserSettings currentCity];
+        CLLocationDegrees lon = city.longitude;
+        CLLocationDegrees lat = city.latitude;
+        if (lon == 0 && lat == 0){
+            lon = [[LocationHelper sharedInstance] longitude];
+            lat = [[LocationHelper sharedInstance] latitude];
+        }
+        
+        GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:lat
+                                                                longitude:lon
                                                                      zoom:13];
         [_mapView animateToCameraPosition:camera];
     } failed:^(INTULocationStatus status) {

@@ -108,18 +108,20 @@
     //self.filterManager = 0;
     self.carwashes = nil;
     
-    [[LocationHelper sharedInstance] requestLocation:^(CLLocation *currentLocation) {
-        [self loadCarwashes:YES];
-        
-        // Define or check the nearest city
-        [UserSettings defineCurrentCity];
-        
-    } failed:^(INTULocationStatus status) {
-        [self loadCarwashes:NO];
-        
-        // Define or check the nearest city
-        [UserSettings defineCurrentCity];
-    }];
+    [self loadCarwashes:YES];
+    
+//    [[LocationHelper sharedInstance] requestLocation:^(CLLocation *currentLocation) {
+//        [self loadCarwashes:YES];
+//        
+//        // Define or check the nearest city
+//        [UserSettings defineCurrentCity];
+//        
+//    } failed:^(INTULocationStatus status) {
+//        [self loadCarwashes:NO];
+//        
+//        // Define or check the nearest city
+//        [UserSettings defineCurrentCity];
+//    }];
 }
 
 - (void)updateBooksBadge:(NSNotification *) notification {
@@ -190,7 +192,7 @@
 -(void)configUI
 {
     [super configUI];
-    [self setNavigationTitle:@"Астана"];
+    [self setNavigationTitle:[User currentUser].city.title];
 }
 
 - (void)didReceiveMemoryWarning {

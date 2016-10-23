@@ -39,6 +39,8 @@
 #import "AdminApi.h"
 #import "User.h"
 #import "CarwashComplex.h"
+#import "UserSettings.h"
+#import "NotificationsHelper.h"
 
 @interface AdminCarwashViewController () 
 @end
@@ -268,7 +270,7 @@
     NSMutableDictionary *o = [NSMutableDictionary dictionary];
 
     o[@"is_public"] = @(_carwash.isPublic);
-    o[@"city"] = @"astana";
+    o[@"city"] = draft.city.code;//@"astana";
     o[@"name"] = [nameField value];
     o[@"lonlat"] = @[@(draft.coordinate.longitude), @(draft.coordinate.latitude)];
     o[@"address"] = [draft address];
@@ -291,6 +293,8 @@
             [self.delegate adminCarwashViewControllerCarwashUpdated:response];
             [self.navigationController popViewControllerAnimated:YES];
             [Toast showSuccessToastWithMessage:@"Сохранено"];
+            [UserSettings setCurrentCity:draft.city];
+            [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationUserProfileUpdated object:nil];
         } failure:^(NSInteger code, NSString *message) {
 
         }];

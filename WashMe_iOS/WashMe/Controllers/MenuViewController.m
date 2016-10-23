@@ -21,6 +21,7 @@
 #import "AppDelegate.h"
 #import "APIClient.h"
 #import "UserSettings.h"
+#import "City.h"
 
 @interface MenuViewController ()
 @property(nonatomic, strong) UITableView *list;
@@ -55,7 +56,8 @@
             //[IdTitleObject instanceWithId:@"bonuses" title:@"Бонусы" value:@"iconPresent"],
             //[IdTitleObject instanceWithId:@"settings" title:@"Настройки" value:@"iconSettings"],
             //[IdTitleObject instanceWithId:@"share" title:@"Поделиться" value:@"iconShare"]
-           [IdTitleObject instanceWithId:@"carwashes" title:@"Мойки (Астана)" value:@"ic_business_white"],
+                   
+           [IdTitleObject instanceWithId:@"carwashes" title:[NSString stringWithFormat:@"Мойки (%@)", [User currentUser].city.title] value:@"ic_business_white"],
            [IdTitleObject instanceWithId:@"aboutus" title:@"О нас" value:@"ic_about_us"]
     ];
 }
@@ -63,9 +65,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self subscribeForNotifications];
     [self configUI];
-
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userProfileUpdated) name:kNotificationUserProfileUpdated object:nil];
 }
 
 + (CGFloat)menuWidth {
@@ -87,6 +88,9 @@
 - (void)setUserInfo {
     _nameLabel.text = [User currentUser].firstName;
     _telLabel.text = [User currentUser].mobile;
+    
+    [self initVars];
+    [_list reloadData];
 }
 
 - (void)tapLogout {
@@ -235,6 +239,24 @@
     }
 }
 
+#pragma mark - Notifications
+
+- (void) subscribeForNotifications
+{
+    [self unsubscribeFromNotifications];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(userProfileUpdated)
+                                                 name:kNotificationUserProfileUpdated
+                                               object:nil];
+}
+
+- (void) unsubscribeFromNotifications
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name: kNotificationUserProfileUpdated
+                                                  object:nil];
+}
+
 #pragma mark -
 
 -(void)configUI
@@ -257,7 +279,7 @@
 }
 
 -(void)dealloc {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [self unsubscribeFromNotifications];
 }
 
 @end

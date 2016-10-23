@@ -123,7 +123,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="75m-00-wdR" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="НА КАРТЕ" image="tab-nearby" id="n9d-pG-62c"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="yGb-M5-aC5">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="yGb-M5-aC5">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -161,7 +161,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3cc-Fe-6Sr" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="ВСЕ МОЙКИ" image="tab-free" id="WPz-ju-jrn"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="aEI-1B-lQ8">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="aEI-1B-lQ8">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -180,7 +180,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cxv-H6-KaP" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="МОИ БРОНИ" id="kmC-5a-h0G"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="IdQ-u4-y6T">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="IdQ-u4-y6T">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -235,7 +235,7 @@
         <scene sceneID="Mw1-jN-9tg">
             <objects>
                 <navigationController storyboardIdentifier="profile" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hPL-DH-61r" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="cEZ-2o-bI0">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="cEZ-2o-bI0">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -271,7 +271,7 @@
             <objects>
                 <navigationController storyboardIdentifier="about_us" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="N8c-Ug-PGR" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="nf3-d1-xBX">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="nf3-d1-xBX">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -289,7 +289,7 @@
             <objects>
                 <navigationController storyboardIdentifier="user_book" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="l1u-KQ-gcS" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="jiO-3r-NXs">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="jiO-3r-NXs">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

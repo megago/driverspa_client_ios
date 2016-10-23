@@ -41,6 +41,10 @@
     City *city = [UserSettings currentCity];
     CLLocationDegrees lon = city.longitude;
     CLLocationDegrees lat = city.latitude;
+    if (lon == 0 && lat == 0){
+        lon = [[LocationHelper sharedInstance] longitude];
+        lat = [[LocationHelper sharedInstance] latitude];
+    }
     
     //map_carwash?lonlat__near=%f,%f&lonlat__max_distance=%@&working=true&limit=10000
 
@@ -85,13 +89,15 @@
         page = 1;
     }
 
-    CLLocationDegrees lon = [[LocationHelper sharedInstance] longitude];
-    CLLocationDegrees lat = [[LocationHelper sharedInstance] latitude];
+    CLLocationDegrees lon = [User currentUser].city.latitude;
+    CLLocationDegrees lat = [User currentUser].city.longitude;
 
-    if(lon == 0 || lat == 0) {
-        lat = 51.155372;
-        lon = 71.432625;
-    }
+//    CLLocationDegrees lon = [[LocationHelper sharedInstance] longitude];
+//    CLLocationDegrees lat = [[LocationHelper sharedInstance] latitude];
+//    if(lon == 0 || lat == 0) {
+//        lat = [User currentUser].city.latitude;//51.155372;
+//        lon = [User currentUser].city.longitude;//71.432625;
+//    }
     
     if (city == nil){
         city = [User currentUser].cityCode;
