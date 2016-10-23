@@ -235,7 +235,7 @@
     codeField.y = telField.bottom + 10;
     codeField.textField.keyboardType = UIKeyboardTypeNumberPad;
     [codeField setPlaceholder:@"Код подтверждения"];
-    if(kDEBUGMODE) [codeField setValue:@"000000"]; // TODO: for testing
+    if(kDEBUGMODE) [codeField setValue:@"1920"]; // TODO: for testing
     [sv addSubview:codeField];
 
     [self addKeyboardControlFields:@[telField]];
@@ -269,7 +269,7 @@
         NSInteger moddedLength = textField.text.length-(range.length-string.length);
         
         // max size.
-        if (moddedLength > 6) {
+        if (moddedLength > 4) {
             return NO;
         }
     }
