@@ -57,7 +57,7 @@
             //[IdTitleObject instanceWithId:@"settings" title:@"Настройки" value:@"iconSettings"],
             //[IdTitleObject instanceWithId:@"share" title:@"Поделиться" value:@"iconShare"]
                    
-           [IdTitleObject instanceWithId:@"carwashes" title:[NSString stringWithFormat:@"Мойки (%@)", [User currentUser].city.title] value:@"ic_business_white"],
+           [IdTitleObject instanceWithId:@"carwashes" title:[NSString stringWithFormat:@"Мойки (%@)", [UserSettings currentCity].title] value:@"ic_business_white"],
            [IdTitleObject instanceWithId:@"aboutus" title:@"О нас" value:@"ic_about_us"]
     ];
 }

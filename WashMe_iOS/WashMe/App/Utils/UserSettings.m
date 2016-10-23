@@ -49,7 +49,7 @@
         if(currentCity) {
             if(![currentCity isCity:nearestCity])
             {
-                [UIAlertView showWithTitle:@"Ближайший к Вам город:" message:nearestCity.title cancelButtonTitle:@"Отмена" otherButtonTitles:@[@"Выбрать город?"] tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
+                [UIAlertView showWithTitle:@"Ближайший к Вам город:" message:nearestCity.title cancelButtonTitle:@"Отмена" otherButtonTitles:@[@"Выбрать город!"] tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
                     if(buttonIndex != alertView.cancelButtonIndex) {
                         [self setCurrentCity:nearestCity];
 

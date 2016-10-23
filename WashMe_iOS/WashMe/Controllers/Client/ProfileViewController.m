@@ -30,8 +30,9 @@
 #import "InputTextField+Validation.h"
 #import "NotificationsHelper.h"
 #import "UserSettings.h"
+#import "SelectCityViewController.h"
 
-@interface ProfileViewController ()
+@interface ProfileViewController () <SelectCityViewControllerDelegate>
 @property(nonatomic, strong) NSMutableArray *cars;
 @property(nonatomic, strong) City *city;
 @end
@@ -125,18 +126,23 @@
     NSArray *cityNames = [cities map:^id(City *object) {
         return object.title;
     }];
+    
+    SelectCityViewController *v = [[SelectCityViewController alloc] init];
+    v.cities = cities;
+    v.delegate = self;
+    [self.navigationController pushViewController:v animated:YES];
 
-    [UIActionSheet showInView:self.view
-                    withTitle:@"Выберите город"
-            cancelButtonTitle:@"Отмена"
-       destructiveButtonTitle:nil
-            otherButtonTitles:cityNames
-                     tapBlock:^(UIActionSheet *actionSheet, NSInteger buttonIndex) {
-                         if(buttonIndex != actionSheet.cancelButtonIndex) {
-                             self.city = cities[buttonIndex];
-                             [_cityRowButton setTitle:_city.title];
-                         }
-                     }];
+//    [UIActionSheet showInView:self.view
+//                    withTitle:@"Выберите город"
+//            cancelButtonTitle:@"Отмена"
+//       destructiveButtonTitle:nil
+//            otherButtonTitles:cityNames
+//                     tapBlock:^(UIActionSheet *actionSheet, NSInteger buttonIndex) {
+//                         if(buttonIndex != actionSheet.cancelButtonIndex) {
+//                             self.city = cities[buttonIndex];
+//                             [_cityRowButton setTitle:_city.title];
+//                         }
+//                     }];
 }
 
 - (void)tapLogout {
@@ -152,6 +158,14 @@
 {
     UserNotificationsViewController *v = [[UserNotificationsViewController alloc] init];
     [self.navigationController pushViewController:v animated:YES];
+}
+
+#pragma mark - 
+#pragma mark SelectCityViewControllerDelegate
+
+- (void)changeCurrentCity : (City *)city; {
+     self.city = city;
+     [_cityRowButton setTitle:self.city.title];
 }
 
 #pragma mark -
@@ -401,7 +415,6 @@
 }
 
 -(void)dealloc {
-
 }
 
 @end

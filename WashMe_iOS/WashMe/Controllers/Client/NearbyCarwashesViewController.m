@@ -192,7 +192,7 @@
 -(void)configUI
 {
     [super configUI];
-    [self setNavigationTitle:[User currentUser].city.title];
+    [self setNavigationTitle:[UserSettings currentCity].title];
 }
 
 - (void)didReceiveMemoryWarning {

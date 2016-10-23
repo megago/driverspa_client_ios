@@ -89,8 +89,8 @@
         page = 1;
     }
 
-    CLLocationDegrees lon = [User currentUser].city.latitude;
-    CLLocationDegrees lat = [User currentUser].city.longitude;
+    CLLocationDegrees lon = [UserSettings currentCity].latitude;
+    CLLocationDegrees lat = [UserSettings currentCity].longitude;
 
 //    CLLocationDegrees lon = [[LocationHelper sharedInstance] longitude];
 //    CLLocationDegrees lat = [[LocationHelper sharedInstance] latitude];
