@@ -58,7 +58,6 @@
 //    } else {
 //        [[CreateCarwashDraft sharedInstance] removeAdditionalInfo:row.userData];
 //    }
-    
     [self.delegate changeCurrentCity:view.userData];
     [self.navigationController popViewControllerAnimated:YES];
 }

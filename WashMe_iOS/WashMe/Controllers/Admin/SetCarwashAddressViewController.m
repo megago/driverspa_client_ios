@@ -20,8 +20,9 @@
 #import "Cache.h"
 #import "CarwashRefs.h"
 #import "City.h"
+#import "SelectCityViewController.h"
 
-@interface SetCarwashAddressViewController ()
+@interface SetCarwashAddressViewController () <SelectCityViewControllerDelegate>
 @end
 
 @implementation SetCarwashAddressViewController {
@@ -61,21 +62,27 @@
 - (void)cityDropdownTapped
 {
     NSArray *cities = [[Cache companyCarwashRefs] cities];
-    NSMutableArray * cityNames = [NSMutableArray array];
-    for(City *city in cities) {
-        [cityNames addObject:city.title];
-    }
+//    NSMutableArray * cityNames = [NSMutableArray array];
+//    for(City *city in cities) {
+//        [cityNames addObject:city.title];
+//    }
+    
+    SelectCityViewController *v = [[SelectCityViewController alloc] init];
+    v.cities = cities;
+    v.delegate = self;
+    [self.navigationController pushViewController:v animated:YES];
 
-    [UIActionSheet showInView:self.view withTitle:@"Укажите город мойки" cancelButtonTitle:@"Отмена" destructiveButtonTitle:nil otherButtonTitles:cityNames tapBlock:^(UIActionSheet *actionSheet, NSInteger buttonIndex) {
-        if(actionSheet.cancelButtonIndex != buttonIndex)
-        {
-            CreateCarwashDraft *draft = [CreateCarwashDraft sharedInstance];
-            City *selectedCity = cities[buttonIndex];
-            draft.city = selectedCity;
 
-            [cityButton setTitle:selectedCity.title];
-        }
-    }];
+//    [UIActionSheet showInView:self.view withTitle:@"Укажите город мойки" cancelButtonTitle:@"Отмена" destructiveButtonTitle:nil otherButtonTitles:cityNames tapBlock:^(UIActionSheet *actionSheet, NSInteger buttonIndex) {
+//        if(actionSheet.cancelButtonIndex != buttonIndex)
+//        {
+//            CreateCarwashDraft *draft = [CreateCarwashDraft sharedInstance];
+//            City *selectedCity = cities[buttonIndex];
+//            draft.city = selectedCity;
+//
+//            [cityButton setTitle:selectedCity.title];
+//        }
+//    }];
 }
 
 - (void)setOnMapTapped
@@ -85,6 +92,17 @@
     v.delegate = self;
     v.coordinate = [CreateCarwashDraft sharedInstance].coordinate;
     [self.navigationController pushViewController:v animated:YES];
+}
+
+#pragma mark -
+#pragma mark SelectCityViewControllerDelegate
+
+- (void)changeCurrentCity : (City *)city; {
+    CreateCarwashDraft *draft = [CreateCarwashDraft sharedInstance];
+    City *selectedCity = city;
+    draft.city = selectedCity;
+
+    [cityButton setTitle:selectedCity.title];
 }
 
 #pragma mark -

@@ -123,9 +123,9 @@
 - (void)tapCity
 {
     NSArray *cities = [Cache carwashRefs].cities;
-    NSArray *cityNames = [cities map:^id(City *object) {
-        return object.title;
-    }];
+//    NSArray *cityNames = [cities map:^id(City *object) {
+//        return object.title;
+//    }];
     
     SelectCityViewController *v = [[SelectCityViewController alloc] init];
     v.cities = cities;
