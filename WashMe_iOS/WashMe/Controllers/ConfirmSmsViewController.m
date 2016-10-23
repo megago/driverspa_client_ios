@@ -90,6 +90,7 @@
 
         // Store user data
         [User setAuthorizedUserData:response withMobile:user.mobile];
+        [UserSettings setCurrentCity:user.city];
 
         // Goto carwashes list if user or admin main page
         if([UserSettings isAdmin]) {

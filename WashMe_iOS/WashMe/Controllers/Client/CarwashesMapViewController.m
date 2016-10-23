@@ -179,8 +179,12 @@
     [self showMenuButton];
     [self setNavigationBarTransparent];
 
-    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:[[LocationHelper sharedInstance] latitude]
-                                                            longitude:[[LocationHelper sharedInstance] longitude]
+//    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:[[LocationHelper sharedInstance] latitude]
+//                                                            longitude:[[LocationHelper sharedInstance] longitude]
+//                                                                 zoom:12];
+    
+    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:[UserSettings currentCity].latitude
+                                                            longitude:[UserSettings currentCity].longitude
                                                                  zoom:12];
     _mapView.camera = camera;
     _mapView.delegate = self;
