@@ -184,8 +184,7 @@
         if([self.delegate respondsToSelector:@selector(clientBookViewControllerBookCanceled:)]) {
             [self.delegate clientBookViewControllerBookCanceled:_book.carwashBookId];
         }
-        [self.navigationController popViewControllerAnimated:YES];
-
+        //[self.navigationController popViewControllerAnimated:YES];
         
         if(actionBlock) {
             actionBlock();
@@ -199,6 +198,15 @@
 #pragma mark -
 
 - (void)updateBookStatusView {
+    
+    for (UIView *i in self.view.subviews){
+        if([i isKindOfClass:[UILabel class]]){
+            UILabel *newLbl = (UILabel *)i;
+            if(newLbl.tag == 1000){
+                [newLbl removeFromSuperview];
+            }
+        }
+    }
     
     for (UIView *view in sv.subviews){
         [view removeFromSuperview];

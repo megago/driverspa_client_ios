@@ -53,8 +53,7 @@
             }];
         }];
     }];
-    
-    //[self showIntro];
+    [self showIntro];
 }
 
 - (void)configAction

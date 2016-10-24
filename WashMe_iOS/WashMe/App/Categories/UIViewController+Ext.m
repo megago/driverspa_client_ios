@@ -53,6 +53,7 @@
     [titleLabel sizeToFit];
     titleLabel.x = (CGFloat) (([ASize screenWidth] - titleLabel.width) * 0.5);
     titleLabel.y = (CGFloat) ((44 - titleLabel.height) * 0.5) + [Version iOS7:20 or:0];
+    titleLabel.tag = 1000;
     [self.view addSubview:titleLabel];
 }
 
