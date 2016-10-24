@@ -153,6 +153,8 @@
 		A38003961D4DFDBD00806157 /* intro_2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A38003901D4DFDBD00806157 /* intro_2@2x.png */; };
 		A38003971D4DFDBD00806157 /* intro_3.png in Resources */ = {isa = PBXBuildFile; fileRef = A38003911D4DFDBD00806157 /* intro_3.png */; };
 		A38003981D4DFDBD00806157 /* intro_3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A38003921D4DFDBD00806157 /* intro_3@2x.png */; };
+		A39010971DBE5CA100A57ED2 /* ic_gps_24dp.png in Resources */ = {isa = PBXBuildFile; fileRef = A39010951DBE5CA100A57ED2 /* ic_gps_24dp.png */; };
+		A39010981DBE5CA100A57ED2 /* ic_gps_24dp@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A39010961DBE5CA100A57ED2 /* ic_gps_24dp@2x.png */; };
 		A3981CC51D4CE90600E0689B /* CarwashMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3981CC41D4CE90500E0689B /* CarwashMapViewController.m */; };
 		A3981CD21D4D20E700E0689B /* carwash-annotation-offline.png in Resources */ = {isa = PBXBuildFile; fileRef = A3981CCE1D4D20E700E0689B /* carwash-annotation-offline.png */; };
 		A3981CD31D4D20E700E0689B /* carwash-annotation-offline@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A3981CCF1D4D20E700E0689B /* carwash-annotation-offline@2x.png */; };
@@ -674,6 +676,8 @@
 		A38003901D4DFDBD00806157 /* intro_2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "intro_2@2x.png"; sourceTree = "<group>"; };
 		A38003911D4DFDBD00806157 /* intro_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = intro_3.png; sourceTree = "<group>"; };
 		A38003921D4DFDBD00806157 /* intro_3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "intro_3@2x.png"; sourceTree = "<group>"; };
+		A39010951DBE5CA100A57ED2 /* ic_gps_24dp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_gps_24dp.png; sourceTree = "<group>"; };
+		A39010961DBE5CA100A57ED2 /* ic_gps_24dp@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_gps_24dp@2x.png"; sourceTree = "<group>"; };
 		A3981CC31D4CE90500E0689B /* CarwashMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarwashMapViewController.h; sourceTree = "<group>"; };
 		A3981CC41D4CE90500E0689B /* CarwashMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarwashMapViewController.m; sourceTree = "<group>"; };
 		A3981CCE1D4D20E700E0689B /* carwash-annotation-offline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "carwash-annotation-offline.png"; sourceTree = "<group>"; };
@@ -1730,6 +1734,8 @@
 				A36A21A31D69CFF6001F73EE /* launch-car@2x.png */,
 				A36A21A61D69D0CD001F73EE /* washme-logo-launch.png */,
 				A36A21A71D69D0CD001F73EE /* washme-logo-launch@2x.png */,
+				A39010951DBE5CA100A57ED2 /* ic_gps_24dp.png */,
+				A39010961DBE5CA100A57ED2 /* ic_gps_24dp@2x.png */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -1965,6 +1971,7 @@
 				CE755C3E1A192F5E00A036DC /* icon-rating-star@2x.png in Resources */,
 				A36A21A91D69D0CD001F73EE /* washme-logo-launch@2x.png in Resources */,
 				CE755C281A192F5E00A036DC /* icon-disclosure-indicator-white@2x.png in Resources */,
+				A39010981DBE5CA100A57ED2 /* ic_gps_24dp@2x.png in Resources */,
 				A38003951D4DFDBD00806157 /* intro_2.png in Resources */,
 				CE755BF81A192F5E00A036DC /* btn_cartype4_selected@2x.png in Resources */,
 				CE755C361A192F5E00A036DC /* icon-map-close@2x.png in Resources */,
@@ -2009,6 +2016,7 @@
 				CE755C1F1A192F5E00A036DC /* icon-cafe.png in Resources */,
 				CE755C4B1A192F5E00A036DC /* Icon-Small-50_7@2x-1.png in Resources */,
 				CE755C661A192F5E00A036DC /* star-small-rated.png in Resources */,
+				A39010971DBE5CA100A57ED2 /* ic_gps_24dp.png in Resources */,
 				CE3753921A583FE300394BFE /* carwash-status-unpublished.png in Resources */,
 				CE755C411A192F5E00A036DC /* icon-search.png in Resources */,
 				CE755C051A192F5E00A036DC /* btn_tab-settings_normal.png in Resources */,

@@ -126,11 +126,13 @@
         if(buttonIndex != alertView.cancelButtonIndex) {
             [Toast showHudLoading];
             [UserApi cancelBooking:self.book.carwashBookId success:^(id response) {
-                [Toast showSuccessToastWithMessage:@"Бронь отменена!"];
-                if([self.delegate respondsToSelector:@selector(clientBookViewControllerBookCanceled:)]) {
-                    [self.delegate clientBookViewControllerBookCanceled:self.book.carwashBookId];
-                }
-                [self.navigationController popViewControllerAnimated:YES];
+//                [Toast showSuccessToastWithMessage:@"Бронь отменена!"];
+//                if([self.delegate respondsToSelector:@selector(clientBookViewControllerBookCanceled:)]) {
+//                    [self.delegate clientBookViewControllerBookCanceled:self.book.carwashBookId];
+//                }
+//                [self.navigationController popViewControllerAnimated:YES];
+                
+                [self checkUpdatedStatusResponse:response withStatus:kBookStatusCancelled withSuccessTitle:@"Бронь отменена!" actionBlock:nil];
             } failure:^(NSInteger code, NSString *message) {
                 [UIHelper showAlertTryAgain];
             }];
@@ -167,7 +169,42 @@
     }
 }
 
+- (void)checkUpdatedStatusResponse:(id)response withStatus:(NSString *)bookStatus withSuccessTitle:(NSString *)toastTitle actionBlock:(void(^)(void))actionBlock
+{
+    NSString *status = response[@"status"];
+    if([status isEqual:bookStatus])
+    {
+        [Toast showSuccessToastWithMessage:toastTitle];
+        
+        // Update the book status
+        _book.status = status;
+        [self updateBookStatusView];
+        
+        // Send delegate
+        if([self.delegate respondsToSelector:@selector(clientBookViewControllerBookCanceled:)]) {
+            [self.delegate clientBookViewControllerBookCanceled:_book.carwashBookId];
+        }
+        [self.navigationController popViewControllerAnimated:YES];
+
+        
+        if(actionBlock) {
+            actionBlock();
+        }
+        
+    } else {
+        [UIHelper showAlertTryAgain];
+    }
+}
+
 #pragma mark -
+
+- (void)updateBookStatusView {
+    
+    for (UIView *view in sv.subviews){
+        [view removeFromSuperview];
+    }
+    [self buildUI];
+}
 
 - (NSString *)stringFromTimeInterval:(NSTimeInterval)interval {
     NSInteger ti = (NSInteger)interval - 6*60*60;

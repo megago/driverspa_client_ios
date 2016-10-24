@@ -101,7 +101,7 @@
 {
     CGFloat nextY = 10;
     
-    RowButtonView *myLocationRow = [[RowButtonView alloc] initWithIcon:@"icon-favorite" title:@"Мое местоположение" target:self selector:@selector(requestMylocationCity)];
+    RowButtonView *myLocationRow = [[RowButtonView alloc] initWithIcon:@"ic_gps_24dp" title:@"Мое местоположение" target:self selector:@selector(requestMylocationCity)];
     myLocationRow.y = nextY;
     [sv addSubview:myLocationRow];
     nextY = myLocationRow.bottom;
