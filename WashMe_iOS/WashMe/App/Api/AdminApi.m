@@ -25,28 +25,28 @@
 }
 
 + (void)ordersPending:(success)success failure:(failure)failure {
-    NSString *path = [NSString stringWithFormat:@"company_booking?day=pending&carwash=%@",[CarwashComplex cashedCarwash].carwashId];
+    NSString *path = [NSString stringWithFormat:@"company_booking?day=pending&carwash=%@&os=ios",[CarwashComplex cashedCarwash].carwashId];
     [self GET:path success:^(id response) {
         success([self responseToCompanyBooks:response[@"objects"]]);
     } failure:failure];
 }
 
 + (void)ordersAll:(success)success failure:(failure)failure {
-    NSString *path = [NSString stringWithFormat:@"company_booking?day=all&carwash=%@",[CarwashComplex cashedCarwash].carwashId];
+    NSString *path = [NSString stringWithFormat:@"company_booking?day=all&carwash=%@&os=ios",[CarwashComplex cashedCarwash].carwashId];
     [self GET:path success:^(id response) {
         success([self responseToCompanyBooks:response[@"objects"]]);
     } failure:failure];
 }
 
 + (void)ordersToday:(success)success failure:(failure)failure {
-    NSString *path = [NSString stringWithFormat:@"company_booking?day=today&carwash=%@",[CarwashComplex cashedCarwash].carwashId];
+    NSString *path = [NSString stringWithFormat:@"company_booking?day=today&carwash=%@&os=ios",[CarwashComplex cashedCarwash].carwashId];
     [self GET:path success:^(id response) {
         success([self responseToCompanyBooks:response[@"objects"]]);
     } failure:failure];
 }
 
 + (void)ordersTomorrow:(success)success failure:(failure)failure {
-    NSString *path = [NSString stringWithFormat:@"company_booking?day=tomorrow&carwash=%@",[CarwashComplex cashedCarwash].carwashId];
+    NSString *path = [NSString stringWithFormat:@"company_booking?day=tomorrow&carwash=%@&os=ios",[CarwashComplex cashedCarwash].carwashId];
     [self GET:path success:^(id response) {
         success([self responseToCompanyBooks:response[@"objects"]]);
     } failure:failure];

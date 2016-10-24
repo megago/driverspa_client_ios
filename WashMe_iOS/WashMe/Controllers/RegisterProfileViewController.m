@@ -26,8 +26,9 @@
 #import "AppDelegate.h"
 #import "User.h"
 #import "UserSettings.h"
+#import "SelectCityViewController.h"
 
-@interface RegisterProfileViewController ()
+@interface RegisterProfileViewController () <SelectCityViewControllerDelegate>
 @property(nonatomic, strong) NSMutableArray *cars;
 @property(nonatomic, strong) City *selectedCity;
 @end
@@ -69,7 +70,7 @@
         [_cityRowButton setTitle:_selectedCity.title];
         [UserSettings setCurrentCity:_selectedCity];
     } else {
-        self.selectedCity = [Cache carwashRefs].cities.lastObject;
+        self.selectedCity = [Cache carwashRefs].cities.firstObject;
         [_cityRowButton setTitle:_selectedCity.title];
     }
 
@@ -107,6 +108,7 @@
 
         // Set that user entered profile in registration.
         [User setRegistrationProfileEntered:[User currentUser].mobile];
+        [UserSettings setCurrentCity:user.city];
 
         // User authorized, goto main page.
         [[UIHelper appDelegate] setUserAuthorizedTabbarController];
@@ -118,22 +120,35 @@
 
 - (void)tapCity
 {
-    NSArray *cities = @[[Cache carwashRefs].cities.lastObject];
-    NSArray *cityNames = [cities map:^id(City *object) {
-        return object.title;
-    }];
+    NSArray *cities = [Cache carwashRefs].cities;
+//    NSArray *cityNames = [cities map:^id(City *object) {
+//        return object.title;
+//    }];
 
-    [UIActionSheet showInView:self.view
-                    withTitle:@"Выберите город"
-            cancelButtonTitle:@"Отмена"
-       destructiveButtonTitle:nil
-            otherButtonTitles:cityNames
-                     tapBlock:^(UIActionSheet *actionSheet, NSInteger buttonIndex) {
-        if(buttonIndex != actionSheet.cancelButtonIndex) {
-            self.selectedCity = cities[buttonIndex];
-            [_cityRowButton setTitle:_selectedCity.title];
-        }
-    }];
+    SelectCityViewController *v = [[SelectCityViewController alloc] init];
+    v.cities = cities;
+    v.delegate = self;
+    [self.navigationController pushViewController:v animated:YES];
+    
+//    [UIActionSheet showInView:self.view
+//                    withTitle:@"Выберите город"
+//            cancelButtonTitle:@"Отмена"
+//       destructiveButtonTitle:nil
+//            otherButtonTitles:cityNames
+//                     tapBlock:^(UIActionSheet *actionSheet, NSInteger buttonIndex) {
+//        if(buttonIndex != actionSheet.cancelButtonIndex) {
+//            self.selectedCity = cities[buttonIndex];
+//            [_cityRowButton setTitle:_selectedCity.title];
+//        }
+//    }];
+}
+
+#pragma mark -
+#pragma mark SelectCityViewControllerDelegate
+
+- (void)changeCurrentCity : (City *)city; {
+    self.selectedCity = city;
+    [_cityRowButton setTitle:self.selectedCity.title];
 }
 
 #pragma mark -
@@ -198,8 +213,7 @@
     [_carsCollectionView aa_pinUnderView:addAutoTitleLabel offset:8];
     [_carsCollectionView aa_superviewFitWidth];
 
-    //_cityRowButton = [[RowButtonDropdownView alloc] initWithWidth:kContentWidth icon:nil title:@"Город" target:self selector:@selector(tapCity)];
-    _cityRowButton = [[RowButtonDropdownView alloc] initWithWidth:kContentWidth icon:nil title:@"Город" target:nil selector:nil];
+    _cityRowButton = [[RowButtonDropdownView alloc] initWithWidth:kContentWidth icon:nil title:@"Город" target:self selector:@selector(tapCity)];
     [_cityRowButton aa_setDimensions];
     [self.contentView addSubview:_cityRowButton];
     [_cityRowButton aa_pinUnderView:_carsCollectionView offset:20];

@@ -89,14 +89,14 @@
         page = 1;
     }
 
-//    CLLocationDegrees lon = [UserSettings currentCity].latitude;
-//    CLLocationDegrees lat = [UserSettings currentCity].longitude;
+//    CLLocationDegrees lon = [UserSettings currentCity].longitude;
+//    CLLocationDegrees lat = [UserSettings currentCity].latitude;
 
     CLLocationDegrees lon = [[LocationHelper sharedInstance] longitude];
     CLLocationDegrees lat = [[LocationHelper sharedInstance] latitude];
     if(lon == 0 || lat == 0) {
-        lat = [User currentUser].city.latitude;//51.155372;
-        lon = [User currentUser].city.longitude;//71.432625;
+        lat = [User currentUser].city.latitude;
+        lon = [User currentUser].city.longitude;
     }
     
     if (city == nil){
