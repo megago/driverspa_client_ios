@@ -94,9 +94,17 @@
 
     CLLocationDegrees lon = [[LocationHelper sharedInstance] longitude];
     CLLocationDegrees lat = [[LocationHelper sharedInstance] latitude];
-    if(lon == 0 || lat == 0) {
-        lat = [User currentUser].city.latitude;
-        lon = [User currentUser].city.longitude;
+//    if(lon == 0 || lat == 0) {
+//        lat = [User currentUser].city.latitude;
+//        lon = [User currentUser].city.longitude;
+//    }
+    
+    BOOL placeInCity = YES;
+    long km = [LocationHelper metersBetweenMeAndPlace:CLLocationCoordinate2DMake([User currentUser].city.latitude, [User currentUser].city.longitude)] / 1000;
+    if (km > 50) {
+        placeInCity = NO;
+    } else {
+        placeInCity = YES;
     }
     
     if (city == nil){
@@ -122,7 +130,7 @@
     //public_carwash?lonlat__near=71.432625%2C51.155372&limit=100000&lonlat__max_distance=50000&rating__gte=0&max_price=3500&offset=0&mobile=%2B77076744674&city=astana
 
     NSMutableDictionary * params = [NSMutableDictionary dictionary];
-    params[@"lonlat__near"] = [NSString stringWithFormat:@"%f,%f", lon, lat];
+    if(placeInCity) params[@"lonlat__near"] = [NSString stringWithFormat:@"%f,%f", lon, lat];
     //if(free)        params[@"free"] = @([free boolValue]);
     //if(working)     params[@"working"] = @([working boolValue]);
     //if(comforts)    params[@"comforts"] = comforts;

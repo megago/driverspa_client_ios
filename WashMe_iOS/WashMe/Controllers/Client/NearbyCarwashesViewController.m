@@ -33,6 +33,7 @@
 #import "UITabBarItem+CustomBadge.h"
 #import "USerApi.h"
 #import "CarwashBook.h"
+#import "LocationHelper.h"
 
 #import <MapKit/MapKit.h>
 
@@ -70,7 +71,7 @@
     [self removeNoContentMessageIfExists];
 
     if(!loadingMore || (loadingMore && self.page == 1))[Toast showHudLoading];//[SVProgressHUD showLoading];
-    
+
     //[CarwashApi getPublicCarwashes:nil success:^(NSArray *response) {
     [CarwashApi getCarwashes:self.page filterManager:self.filterManager success:^(NSArray *response) {
 
@@ -108,7 +109,11 @@
     //self.filterManager = 0;
     self.carwashes = nil;
     
-    [self loadCarwashes:YES];
+    [[LocationHelper sharedInstance] requestLocation:^(CLLocation *currentLocation) {
+        [self loadCarwashes:YES];
+    } failed:^(INTULocationStatus status) {
+        [self loadCarwashes:YES];
+    }];
     
 //    [[LocationHelper sharedInstance] requestLocation:^(CLLocation *currentLocation) {
 //        [self loadCarwashes:YES];
