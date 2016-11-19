@@ -20,6 +20,7 @@
 #define kCarwashTitleFont [UIFont robotoRegular:16]
 #define kCarwashAddressFont [UIFont robotoRegular:14]
 #define kCarwashTitleWidth ([ASize screenWidth] - 30)
+#define kCarwashAddressWidth ([ASize screenWidth] - 80)
 
 #define kCarwashTitleFontOffline [UIFont robotoItalic:16]
 #define kCarwashAddressFontOffline [UIFont robotoItalic:14]
@@ -154,8 +155,8 @@
 + (CGFloat)cellHeightWithCarwashName:(NSString *)name andAddress:(NSString *)address
 {
     CGSize sizeName = [name sizeWithFont:kCarwashTitleFontOffline constrainedToSize:CGSizeMake(kCarwashTitleWidth, CGFLOAT_MAX) lineBreakMode:NSLineBreakByWordWrapping];
-    CGSize sizeAddress = [name sizeWithFont:kCarwashAddressFontOffline constrainedToSize:CGSizeMake(kCarwashTitleWidth, CGFLOAT_MAX) lineBreakMode:NSLineBreakByWordWrapping];
-    return sizeName.height + sizeName.height + 2 * kPadding + 36;
+    CGSize sizeAddress = [address sizeWithFont:kCarwashAddressFontOffline constrainedToSize:CGSizeMake(kCarwashAddressWidth, CGFLOAT_MAX) lineBreakMode:NSLineBreakByWordWrapping];
+    return sizeName.height + sizeAddress.height + 2 * kPadding + 36;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

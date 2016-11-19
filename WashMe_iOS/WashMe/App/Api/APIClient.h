@@ -9,12 +9,11 @@
 #import <Foundation/Foundation.h>
 #import "AFHTTPRequestOperationManager.h"
 
-//#define kApiGateway @"http://test.api.washme.kz/v1/"
-//#define kApiBase @"http://test.api.washme.kz/"
+#define kApiGateway @"http://api.washme.kz/v1/"
+#define kApiBase @"http://api.washme.kz/"
 
-
-#define kApiGateway @"http://balhash.washme.kz:5000/api/v1/"
-#define kApiBase @"http://balhash.washme.kz:5000"
+//#define kApiGateway @"http://balhash.washme.kz:5000/api/v1/"
+//#define kApiBase @"http://balhash.washme.kz:5000"
 
 typedef void (^success)(id response);
 typedef void (^successWithMessage)(id response, NSString *message);
