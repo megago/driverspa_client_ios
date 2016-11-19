@@ -34,6 +34,9 @@
 #import "USerApi.h"
 #import "CarwashBook.h"
 #import "LocationHelper.h"
+#import "SelectCityViewController.h"
+#import "Cache.h"
+#import "CarwashRefs.h"
 
 #import <MapKit/MapKit.h>
 
@@ -156,9 +159,17 @@
 #pragma mark Actions
 
 - (void)tapNavigationMenuButton {
-    SearchFilterViewController *v = [SearchFilterViewController new];
+//    SearchFilterViewController *v = [SearchFilterViewController new];
+//    v.delegate = self;
+//    v.filterManager = self.filterManager;
+//    UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:v];
+//    [self presentViewController:nc animated:YES completion:nil];
+    
+    NSArray *cities = [Cache carwashRefs].cities;
+    SelectCityViewController *v = [[SelectCityViewController alloc] init];
+    v.cities = cities;
     v.delegate = self;
-    v.filterManager = self.filterManager;
+    v.isModal = YES;
     UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:v];
     [self presentViewController:nc animated:YES completion:nil];
 }
@@ -191,13 +202,21 @@
                                                   object:nil];
 }
 
+#pragma mark - 
+#pragma mark SelectCityViewControllerDelegate
+
+- (void)changeCurrentCity:(City *)city {
+    [self showNavigationMenuButton:[UserSettings currentCity].title];
+    [self refreshCarwashes];
+}
 
 #pragma mark -
 
 -(void)configUI
 {
     [super configUI];
-    [self setNavigationTitle:[UserSettings currentCity].title];
+    //[self setNavigationTitle:[UserSettings currentCity].title];
+    [self showNavigationMenuButton:[UserSettings currentCity].title];
 }
 
 - (void)didReceiveMemoryWarning {

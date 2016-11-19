@@ -1,5 +1,5 @@
+#import <TMCache/TMCache.h>
 #import "CarwashSchedule.h"
-
 #import "SchedulePeriod.h"
 #import "NSDate+Utilities.h"
 #import "NSDate+Ext.h"
@@ -91,5 +91,27 @@
     }
     return array;
 }
+
+//#pragma mark -
+//#pragma mark User cache
+//
+//+ (void)setAuthorizedCarwashSheduleData:(CarwashSchedule *)carwashSheduleData withMobile:(NSString *)_mobile
+//{
+//    [[TMCache sharedCache] setObject:(id)carwashSheduleData forKey:[self carwashScheduleDataCacheKeyWithMobile:_mobile]];
+//}
+//
+//+ (CarwashSchedule *)authorizedCarwashScheduleDataWithMobile:(NSString *)_mobile {
+//    id object = [[TMCache sharedCache] objectForKey:[self carwashScheduleDataCacheKeyWithMobile:_mobile]];
+//    return object ? object : nil;
+//}
+//
+//+ (void)clearAuthorizedCarwashSheduleDataWithMobile:(NSString *)_mobile {
+//    [[TMCache sharedCache] removeObjectForKey:[self carwashScheduleDataCacheKeyWithMobile:_mobile]];
+//}
+//
+//+ (NSString *)carwashScheduleDataCacheKeyWithMobile:(NSString *)_mobile {
+//    _mobile = [_mobile stringByReplacingOccurrencesOfString:@"+" withString:@""];
+//    return [NSString stringWithFormat:@"cachedCarwashScheduleObject_%@", _mobile];
+//}
 
 @end

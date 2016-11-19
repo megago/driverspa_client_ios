@@ -17,6 +17,10 @@
 #import "LocationHelper.h"
 #import "User.h"
 #import "CarwashComplex.h"
+#import "UIViewController+NavigationBar.h"
+#import <SVProgressHUD/SVProgressHUD.h>
+#import "UserApi.h"
+#import "NotificationsHelper.h"
 
 @interface SelectCityViewController ()
 
@@ -61,9 +65,29 @@
 //        [[CreateCarwashDraft sharedInstance] removeAdditionalInfo:row.userData];
 //    }
     
-    [UserSettings setCurrentCity:(City*)view.userData];
-    [self.delegate changeCurrentCity:view.userData];
-    [self.navigationController popViewControllerAnimated:YES];
+    if (_isModal) {
+        [SVProgressHUD showWithStatus:@"Сохранение"];
+        [UserApi updateProfileWithName:[User currentUser].firstName lastname:nil cars:[User currentUser].cars city:(City*)view.userData success:^(id response) {
+            [UserSettings setCurrentCity:(City*)view.userData];
+            
+            [SVProgressHUD showSuccessWithStatus:@"Сохранено"];
+            User *user = [User instanceFromDictionary:response];
+            
+            // Store user data
+            [User setAuthorizedUserData:response withMobile:user.mobile];
+            
+            [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationUserProfileUpdated object:nil];
+            
+            [self.delegate changeCurrentCity:view.userData];
+            [self dismissViewController];
+        } failure:^(NSInteger code, NSString *message) {
+            [SVProgressHUD dismiss];
+        }];
+    } else {
+        [UserSettings setCurrentCity:(City*)view.userData];
+        [self.delegate changeCurrentCity:view.userData];
+        [self.navigationController popViewControllerAnimated:YES];
+    }
 }
 
 #pragma mark -
@@ -147,8 +171,13 @@
 {
     [super configUI];
     [self setBlueBackground];
-    [self setBackButtonInNavigation];
     [self setNavigationTitle:@"Выбор города"];
+    if (_isModal){
+        [self setNavigationBarTransparent];
+        [self setNavigationCloseAtLeft:NO];
+    } else {
+        [self setBackButtonInNavigation];
+    }
 }
 
 - (void)didReceiveMemoryWarning {

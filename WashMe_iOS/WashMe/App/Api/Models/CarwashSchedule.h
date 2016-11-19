@@ -19,4 +19,8 @@
 
 - (NSArray *)todaySchedules;
 
+//+ (void)setAuthorizedCarwashSheduleData:(CarwashSchedule *)carwashSheduleData withMobile:(NSString *)_mobile;
+//+ (CarwashSchedule *)authorizedCarwashScheduleDataWithMobile:(NSString *)_mobile;
+//+ (void)clearAuthorizedCarwashSheduleDataWithMobile:(NSString *)_mobile;
+
 @end

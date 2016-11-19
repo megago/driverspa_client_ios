@@ -41,6 +41,7 @@
 #import "CarwashComplex.h"
 #import "UserSettings.h"
 #import "NotificationsHelper.h"
+#import "UIAlertView+Blocks.h"
 
 @interface AdminCarwashViewController () 
 @end
@@ -66,7 +67,13 @@
 {
     [super viewDidLoad];
     [self configUI];
-    [self loadCarwashes];
+    _carwashComplex = [CarwashComplex authorizedCarwashDataWithMobile:[User currentUser].mobile];
+    if (_carwashComplex){
+        [self buildUI];
+        [self onCarwashComplex];
+    } else {
+        [self loadCarwashes];
+    }
     
     CreateCarwashDraft *draft = [CreateCarwashDraft sharedInstance];
     [nameField setValue:draft.carwashName];
@@ -92,37 +99,44 @@
 {
     NSArray *arr = response;
     if(arr.count == 0) {
-        [Toast showHudLoading];
-        NSMutableDictionary *o = [NSMutableDictionary dictionary];
+//        [Toast showHudLoading];
+//        NSMutableDictionary *o = [NSMutableDictionary dictionary];
+//        
+//        o[@"is_public"] = @(_carwash.isPublic);
+//        o[@"city"] = @"astana";
+//        o[@"name"] = @"";
+//        o[@"lonlat"] = @[@(0), @(0)];
+//        o[@"address"] = @"";
+//        
+//        o[@"cartypes"] = @[[NSNumber numberWithInt:1],[NSNumber numberWithInt:2],[NSNumber numberWithInt:3]];
+//        o[@"services"] = @[[NSNumber numberWithInt:1],[NSNumber numberWithInt:2],[NSNumber numberWithInt:3]];
+//        o[@"payoptions"] = @[@"cash"];
+//        
+//        NSLog(@"info: %@", o);
+//
+//        [AdminApi createCarwash:o success:^(id response) {
+//            _carwash = response;
+//            
+//            NSMutableDictionary *b = [NSMutableDictionary dictionary];
+//            b[@"box_name"] = @"Бокс 1";
+//            b[@"booking_type"] = @"offline";
+//            NSLog(@"info: %@", b);
+//            
+//            [AdminApi createCarwashBox:_carwash.carwashId params:b success:^(id response) {
+//                [self loadCarwash];
+//            } failure:^(NSInteger code, NSString *message) {
+//                
+//            }];
+//        } failure:^(NSInteger code, NSString *message) {
+//            
+//        }];
         
-        o[@"is_public"] = @(_carwash.isPublic);
-        o[@"city"] = @"astana";
-        o[@"name"] = @"";
-        o[@"lonlat"] = @[@(0), @(0)];
-        o[@"address"] = @"";
-        
-        o[@"cartypes"] = @[[NSNumber numberWithInt:1],[NSNumber numberWithInt:2],[NSNumber numberWithInt:3]];
-        o[@"services"] = @[[NSNumber numberWithInt:1],[NSNumber numberWithInt:2],[NSNumber numberWithInt:3]];
-        o[@"payoptions"] = @[@"cash"];
-        
-        NSLog(@"info: %@", o);
-
-        [AdminApi createCarwash:o success:^(id response) {
-            _carwash = response;
-            
-            NSMutableDictionary *b = [NSMutableDictionary dictionary];
-            b[@"box_name"] = @"Бокс 1";
-            b[@"booking_type"] = @"offline";
-            NSLog(@"info: %@", b);
-            
-            [AdminApi createCarwashBox:_carwash.carwashId params:b success:^(id response) {
-                [self loadCarwash];
-            } failure:^(NSInteger code, NSString *message) {
-                
-            }];
-        } failure:^(NSInteger code, NSString *message) {
-            
-        }];
+        [UIAlertView showWithTitle:@"Ошибка" message:@"Произошла ошибка, попробуйте еще раз." cancelButtonTitle:@"Отмена" otherButtonTitles:@[@"Повторить"] tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
+            if(buttonIndex != alertView.cancelButtonIndex) {
+                // Load carwashes agian
+                [self loadCarwashes];
+            }
+        }];        
     } else {
         //load detail carwash
         _carwash = arr.firstObject;
@@ -135,6 +149,7 @@
     if(_carwash) {
         [Toast showHudWithTitle:@"Загрузка мойки"];
         [AdminApi getCarwashDetails:_carwash.carwashId success:^(id response) {
+            [CarwashComplex setAuthorizedCarwashData:response withMobile:[User currentUser].mobile];
             _carwashComplex = response;
             [self buildUI];
             [self onCarwashComplex];
@@ -407,7 +422,7 @@
     }
     
     CGFloat nexty = 0;
-    if(_carwash)
+    if(_carwashComplex)
     {
         [self setNavigationTitle:@"Мойка"];
         photosViewerView = [[CarwashPhotosViewerView alloc] init];
