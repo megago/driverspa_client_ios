@@ -20,6 +20,7 @@
 #import "CarwashApi.h"
 #import "UIViewController+NoContent.h"
 #import "CarwashComplex.h"
+#import "CompanyDiscount.h"
 
 @implementation CarwashMapViewController{
     GMSMapView *mapView_;
@@ -97,6 +98,10 @@
             marker.icon = [UIImage imageWithName:@"carwash-annotation-online2"];
         } else {
             marker.icon = [UIImage imageWithName:@"carwash-annotation-offline"];
+        }
+        NSTimeInterval diff = [carwash.discount.endDate timeIntervalSinceDate:[NSDate date]];
+        if (diff > 0){
+            marker.icon = [UIImage imageWithName:@"carwash-annotation-discount"];
         }
         marker.userData = @(index);
         marker.map = mapView_;

@@ -15,6 +15,7 @@
 #import "UIView+Ext.h"
 #import "NSString+Ext.h"
 #import "AMRatingControl.h"
+#import "CompanyDiscount.h"
 
 #define kPadding 10
 #define kCarwashTitleFont [UIFont robotoRegular:16]
@@ -32,6 +33,8 @@
     UILabel *priceLabel;
     UILabel *distanceLabel;
     UIView *line;
+    UIImageView *discountIconView;
+    UILabel *discountLbl;
     CarwashStatusView *carwashStatusView;
     //RatingView *ratingView;
 }
@@ -64,7 +67,10 @@
         carwashStatusView.y = kPadding;
         [self addSubview:carwashStatusView];
         
-        
+        discountIconView = [[UIImageView alloc] initWithFrame:CGRectZero];
+        discountIconView.backgroundColor = [UIColor clearColor];
+        discountIconView.image = [UIImage imageNamed:@"promo_orange"];
+        [self addSubview:discountIconView];
 
         titleLabel = [[UILabel alloc] initWithFrame:CGRectZero];
         titleLabel.backgroundColor = [UIColor clearColor];
@@ -121,9 +127,23 @@
         [carwashStatusView setIsAvailable: YES];
     }
     
+    NSTimeInterval diff = [carwash.discount.endDate timeIntervalSinceDate:[NSDate date]];
+    discountIconView.width = diff > 0 ? 20 : 0;
+    discountIconView.height = diff > 0 ? 20 : 0;
+    discountIconView.x = kPadding;
+    discountIconView.y = amRatingControl.bottom + 5;
+    
+    discountLbl = [[UILabel alloc] initWithFrame:discountIconView.frame];
+    discountLbl.backgroundColor = [UIColor clearColor];
+    discountLbl.textColor = [UIColor whiteColor];
+    discountLbl.textAlignment = NSTextAlignmentCenter;
+    discountLbl.font = [UIFont robotoRegular:7];
+    discountLbl.text = [NSString stringWithFormat:@"%i%%", carwash.discount.discountValue.intValue];
+    [self addSubview:discountLbl];
+
     titleLabel.font = [carwash.status isEqualToString:@"approved"] ? kCarwashTitleFont : kCarwashTitleFontOffline;
     titleLabel.width = kCarwashTitleWidth;
-    titleLabel.x = kPadding;
+    titleLabel.x = diff > 0 ? discountIconView.right + 5 : kPadding;
     titleLabel.y = amRatingControl.bottom + 5;
     titleLabel.text = carwashName;
     [titleLabel sizeToFit];

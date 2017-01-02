@@ -39,4 +39,7 @@
 // Notifications
 + (void)notifications:(success)success failure:(failure)failure;
 
+//Visits
++ (void)visitInfoByCarwash:(NSString *)carwashId success:(success)success failure:(failure)failure;
+
 @end

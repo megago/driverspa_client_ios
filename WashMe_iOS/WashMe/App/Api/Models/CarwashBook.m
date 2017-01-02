@@ -9,7 +9,7 @@
 
 @implementation CarwashBook
 
-@synthesize boxId, cartype, carwash, clientKey, duration, endTime, finishTime, carwashBookId, price, resourceUri, services, startTime, status, time, client;
+@synthesize boxId, cartype, carwash, clientKey, duration, endTime, finishTime, carwashBookId, price, resourceUri, services, startTime, status, time, client, discount, comment;
 
 + (CarwashBook *)instanceFromDictionary:(NSDictionary *)aDictionary {
 
@@ -44,6 +44,8 @@
     self.time = [self.time stringByReplacingOccurrencesOfString:@"+00:00" withString:@""];
     self.services = [self arrayValueForKey:@"services"];
     self.carwashName = [self stringValueForKey:@"carwash_name"];
+    self.discount = [self numberValueForKey:@"discount"];
+    self.comment = [self stringValueForKey:@"comment"];
     
     self.ts = [self stringValueForKey:@"ts"];
     self.ts = [self.ts stringByReplacingOccurrencesOfString:@"+00:00" withString:@""];

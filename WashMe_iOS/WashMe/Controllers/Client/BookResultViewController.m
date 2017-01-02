@@ -23,6 +23,7 @@
 #import "UIView+ConcisePureLayout.h"
 #import "CarwashBook.h"
 #import "CenterTitle.h"
+#import "IconTitleView.h"
 #import "NSString+Ext.h"
 
 @interface BookResultViewController ()
@@ -138,8 +139,13 @@
     carLabel.y = nameLabel.bottom;
     [sv addSubview:carLabel];
     
-    
-    CenterTitle *serviceLabel = [[CenterTitle alloc] initWithTitle:[NSString stringWithFormat:@"%@ за %@", [_bookObject servicesTitles], [_bookObject localizedPrice]] width:rowWidth];
+    NSString *str = [NSString new];
+    if (_carwashBook.discount > 0){
+        str = [NSString stringWithFormat:@"%@ за %@\nсо скидкой %i %%", [_carwashBook servicesTitles], [_carwashBook localizedPrice], _carwashBook.discount.intValue];
+    } else {
+        str = [NSString stringWithFormat:@"%@ за %@", [_bookObject servicesTitles], [_bookObject localizedPrice]];
+    }
+    CenterTitle *serviceLabel = [[CenterTitle alloc] initWithTitle:str width:rowWidth];
     [serviceLabel sizeToFit];
     serviceLabel.centerX = sv.centerX;
     serviceLabel.y = carLabel.bottom;
@@ -185,7 +191,19 @@
     phoneButton.height = 40;
     [sv addSubview:phoneButton];
     
-    UIView *line3 = [[UIView alloc] initWithFrame:CGRectMake(0, phoneButton.bottom + rowsSpacing, rowWidth, 0.5)];
+    float nextY = phoneButton.bottom + rowsSpacing;
+    if (_carwashBook.comment) {
+        IconTitleView *commentLabel = [[IconTitleView alloc] initWithIcon:@"ic_comment_book" title:_carwashBook.comment];
+        commentLabel.x = [ASize screenWidth]/2 - commentLabel.frame.size.width/2;
+        commentLabel.y = nextY;
+        [commentLabel.titleLabel  sizeToFit];
+        commentLabel.width = commentLabel.titleLabel.right;
+        commentLabel.centerX = sv.centerX;
+        [sv addSubview:commentLabel];
+        nextY = commentLabel.bottom + rowsSpacing;
+    }
+    
+    UIView *line3 = [[UIView alloc] initWithFrame:CGRectMake(0, nextY, rowWidth, 0.5)];
     [line3 setBackgroundColor:[UIColor whiteColor]];
     line3.alpha = 0.2;
     line3.centerX = sv.centerX;

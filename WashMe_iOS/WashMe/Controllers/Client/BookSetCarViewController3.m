@@ -28,6 +28,8 @@
 #import "NotificationsHelper.h"
 
 #import "CarwashComplex.h"
+#import "Carwash.h"
+#import "CompanyDiscount.h"
 #import "BookObject.h"
 #import "CarsCollectionView.h"
 #import "AddCarViewController.h"
@@ -115,7 +117,14 @@
     
     _bookObject.price = @(totalPrice);
     _bookObject.bookTime = [NSString stringWithFormat:@"%d", (int)totalTime];
-    priceLabel.text = [NSString stringWithFormat:@"Цена: %@", [_bookObject localizedPrice]];
+    
+    NSTimeInterval diff = [_carwash.discount.endDate timeIntervalSinceDate:[NSDate date]];
+    if (diff > 0){
+        float sum = _bookObject.price.intValue * (100 - _carwash.discount.discountValue.intValue)/100;
+        priceLabel.text = [NSString stringWithFormat:@"Цена: %i - %i%% = %0.f", _bookObject.price.intValue, _carwash.discount.discountValue.intValue, sum];
+    } else {
+        priceLabel.text = [NSString stringWithFormat:@"Цена: %@", [_bookObject localizedPrice]];
+    }
     timeLabel.text = [NSString stringWithFormat:@"Время мойки: %d мин.", (int)totalTime];
 }
 
@@ -190,7 +199,11 @@
     
     NSMutableArray *serviceIds = [NSMutableArray array];
     for(id key in prices) [serviceIds addObject:key];
-    carTypeServices = serviceIds;
+    
+    if (self.carwash.services.count > 0)
+        carTypeServices = self.carwash.services;
+    else
+        carTypeServices = serviceIds;
     
     [self.checkedServices removeAllObjects];
     [self resetPrice];

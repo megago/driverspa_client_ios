@@ -3,7 +3,7 @@
 
 @class ImageBundle;
 @class City;
-
+@class CompanyDiscount;
 
 @interface Carwash : ModelObject {
 }
@@ -23,6 +23,7 @@
 @property (nonatomic, strong) NSArray *carwashImages;
 @property (nonatomic, strong) NSNumber *price;
 @property (nonatomic, copy) NSString *status;
+@property (nonatomic, strong) CompanyDiscount *discount;
 
 + (Carwash *)instanceFromDictionary:(NSDictionary *)aDictionary;
 - (void)setAttributesFromDictionary:(NSDictionary *)aDictionary;

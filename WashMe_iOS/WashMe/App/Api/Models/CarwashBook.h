@@ -32,6 +32,8 @@
 @property (nonatomic, copy) NSString *time;
 @property (nonatomic, copy) NSString *carwashName;
 @property (nonatomic, copy) NSString *ts;
+@property (nonatomic, copy) NSNumber *discount;
+@property (nonatomic, copy) NSString *comment;
 
 + (CarwashBook *)instanceFromDictionary:(NSDictionary *)aDictionary;
 - (void)setAttributesFromDictionary:(NSDictionary *)aDictionary;

@@ -32,6 +32,8 @@
 #import "CarwashRefs.h"
 #import "IdTitleObject.h"
 #import "UIViewController+NavigationBar.h"
+#import "CompanyDiscount.h"
+#import "UIAlertView+Blocks.h"
 
 #import "BookSetCarViewController3.h"
 
@@ -211,6 +213,16 @@
     [self.navigationController pushViewController:v animated:YES];
 }
 
+- (void)tapDetailDiscount {
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"HH:mm dd.MM.yyyy"];
+    NSString *title = [NSString stringWithFormat:@"Скидка %i%%", _carwash.discount.discountValue.intValue];
+    NSString *msg = [NSString stringWithFormat:@"%@\nАкция действительна до\n%@", _carwash.discount.discountDescription, [formatter stringFromDate:_carwash.discount.endDate]];
+    [UIAlertView showWithTitle:title message:msg cancelButtonTitle:@"ОК" otherButtonTitles:nil tapBlock:^(UIAlertView * _Nonnull alertView, NSInteger buttonIndex) {
+        //code
+    }];
+}
+
 #pragma mark -
 #pragma mark FeedbacksViewController
 
@@ -350,7 +362,17 @@
         yPoint = bookButton1.height + 30.f;
     }
 
-    carwashMapView = [[CarwashMapView alloc] initWithCoordinate:_carwashComplex.coordinate];
+    NSString *iconName = [NSString new];
+    if ([_carwashComplex.status isEqualToString:@"approved"]){
+        iconName = @"carwash-annotation-online2";
+    } else {
+        iconName = @"carwash-annotation-offline";
+    }
+    NSTimeInterval diff = [_carwashComplex.discount.endDate timeIntervalSinceDate:[NSDate date]];
+    if (diff > 0){
+        iconName = @"carwash-annotation-discount";
+    }
+    carwashMapView = [[CarwashMapView alloc] initWithCoordinate:_carwashComplex.coordinate andIconName:iconName];
     carwashMapView.x = (CGFloat) ((self.view.width - carwashMapView.width) * 0.5);
     carwashMapView.y = yPoint;
     [sv addSubview:carwashMapView];
@@ -365,9 +387,53 @@
 
     CGFloat rowsSpacing = 2;
     CGFloat colWidth = [ASize screenWidth] - carwashPictureView.right - 30;
+    CGFloat nextY = carwashPictureView.y;
+    
+    if (diff > 0){
+        UILabel *discountTitle = [[UILabel alloc] initWithFrame:CGRectMake(carwashPictureView.right + 10, nextY, colWidth, 1)];
+        discountTitle.backgroundColor = [UIColor clearColor];
+        discountTitle.font = [UIFont robotoRegular:14];
+        discountTitle.textColor = [UIColor whiteColor];
+        discountTitle.lineBreakMode = NSLineBreakByWordWrapping;
+        discountTitle.numberOfLines = 0;
+        discountTitle.text = @"Скидка";
+        [discountTitle sizeToFit];
+        [sv addSubview:discountTitle];
+        
+        UIImageView *discountIconView = [[UIImageView alloc] initWithFrame:CGRectMake(discountTitle.right + 5, nextY, 20, 20)];
+        discountIconView.backgroundColor = [UIColor clearColor];
+        discountIconView.image = [UIImage imageNamed:@"promo_orange"];
+        [sv addSubview:discountIconView];
+        
+        UILabel *discountLbl = [[UILabel alloc] initWithFrame:discountIconView.frame];
+        discountLbl.backgroundColor = [UIColor clearColor];
+        discountLbl.textColor = [UIColor whiteColor];
+        discountLbl.textAlignment = NSTextAlignmentCenter;
+        discountLbl.font = [UIFont robotoRegular:7];
+        discountLbl.text = [NSString stringWithFormat:@"%i%%", _carwash.discount.discountValue.intValue];
+        [sv addSubview:discountLbl];
+        
+        NSDictionary *underlineAttribute = @{NSUnderlineStyleAttributeName: @(NSUnderlineStyleSingle)};
+        UILabel *detailDiscountLbl = [[UILabel alloc] initWithFrame:CGRectMake(discountIconView.right + 5, nextY, colWidth, 1)];
+        detailDiscountLbl.backgroundColor = [UIColor clearColor];
+        detailDiscountLbl.font = [UIFont robotoThin:14];
+        detailDiscountLbl.textColor = [UIColor whiteColor];
+        detailDiscountLbl.lineBreakMode = NSLineBreakByWordWrapping;
+        detailDiscountLbl.numberOfLines = 0;
+        detailDiscountLbl.attributedText = [[NSAttributedString alloc] initWithString:@"подробнее"
+                                                                           attributes:underlineAttribute];
+        detailDiscountLbl.userInteractionEnabled = YES;
+        [detailDiscountLbl sizeToFit];
+        [sv addSubview:detailDiscountLbl];
+        
+        UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapDetailDiscount)];
+        [detailDiscountLbl addGestureRecognizer:tapGesture];
+        
+        nextY = detailDiscountLbl.bottom + rowsSpacing;
+    }
 
     // Address
-    UILabel *addressLabel = [[UILabel alloc] initWithFrame:CGRectMake(carwashPictureView.right + 10, carwashPictureView.y, colWidth, 1)];
+    UILabel *addressLabel = [[UILabel alloc] initWithFrame:CGRectMake(carwashPictureView.right + 10, nextY, colWidth, 1)];
     addressLabel.backgroundColor = [UIColor clearColor];
     addressLabel.font = [UIFont robotoBold:15];
     addressLabel.textColor = [UIColor whiteColor];
@@ -376,8 +442,8 @@
     addressLabel.text = _carwashComplex.address;
     [addressLabel sizeToFit];
     [sv addSubview:addressLabel];
-
-    CGFloat nextY = addressLabel.bottom + rowsSpacing;
+    nextY = addressLabel.bottom + rowsSpacing;
+    
 
     // Additional Infos
     NSMutableArray * additionalInfoTitles = [NSMutableArray array];

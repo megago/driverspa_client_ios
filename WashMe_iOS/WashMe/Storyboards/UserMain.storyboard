@@ -1,8 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="PtT-k7-vJb">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="PtT-k7-vJb">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -58,6 +61,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PxI-Uw-N4Z" customClass="GMSMapView">
+                                <rect key="frame" x="-4" y="64" width="383" height="554"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                         </subviews>
@@ -117,13 +121,13 @@
             </objects>
             <point key="canvasLocation" x="-504" y="-300"/>
         </scene>
-        <!--НА КАРТЕ-->
+        <!--Navigation Controller-->
         <scene sceneID="qLL-zg-Q2b">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="75m-00-wdR" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="НА КАРТЕ" image="tab-nearby" id="n9d-pG-62c"/>
+                    <tabBarItem key="tabBarItem" title="" image="tab-nearby" id="n9d-pG-62c"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="yGb-M5-aC5">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="yGb-M5-aC5">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -136,11 +140,11 @@
             </objects>
             <point key="canvasLocation" x="-87" y="473"/>
         </scene>
-        <!--ИЗБРАННЫЕ-->
+        <!--Navigation Controller-->
         <scene sceneID="S8u-as-qWK">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="P8W-t4-auQ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="ИЗБРАННЫЕ" image="tab-favorites" id="Sfr-Jc-gm6"/>
+                    <tabBarItem key="tabBarItem" title="" image="tab-favorites" id="Sfr-Jc-gm6"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="lBa-O3-IO6">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -155,13 +159,13 @@
             </objects>
             <point key="canvasLocation" x="-1481" y="473"/>
         </scene>
-        <!--ВСЕ МОЙКИ-->
+        <!--Navigation Controller-->
         <scene sceneID="pjd-Yi-Nbl">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3cc-Fe-6Sr" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="ВСЕ МОЙКИ" image="tab-free" id="WPz-ju-jrn"/>
+                    <tabBarItem key="tabBarItem" title="" image="tab-free" id="WPz-ju-jrn"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="aEI-1B-lQ8">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="aEI-1B-lQ8">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -174,13 +178,13 @@
             </objects>
             <point key="canvasLocation" x="-754" y="473"/>
         </scene>
-        <!--МОИ БРОНИ-->
+        <!--Navigation Controller-->
         <scene sceneID="Bdd-ot-oEn">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cxv-H6-KaP" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="МОИ БРОНИ" id="kmC-5a-h0G"/>
+                    <tabBarItem key="tabBarItem" title="" id="kmC-5a-h0G"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="IdQ-u4-y6T">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="IdQ-u4-y6T">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -235,7 +239,7 @@
         <scene sceneID="Mw1-jN-9tg">
             <objects>
                 <navigationController storyboardIdentifier="profile" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hPL-DH-61r" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="cEZ-2o-bI0">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="cEZ-2o-bI0">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -271,7 +275,7 @@
             <objects>
                 <navigationController storyboardIdentifier="about_us" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="N8c-Ug-PGR" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="nf3-d1-xBX">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="nf3-d1-xBX">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -289,7 +293,7 @@
             <objects>
                 <navigationController storyboardIdentifier="user_book" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="l1u-KQ-gcS" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="jiO-3r-NXs">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="jiO-3r-NXs">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

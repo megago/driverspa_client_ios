@@ -20,6 +20,7 @@
 #import "NSArray+ObjectiveSugar.h"
 #import "City.h"
 #import "BoxSetting.h"
+#import "CarwashVisits.h"
 
 @implementation UserApi {
 
@@ -175,6 +176,16 @@
         success(array);
 
     } failure:failure];
+}
+
+#pragma mark - 
+#pragma mark Visit info
+
++ (void)visitInfoByCarwash:(NSString *)carwashId success:(success)success failure:(failure)failure {
+    [self GET:[NSString stringWithFormat:@"client_clients/single/?carwash=%@", carwashId] success:^(id response) {
+        success([CarwashVisits instanceFromDictionary:response]);
+    } failure:failure];
+
 }
 
 @end

@@ -53,7 +53,7 @@
             }];
         }];
     }];
-    [self showIntro];
+    //[self showIntro];
 }
 
 - (void)configAction
@@ -132,16 +132,16 @@
     userButton.height = 74;
     [self.view addSubview:userButton];
 
-    clientButton = [[AAButton alloc] initWithWidth:userButton.width onTap:^(UIView *_self) {
-        [wSelf carwashButtonTapped];
-    }];
-    clientButton.alpha = 0;
-    [clientButton commonStyleButtonWithTitle:@"Я АДМИНИСТРАТОР\nАВТОМОЙКИ"];
-    [clientButton setTitleFont:[UIFont robotoRegular:18]];
-    clientButton.centerX = self.view.centerX;
-    clientButton.y = userButton.bottom + 10;
-    clientButton.height = 50;
-    [self.view addSubview:clientButton];
+//    clientButton = [[AAButton alloc] initWithWidth:userButton.width onTap:^(UIView *_self) {
+//        [wSelf carwashButtonTapped];
+//    }];
+//    clientButton.alpha = 0;
+//    [clientButton commonStyleButtonWithTitle:@"Я АДМИНИСТРАТОР\nАВТОМОЙКИ"];
+//    [clientButton setTitleFont:[UIFont robotoRegular:18]];
+//    clientButton.centerX = self.view.centerX;
+//    clientButton.y = userButton.bottom + 10;
+//    clientButton.height = 50;
+//    [self.view addSubview:clientButton];
 }
 
 - (void)didReceiveMemoryWarning {

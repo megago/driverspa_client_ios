@@ -11,5 +11,6 @@
 @interface CarwashMapView : UIView <GMSMapViewDelegate>
 
 - (id)initWithCoordinate:(CLLocationCoordinate2D)coordinate;
+- (id)initWithCoordinate:(CLLocationCoordinate2D)coordinate andIconName:(NSString *)iconName;
 
 @end

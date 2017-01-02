@@ -129,6 +129,11 @@
 		A31844CE1D6231C8002A258B /* star-new-empty@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A31844CA1D6231C8002A258B /* star-new-empty@2x.png */; };
 		A31844CF1D6231C8002A258B /* star-new-rated.png in Resources */ = {isa = PBXBuildFile; fileRef = A31844CB1D6231C8002A258B /* star-new-rated.png */; };
 		A31844D01D6231C8002A258B /* star-new-rated@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A31844CC1D6231C8002A258B /* star-new-rated@2x.png */; };
+		A32303A11E16F77B004E173D /* ic_comment_book@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A323039F1E16F77B004E173D /* ic_comment_book@2x.png */; };
+		A32303A21E16F77B004E173D /* ic_comment_book.png in Resources */ = {isa = PBXBuildFile; fileRef = A32303A01E16F77B004E173D /* ic_comment_book.png */; };
+		A32303A51E16FC23004E173D /* CarwashVisits.m in Sources */ = {isa = PBXBuildFile; fileRef = A32303A41E16FC23004E173D /* CarwashVisits.m */; };
+		A32303A81E170F3F004E173D /* carwash-annotation-discount.png in Resources */ = {isa = PBXBuildFile; fileRef = A32303A61E170F3E004E173D /* carwash-annotation-discount.png */; };
+		A32303A91E170F3F004E173D /* carwash-annotation-discount@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A32303A71E170F3F004E173D /* carwash-annotation-discount@2x.png */; };
 		A3290C5E1D9450A3007E74F3 /* BoxAdminCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A3290C5D1D9450A3007E74F3 /* BoxAdminCell.m */; };
 		A32C13781DBCD39E003E826C /* SelectCityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A32C13771DBCD39E003E826C /* SelectCityViewController.m */; };
 		A32D1A1E1D46764800A577F9 /* AboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A32D1A1D1D46764800A577F9 /* AboutUsViewController.m */; };
@@ -220,6 +225,7 @@
 		A3BCA3C71D3D252D00FEE6B6 /* UserBookingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BCA39D1D3D252D00FEE6B6 /* UserBookingsViewController.m */; };
 		A3BCA3C81D3D252D00FEE6B6 /* UserFavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BCA39F1D3D252D00FEE6B6 /* UserFavoritesViewController.m */; };
 		A3BCA3C91D3D252D00FEE6B6 /* UserSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BCA3A11D3D252D00FEE6B6 /* UserSettingsViewController.m */; };
+		A3C2E4B81E12DC840035E0F1 /* CompanyDiscount.m in Sources */ = {isa = PBXBuildFile; fileRef = A3C2E4B71E12DC840035E0F1 /* CompanyDiscount.m */; };
 		A3C9B0E71D5C4B7C00979950 /* CenterTitle.m in Sources */ = {isa = PBXBuildFile; fileRef = A3C9B0E61D5C4B7C00979950 /* CenterTitle.m */; };
 		A3C9B0F01D6065DA00979950 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3C9B0EF1D6065DA00979950 /* Images.xcassets */; };
 		A3C9B0F31D60710900979950 /* ic_business_white.png in Resources */ = {isa = PBXBuildFile; fileRef = A3C9B0F11D60710900979950 /* ic_business_white.png */; };
@@ -644,6 +650,12 @@
 		A31844CA1D6231C8002A258B /* star-new-empty@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star-new-empty@2x.png"; sourceTree = "<group>"; };
 		A31844CB1D6231C8002A258B /* star-new-rated.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star-new-rated.png"; sourceTree = "<group>"; };
 		A31844CC1D6231C8002A258B /* star-new-rated@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star-new-rated@2x.png"; sourceTree = "<group>"; };
+		A323039F1E16F77B004E173D /* ic_comment_book@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_comment_book@2x.png"; sourceTree = "<group>"; };
+		A32303A01E16F77B004E173D /* ic_comment_book.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_comment_book.png; sourceTree = "<group>"; };
+		A32303A31E16FC23004E173D /* CarwashVisits.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarwashVisits.h; sourceTree = "<group>"; };
+		A32303A41E16FC23004E173D /* CarwashVisits.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarwashVisits.m; sourceTree = "<group>"; };
+		A32303A61E170F3E004E173D /* carwash-annotation-discount.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "carwash-annotation-discount.png"; sourceTree = "<group>"; };
+		A32303A71E170F3F004E173D /* carwash-annotation-discount@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "carwash-annotation-discount@2x.png"; sourceTree = "<group>"; };
 		A3290C5C1D9450A3007E74F3 /* BoxAdminCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoxAdminCell.h; sourceTree = "<group>"; };
 		A3290C5D1D9450A3007E74F3 /* BoxAdminCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoxAdminCell.m; sourceTree = "<group>"; };
 		A32C13761DBCD39E003E826C /* SelectCityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectCityViewController.h; sourceTree = "<group>"; };
@@ -805,6 +817,8 @@
 		A3BCA39F1D3D252D00FEE6B6 /* UserFavoritesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserFavoritesViewController.m; sourceTree = "<group>"; };
 		A3BCA3A01D3D252D00FEE6B6 /* UserSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserSettingsViewController.h; sourceTree = "<group>"; };
 		A3BCA3A11D3D252D00FEE6B6 /* UserSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserSettingsViewController.m; sourceTree = "<group>"; };
+		A3C2E4B61E12DC840035E0F1 /* CompanyDiscount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompanyDiscount.h; sourceTree = "<group>"; };
+		A3C2E4B71E12DC840035E0F1 /* CompanyDiscount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompanyDiscount.m; sourceTree = "<group>"; };
 		A3C9B0E51D5C4B7C00979950 /* CenterTitle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CenterTitle.h; sourceTree = "<group>"; };
 		A3C9B0E61D5C4B7C00979950 /* CenterTitle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CenterTitle.m; sourceTree = "<group>"; };
 		A3C9B0EF1D6065DA00979950 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -1193,6 +1207,10 @@
 				A3981CFC1D4D2DB100E0689B /* User.m */,
 				A3981CFD1D4D2DB100E0689B /* UserObject.h */,
 				A3981CFE1D4D2DB100E0689B /* UserObject.m */,
+				A3C2E4B61E12DC840035E0F1 /* CompanyDiscount.h */,
+				A3C2E4B71E12DC840035E0F1 /* CompanyDiscount.m */,
+				A32303A31E16FC23004E173D /* CarwashVisits.h */,
+				A32303A41E16FC23004E173D /* CarwashVisits.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1625,6 +1643,8 @@
 				A3981CD11D4D20E700E0689B /* carwash-annotation-online@2x.png */,
 				A31829B61D7AA7E70053CAB5 /* carwash-annotation-online2.png */,
 				A31829B71D7AA7E70053CAB5 /* carwash-annotation-online2@2x.png */,
+				A32303A61E170F3E004E173D /* carwash-annotation-discount.png */,
+				A32303A71E170F3F004E173D /* carwash-annotation-discount@2x.png */,
 				CE755B801A192F5E00A036DC /* carwash-image-placeholder.png */,
 				CE755B811A192F5E00A036DC /* carwash-image-placeholder@2x.png */,
 				CE755B821A192F5E00A036DC /* carwash-no-image.png */,
@@ -1736,6 +1756,8 @@
 				A36A21A71D69D0CD001F73EE /* washme-logo-launch@2x.png */,
 				A39010951DBE5CA100A57ED2 /* ic_gps_24dp.png */,
 				A39010961DBE5CA100A57ED2 /* ic_gps_24dp@2x.png */,
+				A323039F1E16F77B004E173D /* ic_comment_book@2x.png */,
+				A32303A01E16F77B004E173D /* ic_comment_book.png */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -1920,6 +1942,7 @@
 				CE755C561A192F5E00A036DC /* icon-tel.png in Resources */,
 				CE755C451A192F5E00A036DC /* icon-settings-thin.png in Resources */,
 				CE755BFB1A192F5E00A036DC /* btn_tab-carwash_selected.png in Resources */,
+				A32303A11E16F77B004E173D /* ic_comment_book@2x.png in Resources */,
 				CE755C621A192F5E00A036DC /* star-big-rated.png in Resources */,
 				CE755BE21A192F5E00A036DC /* blue-bg@2x.png in Resources */,
 				CE755C371A192F5E00A036DC /* icon-map.png in Resources */,
@@ -1927,6 +1950,7 @@
 				CE755C5E1A192F5E00A036DC /* mylocation-annotation.png in Resources */,
 				CE755C491A192F5E00A036DC /* Icon-Small-50@2x.png in Resources */,
 				A36A219E1D69BD24001F73EE /* washme-logo.png in Resources */,
+				A32303A21E16F77B004E173D /* ic_comment_book.png in Resources */,
 				CEABA62319BB1FDF00CBAEBF /* InfoPlist.strings in Resources */,
 				A38003931D4DFDBD00806157 /* intro_1.png in Resources */,
 				CE755BF11A192F5E00A036DC /* btn_cartype3_normal.png in Resources */,
@@ -1964,6 +1988,7 @@
 				A31829B81D7AA7E70053CAB5 /* carwash-annotation-online2.png in Resources */,
 				CE755C571A192F5E00A036DC /* icon-tel@2x.png in Resources */,
 				CE755C541A192F5E00A036DC /* icon-success-tick.png in Resources */,
+				A32303A81E170F3F004E173D /* carwash-annotation-discount.png in Resources */,
 				CE755C601A192F5E00A036DC /* star-big-empty.png in Resources */,
 				CE755C0D1A192F5E00A036DC /* carwash-image-placeholder.png in Resources */,
 				CE755C4C1A192F5E00A036DC /* Icon-Small-50_7@2x.png in Resources */,
@@ -2030,6 +2055,7 @@
 				CE755C681A192F5E00A036DC /* washme-logo-old.png in Resources */,
 				CE755BE71A192F5E00A036DC /* border-button-pattern.png in Resources */,
 				CE755C3A1A192F5E00A036DC /* icon-orders@2x.png in Resources */,
+				A32303A91E170F3F004E173D /* carwash-annotation-discount@2x.png in Resources */,
 				CE755BE11A192F5E00A036DC /* blue-bg.png in Resources */,
 				CE755BE81A192F5E00A036DC /* border-button-pattern@2x.png in Resources */,
 				CE755BE41A192F5E00A036DC /* border-button-bg@2x.png in Resources */,
@@ -2213,6 +2239,7 @@
 				5200B06BE01804FEFD1B07EB /* InputTextField+Validation.m in Sources */,
 				A3981D0F1D4D2DB100E0689B /* ObjectImage.m in Sources */,
 				5200B490BC16DD3E331FBADA /* NSString+Ext.m in Sources */,
+				A3C2E4B81E12DC840035E0F1 /* CompanyDiscount.m in Sources */,
 				5200B8AE6A1F270EB4A2E6EA /* AccountApi.m in Sources */,
 				5200BF9DE47A727B71ABFE9E /* TabView.m in Sources */,
 				5200B9312C19BB9D5BA93B40 /* CarwashesListTabsView.m in Sources */,
@@ -2291,6 +2318,7 @@
 				A3BCA3B31D3D252D00FEE6B6 /* SetCarwashOtherInfosViewController.m in Sources */,
 				A3981D0A1D4D2DB100E0689B /* CompanyCarwashRefs.m in Sources */,
 				A3BCA3A51D3D252D00FEE6B6 /* AdminCarwashBoxScheduleViewController.m in Sources */,
+				A32303A51E16FC23004E173D /* CarwashVisits.m in Sources */,
 				5200B99C7011C44ABA0DC724 /* CirclePictureView.m in Sources */,
 				A3981D051D4D2DB100E0689B /* CarwashContact.m in Sources */,
 				A3BCA3C21D3D252D00FEE6B6 /* FeedbacksViewController.m in Sources */,

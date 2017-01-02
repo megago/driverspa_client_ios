@@ -25,9 +25,11 @@
 #import "BookSetCarViewController.h"
 #import "NSString+Ext.h"
 #import "BookObject.h"
+#import "CarwashVisits.h"
 
 #import "User.h"
 #import "CenterTitle.h"
+#import "IconTitleView.h"
 #import "UIViewController+NavigationBar.h"
 
 @interface UserBookViewController ()
@@ -37,6 +39,7 @@
     CarwashComplex *carwash;
     CarwashMapView *carwashMapView;
     CarwashRefs *_carwashRefs;
+    CarwashVisits *visits;
     
     NSTimer *timer;
     NSDate *waitingDate;
@@ -51,6 +54,9 @@
     CenterTitle *carwashLabel;
     CenterTitle *addressLabel;
     AAButton *phoneButton;
+    IconTitleView *commentLabel;
+    CenterTitle *visitsCountLabel;
+    CenterTitle *lastVisitDateLavel;
     UIView *line3;
     
     CGFloat yPosition;
@@ -93,8 +99,7 @@
         NSString *url = [self.book.carwash stringByReplacingOccurrencesOfString:@"/api/v1/" withString:@""];
         [CarwashApi getCarwashWithResource:url success:^(id response) {
             carwash = response;
-            [self buildUI];
-            [self configAction];
+            [self loadVisitsInfo];
         } failure:^(NSInteger code, NSString *message) {
             
         }];
@@ -107,6 +112,17 @@
         [self showBook];
     } failure:^(NSInteger code, NSString *message) {
         
+    }];
+}
+
+- (void)loadVisitsInfo {
+    [UserApi visitInfoByCarwash:carwash.carwashId success:^(id response) {
+        visits = response;
+        [self buildUI];
+        [self configAction];
+    } failure:^(NSInteger code, NSString *message) {
+        [self buildUI];
+        [self configAction];
     }];
 }
 
@@ -384,8 +400,13 @@
     carLabel.y = nameLabel.bottom;
     [sv addSubview:carLabel];
     
-    
-    serviceLabel = [[CenterTitle alloc] initWithTitle:[NSString stringWithFormat:@"%@ за %@", [_book servicesTitles], [_book localizedPrice]] width:rowWidth];
+    NSString *str = [NSString new];
+    if (_book.discount > 0){
+        str = [NSString stringWithFormat:@"%@ за %@\nсо скидкой %i %%", [_book servicesTitles], [_book localizedPrice], _book.discount.intValue];
+    } else {
+        str = [NSString stringWithFormat:@"%@ за %@", [_book servicesTitles], [_book localizedPrice]];
+    }
+    serviceLabel = [[CenterTitle alloc] initWithTitle:str width:rowWidth];
     [serviceLabel sizeToFit];
     serviceLabel.centerX = sv.centerX;
     serviceLabel.y = carLabel.bottom;
@@ -402,8 +423,6 @@
     line2.alpha = 0.2;
     line2.centerX = sv.centerX;
     [sv addSubview:line2];
-    
-    
     
     
     carwashLabel = [[CenterTitle alloc] initWithTitle:[NSString stringWithFormat:@"Автомойка %@", _book.carwashName] width:rowWidth];
@@ -431,7 +450,37 @@
     phoneButton.height = 40;
     [sv addSubview:phoneButton];
     
-    line3 = [[UIView alloc] initWithFrame:CGRectMake(0, phoneButton.bottom + rowsSpacing, rowWidth, 0.5)];
+    float nextY = phoneButton.bottom + rowsSpacing;
+    if (_book.comment) {
+        commentLabel = [[IconTitleView alloc] initWithIcon:@"ic_comment_book" title:_book.comment];
+        commentLabel.x = [ASize screenWidth]/2 - commentLabel.frame.size.width/2;
+        commentLabel.y = nextY;
+        [commentLabel.titleLabel  sizeToFit];
+        commentLabel.width = commentLabel.titleLabel.right;
+        commentLabel.centerX = sv.centerX;
+        [sv addSubview:commentLabel];
+        nextY = commentLabel.bottom + rowsSpacing;
+    }
+    
+    if (visits){
+        visitsCountLabel = [[CenterTitle alloc] initWithTitle:[NSString stringWithFormat:@"обслужили %i раз(а)", visits.finishedBooksCount.intValue] width:rowWidth];
+        [visitsCountLabel sizeToFit];
+        visitsCountLabel.centerX = sv.centerX;
+        visitsCountLabel.y = nextY;
+        [sv addSubview:visitsCountLabel];
+        nextY = visitsCountLabel.bottom;
+        
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        [formatter setDateFormat:@"dd.MM.yyyy"];
+        lastVisitDateLavel = [[CenterTitle alloc] initWithTitle:[NSString stringWithFormat:@"Последняя мойка %@", [formatter stringFromDate:visits.lastFinishedBookDate]] width:rowWidth];
+        [lastVisitDateLavel sizeToFit];
+        lastVisitDateLavel.centerX = sv.centerX;
+        lastVisitDateLavel.y = nextY;
+        [sv addSubview:lastVisitDateLavel];
+        nextY = lastVisitDateLavel.bottom + rowsSpacing;
+    }
+    
+    line3 = [[UIView alloc] initWithFrame:CGRectMake(0, nextY, rowWidth, 0.5)];
     [line3 setBackgroundColor:[UIColor whiteColor]];
     line3.alpha = 0.2;
     line3.centerX = sv.centerX;

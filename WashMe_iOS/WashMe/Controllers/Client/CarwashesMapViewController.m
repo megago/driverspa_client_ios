@@ -19,6 +19,7 @@
 #import "UIViewController+NavigationBar.h"
 #import "UserSettings.h"
 #import "City.h"
+#import "CompanyDiscount.h"
 
 @interface CarwashesMapViewController ()
 @end
@@ -127,6 +128,10 @@
             marker.icon = [UIImage imageWithName:@"carwash-annotation-online2"];
         } else {
             marker.icon = [UIImage imageWithName:@"carwash-annotation-offline"];
+        }
+        NSTimeInterval diff = [carwash.discount.endDate timeIntervalSinceDate:[NSDate date]];
+        if (diff > 0){
+            marker.icon = [UIImage imageWithName:@"carwash-annotation-discount"];
         }
         marker.userData = @(index);
         marker.map = _mapView;

@@ -6,6 +6,7 @@
 #import "CompanyCarwashRefs.h"
 #import "Cache.h"
 #import "CarwashRefs.h"
+#import "CompanyDiscount.h"
 
 @implementation Carwash
 
@@ -52,6 +53,18 @@
         [populatedImages addObject:[ImageBundle instanceFromDictionary:image]];
     }
     self.carwashImages = populatedImages;
+    
+    NSDictionary *discount = (NSDictionary *)[self idValueForKey:@"active_company_campaign"];
+    self.discount = [CompanyDiscount instanceFromDictionary:discount];
+    
+//    CompanyDiscount *testDiscount = [CompanyDiscount new];
+//    testDiscount.discountId = @"18b37afb-0bdc-48dd-90bc-d7f01541c8ac";
+//    testDiscount.discountValue = [NSNumber numberWithInteger:20];
+//    testDiscount.discountType = @"online";
+//    testDiscount.discountDescription = @"test akcia vsem vsem vsem jirtamiz";
+//    testDiscount.startDate = [NSDate date];
+//    testDiscount.endDate = [[NSDate date] dateByAddingTimeInterval:60*60*60];
+//    self.discount = testDiscount;
 
     objectData = nil;
 }
