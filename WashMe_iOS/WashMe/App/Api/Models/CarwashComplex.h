@@ -17,6 +17,7 @@
 @property (nonatomic, strong) CarwashSchedule *schedule;
 @property (nonatomic, copy) NSArray *services;
 @property (nonatomic, strong) NSDictionary *menu;
+@property (nonatomic, strong) NSArray *groupMenu;
 
 + (CarwashComplex *)instanceFromDictionary:(NSDictionary *)aDictionary;
 - (void)setAttributesFromDictionary:(NSDictionary *)aDictionary;

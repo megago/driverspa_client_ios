@@ -13,6 +13,7 @@
 - (void)carwashServiceCollectionViewServiceSelected: (IdTitleObject *)service;
 - (void)carwashServiceCollectionViewServiceDeselected: (IdTitleObject *)service;
 - (void)carwashServiceCollectionViewSelectedServices:(NSArray *) selectedServices;
+- (void)carwashServiceCollectionViewSelectedGroups:(NSArray *) selectedGroups;
 @end
 
 @interface CarwashServiceCollectionView : UIView
@@ -20,6 +21,7 @@
 - (void)addService:(IdTitleObject *)service;
 - (void)addServices:(NSArray *)services;
 - (void)refreshServices:(NSArray *)services;
+- (void)refreshServices:(NSArray *)services withGroupServices:(NSArray *)groups;
 - (void)adminRefreshServices:(NSArray *)services;
 - (void)selectItemAtIndex : (NSInteger)index;
 - (void)reloadData;

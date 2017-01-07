@@ -42,6 +42,7 @@
     [self configUI];
     [self configAction];
 
+    
     [[self whiteLogo] fadeBottomTop:^(BOOL finished) {
         [fader fadeInToAlpha:0.7 completed:^(BOOL finished) {
             [welcomeLabel fadeBottomTop:^(BOOL finished) {

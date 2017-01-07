@@ -7,9 +7,12 @@
 //
 
 #import "CarsCollectionCell.h"
+#import "CarwashGroupMenuItem.h"
 
 @interface ServiceCollectionCell : UICollectionViewCell
 
 @property (nonatomic, strong) UILabel *serviceLabel;
+@property (nonatomic, strong) UIButton *infoBtn;
+@property (nonatomic, strong) CarwashGroupMenuItem *groupItem;
 
 @end

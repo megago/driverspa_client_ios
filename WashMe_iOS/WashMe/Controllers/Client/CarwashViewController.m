@@ -9,6 +9,7 @@
 #import "CarwashMapView.h"
 #import "CarwashComplex.h"
 #import "CarwashSchedule.h"
+#import "CarwashVisits.h"
 #import "SchedulePeriod.h"
 #import "CarwashApi.h"
 #import "IconTitleView.h"
@@ -49,10 +50,13 @@
 
     BOOL isBookmarked;
     NSMutableArray *carwashPhotos;
+    CarwashVisits *visits;
     RowButtonDisclosureView *pricesButton;
     RowButtonDisclosureView *reservationTableButton;
     IconTitleView *emailTitleView;
     IconTitleView *websiteTitleView;
+    UILabel *visitsCountLabel;
+    UILabel *lastVisitDateLavel;
 }
 
 -(id)init {
@@ -77,8 +81,9 @@
     [Toast showHudLoading];
     [CarwashApi getCarwashDetails:self.carwash.carwashId success:^(id response) {
         _carwashComplex = response;
-        [self buildUI];
-        [self configAction];
+        //[self buildUI];
+        //[self configAction];
+        [self loadVisitsInfo];
     } failure:^(NSInteger code, NSString *message) {
 
     }];
@@ -98,6 +103,17 @@
     // Carwash map tap
     UITapGestureRecognizer *mapGes = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(mapTapped)];
     [carwashMapView addGestureRecognizer:mapGes];
+}
+
+- (void)loadVisitsInfo {
+    [UserApi visitInfoByCarwash:_carwashComplex.carwashId success:^(id response) {
+        visits = response;
+        [self buildUI];
+        [self configAction];
+    } failure:^(NSInteger code, NSString *message) {
+        [self buildUI];
+        [self configAction];
+    }];
 }
 
 #pragma mark -
@@ -343,7 +359,7 @@
     
     __weak CarwashViewController *wSelf = self;
     float yPoint = 5.f;
-    if ([_carwashComplex.status isEqualToString:@"approved"] || [_carwashComplex.carwashId isEqualToString:@"578dabe7ff42375f6308a9fc"]){
+    if ([_carwashComplex.status isEqualToString:@"approved"] && _carwashComplex.isBookable){
         AAButton *bookButton1 = [[AAButton alloc] initWithWidth:200 onTap:^(UIView *_self) {
             [wSelf bookButtonTapped];
         }];
@@ -400,7 +416,7 @@
         [discountTitle sizeToFit];
         [sv addSubview:discountTitle];
         
-        UIImageView *discountIconView = [[UIImageView alloc] initWithFrame:CGRectMake(discountTitle.right + 5, nextY, 20, 20)];
+        UIImageView *discountIconView = [[UIImageView alloc] initWithFrame:CGRectMake(discountTitle.right + 5, nextY, 21, 21)];
         discountIconView.backgroundColor = [UIColor clearColor];
         discountIconView.image = [UIImage imageNamed:@"promo_orange"];
         [sv addSubview:discountIconView];
@@ -410,7 +426,7 @@
         discountLbl.textColor = [UIColor whiteColor];
         discountLbl.textAlignment = NSTextAlignmentCenter;
         discountLbl.font = [UIFont robotoRegular:7];
-        discountLbl.text = [NSString stringWithFormat:@"%i%%", _carwash.discount.discountValue.intValue];
+        discountLbl.text = [NSString stringWithFormat:@"-%i%%", _carwash.discount.discountValue.intValue];
         [sv addSubview:discountLbl];
         
         NSDictionary *underlineAttribute = @{NSUnderlineStyleAttributeName: @(NSUnderlineStyleSingle)};
@@ -534,7 +550,33 @@
 
         nextY = websiteTitleView.bottom;
     }
-
+    
+    if (visits && visits.finishedBooksCount.intValue > 0){
+        visitsCountLabel = [[UILabel alloc] initWithFrame:CGRectMake(addressLabel.x, nextY + 10, colWidth , 1)];
+        visitsCountLabel.backgroundColor = [UIColor clearColor];
+        visitsCountLabel.font = [UIFont systemFontOfSize:13];
+        visitsCountLabel.textColor = [UIColor whiteColor];
+        visitsCountLabel.lineBreakMode = NSLineBreakByWordWrapping;
+        visitsCountLabel.numberOfLines = 0;
+        visitsCountLabel.text = [NSString stringWithFormat:@"обслужили %i раз(а)", visits.finishedBooksCount.intValue];
+        [visitsCountLabel sizeToFit];
+        [sv addSubview:visitsCountLabel];
+        nextY = visitsCountLabel.bottom;
+        
+        
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        [formatter setDateFormat:@"dd.MM.yyyy"];
+        lastVisitDateLavel = [[UILabel alloc] initWithFrame:CGRectMake(addressLabel.x, nextY, colWidth , 1)];
+        lastVisitDateLavel.backgroundColor = [UIColor clearColor];
+        lastVisitDateLavel.font = [UIFont systemFontOfSize:13];
+        lastVisitDateLavel.textColor = [UIColor whiteColor];
+        lastVisitDateLavel.lineBreakMode = NSLineBreakByWordWrapping;
+        lastVisitDateLavel.numberOfLines = 0;
+        lastVisitDateLavel.text = [NSString stringWithFormat:@"Последняя мойка %@", [formatter stringFromDate:visits.lastFinishedBookDate]];
+        [lastVisitDateLavel sizeToFit];
+        [sv addSubview:lastVisitDateLavel];
+        nextY = lastVisitDateLavel.bottom;
+    }
     nextY = MAX(carwashPictureView.bottom, nextY);
 
     // Favorites and feedbacks
@@ -560,7 +602,7 @@
     //[sv addSubview:reservationTableButton];
 
     // Bron
-    if ([_carwashComplex.status isEqualToString:@"approved"] || [_carwashComplex.carwashId isEqualToString:@"578dabe7ff42375f6308a9fc"]){
+    if ([_carwashComplex.status isEqualToString:@"approved"] && _carwashComplex.isBookable){
         AAButton *bookButton = [[AAButton alloc] initWithWidth:200 onTap:^(UIView *_self) {
             [wSelf bookButtonTapped];
         }];

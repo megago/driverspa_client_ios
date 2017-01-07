@@ -12,12 +12,14 @@
 #import "ServiceCollectionCell.h"
 #import "IdTitleObject.h"
 #import "ASize.h"
+#import "CarwashGroupMenuItem.h"
 
 #define kHeight 50
 
 @interface CarwashServiceCollectionView () <UICollectionViewDelegate, UICollectionViewDataSource>
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, strong) NSMutableArray *items;
+@property (nonatomic, strong) NSMutableArray *groupItems;
 @end
 
 @implementation CarwashServiceCollectionView
@@ -29,9 +31,10 @@
         //[self aa_setHeight:kHeight];
         
         self.items = [[NSMutableArray alloc] init];
+        self.groupItems = [[NSMutableArray alloc] init];
         
         UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-        layout.sectionInset = UIEdgeInsetsMake(0, kViewControllerPadding, 0, kViewControllerPadding);
+        layout.sectionInset = UIEdgeInsetsMake(0, kViewControllerPadding, kViewControllerPadding, kViewControllerPadding);
         layout.minimumInteritemSpacing = 5;
         layout.scrollDirection = UICollectionViewScrollDirectionVertical;
         
@@ -44,7 +47,9 @@
         _collectionView.pagingEnabled = NO;
         _collectionView.showsHorizontalScrollIndicator = NO;
         _collectionView.allowsMultipleSelection = YES;
+        _collectionView.scrollEnabled = NO;
         [_collectionView registerClass:[ServiceCollectionCell class] forCellWithReuseIdentifier:@"ServiceCollectionCell"];
+        [_collectionView registerClass:[ServiceCollectionCell class] forCellWithReuseIdentifier:@"GroupCollectionCell"];
         [self addSubview:_collectionView];
         [_collectionView autoPinEdgesToSuperviewEdges];
     }
@@ -56,9 +61,10 @@
     if(self) {
 
         self.items = [[NSMutableArray alloc] init];
+        self.groupItems = [[NSMutableArray alloc] init];
         
         UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-        layout.sectionInset = UIEdgeInsetsMake(0, kViewControllerPadding, 0, kViewControllerPadding);
+        layout.sectionInset = UIEdgeInsetsMake(0, kViewControllerPadding, kViewControllerPadding, kViewControllerPadding);
         layout.minimumInteritemSpacing = 5;
         layout.scrollDirection = UICollectionViewScrollDirectionVertical;
         
@@ -71,7 +77,9 @@
         _collectionView.pagingEnabled = NO;
         _collectionView.showsHorizontalScrollIndicator = NO;
         _collectionView.allowsMultipleSelection = YES;
+        _collectionView.scrollEnabled = NO;
         [_collectionView registerClass:[ServiceCollectionCell class] forCellWithReuseIdentifier:@"ServiceCollectionCell"];
+        [_collectionView registerClass:[ServiceCollectionCell class] forCellWithReuseIdentifier:@"GroupCollectionCell"];
         [self addSubview:_collectionView];
     }
     return self;
@@ -80,43 +88,79 @@
 #pragma mark -
 #pragma mark UICollectionView
 
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+    return 2;
+}
+
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return self.items.count;
+    if (section == 0){
+        return self.groupItems.count;
+    } else {
+        return self.items.count;
+    }
 }
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     CGFloat width = (collectionView.frame.size.width - 4 * kViewControllerPadding) / 3;
     return CGSizeMake(width, kHeight);
 }
 - (UIEdgeInsets)collectionView:(UICollectionView*)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
-    return UIEdgeInsetsMake(0, kViewControllerPadding, 0, kViewControllerPadding);
+    return UIEdgeInsetsMake(0, kViewControllerPadding, kViewControllerPadding, kViewControllerPadding);
 }
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    ServiceCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ServiceCollectionCell" forIndexPath:indexPath];
+    if (indexPath.section == 0){
+        ServiceCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"GroupCollectionCell" forIndexPath:indexPath];
+        CarwashGroupMenuItem *group = self.groupItems[(NSUInteger) indexPath.row];
+        cell.serviceLabel.text = group.name;
+        cell.groupItem = group;
+        return cell;
+    } else {
+        ServiceCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ServiceCollectionCell" forIndexPath:indexPath];
+        IdTitleObject *service = self.items[(NSUInteger) indexPath.row];
+        cell.serviceLabel.text = service.title;
+        return cell;
+    }
     
-    IdTitleObject *service = self.items[(NSUInteger) indexPath.row];
-    cell.serviceLabel.text = service.title;
-    return cell;
 }
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    NSArray<NSIndexPath*>* selectedIndexes = collectionView.indexPathsForSelectedItems;
-    NSMutableArray *services = [[NSMutableArray alloc] init];
-    for (NSIndexPath *path in selectedIndexes) {
-        IdTitleObject *item = self.items[path.row];;
-        [services addObject:item];
+    if (indexPath.section == 0){
+        NSArray<NSIndexPath*>* selectedIndexes = collectionView.indexPathsForSelectedItems;
+        NSMutableArray *groups = [[NSMutableArray alloc] init];
+        for (NSIndexPath *path in selectedIndexes) {
+            CarwashGroupMenuItem *item = self.groupItems[path.row];;
+            [groups addObject:item];
+        }
+        [self.delegate carwashServiceCollectionViewSelectedGroups:groups];
+    } else {
+        NSArray<NSIndexPath*>* selectedIndexes = collectionView.indexPathsForSelectedItems;
+        NSMutableArray *services = [[NSMutableArray alloc] init];
+        for (NSIndexPath *path in selectedIndexes) {
+            IdTitleObject *item = self.items[path.row];;
+            [services addObject:item];
+        }
+        //NSLog(@"selected - %ld", (long)services.count);
+        [self.delegate carwashServiceCollectionViewSelectedServices:services];
     }
-    //NSLog(@"selected - %ld", (long)services.count);
-    [self.delegate carwashServiceCollectionViewSelectedServices:services];
 }
 - (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath {
-    NSArray<NSIndexPath*>* selectedIndexes = collectionView.indexPathsForSelectedItems;
-    NSMutableArray *services = [[NSMutableArray alloc] init];
-    for (NSIndexPath *path in selectedIndexes) {
-        IdTitleObject *item = self.items[path.row];;
-        [services addObject:item];
+    if (indexPath.section == 0){
+        NSArray<NSIndexPath*>* selectedIndexes = collectionView.indexPathsForSelectedItems;
+        NSMutableArray *groups = [[NSMutableArray alloc] init];
+        for (NSIndexPath *path in selectedIndexes) {
+            CarwashGroupMenuItem *item = self.groupItems[path.row];;
+            [groups addObject:item];
+        }
+        [self.delegate carwashServiceCollectionViewSelectedGroups:groups];
+    } else {
+        NSArray<NSIndexPath*>* selectedIndexes = collectionView.indexPathsForSelectedItems;
+        NSMutableArray *services = [[NSMutableArray alloc] init];
+        for (NSIndexPath *path in selectedIndexes) {
+            IdTitleObject *item = self.items[path.row];;
+            [services addObject:item];
+        }
+        //NSLog(@"deselected - %ld", (long)services.count);
+        [self.delegate carwashServiceCollectionViewSelectedServices:services];
     }
-    //NSLog(@"deselected - %ld", (long)services.count);
-    [self.delegate carwashServiceCollectionViewSelectedServices:services];
 }
 - (void)addService:(IdTitleObject *)service {
     [self.items addObject:service];
@@ -154,6 +198,32 @@
     
     [self.items removeAllObjects];
     [self.items addObjectsFromArray:services];
+    [self.collectionView reloadData];
+}
+
+- (void)refreshServices:(NSArray *)services withGroupServices:(NSArray *)groups {
+    float fullHeight = 0;
+    int section = (int) services.count / 3;
+    int groupsSection = (int) groups.count / 3;
+    if (section == 0) {
+        fullHeight += kHeight;
+    } else {
+        CGFloat height = services.count % 3 > 0 ? kHeight * (section + 1) + 15*section : kHeight * section;
+        fullHeight += height + 10;
+    }
+    
+    if (groupsSection == 0) {
+        fullHeight += groups.count > 0 ? kHeight + 10 : 0;
+    } else {
+        CGFloat height = groups.count % 3 > 0 ? kHeight * (groupsSection + 1) + 15*groupsSection : kHeight * groupsSection;
+        fullHeight += height + 10;
+    }
+    [self aa_setHeight:fullHeight];
+    
+    [self.items removeAllObjects];
+    [self.items addObjectsFromArray:services];
+    [self.groupItems removeAllObjects];
+    [self.groupItems addObjectsFromArray:groups];
     [self.collectionView reloadData];
 }
 

@@ -85,7 +85,9 @@
     }
     else
     {
-        v = [WelcomeViewController new];
+        //v = [WelcomeViewController new];
+        [UserSettings setIsAdmin:NO];
+        v = [[RegistrationViewController alloc] init];
     }
 
     if(!_tabBarController) {
@@ -125,7 +127,9 @@
 
 - (void)gotoWelcomeViewController
 {
-    UIViewController *v = [[WelcomeViewController alloc] init];
+    [UserSettings setIsAdmin:NO];
+    RegistrationViewController *v = [[RegistrationViewController alloc] init];
+    //UIViewController *v = [[WelcomeViewController alloc] init];
     UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:v];
     [nc setNavigationBarHidden:YES];
     self.window.rootViewController = nc;

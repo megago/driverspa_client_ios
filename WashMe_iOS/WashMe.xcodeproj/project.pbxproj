@@ -185,6 +185,7 @@
 		A3981D101D4D2DB100E0689B /* SchedulePeriod.m in Sources */ = {isa = PBXBuildFile; fileRef = A3981CFA1D4D2DB100E0689B /* SchedulePeriod.m */; };
 		A3981D111D4D2DB100E0689B /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = A3981CFC1D4D2DB100E0689B /* User.m */; };
 		A3981D121D4D2DB100E0689B /* UserObject.m in Sources */ = {isa = PBXBuildFile; fileRef = A3981CFE1D4D2DB100E0689B /* UserObject.m */; };
+		A39BCAD21E1A51E100CA7019 /* CarwashGroupMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A39BCAD11E1A51E100CA7019 /* CarwashGroupMenuItem.m */; };
 		A3AAFA0D1D981E9D00DD4A79 /* SetBoxSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3AAFA0C1D981E9D00DD4A79 /* SetBoxSettingViewController.m */; };
 		A3BCA3A21D3D252D00FEE6B6 /* AdminBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BCA3521D3D252C00FEE6B6 /* AdminBookViewController.m */; };
 		A3BCA3A31D3D252D00FEE6B6 /* AdminBoxViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BCA3541D3D252C00FEE6B6 /* AdminBoxViewController.m */; };
@@ -225,6 +226,9 @@
 		A3BCA3C71D3D252D00FEE6B6 /* UserBookingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BCA39D1D3D252D00FEE6B6 /* UserBookingsViewController.m */; };
 		A3BCA3C81D3D252D00FEE6B6 /* UserFavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BCA39F1D3D252D00FEE6B6 /* UserFavoritesViewController.m */; };
 		A3BCA3C91D3D252D00FEE6B6 /* UserSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BCA3A11D3D252D00FEE6B6 /* UserSettingsViewController.m */; };
+		A3BDD2271E1EDF400034C7F9 /* CarwashGroupPriceItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BDD2261E1EDF400034C7F9 /* CarwashGroupPriceItem.m */; };
+		A3BDD22E1E1EE6DF0034C7F9 /* ic_more.png in Resources */ = {isa = PBXBuildFile; fileRef = A3BDD22C1E1EE6DF0034C7F9 /* ic_more.png */; };
+		A3BDD22F1E1EE6DF0034C7F9 /* ic_more@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A3BDD22D1E1EE6DF0034C7F9 /* ic_more@2x.png */; };
 		A3C2E4B81E12DC840035E0F1 /* CompanyDiscount.m in Sources */ = {isa = PBXBuildFile; fileRef = A3C2E4B71E12DC840035E0F1 /* CompanyDiscount.m */; };
 		A3C9B0E71D5C4B7C00979950 /* CenterTitle.m in Sources */ = {isa = PBXBuildFile; fileRef = A3C9B0E61D5C4B7C00979950 /* CenterTitle.m */; };
 		A3C9B0F01D6065DA00979950 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3C9B0EF1D6065DA00979950 /* Images.xcassets */; };
@@ -736,6 +740,8 @@
 		A3981CFC1D4D2DB100E0689B /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		A3981CFD1D4D2DB100E0689B /* UserObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserObject.h; sourceTree = "<group>"; };
 		A3981CFE1D4D2DB100E0689B /* UserObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserObject.m; sourceTree = "<group>"; };
+		A39BCAD01E1A51E100CA7019 /* CarwashGroupMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarwashGroupMenuItem.h; sourceTree = "<group>"; };
+		A39BCAD11E1A51E100CA7019 /* CarwashGroupMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarwashGroupMenuItem.m; sourceTree = "<group>"; };
 		A3AAFA0B1D981E9D00DD4A79 /* SetBoxSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetBoxSettingViewController.h; sourceTree = "<group>"; };
 		A3AAFA0C1D981E9D00DD4A79 /* SetBoxSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetBoxSettingViewController.m; sourceTree = "<group>"; };
 		A3BCA3511D3D252C00FEE6B6 /* AdminBookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdminBookViewController.h; sourceTree = "<group>"; };
@@ -817,6 +823,10 @@
 		A3BCA39F1D3D252D00FEE6B6 /* UserFavoritesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserFavoritesViewController.m; sourceTree = "<group>"; };
 		A3BCA3A01D3D252D00FEE6B6 /* UserSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserSettingsViewController.h; sourceTree = "<group>"; };
 		A3BCA3A11D3D252D00FEE6B6 /* UserSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserSettingsViewController.m; sourceTree = "<group>"; };
+		A3BDD2251E1EDF400034C7F9 /* CarwashGroupPriceItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarwashGroupPriceItem.h; sourceTree = "<group>"; };
+		A3BDD2261E1EDF400034C7F9 /* CarwashGroupPriceItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarwashGroupPriceItem.m; sourceTree = "<group>"; };
+		A3BDD22C1E1EE6DF0034C7F9 /* ic_more.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_more.png; sourceTree = "<group>"; };
+		A3BDD22D1E1EE6DF0034C7F9 /* ic_more@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_more@2x.png"; sourceTree = "<group>"; };
 		A3C2E4B61E12DC840035E0F1 /* CompanyDiscount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompanyDiscount.h; sourceTree = "<group>"; };
 		A3C2E4B71E12DC840035E0F1 /* CompanyDiscount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompanyDiscount.m; sourceTree = "<group>"; };
 		A3C9B0E51D5C4B7C00979950 /* CenterTitle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CenterTitle.h; sourceTree = "<group>"; };
@@ -1183,6 +1193,10 @@
 				A3981CE41D4D2DB100E0689B /* CarwashContact.m */,
 				A3981CE51D4D2DB100E0689B /* CarwashMenuItem.h */,
 				A3981CE61D4D2DB100E0689B /* CarwashMenuItem.m */,
+				A39BCAD01E1A51E100CA7019 /* CarwashGroupMenuItem.h */,
+				A39BCAD11E1A51E100CA7019 /* CarwashGroupMenuItem.m */,
+				A3BDD2251E1EDF400034C7F9 /* CarwashGroupPriceItem.h */,
+				A3BDD2261E1EDF400034C7F9 /* CarwashGroupPriceItem.m */,
 				A3981CE71D4D2DB100E0689B /* CarwashRefs.h */,
 				A3981CE81D4D2DB100E0689B /* CarwashRefs.m */,
 				A3981CE91D4D2DB100E0689B /* CarwashReview.h */,
@@ -1758,6 +1772,8 @@
 				A39010961DBE5CA100A57ED2 /* ic_gps_24dp@2x.png */,
 				A323039F1E16F77B004E173D /* ic_comment_book@2x.png */,
 				A32303A01E16F77B004E173D /* ic_comment_book.png */,
+				A3BDD22C1E1EE6DF0034C7F9 /* ic_more.png */,
+				A3BDD22D1E1EE6DF0034C7F9 /* ic_more@2x.png */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -2018,6 +2034,7 @@
 				CE755BFC1A192F5E00A036DC /* btn_tab-carwash_selected@2x.png in Resources */,
 				CE755C611A192F5E00A036DC /* star-big-empty@2x.png in Resources */,
 				CE755C421A192F5E00A036DC /* icon-search@2x.png in Resources */,
+				A3BDD22F1E1EE6DF0034C7F9 /* ic_more@2x.png in Resources */,
 				CE755C6B1A192F5E00A036DC /* welcome-vc-bg@2x.png in Resources */,
 				5200B879CF6FA654183B8378 /* Roboto-Italic.ttf in Resources */,
 				CE755C2D1A192F5E00A036DC /* icon-feedbacks.png in Resources */,
@@ -2031,6 +2048,7 @@
 				CE755C241A192F5E00A036DC /* icon-checkmark@2x.png in Resources */,
 				A38003981D4DFDBD00806157 /* intro_3@2x.png in Resources */,
 				CE755BEA1A192F5E00A036DC /* btn_cartype1_normal@2x.png in Resources */,
+				A3BDD22E1E1EE6DF0034C7F9 /* ic_more.png in Resources */,
 				CE755C631A192F5E00A036DC /* star-big-rated@2x.png in Resources */,
 				CE755BFE1A192F5E00A036DC /* btn_tab-list_normal@2x.png in Resources */,
 				CE755C1E1A192F5E00A036DC /* icon-arrow-back@2x.png in Resources */,
@@ -2294,6 +2312,7 @@
 				5200B25E8009943D10D063CC /* TitleInputFieldView.m in Sources */,
 				A3BCA3BE1D3D252D00FEE6B6 /* CarwashesMapViewController.m in Sources */,
 				A3BCA3AA1D3D252D00FEE6B6 /* AdminOrdersViewController.m in Sources */,
+				A39BCAD21E1A51E100CA7019 /* CarwashGroupMenuItem.m in Sources */,
 				A3EB6D701D575C1F004E8CB5 /* ServiceCollectionCell.m in Sources */,
 				5200BC8A0A135D5B4595FBA1 /* UILabel+Components.m in Sources */,
 				A3EB6D6A1D5753A0004E8CB5 /* CarwashServiceCollectionView.m in Sources */,
@@ -2306,6 +2325,7 @@
 				A32C13781DBCD39E003E826C /* SelectCityViewController.m in Sources */,
 				A3BCA3C81D3D252D00FEE6B6 /* UserFavoritesViewController.m in Sources */,
 				A3981D061D4D2DB100E0689B /* CarwashMenuItem.m in Sources */,
+				A3BDD2271E1EDF400034C7F9 /* CarwashGroupPriceItem.m in Sources */,
 				A3EB6D731D57706A004E8CB5 /* BookSetCarViewController3.m in Sources */,
 				A3BCA3B81D3D252D00FEE6B6 /* AkciiViewController.m in Sources */,
 				A3BCA3B71D3D252D00FEE6B6 /* AddFeedbackViewController.m in Sources */,

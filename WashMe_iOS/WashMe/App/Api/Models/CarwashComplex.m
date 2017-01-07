@@ -7,6 +7,7 @@
 #import "CarwashComplex.h"
 #import "CarwashReview.h"
 #import "CarwashMenuItem.h"
+#import "CarwashGroupMenuItem.h"
 
 @implementation CarwashComplex
 
@@ -93,7 +94,20 @@
         }
     }
     self.menu = menuDictionary;
-
+    
+    // Group menu
+    NSArray *recievedGroupMenu = aDictionary[@"group_menu"];
+    NSMutableArray *groupMenuArr = [NSMutableArray array];
+    if ([recievedGroupMenu isKindOfClass:[NSArray class]]) {
+        for (NSDictionary *o in recievedGroupMenu){
+            CarwashGroupMenuItem *groupItem = [CarwashGroupMenuItem instanceFromDictionary:o];
+            [groupMenuArr addObject:groupItem];
+        }
+        self.groupMenu = groupMenuArr;
+    } else {
+        self.groupMenu = @[];
+    }
+    
     objectData = nil;
 }
 

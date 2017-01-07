@@ -71,6 +71,13 @@
         discountIconView.backgroundColor = [UIColor clearColor];
         discountIconView.image = [UIImage imageNamed:@"promo_orange"];
         [self addSubview:discountIconView];
+        
+        discountLbl = [[UILabel alloc] initWithFrame:CGRectZero];
+        discountLbl.backgroundColor = [UIColor clearColor];
+        discountLbl.textColor = [UIColor whiteColor];
+        discountLbl.textAlignment = NSTextAlignmentCenter;
+        discountLbl.font = [UIFont robotoRegular:7];
+        [self addSubview:discountLbl];
 
         titleLabel = [[UILabel alloc] initWithFrame:CGRectZero];
         titleLabel.backgroundColor = [UIColor clearColor];
@@ -128,18 +135,13 @@
     }
     
     NSTimeInterval diff = [carwash.discount.endDate timeIntervalSinceDate:[NSDate date]];
-    discountIconView.width = diff > 0 ? 20 : 0;
-    discountIconView.height = diff > 0 ? 20 : 0;
+    discountIconView.width = diff > 0 ? 21 : 0;
+    discountIconView.height = diff > 0 ? 21 : 0;
     discountIconView.x = kPadding;
     discountIconView.y = amRatingControl.bottom + 5;
     
-    discountLbl = [[UILabel alloc] initWithFrame:discountIconView.frame];
-    discountLbl.backgroundColor = [UIColor clearColor];
-    discountLbl.textColor = [UIColor whiteColor];
-    discountLbl.textAlignment = NSTextAlignmentCenter;
-    discountLbl.font = [UIFont robotoRegular:7];
-    discountLbl.text = [NSString stringWithFormat:@"%i%%", carwash.discount.discountValue.intValue];
-    [self addSubview:discountLbl];
+    discountLbl.frame = discountIconView.frame;
+    discountLbl.text = [NSString stringWithFormat:@"-%i%%", carwash.discount.discountValue.intValue];
 
     titleLabel.font = [carwash.status isEqualToString:@"approved"] ? kCarwashTitleFont : kCarwashTitleFontOffline;
     titleLabel.width = kCarwashTitleWidth;

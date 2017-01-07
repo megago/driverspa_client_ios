@@ -10,6 +10,10 @@
 #import "UIFont+Custom.h"
 #import "ALView+PureLayout.h"
 #import "UIView+ConcisePureLayout.h"
+#import "UIAlertView+Blocks.h"
+#import "Cache.h"
+#import "CarwashRefs.h"
+#import "IdTitleObject.h"
 
 @implementation ServiceCollectionCell
 
@@ -35,6 +39,8 @@
         [container addSubview:_serviceLabel];
         [_serviceLabel aa_superviewFillWithInset:0];
         
+        self.infoBtn.hidden = YES;
+        
         [self.contentView addSubview:container];
         
         self.contentView.layer.borderWidth = 0.f;
@@ -42,6 +48,45 @@
         self.contentView.backgroundColor = [[UIColor fromRGB:0x184977] colorWithAlphaComponent:0.25f];
     }
     return self;
+}
+
+-(void)setGroupItem:(CarwashGroupMenuItem *)groupItem {
+    _groupItem = groupItem;
+    
+    self.infoBtn = [UIButton newAutoLayoutView];
+    _infoBtn.backgroundColor = [UIColor clearColor];
+    [_infoBtn setImage:[UIImage imageNamed:@"ic_more"] forState:UIControlStateNormal];
+    [_infoBtn addTarget:self action:@selector(showGroupInfo) forControlEvents:UIControlEventTouchUpInside];
+    [_infoBtn setHidden:NO];
+    [self addSubview:_infoBtn];
+    [_infoBtn aa_setWidth:10];
+    [_infoBtn aa_setHeight:20];
+    [_infoBtn aa_trailing:self];
+}
+
+- (void)showGroupInfo {
+    [Cache carwashRefs:^(id obj) {
+        NSString *msg = @"Описание не найдено";
+        NSMutableArray *array = [NSMutableArray array];
+        NSDictionary *servicesDictionary = [(CarwashRefs *)obj servicesDictionary];
+        
+        for(id serviceId in _groupItem.services) {
+            if(servicesDictionary[serviceId] != nil) {
+                IdTitleObject *obj = servicesDictionary[serviceId];
+                [array addObject:obj.title];
+            }
+        }
+        
+        if(array.count > 0) {
+            msg = [array componentsJoinedByString:@"+"];
+        } else {
+            NSLog(@"services not found");
+        }
+        
+        [UIAlertView showWithTitle:_groupItem.name message:msg cancelButtonTitle:@"ОK" otherButtonTitles:nil tapBlock:^(UIAlertView * _Nonnull alertView, NSInteger buttonIndex) {
+            
+        }];
+    }];
 }
 
 - (void)setSelected:(BOOL)selected {

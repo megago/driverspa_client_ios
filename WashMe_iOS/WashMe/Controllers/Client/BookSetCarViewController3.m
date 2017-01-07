@@ -30,6 +30,8 @@
 #import "CarwashComplex.h"
 #import "Carwash.h"
 #import "CompanyDiscount.h"
+#import "CarwashGroupMenuItem.h"
+#import "CarwashGroupPriceItem.h"
 #import "BookObject.h"
 #import "CarsCollectionView.h"
 #import "AddCarViewController.h"
@@ -43,6 +45,7 @@
 @property(nonatomic, strong) City *city;
 
 @property (nonatomic, strong) NSMutableArray *checkedServices;
+@property (nonatomic, strong) NSMutableArray *checkedGroups;
 @property (nonatomic, strong) Car *selectedCar;
 @end
 
@@ -72,6 +75,7 @@
 
 -(void)initVars {
     self.checkedServices = [[NSMutableArray alloc] init];
+    self.checkedGroups = [[NSMutableArray alloc] init];
     self.cars = [[NSMutableArray alloc] init];
     self.bookObject = [[BookObject alloc] init];
 }
@@ -113,6 +117,15 @@
             totalTime += [menuItem.time floatValue];
         }
         //NSLog(@"%d - %d - %d", menuItem.type.intValue, menuItem.price.intValue, menuItem.time.intValue);
+    }
+    
+    for (CarwashGroupMenuItem *item in self.checkedGroups){
+        for (CarwashGroupPriceItem *priceItem in item.prices){
+            if (priceItem.carType.integerValue == self.selectedCar.carType){
+                totalPrice += [priceItem.price floatValue];
+                totalTime += [priceItem.time floatValue];
+            }
+        }
     }
     
     _bookObject.price = @(totalPrice);
@@ -206,6 +219,7 @@
         carTypeServices = serviceIds;
     
     [self.checkedServices removeAllObjects];
+    [self.checkedGroups removeAllObjects];
     [self resetPrice];
     [self resetTime];
     
@@ -222,7 +236,7 @@
         services = array;
         
         if(services.count > 0) {
-            [carwashServiceCollectionView refreshServices:services];
+            [carwashServiceCollectionView refreshServices:services withGroupServices:self.carwash.groupMenu];
         } else {
             NSLog(@"services not found");
         }
@@ -234,6 +248,11 @@
 
 - (void)carwashServiceCollectionViewSelectedServices:(NSArray *)selectedServices {
     self.checkedServices = [NSMutableArray arrayWithArray:selectedServices];
+    [self updatePrice];
+}
+
+- (void)carwashServiceCollectionViewSelectedGroups:(NSArray *)selectedGroups {
+    self.checkedGroups = [NSMutableArray arrayWithArray:selectedGroups];
     [self updatePrice];
 }
 
