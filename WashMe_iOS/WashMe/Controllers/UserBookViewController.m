@@ -445,7 +445,6 @@
     
     if (_book.groupServices.count > 0){
         UITapGestureRecognizer* gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(userTappedOnGroups:)];
-        // if labelView is not set userInteractionEnabled, you must do so
         [serviceLabel setUserInteractionEnabled:YES];
         [serviceLabel addGestureRecognizer:gesture];
     }
