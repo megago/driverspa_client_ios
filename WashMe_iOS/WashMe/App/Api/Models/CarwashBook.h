@@ -35,11 +35,17 @@
 @property (nonatomic, copy) NSNumber *discount;
 @property (nonatomic, copy) NSString *comment;
 
+@property (nonatomic, copy) NSString *groupMenuName;
+@property (nonatomic, copy) NSArray *groupMenuServices;
+@property (nonatomic, copy) NSArray *groupServices;
+
 + (CarwashBook *)instanceFromDictionary:(NSDictionary *)aDictionary;
 - (void)setAttributesFromDictionary:(NSDictionary *)aDictionary;
 
 - (NSString *)localizedPrettyDate;
 - (NSString *)servicesTitles;
+- (NSString *)groupsTitles;
+- (NSString *)goupServicesTitles;
 
 - (NSString *)carTypeTitle;
 

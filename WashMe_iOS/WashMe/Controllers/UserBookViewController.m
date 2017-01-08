@@ -26,6 +26,7 @@
 #import "NSString+Ext.h"
 #import "BookObject.h"
 #import "CarwashVisits.h"
+#import "UIAlertView+Blocks.h"
 
 #import "User.h"
 #import "CenterTitle.h"
@@ -209,6 +210,10 @@
     } else {
         [UIHelper showAlertTryAgain];
     }
+}
+
+- (void)userTappedOnGroups:(UIGestureRecognizer*)gestureRecognizer {
+    [UIAlertView showWithTitle:[_book groupsTitles] message:[_book goupServicesTitles] cancelButtonTitle:@"ОК" otherButtonTitles:nil tapBlock:^(UIAlertView * _Nonnull alertView, NSInteger buttonIndex) {}];
 }
 
 #pragma mark -
@@ -400,17 +405,50 @@
     carLabel.y = nameLabel.bottom;
     [sv addSubview:carLabel];
     
-    NSString *str = [NSString new];
-    if (_book.discount > 0){
-        str = [NSString stringWithFormat:@"%@ за %@\nсо скидкой %i %%", [_book servicesTitles], [_book localizedPrice], _book.discount.intValue];
-    } else {
-        str = [NSString stringWithFormat:@"%@ за %@", [_book servicesTitles], [_book localizedPrice]];
+
+    serviceLabel = [[CenterTitle alloc] initWithTitle:@"" width:rowWidth];
+    NSMutableAttributedString *titleAttr = [[NSMutableAttributedString alloc] init];
+    if (_book.groupServices.count > 0){
+        [titleAttr appendAttributedString:[[NSAttributedString alloc] initWithString:[_book groupsTitles] attributes:@{
+                                                                                                                   NSFontAttributeName : [UIFont robotoThin:14],NSForegroundColorAttributeName: [UIColor whiteColor],
+                                                                                                                   NSUnderlineStyleAttributeName: @(NSUnderlineStyleSingle)
+                                                                                                                   }]];
     }
-    serviceLabel = [[CenterTitle alloc] initWithTitle:str width:rowWidth];
+    
+    if (_book.groupServices.count > 0 && _book.services.count > 0){
+        [titleAttr appendAttributedString:[[NSAttributedString alloc] initWithString:@" + "
+                                                                          attributes:@{                                                                                       NSFontAttributeName : [UIFont robotoRegular:14],NSForegroundColorAttributeName: [UIColor whiteColor],
+                                                                                       }]];
+    }
+    
+    [titleAttr appendAttributedString:[[NSAttributedString alloc] initWithString:[_book servicesTitles]
+                                                                  attributes:@{
+                                                                                                                                                   NSFontAttributeName : [UIFont robotoRegular:14],NSForegroundColorAttributeName: [UIColor whiteColor],
+                                                                                                                                                   }]];
+    
+    NSString *str = [NSString new];
+    if (_book.discount.intValue > 0){
+        str = [NSString stringWithFormat:@" за %@\nсо скидкой %i %%", [_book localizedPrice], _book.discount.intValue];
+    } else {
+        str = [NSString stringWithFormat:@" за %@", [_book localizedPrice]];
+    }
+    [titleAttr appendAttributedString:[[NSAttributedString alloc] initWithString:str
+                                                                      attributes:@{
+                                                                                   NSFontAttributeName : [UIFont robotoRegular:14],NSForegroundColorAttributeName: [UIColor whiteColor],
+                                                                                   }]];
+    
+    serviceLabel.attributedText = titleAttr;
     [serviceLabel sizeToFit];
     serviceLabel.centerX = sv.centerX;
     serviceLabel.y = carLabel.bottom;
     [sv addSubview:serviceLabel];
+    
+    if (_book.groupServices.count > 0){
+        UITapGestureRecognizer* gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(userTappedOnGroups:)];
+        // if labelView is not set userInteractionEnabled, you must do so
+        [serviceLabel setUserInteractionEnabled:YES];
+        [serviceLabel addGestureRecognizer:gesture];
+    }
     
     dateLabel = [[CenterTitle alloc] initWithTitle:[NSString stringWithFormat:@"%@ (%@) в %@", [_book localizedDaysAgo], [_book localizedBookDate], [_book localBookTime]] width:rowWidth];
     [dateLabel sizeToFit];
@@ -423,7 +461,6 @@
     line2.alpha = 0.2;
     line2.centerX = sv.centerX;
     [sv addSubview:line2];
-    
     
     carwashLabel = [[CenterTitle alloc] initWithTitle:[NSString stringWithFormat:@"Автомойка %@", _book.carwashName] width:rowWidth];
     carwashLabel.font = [UIFont robotoRegular:18.f];
@@ -451,7 +488,7 @@
     [sv addSubview:phoneButton];
     
     float nextY = phoneButton.bottom + rowsSpacing;
-    if (_book.comment) {
+    if (![_book.comment isEqualToString:@""]) {
         commentLabel = [[IconTitleView alloc] initWithIcon:@"ic_comment_book" title:_book.comment];
         commentLabel.x = [ASize screenWidth]/2 - commentLabel.frame.size.width/2;
         commentLabel.y = nextY;
@@ -462,7 +499,7 @@
         nextY = commentLabel.bottom + rowsSpacing;
     }
     
-    if (visits){
+    if (visits && visits.finishedBooksCount.intValue > 0){
         visitsCountLabel = [[CenterTitle alloc] initWithTitle:[NSString stringWithFormat:@"обслужили %i раз(а)", visits.finishedBooksCount.intValue] width:rowWidth];
         [visitsCountLabel sizeToFit];
         visitsCountLabel.centerX = sv.centerX;

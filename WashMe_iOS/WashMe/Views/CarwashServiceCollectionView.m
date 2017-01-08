@@ -193,7 +193,7 @@
         [self aa_setHeight:kHeight];
     } else {
         CGFloat height = services.count % 3 > 0 ? kHeight * (section + 1) + 15*section : kHeight * section;
-        [self aa_setHeight:height];
+        [self aa_setHeight:height + 20];
     }
     
     [self.items removeAllObjects];
@@ -209,14 +209,14 @@
         fullHeight += kHeight;
     } else {
         CGFloat height = services.count % 3 > 0 ? kHeight * (section + 1) + 15*section : kHeight * section;
-        fullHeight += height + 10;
+        fullHeight += height + 20;
     }
     
     if (groupsSection == 0) {
         fullHeight += groups.count > 0 ? kHeight + 10 : 0;
     } else {
         CGFloat height = groups.count % 3 > 0 ? kHeight * (groupsSection + 1) + 15*groupsSection : kHeight * groupsSection;
-        fullHeight += height + 10;
+        fullHeight += height + 20;
     }
     [self aa_setHeight:fullHeight];
     

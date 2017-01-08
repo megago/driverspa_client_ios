@@ -151,7 +151,7 @@
 
 - (void)continueTapped
 {
-    if(self.checkedServices.count == 0) {
+    if(self.checkedServices.count == 0 && self.checkedGroups.count == 0) {
         [UIHelper showAlertWithMessage:@"Выберите услуги"];
         return;
     }
@@ -164,6 +164,7 @@
         // Set book objects
         _bookObject.carwash = self.carwash;
         _bookObject.services = self.checkedServices;
+        _bookObject.servicesGroups = self.checkedGroups;
         _bookObject.carType = self.selectedCar.carType;
         _bookObject.clientKey = [NSString stringWithFormat:@"%@ (%@)", self.selectedCar.carNumber, [[User currentUser] fio]];
         //_bookObject.bookDate = nil;

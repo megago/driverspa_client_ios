@@ -21,6 +21,7 @@
 #import "City.h"
 #import "BoxSetting.h"
 #import "CarwashVisits.h"
+#import "CarwashGroupMenuItem.h"
 
 @implementation UserApi {
 
@@ -93,11 +94,17 @@
     for(IdTitleObject *obj in bookObject.services) {
         [services addObject:obj.objectId];
     }
-
+    
+    NSMutableArray *groupServices = [NSMutableArray array];
+    for (CarwashGroupMenuItem *group in bookObject.servicesGroups){
+        [groupServices addObject:group.uid];
+    }
+    
     NSMutableDictionary * o = [NSMutableDictionary dictionary];
     o[@"carwash"] = bookObject.carwash.resourceUri;
     o[@"time"] = bookObject.time;
     o[@"services"] = services;
+    o[@"group_services"] = groupServices;
     o[@"client_key"] = bookObject.clientKey;
     o[@"cartype"] = @(bookObject.carType);
     o[@"box_id"] = bookObject.boxSetting.uid;

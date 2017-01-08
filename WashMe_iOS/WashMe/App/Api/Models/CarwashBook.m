@@ -47,6 +47,10 @@
     self.discount = [self numberValueForKey:@"discount"];
     self.comment = [self stringValueForKey:@"comment"];
     
+    self.groupMenuName = [self stringValueForKey:@"group_menu_name"];
+    self.groupMenuServices = [self arrayValueForKey:@"group_menu_services"];
+    self.groupServices = [self arrayValueForKey:@"group_services"];
+    
     self.ts = [self stringValueForKey:@"ts"];
     self.ts = [self.ts stringByReplacingOccurrencesOfString:@"+00:00" withString:@""];
 
@@ -66,6 +70,21 @@
     NSDictionary *serviceDictionary = [carwashRefs servicesDictionary];
     NSMutableArray *array = [NSMutableArray array];
     for(id serviceId in self.services) {
+        IdTitleObject *obj = serviceDictionary[serviceId];
+        [array addObject:obj.title];
+    }
+    return [array componentsJoinedByString:@", "];
+}
+
+- (NSString *)groupsTitles {
+    return self.groupMenuName;
+}
+
+- (NSString *)goupServicesTitles {
+    CarwashRefs *carwashRefs = [Cache carwashRefs];
+    NSDictionary *serviceDictionary = [carwashRefs servicesDictionary];
+    NSMutableArray *array = [NSMutableArray array];
+    for(id serviceId in self.groupMenuServices) {
         IdTitleObject *obj = serviceDictionary[serviceId];
         [array addObject:obj.title];
     }

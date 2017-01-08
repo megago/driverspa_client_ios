@@ -140,7 +140,7 @@
     [sv addSubview:carLabel];
     
     NSString *str = [NSString new];
-    if (_carwashBook.discount > 0){
+    if (_carwashBook.discount.intValue > 0){
         str = [NSString stringWithFormat:@"%@ за %@\nсо скидкой %i %%", [_carwashBook servicesTitles], [_carwashBook localizedPrice], _carwashBook.discount.intValue];
     } else {
         str = [NSString stringWithFormat:@"%@ за %@", [_bookObject servicesTitles], [_bookObject localizedPrice]];
@@ -162,9 +162,6 @@
     line2.alpha = 0.2;
     line2.centerX = sv.centerX;
     [sv addSubview:line2];
-    
-    
-    
     
     CenterTitle *carwashLabel = [[CenterTitle alloc] initWithTitle:[NSString stringWithFormat:@"Автомойка %@", _carwashBook.carwashName] width:rowWidth];
     [carwashLabel setFont:[UIFont robotoRegular:18.f]];
@@ -192,7 +189,7 @@
     [sv addSubview:phoneButton];
     
     float nextY = phoneButton.bottom + rowsSpacing;
-    if (_carwashBook.comment) {
+    if (![_carwashBook.comment isEqualToString:@""]) {
         IconTitleView *commentLabel = [[IconTitleView alloc] initWithIcon:@"ic_comment_book" title:_carwashBook.comment];
         commentLabel.x = [ASize screenWidth]/2 - commentLabel.frame.size.width/2;
         commentLabel.y = nextY;

@@ -16,6 +16,7 @@
 @interface BookObject : NSObject
 
 @property(nonatomic, strong) NSArray *services;
+@property(nonatomic, strong) NSArray *servicesGroups;
 @property(nonatomic, strong) CarwashComplex *carwash;
 @property(nonatomic, copy) NSString *time;
 @property(nonatomic, copy) NSString *clientKey;
