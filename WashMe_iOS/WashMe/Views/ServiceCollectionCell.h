@@ -14,5 +14,8 @@
 @property (nonatomic, strong) UILabel *serviceLabel;
 @property (nonatomic, strong) UIButton *infoBtn;
 @property (nonatomic, strong) CarwashGroupMenuItem *groupItem;
+@property (nonatomic, assign) BOOL isSelectedCell;
+@property (nonatomic, assign) BOOL isDissableCell;
 
+- (void)setTitle:(NSString *)title;
 @end

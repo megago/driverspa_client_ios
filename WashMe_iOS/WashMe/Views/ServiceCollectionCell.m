@@ -50,6 +50,49 @@
     return self;
 }
 
+- (void)setSelected:(BOOL)selected {
+    [super setSelected:selected];
+    if (selected) {
+        self.contentView.layer.borderWidth = 1.f;
+        self.contentView.layer.borderColor = [UIColor whiteColor].CGColor;
+        self.contentView.backgroundColor = [[UIColor fromRGB:0x184977] colorWithAlphaComponent:1.f];
+    } else {
+        self.contentView.layer.borderWidth = 0.f;
+        self.contentView.layer.borderColor = [UIColor clearColor].CGColor;
+        self.contentView.backgroundColor = [[UIColor fromRGB:0x184977] colorWithAlphaComponent:0.25f];
+    }
+}
+
+- (void)setIsSelectedCell:(BOOL)isSelectedCell {
+    _isSelectedCell = isSelectedCell;
+}
+
+- (void)setIsDissableCell:(BOOL)isDissableCell {
+    _isDissableCell = isDissableCell;
+}
+
+- (void)setTitle:(NSString *)title {
+    self.serviceLabel.text = title;
+    if (_isSelectedCell) {
+        self.contentView.layer.borderWidth = 1.f;
+        self.contentView.layer.borderColor = [UIColor whiteColor].CGColor;
+        self.contentView.backgroundColor = [[UIColor fromRGB:0x184977] colorWithAlphaComponent:1.f];
+    } else {
+        
+        if (_isDissableCell) {
+            self.contentView.layer.borderWidth = 0.f;
+            self.contentView.layer.borderColor = [UIColor clearColor].CGColor;
+            self.contentView.backgroundColor = [[UIColor fromRGB:0xCACACA] colorWithAlphaComponent:0.25f];
+        } else {
+            self.contentView.layer.borderWidth = 0.f;
+            self.contentView.layer.borderColor = [UIColor clearColor].CGColor;
+            self.contentView.backgroundColor = [[UIColor fromRGB:0x184977] colorWithAlphaComponent:0.25f];
+        }
+    }
+}
+
+#pragma mark - Group
+
 -(void)setGroupItem:(CarwashGroupMenuItem *)groupItem {
     _groupItem = groupItem;
     
@@ -87,19 +130,6 @@
             
         }];
     }];
-}
-
-- (void)setSelected:(BOOL)selected {
-    [super setSelected:selected];
-    if (selected) {
-        self.contentView.layer.borderWidth = 1.f;
-        self.contentView.layer.borderColor = [UIColor whiteColor].CGColor;
-        self.contentView.backgroundColor = [[UIColor fromRGB:0x184977] colorWithAlphaComponent:1.f];
-    } else {
-        self.contentView.layer.borderWidth = 0.f;
-        self.contentView.layer.borderColor = [UIColor clearColor].CGColor;
-        self.contentView.backgroundColor = [[UIColor fromRGB:0x184977] colorWithAlphaComponent:0.25f];
-    }
 }
 
 @end
