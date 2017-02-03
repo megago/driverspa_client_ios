@@ -67,7 +67,17 @@
     }
     if ([request.URL.scheme isEqualToString:@"inapp"]) {
         if ([request.URL.host isEqualToString:@"appstore"]) {
-            // do capture action
+            NSString *str;
+            NSString *appID = @"1146718578";
+            float ver = [[[UIDevice currentDevice] systemVersion] floatValue];
+            if (ver >= 7.0 && ver < 7.1) {
+                str = [NSString stringWithFormat:@"itms-apps://itunes.apple.com/app/id%@",appID];
+            } else if (ver >= 8.0) {
+                str = [NSString stringWithFormat:@"itms-apps://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=%@&onlyLatestVersion=true&pageNumber=0&sortOrdering=1&type=Purple+Software",appID];
+            } else {
+                str = [NSString stringWithFormat:@"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=%@",appID];
+            }
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:str]];
         } else if ([request.URL.host isEqualToString:@"idea"]) {
             [self sendMessageWithSubject:@"Поделиться идеей" to:@[@"info@washme.kz"]];
         } else if ([request.URL.host isEqualToString:@"support"]) {
@@ -88,6 +98,7 @@
 - (void)sendMessageWithSubject:(NSString *)subject to:(NSArray *)recipients {
     if([MFMailComposeViewController canSendMail]) {
         MFMailComposeViewController *mailCont = [[MFMailComposeViewController alloc] init];
+        mailCont.navigationBar.tintColor = [UIColor blueColor];
         mailCont.mailComposeDelegate = self;        // Required to invoke mailComposeController when send
         
         [mailCont setSubject:subject];
