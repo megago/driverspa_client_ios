@@ -154,19 +154,31 @@
         _nameLabel.font = [UIFont robotoBold:15];
         _nameLabel.textColor = [UIColor whiteColor];
         _nameLabel.textAlignment = NSTextAlignmentCenter;
+        [_nameLabel sizeToFit];
         [containerView addSubview:_nameLabel];
         [_nameLabel aa_pinUnderView:_avatarView offset:7];
         [_nameLabel aa_superviewFitWidthWithInset:20];
-
+        
         _telLabel = [UILabel newAutoLayoutView];
         _telLabel.backgroundColor = [UIColor clearColor];
         _telLabel.font = [UIFont robotoThin:14];
         _telLabel.textColor = [UIColor whiteColor];
         _telLabel.textAlignment = NSTextAlignmentCenter;
+        [_telLabel sizeToFit];
         [containerView addSubview:_telLabel];
         [_telLabel aa_pinUnderView:_nameLabel offset:3];
-        [_telLabel aa_leadingAndTrailing:_nameLabel];
+        [_telLabel aa_centerHorizontal];
+        //[_telLabel aa_leadingAndTrailing:_nameLabel];
         [_telLabel aa_superviewBottom:0];
+        
+        UIImageView *editIcon = [UIImageView newAutoLayoutView];
+        editIcon.backgroundColor = [UIColor clearColor];
+        editIcon.image = [UIImage imageNamed:@"ic_edit.png"];
+        [editIcon aa_setWidth:15];
+        [editIcon aa_setHeight:15];
+        [containerView addSubview:editIcon];
+        [editIcon aa_pinUnderView:_nameLabel offset:3];
+        [editIcon aa_trailing:_telLabel offset:20];
 
         UIView *line = [UIView newAutoLayoutView];
         [line setBackgroundColor:[[UIColor whiteColor] colorWithAlphaComponent:0.1]];

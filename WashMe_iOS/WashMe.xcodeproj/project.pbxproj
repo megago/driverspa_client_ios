@@ -137,6 +137,10 @@
 		A3290C5E1D9450A3007E74F3 /* BoxAdminCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A3290C5D1D9450A3007E74F3 /* BoxAdminCell.m */; };
 		A32C13781DBCD39E003E826C /* SelectCityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A32C13771DBCD39E003E826C /* SelectCityViewController.m */; };
 		A32D1A1E1D46764800A577F9 /* AboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A32D1A1D1D46764800A577F9 /* AboutUsViewController.m */; };
+		A34129BB1E54C7B000EEEA87 /* ic_edit.png in Resources */ = {isa = PBXBuildFile; fileRef = A34129B91E54C7B000EEEA87 /* ic_edit.png */; };
+		A34129BC1E54C7B000EEEA87 /* ic_edit@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A34129BA1E54C7B000EEEA87 /* ic_edit@2x.png */; };
+		A34129C71E54E85900EEEA87 /* circle-launch.png in Resources */ = {isa = PBXBuildFile; fileRef = A34129C51E54E85900EEEA87 /* circle-launch.png */; };
+		A34129C81E54E85900EEEA87 /* circle-launch@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A34129C61E54E85900EEEA87 /* circle-launch@2x.png */; };
 		A341BB401D44A8B4005E27DD /* AdminMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A341BB3F1D44A8B4005E27DD /* AdminMain.storyboard */; };
 		A341BB431D44B6CE005E27DD /* AdminTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = A341BB421D44B6CE005E27DD /* AdminTabBarController.m */; };
 		A341BB491D44C8CC005E27DD /* AdminMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A341BB481D44C8CC005E27DD /* AdminMenuViewController.m */; };
@@ -666,6 +670,10 @@
 		A32C13771DBCD39E003E826C /* SelectCityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectCityViewController.m; sourceTree = "<group>"; };
 		A32D1A1C1D46764800A577F9 /* AboutUsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutUsViewController.h; sourceTree = "<group>"; };
 		A32D1A1D1D46764800A577F9 /* AboutUsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutUsViewController.m; sourceTree = "<group>"; };
+		A34129B91E54C7B000EEEA87 /* ic_edit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_edit.png; sourceTree = "<group>"; };
+		A34129BA1E54C7B000EEEA87 /* ic_edit@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_edit@2x.png"; sourceTree = "<group>"; };
+		A34129C51E54E85900EEEA87 /* circle-launch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "circle-launch.png"; sourceTree = "<group>"; };
+		A34129C61E54E85900EEEA87 /* circle-launch@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "circle-launch@2x.png"; sourceTree = "<group>"; };
 		A341BB3F1D44A8B4005E27DD /* AdminMain.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AdminMain.storyboard; sourceTree = "<group>"; };
 		A341BB411D44B6CE005E27DD /* AdminTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdminTabBarController.h; sourceTree = "<group>"; };
 		A341BB421D44B6CE005E27DD /* AdminTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdminTabBarController.m; sourceTree = "<group>"; };
@@ -1774,6 +1782,10 @@
 				A32303A01E16F77B004E173D /* ic_comment_book.png */,
 				A3BDD22C1E1EE6DF0034C7F9 /* ic_more.png */,
 				A3BDD22D1E1EE6DF0034C7F9 /* ic_more@2x.png */,
+				A34129B91E54C7B000EEEA87 /* ic_edit.png */,
+				A34129BA1E54C7B000EEEA87 /* ic_edit@2x.png */,
+				A34129C51E54E85900EEEA87 /* circle-launch.png */,
+				A34129C61E54E85900EEEA87 /* circle-launch@2x.png */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -1945,6 +1957,7 @@
 				CE755C261A192F5E00A036DC /* icon-close-filled@2x.png in Resources */,
 				CE755BF91A192F5E00A036DC /* btn_tab-carwash_normal.png in Resources */,
 				CE755BF61A192F5E00A036DC /* btn_cartype4_normal@2x.png in Resources */,
+				A34129C81E54E85900EEEA87 /* circle-launch@2x.png in Resources */,
 				CE755C351A192F5E00A036DC /* icon-map-close.png in Resources */,
 				CE5928681A1F905800C45CF9 /* icon-menu@2x.png in Resources */,
 				CE755C041A192F5E00A036DC /* btn_tab-profile_selected@2x.png in Resources */,
@@ -1996,6 +2009,7 @@
 				CE755C531A192F5E00A036DC /* icon-status-red@2x.png in Resources */,
 				CE755C301A192F5E00A036DC /* icon-grid@2x.png in Resources */,
 				CE37538A1A58215500394BFE /* carwash-photo-placeholder.png in Resources */,
+				A34129BB1E54C7B000EEEA87 /* ic_edit.png in Resources */,
 				A38003961D4DFDBD00806157 /* intro_2@2x.png in Resources */,
 				CE755C4E1A192F5E00A036DC /* Icon-Small@2x-1.png in Resources */,
 				CE755C1D1A192F5E00A036DC /* icon-arrow-back.png in Resources */,
@@ -2060,6 +2074,7 @@
 				CE755C4B1A192F5E00A036DC /* Icon-Small-50_7@2x-1.png in Resources */,
 				CE755C661A192F5E00A036DC /* star-small-rated.png in Resources */,
 				A39010971DBE5CA100A57ED2 /* ic_gps_24dp.png in Resources */,
+				A34129BC1E54C7B000EEEA87 /* ic_edit@2x.png in Resources */,
 				CE3753921A583FE300394BFE /* carwash-status-unpublished.png in Resources */,
 				CE755C411A192F5E00A036DC /* icon-search.png in Resources */,
 				CE755C051A192F5E00A036DC /* btn_tab-settings_normal.png in Resources */,
@@ -2098,6 +2113,7 @@
 				CE755BE51A192F5E00A036DC /* border-button-pattern-highlighed.png in Resources */,
 				CE755BE01A192F5E00A036DC /* avatar-circle@2x.png in Resources */,
 				5200B12E7FAA8F0DE707EC17 /* Roboto-ThinItalic.ttf in Resources */,
+				A34129C71E54E85900EEEA87 /* circle-launch.png in Resources */,
 				CE755C4F1A192F5E00A036DC /* Icon-Small@2x.png in Resources */,
 				CE37538B1A58215500394BFE /* carwash-photo-placeholder@2x.png in Resources */,
 				CE755C4A1A192F5E00A036DC /* Icon-Small-50_7.png in Resources */,

@@ -153,18 +153,23 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0){
         CarwashGroupMenuItem *item = self.groupItems[indexPath.row];
-        [selectedServices removeAllObjects];
+//        [selectedServices removeAllObjects];
+//        if ([selectedGroups containsObject:item]){
+//            [selectedGroups removeObject:item];
+//            [disabledService removeAllObjects];
+//        } else {
+//            [selectedGroups removeAllObjects];
+//            [disabledService removeAllObjects];
+//            [selectedGroups addObject:item];
+//            [disabledService addObjectsFromArray:item.services];
+//        }
         if ([selectedGroups containsObject:item]){
             [selectedGroups removeObject:item];
-            [disabledService removeAllObjects];
         } else {
-            [selectedGroups removeAllObjects];
-            [disabledService removeAllObjects];
             [selectedGroups addObject:item];
-            [disabledService addObjectsFromArray:item.services];
         }
         [self.delegate carwashServiceCollectionViewSelectedGroups:selectedGroups];
-        [self.delegate carwashServiceCollectionViewSelectedServices:selectedServices];
+//        [self.delegate carwashServiceCollectionViewSelectedServices:selectedServices];
         [self reloadData];
     } else {
         IdTitleObject *item = self.items[indexPath.row];

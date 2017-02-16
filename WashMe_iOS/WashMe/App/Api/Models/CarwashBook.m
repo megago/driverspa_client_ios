@@ -6,6 +6,8 @@
 #import "Cache.h"
 #import "Carwash.h"
 #import "NSString+Ext.h"
+#import "CarwashComplex.h"
+#import "CarwashGroupMenuItem.h"
 
 @implementation CarwashBook
 
@@ -53,6 +55,19 @@
     
     self.ts = [self stringValueForKey:@"ts"];
     self.ts = [self.ts stringByReplacingOccurrencesOfString:@"+00:00" withString:@""];
+    
+    // Group menu
+//    NSArray *recievedGroupMenu = aDictionary[@"group_menu"];
+//    NSMutableArray *groupMenuArr = [NSMutableArray array];
+//    if ([recievedGroupMenu isKindOfClass:[NSArray class]]) {
+//        for (NSDictionary *o in recievedGroupMenu){
+//            CarwashGroupMenuItem *groupItem = [CarwashGroupMenuItem instanceFromDictionary:o];
+//            [groupMenuArr addObject:groupItem];
+//        }
+//        self.groupMenu = groupMenuArr;
+//    } else {
+//        self.groupMenu = @[];
+//    }
 
     objectData = nil;
 
@@ -73,11 +88,17 @@
         IdTitleObject *obj = serviceDictionary[serviceId];
         [array addObject:obj.title];
     }
-    return [array componentsJoinedByString:@", "];
+    return [array componentsJoinedByString:@" + "];
 }
 
-- (NSString *)groupsTitles {
-    return self.groupMenuName;
+- (NSString *)groupsTitlesArCarwash:(CarwashComplex *)complex {
+    NSMutableArray *array = [NSMutableArray array];
+    for (CarwashGroupMenuItem *item in complex.groupMenu){
+        if ([self.groupServices containsObject:item.uid]){
+            [array addObject:item.name];
+        }
+    }
+    return [array componentsJoinedByString:@" + "];
 }
 
 - (NSString *)goupServicesTitles {

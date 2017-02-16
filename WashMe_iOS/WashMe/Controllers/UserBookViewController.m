@@ -213,7 +213,7 @@
 }
 
 - (void)userTappedOnGroups:(UIGestureRecognizer*)gestureRecognizer {
-    [UIAlertView showWithTitle:[_book groupsTitles] message:[_book goupServicesTitles] cancelButtonTitle:@"ОК" otherButtonTitles:nil tapBlock:^(UIAlertView * _Nonnull alertView, NSInteger buttonIndex) {}];
+    [UIAlertView showWithTitle:[_book groupsTitlesArCarwash:carwash] message:[_book goupServicesTitles] cancelButtonTitle:@"ОК" otherButtonTitles:nil tapBlock:^(UIAlertView * _Nonnull alertView, NSInteger buttonIndex) {}];
 }
 
 #pragma mark -
@@ -408,10 +408,11 @@
 
     serviceLabel = [[CenterTitle alloc] initWithTitle:@"" width:rowWidth];
     NSMutableAttributedString *titleAttr = [[NSMutableAttributedString alloc] init];
+    
     if (_book.groupServices.count > 0){
-        [titleAttr appendAttributedString:[[NSAttributedString alloc] initWithString:[_book groupsTitles] attributes:@{
-                                                                                                                   NSFontAttributeName : [UIFont robotoThin:14],NSForegroundColorAttributeName: [UIColor whiteColor],
-                                                                                                                   NSUnderlineStyleAttributeName: @(NSUnderlineStyleSingle)
+        [titleAttr appendAttributedString:[[NSAttributedString alloc] initWithString:[_book groupsTitlesArCarwash:carwash] attributes:@{
+                                                                                                                   NSFontAttributeName : [UIFont robotoRegular:14],NSForegroundColorAttributeName: [UIColor whiteColor],
+                                                                                                                   NSUnderlineStyleAttributeName: @(NSUnderlineStyleNone)
                                                                                                                    }]];
     }
     
@@ -443,11 +444,11 @@
     serviceLabel.y = carLabel.bottom;
     [sv addSubview:serviceLabel];
     
-    if (_book.groupServices.count > 0){
-        UITapGestureRecognizer* gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(userTappedOnGroups:)];
-        [serviceLabel setUserInteractionEnabled:YES];
-        [serviceLabel addGestureRecognizer:gesture];
-    }
+//    if (_book.groupServices.count > 0){
+//        UITapGestureRecognizer* gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(userTappedOnGroups:)];
+//        [serviceLabel setUserInteractionEnabled:YES];
+//        [serviceLabel addGestureRecognizer:gesture];
+//    }
     
     dateLabel = [[CenterTitle alloc] initWithTitle:[NSString stringWithFormat:@"%@ (%@) в %@", [_book localizedDaysAgo], [_book localizedBookDate], [_book localBookTime]] width:rowWidth];
     [dateLabel sizeToFit];

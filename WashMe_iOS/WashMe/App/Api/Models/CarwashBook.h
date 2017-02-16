@@ -2,6 +2,7 @@
 #import "UserApi.h"
 
 @class Carwash;
+@class CarwashComplex;
 
 #define kBookStatusFinished @"finished"
 #define kBookStatusPending @"pending"
@@ -38,14 +39,15 @@
 @property (nonatomic, copy) NSString *groupMenuName;
 @property (nonatomic, copy) NSArray *groupMenuServices;
 @property (nonatomic, copy) NSArray *groupServices;
+//@property (nonatomic, copy) NSArray *groupMenu;
 
 + (CarwashBook *)instanceFromDictionary:(NSDictionary *)aDictionary;
 - (void)setAttributesFromDictionary:(NSDictionary *)aDictionary;
 
 - (NSString *)localizedPrettyDate;
 - (NSString *)servicesTitles;
-- (NSString *)groupsTitles;
 - (NSString *)goupServicesTitles;
+- (NSString *)groupsTitlesArCarwash:(CarwashComplex *)carwash;
 
 - (NSString *)carTypeTitle;
 

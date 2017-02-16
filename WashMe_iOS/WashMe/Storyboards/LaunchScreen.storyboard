@@ -1,13 +1,17 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="F6I-Sj-3IB">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="h8t-gp-5Dg">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <mutableArray key="Roboto-Light.ttf">
+        <array key="Roboto-Light.ttf">
             <string>Roboto-Light</string>
-        </mutableArray>
+        </array>
     </customFonts>
     <scenes>
         <!--View Controller-->
@@ -19,39 +23,39 @@
                         <viewControllerLayoutGuide type="bottom" id="XpT-QZ-fpi"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="9nQ-pH-ZWM">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blue-bg.png" translatesAutoresizingMaskIntoConstraints="NO" id="QF6-td-Ana">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="washme-logo-launch.png" translatesAutoresizingMaskIntoConstraints="NO" id="MTP-z1-him">
-                                <rect key="frame" x="200" y="358" width="200" height="34"/>
+                                <rect key="frame" x="88" y="392" width="200" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="3wG-uh-gT7"/>
                                     <constraint firstAttribute="height" constant="34" id="c6p-3F-HGX"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Washme (c) Copyright 2014. All rights reserved." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UF8-El-Vie">
-                                <rect key="frame" x="161" y="571" width="278" height="21"/>
+                                <rect key="frame" x="49" y="638" width="278" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="278" id="Lom-GL-a6A"/>
                                     <constraint firstAttribute="height" constant="21" id="P9J-im-MGv"/>
                                     <constraint firstAttribute="width" constant="278" id="zkc-Wd-klZ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="12"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launch-car.png" translatesAutoresizingMaskIntoConstraints="NO" id="bfp-y3-5vq">
-                                <rect key="frame" x="200" y="150" width="200" height="200"/>
+                                <rect key="frame" x="88" y="184" width="200" height="200"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="NfH-JP-euu"/>
                                     <constraint firstAttribute="height" constant="200" id="T2P-39-Brt"/>
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="QF6-td-Ana" firstAttribute="centerX" secondItem="9nQ-pH-ZWM" secondAttribute="centerX" id="6Wt-Cc-baH"/>
                             <constraint firstItem="MTP-z1-him" firstAttribute="centerX" secondItem="9nQ-pH-ZWM" secondAttribute="centerX" id="FdV-wx-mOG"/>
@@ -70,9 +74,71 @@
             </objects>
             <point key="canvasLocation" x="390" y="454"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="Vsz-QB-dsG">
+            <objects>
+                <viewController id="h8t-gp-5Dg" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="rhK-do-dQe"/>
+                        <viewControllerLayoutGuide type="bottom" id="HRL-fW-4YP"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hvn-sA-d3U">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blue-bg.png" translatesAutoresizingMaskIntoConstraints="NO" id="UIb-fO-hX2">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle-launch.png" translatesAutoresizingMaskIntoConstraints="NO" id="gLg-db-P61">
+                                <rect key="frame" x="47" y="193" width="280" height="280"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="280" id="T1y-6e-h4h"/>
+                                    <constraint firstAttribute="width" constant="280" id="kNz-Zw-810"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="washme-logo-launch.png" translatesAutoresizingMaskIntoConstraints="NO" id="1Rw-c7-mky">
+                                <rect key="frame" x="88" y="316" width="200" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="34" id="3ts-gB-AHO"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="Ldi-fb-sQC"/>
+                                    <constraint firstAttribute="height" constant="34" id="Rp5-Ta-V6l"/>
+                                    <constraint firstAttribute="width" constant="200" id="kuW-eL-zTU"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Washme (c) Copyright 2014. All rights reserved." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ggX-nn-YRH">
+                                <rect key="frame" x="49" y="638" width="278" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="JFi-yG-p1H"/>
+                                    <constraint firstAttribute="width" constant="278" id="tQY-oY-ufj"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="12"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="1Rw-c7-mky" firstAttribute="centerY" secondItem="hvn-sA-d3U" secondAttribute="centerY" id="03F-ZL-OTD"/>
+                            <constraint firstItem="UIb-fO-hX2" firstAttribute="leading" secondItem="hvn-sA-d3U" secondAttribute="leading" id="CZ3-y9-x0R"/>
+                            <constraint firstItem="HRL-fW-4YP" firstAttribute="top" secondItem="ggX-nn-YRH" secondAttribute="bottom" constant="8" id="Cos-SJ-dXw"/>
+                            <constraint firstItem="HRL-fW-4YP" firstAttribute="top" secondItem="UIb-fO-hX2" secondAttribute="bottom" id="KHF-4i-meM"/>
+                            <constraint firstItem="UIb-fO-hX2" firstAttribute="top" secondItem="hvn-sA-d3U" secondAttribute="top" id="Yj2-kT-C4e"/>
+                            <constraint firstItem="1Rw-c7-mky" firstAttribute="centerX" secondItem="hvn-sA-d3U" secondAttribute="centerX" id="bXU-v9-AWX"/>
+                            <constraint firstItem="gLg-db-P61" firstAttribute="centerY" secondItem="hvn-sA-d3U" secondAttribute="centerY" id="ifC-md-iNA"/>
+                            <constraint firstAttribute="trailing" secondItem="UIb-fO-hX2" secondAttribute="trailing" id="kg2-EQ-FOk"/>
+                            <constraint firstItem="ggX-nn-YRH" firstAttribute="centerX" secondItem="hvn-sA-d3U" secondAttribute="centerX" id="nNP-9Y-tXP"/>
+                            <constraint firstItem="gLg-db-P61" firstAttribute="centerX" secondItem="hvn-sA-d3U" secondAttribute="centerX" id="u83-5h-b8C"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pJy-ki-wgW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="389.60000000000002" y="1160.8695652173915"/>
+        </scene>
     </scenes>
     <resources>
         <image name="blue-bg.png" width="320" height="568"/>
+        <image name="circle-launch.png" width="280" height="280"/>
         <image name="launch-car.png" width="238" height="238"/>
         <image name="washme-logo-launch.png" width="200" height="34"/>
     </resources>

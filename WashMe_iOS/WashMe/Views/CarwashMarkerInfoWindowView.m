@@ -19,6 +19,8 @@
 #import "ImageBundle.h"
 #import "ObjectImage.h"
 #import "CarwashApi.h"
+#import "CarwashSchedule.h"
+#import "SchedulePeriod.h"
 
 #define kPadding 10
 
@@ -224,9 +226,17 @@
             IconTitleHorizontalView *view1 = [cell viewWithTag:10];
             view1.titleLabel.text = self.carwash.contactsMobilePhone;
 
-            IconTitleHorizontalView *view2 = [cell viewWithTag:11];
-            view2.titleLabel.text = @"Круглосуточно";
-
+            NSArray *periods = [self.carwash.schedule todaySchedules];
+            NSString *workingTime = @"";
+            if (periods.count > 0){
+                SchedulePeriod *period = periods.firstObject;
+                workingTime = [period workingTime];
+            }
+            if (workingTime.length > 0)
+            {
+                IconTitleHorizontalView *view2 = [cell viewWithTag:11];
+                view2.titleLabel.text = workingTime;
+            }
             return cell;
         }
             break;

@@ -26,11 +26,15 @@
 #import "CenterTitle.h"
 #import "IconTitleView.h"
 #import "NSString+Ext.h"
+#import "CarwashApi.h"
 
 @interface BookResultViewController ()
 @end
 
-@implementation BookResultViewController
+@implementation BookResultViewController {
+    CarwashComplex *carwash;
+    CarwashRefs *_carwashRefs;
+}
 
 -(id)init {
     self = [super init];
@@ -45,13 +49,23 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self configUI];
-    [self configAction];
+    //[self configUI];
+    self.navigationItem.hidesBackButton = YES;
+    [self showBook];
 }
 
-- (void)configAction
-{
-
+- (void)showBook {
+    [Cache carwashRefs:^(id obj) {
+        _carwashRefs = obj;
+        [Toast showHudLoading];
+        NSString *url = [self.carwashBook.carwash stringByReplacingOccurrencesOfString:@"/api/v1/" withString:@""];
+        [CarwashApi getCarwashWithResource:url success:^(id response) {
+            carwash = response;
+            [self configUI];
+        } failure:^(NSInteger code, NSString *message) {
+            
+        }];
+    }];
 }
 
 #pragma mark -
@@ -90,7 +104,7 @@
 }
 
 - (void)userTappedOnGroups:(UIGestureRecognizer*)gestureRecognizer {
-    [UIAlertView showWithTitle:[_carwashBook groupsTitles] message:[_carwashBook goupServicesTitles] cancelButtonTitle:@"ОК" otherButtonTitles:nil tapBlock:^(UIAlertView * _Nonnull alertView, NSInteger buttonIndex) {}];
+    [UIAlertView showWithTitle:[_carwashBook groupsTitlesArCarwash:carwash] message:[_carwashBook goupServicesTitles] cancelButtonTitle:@"ОК" otherButtonTitles:nil tapBlock:^(UIAlertView * _Nonnull alertView, NSInteger buttonIndex) {}];
 }
 
 #pragma mark -
@@ -101,7 +115,6 @@
     //[self setBackButtonInNavigation];
     [self setBlueBackground];
     [self setNavigationTitle:@"Бронь отправлена"];
-    self.navigationItem.hidesBackButton = YES;
     
     User *user = [User currentUser];
     //CarwashRefs *carwashRefs = [Cache carwashRefs];
@@ -147,9 +160,9 @@
     CenterTitle *serviceLabel = [[CenterTitle alloc] initWithTitle:@"" width:rowWidth];
     NSMutableAttributedString *titleAttr = [[NSMutableAttributedString alloc] init];
     if (_carwashBook.groupServices.count > 0){
-        [titleAttr appendAttributedString:[[NSAttributedString alloc] initWithString:[_carwashBook groupsTitles] attributes:@{
-                                                                                                                       NSFontAttributeName : [UIFont robotoThin:14],NSForegroundColorAttributeName: [UIColor whiteColor],
-                                                                                                                       NSUnderlineStyleAttributeName: @(NSUnderlineStyleSingle)
+        [titleAttr appendAttributedString:[[NSAttributedString alloc] initWithString:[_carwashBook groupsTitlesArCarwash:carwash] attributes:@{
+                                                                                                                       NSFontAttributeName : [UIFont robotoRegular:14],NSForegroundColorAttributeName: [UIColor whiteColor],
+                                                                                                                       NSUnderlineStyleAttributeName: @(NSUnderlineStyleNone)
                                                                                                                        }]];
     }
     
@@ -181,11 +194,11 @@
     serviceLabel.y = carLabel.bottom;
     [sv addSubview:serviceLabel];
     
-    if (_carwashBook.groupServices.count > 0){
-        UITapGestureRecognizer* gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(userTappedOnGroups:)];
-        [serviceLabel setUserInteractionEnabled:YES];
-        [serviceLabel addGestureRecognizer:gesture];
-    }
+//    if (_carwashBook.groupServices.count > 0){
+//        UITapGestureRecognizer* gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(userTappedOnGroups:)];
+//        [serviceLabel setUserInteractionEnabled:YES];
+//        [serviceLabel addGestureRecognizer:gesture];
+//    }
     
     CenterTitle *dateLabel = [[CenterTitle alloc] initWithTitle:[NSString stringWithFormat:@"%@ (%@) в %@", [_carwashBook localizedDaysAgo], [_carwashBook localizedBookDate], [_carwashBook localBookTime]] width:rowWidth];
     [dateLabel sizeToFit];

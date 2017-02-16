@@ -100,7 +100,11 @@
     _infoBtn.backgroundColor = [UIColor clearColor];
     [_infoBtn setImage:[UIImage imageNamed:@"ic_more"] forState:UIControlStateNormal];
     [_infoBtn addTarget:self action:@selector(showGroupInfo) forControlEvents:UIControlEventTouchUpInside];
-    [_infoBtn setHidden:NO];
+    if (groupItem.services.count >= 1){
+        [_infoBtn setHidden:NO];
+    } else {
+        [_infoBtn setHidden:YES];
+    }
     [self addSubview:_infoBtn];
     [_infoBtn aa_setWidth:10];
     [_infoBtn aa_setHeight:20];
