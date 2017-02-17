@@ -34,10 +34,10 @@
 }
 
 - (id)init {
-    self = [super initWithFrame:CGRectMake(0, 0, 290, 1)];
+    self = [super initWithFrame:CGRectMake(0, 0, 294, 1)];
     if(self) {
 
-        self.heights = @[@(35), @(66), @(40), @(40)];
+        self.heights = @[@(35), @(70), @(40), @(40)];
         CGFloat padding = 5;
         CGFloat arrowOffset = 10;
 
@@ -153,6 +153,7 @@
                 UIImageView *imageView = [UIImageView newAutoLayoutView];
                 imageView.tag = 10;
                 imageView.contentMode = UIViewContentModeScaleAspectFill;
+                imageView.clipsToBounds = YES;
                 [cell.contentView addSubview:imageView];
                 [imageView aa_setWidth:60];
                 [imageView aa_superviewTop:kPadding];
@@ -168,7 +169,7 @@
                 [cell.contentView addSubview:titleLabel];
                 [titleLabel aa_pinAfterView:imageView offset:kPadding];
                 [titleLabel aa_top:imageView];
-                [titleLabel aa_superviewRight:35];
+                [titleLabel aa_superviewRight:25];
 
                 UILabel *descLabel = [UILabel newAutoLayoutView];
                 descLabel.tag = 12;

@@ -20,4 +20,8 @@
 @property(nonatomic, weak) id <CarwashViewControllerDelegate> delegate;
 @property(nonatomic, strong) Carwash *carwash;
 
+@property (nonatomic, assign) BOOL afterNotification;
+@property (nonatomic, strong) NSString *carwashId;
+@property (nonatomic, strong) NSString *message;
+
 @end

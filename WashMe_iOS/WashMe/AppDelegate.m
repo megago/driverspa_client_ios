@@ -37,6 +37,7 @@
 #import "AdminBookViewController.h"
 #import "NSObject+Json.h"
 #import "LocationHelper.h"
+#import "InfoViewController.h"
 
 @implementation AppDelegate {
 }
@@ -153,10 +154,11 @@
     [self.window makeKeyAndVisible];
 }
 
-- (void)setUserAuthorizedBookControllerWith:(NSString *)objectId {
+- (void)setUserAuthorizedBookControllerWith:(NSString *)objectId andMessage:(NSString *)message {
     UserBookViewController *vc = [UserBookViewController new];
     vc.afterNotification = YES;
     vc.bookId = objectId;
+    vc.message = message;
     UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:vc];
     
     MenuViewController *menuController = [[MenuViewController alloc] init];
@@ -172,6 +174,47 @@
     
     [self.window makeKeyAndVisible];
 }
+
+- (void)setUserAuthorizedCarwashControllerWith:(NSString *)objectId andMessage:(NSString *)message {
+    CarwashViewController *vc = [CarwashViewController new];
+    vc.afterNotification = YES;
+    vc.carwashId = objectId;
+    vc.message = message;
+    UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:vc];
+    
+    MenuViewController *menuController = [[MenuViewController alloc] init];
+    
+    self.frostedViewController = [[REFrostedViewController alloc] initWithContentViewController:nc menuViewController:menuController];
+    _frostedViewController.liveBlur = YES;
+    _frostedViewController.liveBlurBackgroundStyle = REFrostedViewControllerLiveBackgroundStyleLight;
+    _frostedViewController.direction = REFrostedViewControllerDirectionLeft;
+    _frostedViewController.menuViewSize = CGSizeMake([MenuViewController menuWidth], self.window.frame.size.height);
+    
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.rootViewController = _frostedViewController;
+    
+    [self.window makeKeyAndVisible];
+}
+
+- (void)setUserAuthorizedInfoControllerWith:(NSString *)message {
+    InfoViewController *vc = [InfoViewController new];
+    vc.message = message;
+    UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:vc];
+    
+    MenuViewController *menuController = [[MenuViewController alloc] init];
+    
+    self.frostedViewController = [[REFrostedViewController alloc] initWithContentViewController:nc menuViewController:menuController];
+    _frostedViewController.liveBlur = YES;
+    _frostedViewController.liveBlurBackgroundStyle = REFrostedViewControllerLiveBackgroundStyleLight;
+    _frostedViewController.direction = REFrostedViewControllerDirectionLeft;
+    _frostedViewController.menuViewSize = CGSizeMake([MenuViewController menuWidth], self.window.frame.size.height);
+    
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.rootViewController = _frostedViewController;
+    
+    [self.window makeKeyAndVisible];
+}
+
 
 - (void)setAdminAuthorizedTabbarController {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"AdminMain" bundle:nil];
@@ -325,9 +368,15 @@
                 }
             }
         } else {
+            NSString *type = [userInfo objectForKey:@"type"];
             NSString *objectId = [userInfo objectForKey:@"object_id"];
-            if (objectId) {
-                [self setUserAuthorizedBookControllerWith:objectId];
+            NSString *message = [[userInfo objectForKey:@"aps"] objectForKey:@"alert"];
+            if ([type containsString:@"book"] || [type containsString:@"serving"] || [type containsString:@"express"]) {
+                [self setUserAuthorizedBookControllerWith:objectId andMessage:message];
+            } else if ([type isEqual:@"carwash_info"]){
+                [self setUserAuthorizedCarwashControllerWith:objectId andMessage:message];
+            } else if ([type isEqual:@"info"]){
+                [self setUserAuthorizedInfoControllerWith:message];
             }
         }
     } else {

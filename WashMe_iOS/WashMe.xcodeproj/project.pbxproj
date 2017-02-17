@@ -123,6 +123,7 @@
 		5200BFDF40830DB87ECBA4A4 /* CustomTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200BC50BB4615CDFA938B87 /* CustomTabBarController.m */; };
 		5200BFED80E38BB6F0548E03 /* ButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200B6A6D631D3A7F3F44EA2 /* ButtonView.m */; };
 		5200BFFD23EEAC25F896C0C5 /* AddPhotoCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200BD1C9D8E1652E6151DA2 /* AddPhotoCircleView.m */; };
+		A30210EE1E57731B00BA6B64 /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A30210ED1E57731B00BA6B64 /* InfoViewController.m */; };
 		A31829B81D7AA7E70053CAB5 /* carwash-annotation-online2.png in Resources */ = {isa = PBXBuildFile; fileRef = A31829B61D7AA7E70053CAB5 /* carwash-annotation-online2.png */; };
 		A31829B91D7AA7E70053CAB5 /* carwash-annotation-online2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A31829B71D7AA7E70053CAB5 /* carwash-annotation-online2@2x.png */; };
 		A31844CD1D6231C8002A258B /* star-new-empty.png in Resources */ = {isa = PBXBuildFile; fileRef = A31844C91D6231C8002A258B /* star-new-empty.png */; };
@@ -652,6 +653,8 @@
 		7E76B64380276926994A15C0 /* Pods-WashMe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WashMe.release.xcconfig"; path = "Pods/Target Support Files/Pods-WashMe/Pods-WashMe.release.xcconfig"; sourceTree = "<group>"; };
 		966FDCF9B51A58F24459B45A /* libPods-WashMe.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WashMe.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A137D133A3245F49615DD123 /* Pods-WashMe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WashMe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WashMe/Pods-WashMe.debug.xcconfig"; sourceTree = "<group>"; };
+		A30210EC1E57731B00BA6B64 /* InfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoViewController.h; sourceTree = "<group>"; };
+		A30210ED1E57731B00BA6B64 /* InfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoViewController.m; sourceTree = "<group>"; };
 		A31829B61D7AA7E70053CAB5 /* carwash-annotation-online2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "carwash-annotation-online2.png"; sourceTree = "<group>"; };
 		A31829B71D7AA7E70053CAB5 /* carwash-annotation-online2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "carwash-annotation-online2@2x.png"; sourceTree = "<group>"; };
 		A31844C91D6231C8002A258B /* star-new-empty.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star-new-empty.png"; sourceTree = "<group>"; };
@@ -1505,6 +1508,8 @@
 				A3EB6D5A1D561011004E8CB5 /* AdminDummyViewControlller.m */,
 				A32C13761DBCD39E003E826C /* SelectCityViewController.h */,
 				A32C13771DBCD39E003E826C /* SelectCityViewController.m */,
+				A30210EC1E57731B00BA6B64 /* InfoViewController.h */,
+				A30210ED1E57731B00BA6B64 /* InfoViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -2282,6 +2287,7 @@
 				5200BC306BB55B0121FB4F10 /* RatingView.m in Sources */,
 				A3981CFF1D4D2DB100E0689B /* BaseRefs.m in Sources */,
 				5200B649B48437657D36C186 /* CarwashApi.m in Sources */,
+				A30210EE1E57731B00BA6B64 /* InfoViewController.m in Sources */,
 				A3BCA3C91D3D252D00FEE6B6 /* UserSettingsViewController.m in Sources */,
 				A3981D011D4D2DB100E0689B /* BoxTimeTable.m in Sources */,
 				5200BDF91A302A75020A38B9 /* LocationHelper.m in Sources */,

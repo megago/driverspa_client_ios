@@ -22,5 +22,6 @@
 
 @property (nonatomic, assign) BOOL afterNotification;
 @property (nonatomic, strong) NSString *bookId;
+@property (nonatomic, strong) NSString *message;
 
 @end

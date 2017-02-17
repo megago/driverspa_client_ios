@@ -110,9 +110,13 @@
 - (void)loadBook: (NSString *)bookId {
     [UserApi bookDetails:bookId success:^(id response) {
         _book = response;
-        [self showBook];
+        if (_book){
+            [self showBook];
+        } else {
+            [self failedLoadBook];
+        }
     } failure:^(NSInteger code, NSString *message) {
-        
+        [self failedLoadBook];
     }];
 }
 
@@ -125,6 +129,17 @@
         [self buildUI];
         [self configAction];
     }];
+}
+
+- (void)failedLoadBook {
+    CGFloat rowsSpacing = 10;
+    CGFloat rowWidth = [ASize screenWidth] - 2*rowsSpacing;
+    
+    CenterTitle *subtitleLabel = [[CenterTitle alloc] initWithTitle:_message width:rowWidth];
+    [subtitleLabel sizeToFit];
+    subtitleLabel.centerX = sv.centerX;
+    subtitleLabel.y = 100;
+    [sv addSubview:subtitleLabel];
 }
 
 #pragma mark -

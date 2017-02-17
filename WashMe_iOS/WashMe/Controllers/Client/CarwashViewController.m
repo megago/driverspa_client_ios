@@ -35,6 +35,7 @@
 #import "UIViewController+NavigationBar.h"
 #import "CompanyDiscount.h"
 #import "UIAlertView+Blocks.h"
+#import "CenterTitle.h"
 
 #import "BookSetCarViewController3.h"
 
@@ -74,18 +75,26 @@
     [super viewDidLoad];
     [self configUI];
     [self addObservers];
-
+    
+    if (!_afterNotification) {
+        _carwashId = self.carwash.carwashId;
+    }
+    
     // Check bookmarked
-    isBookmarked = [BookmarksHelper isCarwashBookmarked:self.carwash.carwashId];
+    isBookmarked = [BookmarksHelper isCarwashBookmarked:_carwashId];
 
     [Toast showHudLoading];
-    [CarwashApi getCarwashDetails:self.carwash.carwashId success:^(id response) {
+    [CarwashApi getCarwashDetails:_carwashId success:^(id response) {
         _carwashComplex = response;
-        //[self buildUI];
-        //[self configAction];
+        [self setNavigationTitle:_carwashComplex.name];
         [self loadVisitsInfo];
+        
+        if (_afterNotification) {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:_message delegate:nil cancelButtonTitle:@"Ок" otherButtonTitles:nil];
+            [alert show];
+        }
     } failure:^(NSInteger code, NSString *message) {
-
+        [self failedLoadBook];
     }];
 }
 
@@ -114,6 +123,17 @@
         [self buildUI];
         [self configAction];
     }];
+}
+
+- (void)failedLoadBook {
+    CGFloat rowsSpacing = 10;
+    CGFloat rowWidth = [ASize screenWidth] - 2*rowsSpacing;
+    
+    CenterTitle *subtitleLabel = [[CenterTitle alloc] initWithTitle:_message width:rowWidth];
+    [subtitleLabel sizeToFit];
+    subtitleLabel.centerX = sv.centerX;
+    subtitleLabel.y = 100;
+    [sv addSubview:subtitleLabel];
 }
 
 #pragma mark -
@@ -630,8 +650,13 @@
 {
     [super configUI];
     [self setBlueBackground];
-    [self setNavigationBackButton];
-    [self setNavigationTitle:self.carwash.name];
+    
+    if (_afterNotification) {
+        [self setNavigationBarTransparent];
+        [self showMenuButton];
+    } else {
+        [self setNavigationBackButton];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
