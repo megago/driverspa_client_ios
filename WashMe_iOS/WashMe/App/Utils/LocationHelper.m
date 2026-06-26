@@ -13,6 +13,8 @@ static LocationHelper *_sharedInstance = nil;
 
 @implementation LocationHelper {
     NSInteger locationRequestID;
+    CLLocationManager *_authManager;
+    CLAuthorizationStatus _currentAuthorizationStatus;
 }
 
 @synthesize longitude, latitude;
@@ -20,9 +22,21 @@ static LocationHelper *_sharedInstance = nil;
 -(id)init {
     self = [super init];
     if (self) {
-
+        _currentAuthorizationStatus = kCLAuthorizationStatusNotDetermined;
+        // Hold a CLLocationManager instance and observe authorization changes through its
+        // delegate. Reading the instance property / delegate callback avoids the blocking
+        // +[CLLocationManager authorizationStatus] class method on the main thread.
+        _authManager = [[CLLocationManager alloc] init];
+        _authManager.delegate = self;
+        if (@available(iOS 14.0, *)) {
+            _currentAuthorizationStatus = _authManager.authorizationStatus;
+        }
     }
     return self;
+}
+
+- (CLAuthorizationStatus)currentAuthorizationStatus {
+    return _currentAuthorizationStatus;
 }
 
 +(LocationHelper *)sharedInstance {
@@ -81,7 +95,8 @@ static LocationHelper *_sharedInstance = nil;
 
 
 +(BOOL)isCurrentLocationEnabled {
-    return [CLLocationManager locationServicesEnabled] && [CLLocationManager authorizationStatus] != kCLAuthorizationStatusDenied;
+    CLAuthorizationStatus status = [self sharedInstance].currentAuthorizationStatus;
+    return status != kCLAuthorizationStatusDenied && status != kCLAuthorizationStatusRestricted;
 }
 
 +(CLLocationCoordinate2D)myLocationCoordinate {
@@ -123,6 +138,16 @@ static LocationHelper *_sharedInstance = nil;
     self.latitude = newLocation.coordinate.latitude;
     self.longitude = newLocation.coordinate.longitude;
     NSLog(@"Location updated: %f, %f", latitude, longitude);
+}
+
+// iOS 14+ authorization callback.
+- (void)locationManagerDidChangeAuthorization:(CLLocationManager *)manager API_AVAILABLE(ios(14.0)) {
+    _currentAuthorizationStatus = manager.authorizationStatus;
+}
+
+// Pre-iOS 14 authorization callback.
+- (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
+    _currentAuthorizationStatus = status;
 }
 
 #pragma mark -

@@ -13,6 +13,7 @@
 #import "CarwashRefs.h"
 #import "City.h"
 #import "UserSettings.h"
+#import "LocationHelper.h"
 
 @implementation NavigationDropdownMenuView {
     UILabel *titleLabel;
@@ -154,7 +155,7 @@
     [self setTitle:item.title];
 
     // Check if location is allowed
-    if(![CLLocationManager locationServicesEnabled] || [CLLocationManager authorizationStatus]==kCLAuthorizationStatusDenied) {
+    if(![LocationHelper isCurrentLocationEnabled]) {
         [UIHelper showAlertWithMessageTitle:@"Отказано в доступе Местонахождения" message:@"Чтобы снова включить, пожалуйста, перейдите в настройки и включите сервис Местонахождение для этого приложения."];
         return;
     }

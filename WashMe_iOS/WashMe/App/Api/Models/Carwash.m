@@ -124,8 +124,7 @@
 }
 
 - (NSString *)distanceToText {
-    if([CLLocationManager locationServicesEnabled] &&
-       [CLLocationManager authorizationStatus] != kCLAuthorizationStatusDenied)
+    if([LocationHelper isCurrentLocationEnabled])
     {
         long meters = [self distanceInMeters];
         if(meters < 1000) return [@"~" stringByAppendingString:[NSString stringWithFormat:@"%li м", meters]];

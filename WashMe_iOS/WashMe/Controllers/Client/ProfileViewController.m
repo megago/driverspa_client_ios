@@ -20,7 +20,7 @@
 #import "UIViewController+NavigationBar.h"
 #import "InputTextField.h"
 #import "UIView+ConcisePureLayout.h"
-#import "IQKeyboardManager.h"
+// IQKeyboardManager removed (incompatible with iOS 18+); was imported but unused here.
 #import "RowButtonDropdownView.h"
 #import "Cache.h"
 #import "CarwashRefs.h"

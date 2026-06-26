@@ -24,14 +24,16 @@
 #import "FavoritesViewController.h"
 #import "AdminSettingsViewController.h"
 #import "RegisterProfileViewController.h"
-#import "IQKeyboardManager.h"
+// IQKeyboardManager removed: v4.0.1 (2016) is incompatible with iOS 18+. Even with setEnable:NO,
+// its global +load hooks/observers corrupt the system predictive-text bar and crash with
+// "Application circumvented Objective-C runtime dealloc initiation for <UIImageView>" when a text
+// field becomes first responder. The app already handles the keyboard via TPKeyboardAvoiding
+// (scroll avoidance) and BSKeyboardControls (input-accessory toolbar).
 #import "SVProgressHUD.h"
 #import "SearchFilterViewController.h"
 #import "MenuViewController.h"
 #import "AdminMenuViewController.h"
 #import "InputTextField.h"
-#import <Fabric/Fabric.h>
-#import <Crashlytics/Crashlytics.h>
 #import <GoogleMaps/GoogleMaps.h>
 #import "UserBookViewController.h"
 #import "AdminBookViewController.h"
@@ -46,7 +48,6 @@
 {
     [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
     [self configAppearance];
-    [self configIQKeyboard];
     [self configSVProgressHUD];
 
     // Google maps
@@ -55,9 +56,6 @@
     // Request push notification permissions
     [self requestPushAndLocalNotificationPermissions];
 
-    //Crashlytics
-    [Fabric with:@[[Crashlytics class]]];
-    
     // Check user
     id v = nil;
     if([User isAuthorized])
@@ -393,16 +391,6 @@
     [SVProgressHUD setForegroundColor:[UIColor fromRGB:0x333333]];
     [SVProgressHUD setBackgroundColor:[UIColor fromRGB:0xF2F2F6]];
     [SVProgressHUD setFont:[UIFont boldSystemFontOfSize:14]];
-}
-
-- (void)configIQKeyboard {
-    // Manager IQKeyboardManager
-    [[IQKeyboardManager sharedManager] setEnable:YES];
-    [[IQKeyboardManager sharedManager] setEnableAutoToolbar:YES];
-    [[IQKeyboardManager sharedManager] setToolbarManageBehaviour:IQAutoToolbarBySubviews];
-    [[IQKeyboardManager sharedManager] setShouldResignOnTouchOutside:YES];
-    [[IQKeyboardManager sharedManager] setShouldShowTextFieldPlaceholder:NO];
-    [[IQKeyboardManager sharedManager] considerToolbarPreviousNextInViewClass:[ScrollViewContentView class]];
 }
 
 - (void)configAppearance {

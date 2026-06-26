@@ -9,8 +9,12 @@
 #import <Foundation/Foundation.h>
 #import "AFHTTPRequestOperationManager.h"
 
-#define kApiGateway @"http://api.washme.kz/v1/"
-#define kApiBase @"http://api.washme.kz/"
+//#define kApiGateway @"http://api.washme.kz/v1/"
+//#define kApiBase @"http://api.washme.kz/"
+
+#define kApiGateway @"https://api.driverspa.kz/api/v1/"
+#define kApiBase @"https://api.driverspa.kz/"
+
 
 //#define kApiGateway @"http://balhash.washme.kz:5000/api/v1/"
 //#define kApiBase @"http://balhash.washme.kz:5000"

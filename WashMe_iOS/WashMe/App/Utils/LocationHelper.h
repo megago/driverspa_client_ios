@@ -19,6 +19,10 @@ typedef void (^LocationHelperLocationFailed)(INTULocationStatus status);
 @property (nonatomic, assign) CLLocationDegrees longitude;
 @property (nonatomic, assign) CLLocationDegrees latitude;
 
+// Cached authorization status, kept up to date via -locationManagerDidChangeAuthorization:.
+// Read this instead of the blocking +[CLLocationManager authorizationStatus] class method.
+@property (nonatomic, readonly) CLAuthorizationStatus currentAuthorizationStatus;
+
 +(LocationHelper *)sharedInstance;
 
 - (void)requestLocation:(LocationHelperLocationSuccess)locationSuccess failed:(LocationHelperLocationFailed)locationFailed;

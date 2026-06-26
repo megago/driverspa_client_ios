@@ -146,7 +146,7 @@
     [editableFields addObject:telField];
 
     [self addKeyboardControlFields:editableFields];
-    
+
     // Button
     
     __weak RegistrationViewController *wSelf = self;
@@ -218,17 +218,17 @@
     if (textField == telField.textField) {
         //calculate new length
         NSInteger moddedLength = textField.text.length-(range.length-string.length);
-        
+
         // max size.
         if (moddedLength > 18) {
             return NO;
         }
-        
-        // Reject non-number characters
-        if (range.length == 0 &&![[NSCharacterSet decimalDigitCharacterSet] characterIsMember:[string characterAtIndex:0]]) {
+
+        // Reject non-number characters (string is empty on deletion, so guard the index access)
+        if (string.length > 0 && ![[NSCharacterSet decimalDigitCharacterSet] characterIsMember:[string characterAtIndex:0]]) {
             return NO;
         }
-        
+
         textField.text = [self formatPhoneString:[textField.text stringByReplacingCharactersInRange:range withString:string]];
         return NO;
     }
