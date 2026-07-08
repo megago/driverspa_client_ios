@@ -39,16 +39,18 @@
                                                          NSForegroundColorAttributeName : [UIColor fromRGB:0x03a9f4] }
                                              forState:UIControlStateSelected];
 
-    NSArray *images = @[@"tab-favorites", @"tab-free", @"tab-map", @"tab-timer"];
-    NSArray *imagesSelected = @[@"tab-favorites-active", @"tab-free-active", @"tab-map-active", @"tab-timer-active"];
+    // Tab order matches Android DriverSpa client: Map, Nearby, Bookings, Notifications, Favorites.
+    NSArray *images = @[@"tab-map", @"tab-nearby", @"tab-timer", @"tab-comment", @"tab-favorites"];
+    NSArray *imagesSelected = @[@"tab-map-active", @"tab-nearby-active", @"tab-timer-active", @"tab-comment-active", @"tab-favorites-active"];
 
     NSUInteger index = 0;
     for(UITabBarItem *item in self.tabBar.items) {
+        if(index >= images.count) break;
         item.image = [[UIImage imageNamed:images[index]] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
         item.selectedImage = [[UIImage imageNamed:imagesSelected[index]] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
         ++index;
     }
-    [self setSelectedIndex:1];
+    [self setSelectedIndex:0];
 }
 
 @end

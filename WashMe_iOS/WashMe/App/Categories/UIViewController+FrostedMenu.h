@@ -16,5 +16,6 @@
 - (void)pushViewControllerInCurrentContentController:(UIViewController *)viewController;
 - (void)showControllerInStoryboard: (NSString *)storyboard navigation:(NSString *)navigation andTitle:(NSString*)title;
 - (void)showControllerInStoryboard: (NSString *)storyboard tabBar:(NSString *)tabBar;
+- (void)showControllerInStoryboard: (NSString *)storyboard tabBar:(NSString *)tabBar selectedIndex:(NSInteger)selectedIndex;
 
 @end

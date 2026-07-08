@@ -56,15 +56,12 @@
         carwashesItemStr = [NSString stringWithFormat:@"Мойки"];
     }
     
+    // Drawer items match Android DriverSpa client NavigationDrawerFragment.
     self.items = @[
-            //[IdTitleObject instanceWithId:@"city" title:@"Алматы" value:@"iconPin2"],
-            //[IdTitleObject instanceWithId:@"mybook" title:@"Моя бронь" value:@"iconTimetable"],
-            //[IdTitleObject instanceWithId:@"history" title:@"История посещений" value:@"iconHistory"],
-            //[IdTitleObject instanceWithId:@"bonuses" title:@"Бонусы" value:@"iconPresent"],
-            //[IdTitleObject instanceWithId:@"settings" title:@"Настройки" value:@"iconSettings"],
-            //[IdTitleObject instanceWithId:@"share" title:@"Поделиться" value:@"iconShare"]
-                   
            [IdTitleObject instanceWithId:@"carwashes" title:carwashesItemStr value:@"ic_business_white"],
+           [IdTitleObject instanceWithId:@"mybooks" title:@"Мои брони" value:@"ic_business_white"],
+           [IdTitleObject instanceWithId:@"notifications" title:@"Уведомления" value:@"ic_business_white"],
+           [IdTitleObject instanceWithId:@"favorites" title:@"Избранные" value:@"ic_business_white"],
            [IdTitleObject instanceWithId:@"aboutus" title:@"О нас" value:@"ic_about_us"]
     ];
 }
@@ -248,9 +245,22 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     IdTitleObject *object = self.items[indexPath.row];
 
+    // Tab order: Map(0), Nearby(1), Bookings(2), Notifications(3), Favorites(4).
     if([object.objectId isEqual:@"carwashes"])
     {
-        [self showControllerInStoryboard:@"UserMain" tabBar:@"tabBarcontroller"];
+        [self showControllerInStoryboard:@"UserMain" tabBar:@"tabBarcontroller" selectedIndex:0];
+    }
+    else if([object.objectId isEqual:@"mybooks"])
+    {
+        [self showControllerInStoryboard:@"UserMain" tabBar:@"tabBarcontroller" selectedIndex:2];
+    }
+    else if([object.objectId isEqual:@"notifications"])
+    {
+        [self showControllerInStoryboard:@"UserMain" tabBar:@"tabBarcontroller" selectedIndex:3];
+    }
+    else if([object.objectId isEqual:@"favorites"])
+    {
+        [self showControllerInStoryboard:@"UserMain" tabBar:@"tabBarcontroller" selectedIndex:4];
     }
     else if([object.objectId isEqual:@"aboutus"])
     {

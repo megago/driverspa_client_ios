@@ -109,6 +109,7 @@
 		5200BD8E3ACAC0A930F18641 /* NavigationDropdownMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200B126368BBB86E1BC2186 /* NavigationDropdownMenuView.m */; };
 		5200BDA32BBEC871DE56133C /* ScrollViewContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200B4F96D21A0C19D0457F5 /* ScrollViewContentView.m */; };
 		5200BDBF5FFF9185AC05B412 /* ConfirmSmsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200BAACB003BDC52E5BB1F5 /* ConfirmSmsViewController.m */; };
+		FADE0000000000000000AA01 /* WhatsAppLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FADE0000000000000000AA02 /* WhatsAppLoginViewController.m */; };
 		5200BDCBE7B02E3402D75E69 /* UIView+Loader.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200BD5DBA692D6DBE0A6A51 /* UIView+Loader.m */; };
 		5200BDD58B7160B989921F79 /* AdminApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200B9C801B51D83E6575779 /* AdminApi.m */; };
 		5200BDF91A302A75020A38B9 /* LocationHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 5200B0AC129C0D3406204ED9 /* LocationHelper.m */; };
@@ -567,6 +568,8 @@
 		5200BA71F6976AE337F63710 /* NavigationDropdownMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationDropdownMenuView.h; sourceTree = "<group>"; };
 		5200BA74168B386621DE4318 /* AddCarCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddCarCollectionCell.h; sourceTree = "<group>"; };
 		5200BAACB003BDC52E5BB1F5 /* ConfirmSmsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfirmSmsViewController.m; sourceTree = "<group>"; };
+		FADE0000000000000000AA02 /* WhatsAppLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WhatsAppLoginViewController.m; sourceTree = "<group>"; };
+		FADE0000000000000000AA03 /* WhatsAppLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WhatsAppLoginViewController.h; sourceTree = "<group>"; };
 		5200BAE0C86ED8013734BEAC /* RobotoCondensed-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "RobotoCondensed-Bold.ttf"; sourceTree = "<group>"; };
 		5200BAF3BAEE0771170D745F /* RegisterProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterProfileViewController.h; sourceTree = "<group>"; };
 		5200BAFD38541BE4227EF004 /* LPlaceholderTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LPlaceholderTextView.m; sourceTree = "<group>"; };
@@ -1474,6 +1477,8 @@
 				5200B0BE4DC73BC0A555C3E4 /* WelcomeViewController.h */,
 				5200BC15A0D69DECF3F82FB0 /* RegistrationViewController.m */,
 				5200B4E9BBB836398E131607 /* RegistrationViewController.h */,
+				FADE0000000000000000AA02 /* WhatsAppLoginViewController.m */,
+				FADE0000000000000000AA03 /* WhatsAppLoginViewController.h */,
 				5200BAACB003BDC52E5BB1F5 /* ConfirmSmsViewController.m */,
 				5200BE2A1368D836FEEB9EDC /* ConfirmSmsViewController.h */,
 				A3BCA3501D3D252C00FEE6B6 /* Admin */,
@@ -2264,6 +2269,7 @@
 				A3981D0C1D4D2DB100E0689B /* IdTitleObject.m in Sources */,
 				5200BCABD87ED3D33890D1DA /* InputTextField.m in Sources */,
 				5200BDBF5FFF9185AC05B412 /* ConfirmSmsViewController.m in Sources */,
+				FADE0000000000000000AA01 /* WhatsAppLoginViewController.m in Sources */,
 				5200B06BE01804FEFD1B07EB /* InputTextField+Validation.m in Sources */,
 				A3981D0F1D4D2DB100E0689B /* ObjectImage.m in Sources */,
 				5200B490BC16DD3E331FBADA /* NSString+Ext.m in Sources */,

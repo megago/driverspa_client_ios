@@ -65,11 +65,9 @@
         {
             if([User isRegistrationProfileEntered:[User currentUser].mobile])
             {
-                if([UserSettings isAdmin]) {
-                    [self setAdminAuthorizedTabbarController];
-                } else {
-                    [self setUserAuthorizedTabbarController];
-                }
+                // Client-only app: admin routing removed (admin code kept but unreachable).
+                [UserSettings setIsAdmin:NO];
+                [self setUserAuthorizedTabbarController];
 
                 // Load settings
                 [UserApi settings:^(id response) {
@@ -353,29 +351,16 @@
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
 {    
     if ([User isAuthorized]){
-        if ([UserSettings isAdmin]){
-            NSString *type = [userInfo objectForKey:@"type"];
-            if (type){
-                if ([type isEqual:@"booking_created"] || [type isEqual:@"booking_auto_rejected"] || [type isEqual:@"booking_canceled"] || [type isEqual:@"booking_finish_inform"] || [type isEqual:@"booking_rejected"] || [type isEqual:@"booking_approved"] || [type isEqual:@"serving_finish"]){
-                    NSString *objectId = [userInfo objectForKey:@"object_id"];
-                    if (objectId) {
-                        [self setAdminAuthorizedBookControllerWith:objectId];
-                    }
-                } else if ([type isEqual:@"review_created"]){
-                    [self setAdminAuthorizedReviewsController];
-                }
-            }
-        } else {
-            NSString *type = [userInfo objectForKey:@"type"];
-            NSString *objectId = [userInfo objectForKey:@"object_id"];
-            NSString *message = [[userInfo objectForKey:@"aps"] objectForKey:@"alert"];
-            if ([type containsString:@"book"] || [type containsString:@"serving"] || [type containsString:@"express"]) {
-                [self setUserAuthorizedBookControllerWith:objectId andMessage:message];
-            } else if ([type isEqual:@"carwash_info"]){
-                [self setUserAuthorizedCarwashControllerWith:objectId andMessage:message];
-            } else if ([type isEqual:@"info"]){
-                [self setUserAuthorizedInfoControllerWith:message];
-            }
+        // Client-only push routing (admin routing removed).
+        NSString *type = [userInfo objectForKey:@"type"];
+        NSString *objectId = [userInfo objectForKey:@"object_id"];
+        NSString *message = [[userInfo objectForKey:@"aps"] objectForKey:@"alert"];
+        if ([type containsString:@"book"] || [type containsString:@"serving"] || [type containsString:@"express"]) {
+            [self setUserAuthorizedBookControllerWith:objectId andMessage:message];
+        } else if ([type isEqual:@"carwash_info"]){
+            [self setUserAuthorizedCarwashControllerWith:objectId andMessage:message];
+        } else if ([type isEqual:@"info"]){
+            [self setUserAuthorizedInfoControllerWith:message];
         }
     } else {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Предупреждение" message:@"Чтобы просмотреть сообщение необходимо авторизоваться" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];

@@ -36,5 +36,24 @@
     } failure:failure];
 }
 
++ (void)whatsappRequest:(NSString *)phoneNumber pushToken:(NSString *)pushToken email:(NSString *)email success:(success)success failure:(failure)failure
+{
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"mobile"] = [phoneNumber phoneNumberPresentation];
+    params[@"company_name"] = @"NA";
+    if(pushToken.length > 0) params[@"push_token"] = pushToken;
+    if(email.length > 0) params[@"email"] = email;
+
+    [self POST:@"account/whatsapp_request/" body:[params JSONRepresentation] success:success failure:failure];
+}
+
++ (void)whatsappStatus:(NSString *)token success:(success)success failure:(failure)failure
+{
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"token"] = token;
+
+    [self POST:@"account/whatsapp_status/" body:[params JSONRepresentation] success:success failure:failure];
+}
+
 
 @end

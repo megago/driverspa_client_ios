@@ -9,7 +9,7 @@
 #import "InputTextField.h"
 #import "AAButton.h"
 #import "AAButton+Styles.h"
-#import "ConfirmSmsViewController.h"
+#import "WhatsAppLoginViewController.h"
 #import "InputTextField+Validation.h"
 #import "AccountApi.h"
 #import "Toast.h"
@@ -55,25 +55,14 @@
     [self.view endEditing:YES];
 
     if(![telField validatePhoneNumber]) return;
-//    if([UserSettings isAdmin] && ![companyNameField validate]) {
-//        [UIHelper showAlertFillRequiredField];
-//        return;
-//    }
 
     NSString *phoneNumber = [telField validPhoneNumber];
-    NSString *companyName = [UserSettings isAdmin] ? [companyNameField value] : nil;
 
-    [Toast showHudWithTitle:@"Регистрация"];
-    [AccountApi register:phoneNumber companyName:companyName success:^(id response) {
-
-        ConfirmSmsViewController *v = [[ConfirmSmsViewController alloc] init];
-        v.phoneNumber = phoneNumber;
-        v.companyName = companyName;
-        [self.navigationController pushViewController:v animated:YES];
-
-    } failure:^(NSInteger code, NSString *message) {
-
-    }];
+    // WhatsApp-only login (matches Android DriverSpa client). No SMS register step —
+    // the WhatsApp screen requests its own token and drives verification by polling.
+    WhatsAppLoginViewController *v = [[WhatsAppLoginViewController alloc] init];
+    v.phoneNumber = phoneNumber;
+    [self.navigationController pushViewController:v animated:YES];
 }
 
 #pragma mark -
