@@ -13,7 +13,7 @@
 @end
 
 @interface SelectCityViewController : ScrollViewControllerOld
-@property (nonatomic, assign) BOOL *isModal;
+@property (nonatomic, assign) BOOL isModal;
 @property (nonatomic, strong) NSArray *cities;
 @property (nonatomic, weak) id <SelectCityViewControllerDelegate> delegate;
 @end

@@ -17,6 +17,8 @@
 #define kSettingsKeyPushToken @"token_id"
 #define kSettingsKeyUDID @"udid"
 
+#import <CoreLocation/CoreLocation.h>
+
 static BOOL _isAdmin = NO;
 
 static NSString *kNotificationCityChanged = @"notificationCityChanged";
@@ -34,6 +36,16 @@ static NSString *kNotificationCityChanged = @"notificationCityChanged";
 + (void)defineCurrentCity;
 + (City *)currentCity;
 + (void)setCurrentCity:(City *)city;
+
+// Whether the current city was determined automatically by GPS (YES) or picked
+// manually from the list (NO). Mirrors the Android "cityFoundByGPS" flag and
+// controls where the checkmark is shown on the city selection screen.
++ (void)setCityFoundByGPS:(BOOL)found;
++ (BOOL)isCityFoundByGPS;
+
+// Nearest city to the given coordinate (nil if no cities). If distanceMeters is
+// non-NULL it receives the distance in meters to that city.
++ (City *)nearestCityToCoordinate:(CLLocationCoordinate2D)coordinate distanceMeters:(CGFloat *)distanceMeters;
 
 + (BOOL)isAdmin;
 + (void)setIsAdmin:(BOOL)isAdmin;

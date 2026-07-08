@@ -56,12 +56,12 @@
         carwashesItemStr = [NSString stringWithFormat:@"Мойки"];
     }
     
-    // Drawer items match Android DriverSpa client NavigationDrawerFragment.
+    // Drawer items + icons match Android DriverSpa client NavigationDrawerFragment.
     self.items = @[
            [IdTitleObject instanceWithId:@"carwashes" title:carwashesItemStr value:@"ic_business_white"],
-           [IdTitleObject instanceWithId:@"mybooks" title:@"Мои брони" value:@"ic_business_white"],
-           [IdTitleObject instanceWithId:@"notifications" title:@"Уведомления" value:@"ic_business_white"],
-           [IdTitleObject instanceWithId:@"favorites" title:@"Избранные" value:@"ic_business_white"],
+           [IdTitleObject instanceWithId:@"mybooks" title:@"Мои брони" value:@"ic_timer_white_24dp"],
+           [IdTitleObject instanceWithId:@"notifications" title:@"Уведомления" value:@"ic_tab_notification_normal"],
+           [IdTitleObject instanceWithId:@"favorites" title:@"Избранные" value:@"ic_favourite"],
            [IdTitleObject instanceWithId:@"aboutus" title:@"О нас" value:@"ic_about_us"]
     ];
 }

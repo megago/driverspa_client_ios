@@ -36,6 +36,23 @@
     } failure:failure];
 }
 
++ (void)checkPhone:(NSString *)phoneNumber success:(success)success failure:(failure)failure
+{
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"mobile"] = [phoneNumber phoneNumberPresentation];
+
+    [self POST:@"account/check_phone" body:[params JSONRepresentation] success:success failure:failure];
+}
+
++ (void)loginPassword:(NSString *)phoneNumber password:(NSString *)password success:(success)success failure:(failure)failure
+{
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"mobile"] = [phoneNumber phoneNumberPresentation];
+    params[@"password"] = password;
+
+    [self POST:@"account/login_password" body:[params JSONRepresentation] success:success failure:failure];
+}
+
 + (void)whatsappRequest:(NSString *)phoneNumber pushToken:(NSString *)pushToken email:(NSString *)email success:(success)success failure:(failure)failure
 {
     NSMutableDictionary *params = [NSMutableDictionary dictionary];

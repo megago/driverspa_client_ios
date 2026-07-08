@@ -36,7 +36,7 @@ const NSString *kDATA = @"data";
         [sharedManager.requestSerializer setValue:kContentTypeApplicationJson forHTTPHeaderField:@"Content-Type"];
         [sharedManager.requestSerializer setValue:[[[UIDevice currentDevice] identifierForVendor] UUIDString] forHTTPHeaderField:@"X-Att-Deviceid"];
 
-        NSString *userAgent = [NSString stringWithFormat:@"Washme/%@ (iOS %@; %@)", [AppUtils appVersion], [UIDevice currentDevice].systemVersion, [AppUtils deviceModel]];
+        NSString *userAgent = [NSString stringWithFormat:@"DriverSpa/%@ (iOS %@; %@)", [AppUtils appVersion], [UIDevice currentDevice].systemVersion, [AppUtils deviceModel]];
         [sharedManager.requestSerializer setValue:userAgent forHTTPHeaderField:@"User-Agent"];
     });
 

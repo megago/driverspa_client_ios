@@ -184,6 +184,23 @@
     [self showMenuButton];
     [self setNavigationBarTransparent];
 
+#if TARGET_OS_SIMULATOR
+    // GoogleMaps' Metal renderer crashes on the iOS simulator; show a placeholder in the
+    // storyboard container. _mapView stays nil, so all map calls below are safe no-ops.
+    UILabel *placeholder = [[UILabel alloc] initWithFrame:_mapContainer.bounds];
+    placeholder.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    placeholder.textAlignment = NSTextAlignmentCenter;
+    placeholder.textColor = [UIColor darkGrayColor];
+    placeholder.backgroundColor = [UIColor colorWithWhite:0.85 alpha:1.0];
+    placeholder.text = @"Карта (доступна на устройстве)";
+    [_mapContainer addSubview:placeholder];
+#else
+    // The storyboard now provides a plain container; build the map programmatically.
+    _mapView = [GMSMapView mapWithFrame:_mapContainer.bounds camera:nil];
+    _mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    [_mapContainer addSubview:_mapView];
+#endif
+
 //    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:[[LocationHelper sharedInstance] latitude]
 //                                                            longitude:[[LocationHelper sharedInstance] longitude]
 //                                                                 zoom:12];

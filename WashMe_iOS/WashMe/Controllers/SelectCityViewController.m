@@ -22,12 +22,23 @@
 #import "UserApi.h"
 #import "NotificationsHelper.h"
 
+// Nearest city must be within this distance (km) for GPS auto-selection, mirroring
+// the Android CityChooseActivity.MAX_CITY_DISTANCE_KM behaviour.
+#define kMaxCityDistanceKm 100
+
 @interface SelectCityViewController ()
 
 @end
 
 @implementation SelectCityViewController {
     RowButtonCheckmarkView *selectedRow;
+
+    // "My location" (GPS) row and its subviews we mutate at runtime.
+    UIView *myLocationRow;
+    UILabel *myLocationTitle;
+    UIImageView *myLocationCheckmark;
+
+    NSMutableArray<RowButtonCheckmarkView *> *cityRows;
 }
 
 -(id)init {
@@ -65,27 +76,22 @@
 //        [[CreateCarwashDraft sharedInstance] removeAdditionalInfo:row.userData];
 //    }
     
+    City *city = (City *)view.userData;
+
+    // Apply the city immediately and dismiss — never block the UI. The global
+    // SVProgressHUD mask (Clear) intercepts all touches, so a stalled network save
+    // behind it would freeze every button. Persist to the profile in the background.
+    [UserSettings setCurrentCity:city];
+    [self.delegate changeCurrentCity:city];
+
     if (_isModal) {
-        [SVProgressHUD showWithStatus:@"Сохранение"];
-        [UserApi updateProfileWithName:[User currentUser].firstName lastname:nil cars:[User currentUser].cars city:(City*)view.userData success:^(id response) {
-            [UserSettings setCurrentCity:(City*)view.userData];
-            
-            [SVProgressHUD showSuccessWithStatus:@"Сохранено"];
+        [UserApi updateProfileWithName:[User currentUser].firstName lastname:nil cars:[User currentUser].cars city:city success:^(id response) {
             User *user = [User instanceFromDictionary:response];
-            
-            // Store user data
             [User setAuthorizedUserData:response withMobile:user.mobile];
-            
             [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationUserProfileUpdated object:nil];
-            
-            [self.delegate changeCurrentCity:view.userData];
-            [self dismissViewController];
-        } failure:^(NSInteger code, NSString *message) {
-            [SVProgressHUD dismiss];
-        }];
+        } failure:nil];
+        [self dismissViewController];
     } else {
-        [UserSettings setCurrentCity:(City*)view.userData];
-        [self.delegate changeCurrentCity:view.userData];
         [self.navigationController popViewControllerAnimated:YES];
     }
 }

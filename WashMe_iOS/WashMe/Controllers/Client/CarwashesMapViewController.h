@@ -10,6 +10,9 @@
 
 @property(nonatomic, strong) NSArray *carwashes;
 @property(nonatomic, assign) BOOL annotationsEnabled;
-@property(nonatomic, strong) IBOutlet GMSMapView *mapView;
+// Plain container from the storyboard; the GMSMapView is created in code (device only,
+// so the simulator — where GoogleMaps' Metal renderer crashes — shows a placeholder).
+@property(nonatomic, strong) IBOutlet UIView *mapContainer;
+@property(nonatomic, strong) GMSMapView *mapView;
 
 @end

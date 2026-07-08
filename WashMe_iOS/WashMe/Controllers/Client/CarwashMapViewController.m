@@ -146,7 +146,17 @@
 -(void)configUI
 {
     self.view.backgroundColor = [UIColor whiteColor];
-    
+
+#if TARGET_OS_SIMULATOR
+    // GoogleMaps' Metal renderer crashes on the iOS simulator; show a placeholder.
+    self.view.backgroundColor = [UIColor colorWithWhite:0.85 alpha:1.0];
+    UILabel *placeholder = [[UILabel alloc] initWithFrame:self.view.bounds];
+    placeholder.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    placeholder.textAlignment = NSTextAlignmentCenter;
+    placeholder.textColor = [UIColor darkGrayColor];
+    placeholder.text = @"Карта (доступна на устройстве)";
+    [self.view addSubview:placeholder];
+#else
     GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:[[LocationHelper sharedInstance] latitude]
                                                             longitude:[[LocationHelper sharedInstance] longitude]
                                                                  zoom:12];
@@ -155,7 +165,8 @@
     mapView_.myLocationEnabled = YES;
     mapView_.settings.myLocationButton = YES;
     self.view = mapView_;
-    
+#endif
+
     // Close Button
     UIButton *closeButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [closeButton addTarget:self action:@selector(closeMap) forControlEvents:UIControlEventTouchUpInside];

@@ -50,6 +50,8 @@
         item.selectedImage = [[UIImage imageNamed:imagesSelected[index]] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
         ++index;
     }
+    // Lands on Map (Android parity). GoogleMaps' simulator crash is handled in the map
+    // views themselves (placeholder on TARGET_OS_SIMULATOR), so Map-first is safe here too.
     [self setSelectedIndex:0];
 }
 

@@ -10,6 +10,7 @@
 #import "AAButton.h"
 #import "AAButton+Styles.h"
 #import "WhatsAppLoginViewController.h"
+#import "PasswordLoginViewController.h"
 #import "InputTextField+Validation.h"
 #import "AccountApi.h"
 #import "Toast.h"
@@ -58,11 +59,26 @@
 
     NSString *phoneNumber = [telField validPhoneNumber];
 
-    // WhatsApp-only login (matches Android DriverSpa client). No SMS register step —
-    // the WhatsApp screen requests its own token and drives verification by polling.
-    WhatsAppLoginViewController *v = [[WhatsAppLoginViewController alloc] init];
-    v.phoneNumber = phoneNumber;
-    [self.navigationController pushViewController:v animated:YES];
+    // Matches Android DriverSpa client: returning users who already set a password log
+    // in with a password (no WhatsApp); everyone else verifies via WhatsApp.
+    [Toast showHudLoading];
+    [AccountApi checkPhone:phoneNumber success:^(id response) {
+        BOOL hasPassword = [response[@"has_password"] boolValue];
+        if(hasPassword) {
+            PasswordLoginViewController *v = [[PasswordLoginViewController alloc] init];
+            v.phoneNumber = phoneNumber;
+            [self.navigationController pushViewController:v animated:YES];
+        } else {
+            WhatsAppLoginViewController *v = [[WhatsAppLoginViewController alloc] init];
+            v.phoneNumber = phoneNumber;
+            [self.navigationController pushViewController:v animated:YES];
+        }
+    } failure:^(NSInteger code, NSString *message) {
+        // On check failure, fall back to WhatsApp verification.
+        WhatsAppLoginViewController *v = [[WhatsAppLoginViewController alloc] init];
+        v.phoneNumber = phoneNumber;
+        [self.navigationController pushViewController:v animated:YES];
+    }];
 }
 
 #pragma mark -

@@ -61,7 +61,7 @@
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
-    if ([request.URL.description rangeOfString:@"washme.kz"].location != NSNotFound) {
+    if ([request.URL.description rangeOfString:@"driverspa.kz"].location != NSNotFound) {
         [[UIApplication sharedApplication] openURL:request.URL];
         return NO;
     }
@@ -79,9 +79,9 @@
             }
             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:str]];
         } else if ([request.URL.host isEqualToString:@"idea"]) {
-            [self sendMessageWithSubject:@"Поделиться идеей" to:@[@"info@washme.kz"]];
+            [self sendMessageWithSubject:@"Поделиться идеей" to:@[@"info@driverspa.kz"]];
         } else if ([request.URL.host isEqualToString:@"support"]) {
-            [self sendMessageWithSubject:@"В техническую поддержку" to:@[@"info@washme.kz"]];
+            [self sendMessageWithSubject:@"В техническую поддержку" to:@[@"info@driverspa.kz"]];
         }
         return NO;
     }

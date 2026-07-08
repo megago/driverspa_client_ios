@@ -15,6 +15,7 @@
 #import "NSObject+PropertyUtils.h"
 
 #define kCityCodeKey @"currentCityCode"
+#define kCityFoundByGPSKey @"cityFoundByGPS"
 
 @implementation UserSettings
 
@@ -82,6 +83,32 @@
 {
 //    NSLog(@"Set new city: %@", [city instancePropertyValues]);
     [[NSUserDefaults standardUserDefaults] setValue:city.code forKey:kCityCodeKey];
+}
+
++ (void)setCityFoundByGPS:(BOOL)found {
+    [[NSUserDefaults standardUserDefaults] setBool:found forKey:kCityFoundByGPSKey];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
++ (BOOL)isCityFoundByGPS {
+    return [[NSUserDefaults standardUserDefaults] boolForKey:kCityFoundByGPSKey];
+}
+
++ (City *)nearestCityToCoordinate:(CLLocationCoordinate2D)coordinate distanceMeters:(CGFloat *)distanceMeters {
+    NSArray *cities = [self cities];
+    City *nearestCity = nil;
+    CGFloat minDistance = CGFLOAT_MAX;
+    for(City *city in cities) {
+        CGFloat distance = [LocationHelper metersBetweenPlace1:coordinate andPlace2:[city location]];
+        if(distance < minDistance) {
+            nearestCity = city;
+            minDistance = distance;
+        }
+    }
+    if(distanceMeters != NULL) {
+        *distanceMeters = nearestCity ? minDistance : CGFLOAT_MAX;
+    }
+    return nearestCity;
 }
 
 + (BOOL)isAdmin {

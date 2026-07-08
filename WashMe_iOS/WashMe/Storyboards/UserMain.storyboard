@@ -60,7 +60,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PxI-Uw-N4Z" customClass="GMSMapView">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PxI-Uw-N4Z">
                                 <rect key="frame" x="-4" y="64" width="383" height="554"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
@@ -75,7 +75,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="lgm-ia-LRu"/>
                     <connections>
-                        <outlet property="mapView" destination="PxI-Uw-N4Z" id="dFJ-H4-yRU"/>
+                        <outlet property="mapContainer" destination="PxI-Uw-N4Z" id="dFJ-H4-yRU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q4B-kj-7Ge" userLabel="First Responder" sceneMemberID="firstResponder"/>

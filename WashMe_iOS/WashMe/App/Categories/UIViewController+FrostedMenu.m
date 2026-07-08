@@ -44,22 +44,17 @@
 
 - (void)showControllerInStoryboard: (NSString *)storyboard tabBar:(NSString *)tabBar selectedIndex:(NSInteger)selectedIndex
 {
-    // If the tab bar is already the content, just switch tabs (keeps state).
-    if([self.frostedViewController.contentViewController isKindOfClass:[UITabBarController class]]) {
-        UITabBarController *current = (UITabBarController *) self.frostedViewController.contentViewController;
-        if(selectedIndex >= 0 && selectedIndex < (NSInteger)current.viewControllers.count) {
-            current.selectedIndex = selectedIndex;
-        }
-        [self.frostedViewController hideMenuViewController];
-        return;
-    }
-
     UIStoryboard *sb = [UIStoryboard storyboardWithName:storyboard bundle:nil];
-    UITabBarController *tc = [sb instantiateViewControllerWithIdentifier:tabBar];
-    if(selectedIndex >= 0 && selectedIndex < (NSInteger)tc.viewControllers.count) {
-        tc.selectedIndex = selectedIndex;
+    UIViewController *vc = [sb instantiateViewControllerWithIdentifier:tabBar];
+    // Only tab bar controllers have a selectedIndex — the same helper is also used to show
+    // plain navigation controllers (e.g. "profile"), so guard the class before setting it.
+    if([vc isKindOfClass:[UITabBarController class]]) {
+        UITabBarController *tc = (UITabBarController *) vc;
+        if(selectedIndex >= 0 && selectedIndex < (NSInteger)tc.viewControllers.count) {
+            tc.selectedIndex = selectedIndex;
+        }
     }
-    self.frostedViewController.contentViewController = tc;
+    self.frostedViewController.contentViewController = vc;
     [self.frostedViewController hideMenuViewController];
 }
 

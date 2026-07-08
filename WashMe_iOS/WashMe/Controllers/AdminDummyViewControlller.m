@@ -52,7 +52,7 @@
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
-    if ([request.URL.description rangeOfString:@"washme.kz"].location != NSNotFound) {
+    if ([request.URL.description rangeOfString:@"driverspa.kz"].location != NSNotFound) {
         [[UIApplication sharedApplication] openURL:request.URL];
         return NO;
     }
