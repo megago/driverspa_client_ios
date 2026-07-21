@@ -248,7 +248,8 @@
     // Tab order: Map(0), Nearby(1), Bookings(2), Notifications(3), Favorites(4).
     if([object.objectId isEqual:@"carwashes"])
     {
-        [self showControllerInStoryboard:@"UserMain" tabBar:@"tabBarcontroller" selectedIndex:0];
+        // Carwashes opens on the list (index 1); the map is reached from the list's map button.
+        [self showControllerInStoryboard:@"UserMain" tabBar:@"tabBarcontroller" selectedIndex:1];
     }
     else if([object.objectId isEqual:@"mybooks"])
     {

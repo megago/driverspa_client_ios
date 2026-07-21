@@ -117,6 +117,10 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+- (void)openListScreen {
+    self.tabBarController.selectedIndex = 1;
+}
+
 - (void)createAnnotations
 {
     NSUInteger index = 0;
@@ -181,7 +185,8 @@
 {
     [self setNavigationTitle:@"На карте"];
     [self setBlueBackground];
-    [self showMenuButton];
+    // Top-left "list" button returns to the carwashes list (tabs are removed from the UI).
+    [self setNavigationButtonWithIcon:@"icon-list" atLeft:YES selector:@selector(openListScreen)];
     [self setNavigationBarTransparent];
 
 #if TARGET_OS_SIMULATOR

@@ -10,16 +10,29 @@
 
 @implementation CustomTabBarController
 
-- (void)viewWillLayoutSubviews
+// The bottom tab bar was removed from the UI. Keep the UITabBarController (the side
+// drawer still switches sections via -selectedIndex), but hide the bar and let the
+// selected section fill the whole screen.
+- (void)viewDidLayoutSubviews
 {
+    [super viewDidLayoutSubviews];
+
+    self.tabBar.hidden = YES;
     CGRect tabFrame = self.tabBar.frame;
-    tabFrame.size.height = [[self class] tabbarHeight] - 1;
-    tabFrame.origin.y = self.view.frame.size.height - tabFrame.size.height;
+    tabFrame.size.height = 0;
+    tabFrame.origin.y = self.view.bounds.size.height;
     self.tabBar.frame = tabFrame;
+
+    CGRect bounds = self.view.bounds;
+    for (UIViewController *vc in self.viewControllers) {
+        if (vc.isViewLoaded) {
+            vc.view.frame = bounds;
+        }
+    }
 }
 
 + (CGFloat)tabbarHeight {
-    return 54;
+    return 0;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -50,9 +63,9 @@
         item.selectedImage = [[UIImage imageNamed:imagesSelected[index]] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
         ++index;
     }
-    // Lands on Map (Android parity). GoogleMaps' simulator crash is handled in the map
-    // views themselves (placeholder on TARGET_OS_SIMULATOR), so Map-first is safe here too.
-    [self setSelectedIndex:0];
+    // Lands on the carwashes list (index 1). Map is reached from the list's top-right
+    // "map" button; the map screen has a top-left "list" button to come back.
+    [self setSelectedIndex:1];
 }
 
 @end

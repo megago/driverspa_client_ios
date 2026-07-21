@@ -217,6 +217,13 @@
     [super configUI];
     //[self setNavigationTitle:[UserSettings currentCity].title];
     [self showNavigationMenuButton:[UserSettings currentCity].title];
+
+    // Top-right "map" button switches to the map screen (tabs are removed from the UI).
+    [self setNavigationButtonWithIcon:@"icon-map" atLeft:NO selector:@selector(openMapScreen)];
+}
+
+- (void)openMapScreen {
+    self.tabBarController.selectedIndex = 0;
 }
 
 - (void)didReceiveMemoryWarning {
